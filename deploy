@@ -4,4 +4,4 @@ hexo generate
 hexo deploy 
 git add -f *
 git commit -m "备份"
-git push backup master
+git push origin master
