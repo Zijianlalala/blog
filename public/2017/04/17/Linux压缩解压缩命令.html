@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Linux压缩解压缩命令 | 星期八</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="tar命令 解包：tar zxvf FileName.tar 打包：tar czvf FileName.tar DirName  gz命令 解压1：gunzip FileName.gz 解压2：gzip -d FileName.gz 压缩：gzip FileName  tar.gz 和 .tgz 解压：tar zxvf FileName.tar.gz 压缩：tar zcvf FileName.ta">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux压缩解压缩命令">
+<meta property="og:url" content="https://www.nierunjie.site/2017/04/17/Linux压缩解压缩命令.html">
+<meta property="og:site_name" content="星期八">
+<meta property="og:description" content="tar命令 解包：tar zxvf FileName.tar 打包：tar czvf FileName.tar DirName  gz命令 解压1：gunzip FileName.gz 解压2：gzip -d FileName.gz 压缩：gzip FileName  tar.gz 和 .tgz 解压：tar zxvf FileName.tar.gz 压缩：tar zcvf FileName.ta">
+<meta property="og:updated_time" content="2017-05-19T09:16:21.807Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux压缩解压缩命令">
+<meta name="twitter:description" content="tar命令 解包：tar zxvf FileName.tar 打包：tar czvf FileName.tar DirName  gz命令 解压1：gunzip FileName.gz 解压2：gzip -d FileName.gz 压缩：gzip FileName  tar.gz 和 .tgz 解压：tar zxvf FileName.tar.gz 压缩：tar zcvf FileName.ta">
+  
+    <link rel="alternate" href="/atom.xml" title="星期八" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">星期八</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">祝世界和平</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://www.nierunjie.site"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Linux压缩解压缩命令" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/17/Linux压缩解压缩命令.html" class="article-date">
+  <time datetime="2017-04-17T13:29:03.000Z" itemprop="datePublished">2017-04-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Linux压缩解压缩命令
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="tar命令"><a href="#tar命令" class="headerlink" title="tar命令"></a>tar命令</h4><ul>
+<li>解包：tar zxvf FileName.tar</li>
+<li>打包：tar czvf FileName.tar DirName</li>
+</ul>
+<h4 id="gz命令"><a href="#gz命令" class="headerlink" title="gz命令"></a>gz命令</h4><ul>
+<li>解压1：gunzip FileName.gz</li>
+<li>解压2：gzip -d FileName.gz</li>
+<li>压缩：gzip FileName</li>
+</ul>
+<h4 id="tar-gz-和-tgz"><a href="#tar-gz-和-tgz" class="headerlink" title="tar.gz 和 .tgz"></a>tar.gz 和 .tgz</h4><ul>
+<li>解压：tar zxvf FileName.tar.gz</li>
+<li>压缩：tar zcvf FileName.tar.gz DirName</li>
+<li>压缩多个文件：tar zcvf FileName.tar.gz DirName1 DirName2 DirName3 …</li>
+</ul>
+<h4 id="bz2命令"><a href="#bz2命令" class="headerlink" title="bz2命令"></a>bz2命令</h4><ul>
+<li>解压1：bzip2 -d FileName.bz2</li>
+<li>解压2：bunzip2 FileName.bz2</li>
+<li>压缩： bzip2 -z FileName</li>
+</ul>
+<h4 id="tar-bz2"><a href="#tar-bz2" class="headerlink" title="tar.bz2"></a>tar.bz2</h4><ul>
+<li>解压：tar jxvf FileName.tar.bz2</li>
+<li>压缩：tar jcvf FileName.tar.bz2 DirName</li>
+</ul>
+<h4 id="bz命令"><a href="#bz命令" class="headerlink" title="bz命令"></a>bz命令</h4><ul>
+<li>解压1：bzip2 -d FileName.bz</li>
+<li>解压2：bunzip2 FileName.bz</li>
+<li>压缩：未知</li>
+</ul>
+<h4 id="tar-bz"><a href="#tar-bz" class="headerlink" title="tar.bz"></a>tar.bz</h4><ul>
+<li>解压：tar jxvf FileName.tar.bz</li>
+</ul>
+<h4 id="Z命令"><a href="#Z命令" class="headerlink" title="Z命令"></a>Z命令</h4><ul>
+<li>解压：uncompress FileName.Z</li>
+<li>压缩：compress FileName</li>
+</ul>
+<h4 id="tar-Z"><a href="#tar-Z" class="headerlink" title="tar.Z"></a>tar.Z</h4><ul>
+<li>解压：tar Zxvf FileName.tar.Z   </li>
+<li>压缩：tar Zcvf FileName.tar.Z DirName</li>
+</ul>
+<h4 id="zip命令"><a href="#zip命令" class="headerlink" title="zip命令"></a>zip命令</h4><ul>
+<li>解压：unzip FileName.zip</li>
+<li>注:中文文件名乱码可指定字符集</li>
+<li>unzip -O gbk FileName.zip</li>
+<li>压缩：zip FileName.zip DirName</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://www.nierunjie.site/2017/04/17/Linux压缩解压缩命令.html" data-id="cj2vooq6c000fsb4dv0pr8yfa" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/04/17/Linux清除已删除程序的配置文件.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Linux清除已删除程序的配置文件
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/04/17/vimrc配置-个人备用.html" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">vimrc配置(个人备用)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Java/" style="font-size: 13.33px;">Java</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/工具/" style="font-size: 13.33px;">工具</a> <a href="/tags/杂谈/" style="font-size: 10px;">杂谈</a> <a href="/tags/设计模式/" style="font-size: 20px;">设计模式</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/05/19/State-Pattern.html">State Pattern</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/04/Facade-Pattern.html">Facade Pattern</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/04/Observer-Pattern.html">Observer Pattern</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/03/Template-Pattern.html">Template Pattern</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/03/Proxy-Pattern.html">Proxy Pattern</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+    <div class="widget-wrap">
+        <h3 class="widget-title">友情链接</h3>
+        <ul class="widget">
+        
+            <li class='link'><a href='https://github.com/RigeI'>GitHub</a></li>
+        
+            <li class='link'><a href='http://blog.csdn.net/nierunjie'>CSDN</a></li>
+        
+        </ul>
+    </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Rigel<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="http://apps.bdimg.com/libs/jquery/2.0.3/jquery.min.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof jQuery == 'undefined') {
+    document.write(unescape("%3Cscript src='/js/jquery-2.0.3.min.js' type='text/javascript'%3E%3C/script%3E"));
+}
+// ]]>
+</script>
+
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
