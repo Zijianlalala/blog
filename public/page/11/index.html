@@ -60,10 +60,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Simple-Factory-Pattern" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Factory-Method" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/05/01/Simple-Factory-Pattern.html" class="article-date">
-  <time datetime="2017-05-01T08:23:14.000Z" itemprop="datePublished">2017-05-01</time>
+    <a href="/2017/05/01/Factory-Method.html" class="article-date">
+  <time datetime="2017-05-01T08:58:49.000Z" itemprop="datePublished">2017-05-01</time>
 </a>
     
   </div>
@@ -74,7 +74,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/01/Simple-Factory-Pattern.html">Simple Factory Pattern</a>
+      <a class="article-title" href="/2017/05/01/Factory-Method.html">Factory Method</a>
     </h1>
   
 
@@ -82,45 +82,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h2><p>工厂模式（Factory Pattern）是 Java 中最常用的设计模式之一。这种类型的设计模式属于创建型模式，它提供了一种创建对象的最佳方式。<br>在工厂模式中，我们在创建对象时不会对客户端暴露创建逻辑，并且是通过使用一个共同的接口来指向新创建的对象。</p>
-<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
-<li><p>意图：定义一个创建对象的接口，让其子类自己决定实例化哪一个工厂类，工厂模式使其创建过程延迟到子类进行。</p>
-</li>
-<li><p>主要解决：主要解决接口选择的问题。</p>
-</li>
-<li><p>何时使用：我们明确地计划不同条件下创建不同实例时。</p>
-</li>
-<li><p>如何解决：让其子类实现工厂接口，返回的也是一个抽象的产品。</p>
-</li>
-<li><p>关键代码：创建过程在其子类执行。</p>
-</li>
-<li><p>优点： 1、一个调用者想创建一个对象，只要知道其名称就可以了。 2、扩展性高，如果想增加一个产品，只要扩展一个工厂类就可以。 3、屏蔽产品的具体实现，调用者只关心产品的接口。</p>
-</li>
-<li><p>缺点：每次增加一个产品时，都需要增加一个具体类，修改工厂类，在一定程度上增加了系统的复杂度，同时也增加了系统具体类的依赖。这并不是什么好事。</p>
-</li>
-<li><p>使用场景： 1、日志记录器：记录可能记录到本地硬盘、系统事件、远程服务器等，用户可以选择记录日志到什么地方。 2、数据库访问，当用户不知道最后系统采用哪一类数据库，以及数据库可能有变化时。 3、设计一个连接服务器的框架，需要三个协议，”POP3”、”IMAP”、”HTTP”，可以把这三个作为产品类，共同实现一个接口。</p>
-</li>
-<li><p>注意事项：作为一种创建类模式，在任何需要生成复杂对象的地方，都可以使用工厂方法模式。有一点需要注意的地方就是复杂对象适合使用工厂模式，而简单对象，特别是只需要通过 new 就可以完成创建的对象，无需使用工厂模式。如果使用工厂模式，就需要引入一个工厂类，会增加系统的复杂度。</p>
-</li>
-</ul>
-<h3 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤"></a>实现步骤</h3><ol>
-<li>创建一个接口(抽象产品角色)</li>
-<li>创建多个实现接口的实体类(具体产品角色)</li>
-<li>创建一个工厂，生成基于给定信息的实体类的对象(工厂角色)</li>
-</ol>
-<h3 id="角色介绍"><a href="#角色介绍" class="headerlink" title="角色介绍"></a>角色介绍</h3><ul>
-<li>工厂角色（Creator）：这是简单工厂模式的核心，由它负责创建所有的类的内部逻辑。当然工厂类必须能够被外界调用，创建所需要的产品对象。</li>
-<li>抽象（Product）产品角色：简单工厂模式所创建的所有对象的父类，注意，这里的父类可以是接口也可以是抽象类，它负责描述所有实例所共有的公共接口。</li>
-<li>具体产品（Concrete Product）角色：简单工厂所创建的具体实例对象，这些具体的产品往往都拥有共同的父类。</li>
+        <h2 id="角色介绍"><a href="#角色介绍" class="headerlink" title="角色介绍"></a>角色介绍</h2><ul>
+<li>抽象工厂(Creator)角色：是工厂方法模式的核心，与应用程序无关。任何在模式中创建的对象的工厂类必须实现这个接口。</li>
+<li>具体工厂(Concrete Creator)角色：这是实现抽象工厂接口的具体工厂类，包含与应用程序密切相关的逻辑，并且受到应用程序调用以创建产品对象。在上图中有两个这样的角色：BulbCreator与TubeCreator。</li>
+<li>抽象产品(Product)角色：工厂方法模式所创建的对象的超类型，也就是产品对象的共同父类或共同拥有的接口。在上图中，这个角色是Light。</li>
+<li>具体产品(Concrete Product)角色：这个角色实现了抽象产品角色所定义的接口。某具体产品有专门的具体工厂创建，它们之间往往一一对应</li>
 </ul>
 <h2 id="个人理解"><a href="#个人理解" class="headerlink" title="个人理解"></a>个人理解</h2><ul>
-<li>这是最简单的设计模式,但却有一种恍然大悟的感觉,同时意识到自己以前写的代码有多么不可维护,有其实在写一个网站的时候,写完删掉重做的次数太多了.今天看到deepin的创始人谈linux,提到windows和os x的软件和操作系统之间都有接口,所以很久以前给windows开发的应用到现在还可以用,而linux的软件则是直接依赖底层,从复杂的依赖关系可以看出来,从来没有意识到的,如果操作系统底层进行了修改,有很多的软件就不能用</li>
+<li>从角色上可以看出,工厂方法模式把简单工厂模式的工厂角色进行抽象,解决了简单工厂模式在扩展产品时需要修改工厂类,更加符合开闭原则,在扩展产品类时,只需要扩展工厂类,但缺点是增加了具体工厂类与具体产品类之间的耦合性</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://www.nierunjie.site/2017/05/01/Simple-Factory-Pattern.html" data-id="cj2vsi1td000n5x4d85gsma65" class="article-share-link">Share</a>
+      <a data-url="https://www.nierunjie.site/2017/05/01/Factory-Method.html" data-id="cj2vt7e7d0006xw4dg00jbhv7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -135,7 +110,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/10/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/12/">&raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/10/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><a class="extend next" rel="next" href="/page/12/">&raquo;</a>
   </nav>
 
 </section>
@@ -171,6 +146,10 @@
       <ul>
         
           <li>
+            <a href="/2017/05/19/该网站的恢复策略.html">该网站的恢复策略</a>
+          </li>
+        
+          <li>
             <a href="/2017/05/19/State-Pattern.html">State Pattern</a>
           </li>
         
@@ -184,10 +163,6 @@
         
           <li>
             <a href="/2017/05/03/Template-Pattern.html">Template Pattern</a>
-          </li>
-        
-          <li>
-            <a href="/2017/05/03/Proxy-Pattern.html">Proxy Pattern</a>
           </li>
         
       </ul>

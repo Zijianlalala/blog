@@ -60,10 +60,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Linux清除已删除程序的配置文件" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-网站压力测试工具Siege" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/04/17/Linux清除已删除程序的配置文件.html" class="article-date">
-  <time datetime="2017-04-17T13:33:14.000Z" itemprop="datePublished">2017-04-17</time>
+    <a href="/2017/04/18/网站压力测试工具Siege.html" class="article-date">
+  <time datetime="2017-04-18T15:16:07.000Z" itemprop="datePublished">2017-04-18</time>
 </a>
     
   </div>
@@ -74,7 +74,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/17/Linux清除已删除程序的配置文件.html">Linux清除已删除程序的配置文件</a>
+      <a class="article-title" href="/2017/04/18/网站压力测试工具Siege.html">压力测试工具Siege</a>
     </h1>
   
 
@@ -82,27 +82,26 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li>代码<br><code>dpkg -l |grep &quot;^rc&quot;|awk &#39;{print $2}&#39; |xargs aptitude -y purge</code></li>
+        <h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><ul>
+<li>Siege是对网站进行压力测试的工具</li>
 </ul>
-<ul>
-<li>解释</li>
+<h2 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h2><ul>
+<li>siege -c 100 -r 10 -b www.nierunjie.site</li>
 </ul>
-<ol>
-<li><code>dpkg -l</code> 列出所有安装的软件</li>
-<li><code>grep &quot;^rc&quot;</code> 找出rc开头的软件(已经被卸载)</li>
-<li><code>awk &#39;{print $2}&#39;</code> 提取出字符串的第二部分(软件名)</li>
-<li><code>xargs</code> 将前面产生的结果当成下个函数的参数</li>
-<li><code>aptitude -y purge</code> 删除软件,过程中出现的选项输入’y’</li>
-</ol>
+<h2 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h2><ul>
+<li>100个客户端，访问www.nierunjie.site，每个客户端10次</li>
+</ul>
+<h2 id="墙裂建议"><a href="#墙裂建议" class="headerlink" title="墙裂建议"></a>墙裂建议</h2><ul>
+<li>看程序的帮助文档会有更多收获</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://www.nierunjie.site/2017/04/17/Linux清除已删除程序的配置文件.html" data-id="cj2vsi1sx000e5x4dxlyads4p" class="article-share-link">Share</a>
+      <a data-url="https://www.nierunjie.site/2017/04/18/网站压力测试工具Siege.html" data-id="cj2vt7e98001axw4dq6mno6wn" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具/">工具</a></li></ul>
 
     </footer>
   </div>
@@ -114,7 +113,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/20/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="page-number" href="/page/20/">20</a><span class="page-number current">21</span><a class="page-number" href="/page/22/">22</a><a class="page-number" href="/page/23/">23</a><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/22/">&raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/20/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="page-number" href="/page/20/">20</a><span class="page-number current">21</span><a class="page-number" href="/page/22/">22</a><a class="page-number" href="/page/23/">23</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><a class="extend next" rel="next" href="/page/22/">&raquo;</a>
   </nav>
 
 </section>
@@ -150,6 +149,10 @@
       <ul>
         
           <li>
+            <a href="/2017/05/19/该网站的恢复策略.html">该网站的恢复策略</a>
+          </li>
+        
+          <li>
             <a href="/2017/05/19/State-Pattern.html">State Pattern</a>
           </li>
         
@@ -163,10 +166,6 @@
         
           <li>
             <a href="/2017/05/03/Template-Pattern.html">Template Pattern</a>
-          </li>
-        
-          <li>
-            <a href="/2017/05/03/Proxy-Pattern.html">Proxy Pattern</a>
           </li>
         
       </ul>
