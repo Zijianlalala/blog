@@ -152,5 +152,254 @@ public class PrototypePatternDemo {
 }
 ```
 
+## 另一段示例代码
+
+* 现在有一个订单处理系统，里面有一个保存订单的业务功能，需求：每当订单的预定产品数量超过1000的时候，就需要把订单拆成两份订单来保存。如果拆成两份后还是超过1000，则继续拆分，直到每份产品预订数量不超过1000.
+* 根据业务，目前的订单系统分成两种，一种是个人订单、一种是公司订单。
+* 客户名称、产品对象（ID，Name），订购产品数量。
+* 公司名称、产品对象（ID，Name），订购产品数量。
+
+1. 主函数测试
+
+ * Main.java
+```java
+package protoytpe;
+import java.util.Vector;
+
+public class Main {
+	public static void main(String[] args) {
+		Production banana = new Production("1", "香蕉");
+
+		Vector<PersonalOrder> v = new Vector<PersonalOrder>();
+		v.add(new PersonalOrder(banana, 1000));
+		v.add(v.get(0).clone());
+		v.add(v.get(0).clone());
+		v.add(v.get(0).clone());
+		v.get(0).setOrderNum(20);
+		v.get(1).setOrderType("Company");
+		v.get(2).setProduction(new Production("2", "苹果"));
+		
+		
+		for (PersonalOrder p : v) {
+			p.printOrder();
+			System.out.println();
+		}
+	}
+
+}
+```
+
+ * 输出结果
+```txt
+订单类型：Personal
+订单数量：20
+产品编号：1
+产品名称：香蕉
+
+订单类型：Company
+订单数量：1000
+产品编号：1
+产品名称：香蕉
+
+订单类型：Personal
+订单数量：1000
+产品编号：2
+产品名称：苹果
+
+订单类型：Personal
+订单数量：1000
+产品编号：1
+产品名称：香蕉
+
+```
+
+2. 订单接口
+ * IOrder.java
+```java
+package protoytpe;
+
+public abstract interface IOrder {
+	public abstract Production getProduction();
+
+	public abstract void setProduction(Production production);
+
+	public abstract int getOrderNum();
+
+	public abstract void setOrderNum(int orderNum);
+}
+
+```
+
+3. 实现订单接口和clonable接口的具体类
+ * 个人订单 PersonalOrder.java
+```java
+package protoytpe;
+
+public class PersonalOrder implements IOrder, Cloneable {
+
+	private String orderType;
+	private Production production;
+	private int orderNum;
+
+	public PersonalOrder(Production production, int orderNum) {
+		this.production = production;
+		this.orderNum = orderNum;
+		this.setOrderType("Personal");
+	}
+
+	private PersonalOrder(Production prodution) {
+		this.production = prodution;
+	}
+
+	@Override
+	public Production getProduction() {
+		return production;
+	}
+
+	@Override
+	public void setProduction(Production production) {
+		this.production = production;
+
+	}
+
+	@Override
+	public int getOrderNum() {
+		return orderNum;
+	}
+
+	@Override
+	public void setOrderNum(int orderNum) {
+		this.orderNum = orderNum;
+
+	}
+
+	public String getOrderType() {
+		return orderType;
+	}
+
+	public void setOrderType(String orderType) {
+		this.orderType = orderType;
+	}
+
+	public void printOrder() {
+
+		System.out.println("订单类型：" + this.orderType);
+		System.out.println("订单数量：" + this.orderNum);
+		System.out.println("产品编号：" + this.getProduction().getId());
+		System.out.println("产品名称：" + this.getProduction().getName());
+	}
+
+	public PersonalOrder clone() {
+		PersonalOrder po = new PersonalOrder(this.production);
+		po.setOrderNum(this.getOrderNum());
+		po.setOrderType(this.getOrderType());
+		return po;
+	}
+
+}
+```
+ * 企业订单 CompanyOrder.java 企业订单和个人订单很多地方相同,应该考虑用模板方法
+```java
+package protoytpe;
+
+public class CompanyOrder implements IOrder, Cloneable {
+
+	private String orderType;
+	private Production production;
+	private int orderNum;
+
+	public CompanyOrder(Production production, int orderNum) {
+		this.production = production;
+		this.orderNum = orderNum;
+		this.setOrderType("Company");
+	}
+
+	private CompanyOrder(Production production) {
+		this.production = production;
+	}
+
+	@Override
+	public Production getProduction() {
+		return production;
+	}
+
+	@Override
+	public void setProduction(Production production) {
+		this.production = production;
+
+	}
+
+	@Override
+	public int getOrderNum() {
+		return orderNum;
+	}
+
+	@Override
+	public void setOrderNum(int orderNum) {
+		this.orderNum = orderNum;
+
+	}
+
+	public String getOrderType() {
+		return orderType;
+	}
+
+	public void setOrderType(String orderType) {
+		this.orderType = orderType;
+	}
+
+	public void printOrder() {
+		System.out.println("订单类型：" + this.orderType);
+		System.out.println("订单数量：" + this.orderNum);
+		System.out.println("产品编号：" + this.getProduction().getId());
+		System.out.println("产品名称：" + this.getProduction().getName());
+	}
+
+	public CompanyOrder clone() {
+		CompanyOrder co = new CompanyOrder(this.production);
+		co.setOrderNum(this.getOrderNum());
+		co.setOrderType(this.getOrderType());
+		return co;
+	}
+
+}
+```
+4. 产品类 Production.java 可以实现成一个接口,然后用工厂模式创建产品
+```java
+package protoytpe;
+
+public class Production implements Cloneable {
+	private String id;
+	private String name;
+
+	public String getId() {
+		return id;
+	}
+
+	public Production(String id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Object clone() {
+		return this.clone();
+	}
+
+}
+
+```
+
 ## 个人理解
 * 与工厂模式相比,工厂模式每创建一个产品,就需要调用复杂的构造方法,原型模式只需要调用自身的colne方法.写法上原型模式更简单,而且效率更高(可能是因为调用的方法少吧).但原型模式的局限性是只能创建一个相同的对象,然后根据需要修改这个对象.工厂模式则可以创建不同类的对象,甚至可以创建有不同方法的对象(抽象工厂模式).在需要创建很多相似对象时,可以使用原型模式,就像上面样例代码中一样,先创建出每种对象,并保存这些对象,在需要新对象是克隆已经创建的对象,可以提高创建对象的效率

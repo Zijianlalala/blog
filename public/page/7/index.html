@@ -113,14 +113,14 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProxyPatternDemo</span> </span>&#123;</div><div class="line">	</div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">      Image image = <span class="keyword">new</span> ProxyImage(<span class="string">"test_10mb.jpg"</span>);</div><div class="line"></div><div class="line">      <span class="comment">//图像将从磁盘加载</span></div><div class="line">      image.display(); </div><div class="line">      System.out.println(<span class="string">""</span>);</div><div class="line">      <span class="comment">//图像将无法从磁盘加载</span></div><div class="line">      image.display(); </div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<h2 id="个人理解"><a href="#个人理解" class="headerlink" title="个人理解"></a>个人理解</h2><ul>
+<h2 id="另一个示例"><a href="#另一个示例" class="headerlink" title="另一个示例"></a>另一个示例</h2><h2 id="个人理解"><a href="#个人理解" class="headerlink" title="个人理解"></a>个人理解</h2><ul>
 <li>代理类和真实类实现同一接口,所以公共方法名相同,代理类内部有一个真实类的对象,代理类每次调用的都是真实类的对象,由此可以在代理类内对真实类的访问进行限制,同时,也隐藏类真实类的实现方法</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://www.nierunjie.site/2017/05/03/Proxy-Pattern.html" data-id="cj2wkprui000tm14dwczbkppb" class="article-share-link">Share</a>
+      <a data-url="https://www.nierunjie.site/2017/05/03/Proxy-Pattern.html" data-id="cj2x12on6000t1h4dxqk6dj00" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>

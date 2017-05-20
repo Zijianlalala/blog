@@ -29,13 +29,13 @@ AudioPlayer 使用适配器类 MediaAdapter 传递所需的音频类型，不需
 
 1. 为媒体播放器和更高级的媒体播放器创建接口。
  * MediaPlayer.java
-```
+```java
 public interface MediaPlayer {
     public void play(String audioType, String fileName);
 }
 ```
  * AdvancedMediaPlayer.java
-```
+```java
 public interface AdvancedMediaPlayer {  
     public void playVlc(String fileName);
     public void playMp4(String fileName);
@@ -44,7 +44,7 @@ public interface AdvancedMediaPlayer {
 
 2. 创建实现了 AdvancedMediaPlayer 接口的实体类。
  * VlcPlayer.java
-```
+```java
 public class VlcPlayer implements AdvancedMediaPlayer{
     @Override
     public void playVlc(String fileName) {
@@ -58,7 +58,7 @@ public class VlcPlayer implements AdvancedMediaPlayer{
 }
 ```
  * Mp4Player.java
-```
+```java
 public class Mp4Player implements AdvancedMediaPlayer{
 
     @Override
@@ -76,7 +76,7 @@ public class Mp4Player implements AdvancedMediaPlayer{
 
 3. 创建实现了 MediaPlayer 接口的适配器类。 
  * MediaAdapter.java
-```
+```java
 public class MediaAdapter implements MediaPlayer {
 
     AdvancedMediaPlayer advancedMusicPlayer;
@@ -101,7 +101,7 @@ public class MediaAdapter implements MediaPlayer {
 ```
 4. 创建实现了 MediaPlayer 接口的实体类。
  * AudioPlayer.java
-```
+```java
 // 可以用状态模式重写该类,状态为audioType
 public class AudioPlayer implements MediaPlayer {
     MediaAdapter mediaAdapter; 
@@ -129,7 +129,7 @@ public class AudioPlayer implements MediaPlayer {
 
 5. 使用 AudioPlayer 来播放不同类型的音频格式。
  * AdapterPatternDemo.java
-```
+```java
 public class AdapterPatternDemo {
     public static void main(String[] args) {
         AudioPlayer audioPlayer = new AudioPlayer();
