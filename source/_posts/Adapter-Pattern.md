@@ -28,14 +28,14 @@ tags: 设计模式
 AudioPlayer 使用适配器类 MediaAdapter 传递所需的音频类型，不需要知道能播放所需格式音频的实际类。AdapterPatternDemo，我们的演示类使用 AudioPlayer 类来播放各种格式。
 
 1. 为媒体播放器和更高级的媒体播放器创建接口。
+ * MediaPlayer.java
 ```
-// MediaPlayer.java
 public interface MediaPlayer {
     public void play(String audioType, String fileName);
 }
 ```
+ * AdvancedMediaPlayer.java
 ```
-// AdvancedMediaPlayer.java
 public interface AdvancedMediaPlayer {  
     public void playVlc(String fileName);
     public void playMp4(String fileName);
@@ -43,8 +43,8 @@ public interface AdvancedMediaPlayer {
 ```
 
 2. 创建实现了 AdvancedMediaPlayer 接口的实体类。
+ * VlcPlayer.java
 ```
-// VlcPlayer.java
 public class VlcPlayer implements AdvancedMediaPlayer{
     @Override
     public void playVlc(String fileName) {
@@ -57,9 +57,8 @@ public class VlcPlayer implements AdvancedMediaPlayer{
     }
 }
 ```
-
+ * Mp4Player.java
 ```
-// Mp4Player.java
 public class Mp4Player implements AdvancedMediaPlayer{
 
     @Override
@@ -73,11 +72,11 @@ public class Mp4Player implements AdvancedMediaPlayer{
     }
 }
 ```
-**以上,为在写适配器模式之前已经存在的类,但是接口不兼容,因此写适配器来兼容接口**
+ **以上,为在写适配器模式之前已经存在的类,但是接口不兼容,因此写适配器来兼容接口**
 
-3.创建实现了 MediaPlayer 接口的适配器类。 
+3. 创建实现了 MediaPlayer 接口的适配器类。 
+ * MediaAdapter.java
 ```
-// MediaAdapter.java
 public class MediaAdapter implements MediaPlayer {
 
     AdvancedMediaPlayer advancedMusicPlayer;
@@ -101,8 +100,8 @@ public class MediaAdapter implements MediaPlayer {
 }
 ```
 4. 创建实现了 MediaPlayer 接口的实体类。
+ * AudioPlayer.java
 ```
-// AudioPlayer.java
 // 可以用状态模式重写该类,状态为audioType
 public class AudioPlayer implements MediaPlayer {
     MediaAdapter mediaAdapter; 
@@ -129,8 +128,8 @@ public class AudioPlayer implements MediaPlayer {
 ```
 
 5. 使用 AudioPlayer 来播放不同类型的音频格式。
+ * AdapterPatternDemo.java
 ```
-// AdapterPatternDemo.java
 public class AdapterPatternDemo {
     public static void main(String[] args) {
         AudioPlayer audioPlayer = new AudioPlayer();
