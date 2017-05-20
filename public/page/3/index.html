@@ -5,12 +5,15 @@
   
   <title>星期八</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="Linux 设计模式 Java">
+<meta property="og:type" content="website">
 <meta property="og:title" content="星期八">
 <meta property="og:url" content="https://www.nierunjie.site/page/3/index.html">
 <meta property="og:site_name" content="星期八">
+<meta property="og:description" content="Linux 设计模式 Java">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="星期八">
+<meta name="twitter:description" content="Linux 设计模式 Java">
   
     <link rel="alternate" href="/atom.xml" title="星期八" type="application/atom+xml">
   
@@ -60,10 +63,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Facade-Pattern" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-State-Pattern" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/05/04/Facade-Pattern.html" class="article-date">
-  <time datetime="2017-05-04T14:27:28.000Z" itemprop="datePublished">2017-05-04</time>
+    <a href="/2017/05/19/State-Pattern.html" class="article-date">
+  <time datetime="2017-05-19T06:05:29.000Z" itemprop="datePublished">2017-05-19</time>
 </a>
     
   </div>
@@ -74,7 +77,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/04/Facade-Pattern.html">Facade Pattern</a>
+      <a class="article-title" href="/2017/05/19/State-Pattern.html">State Pattern</a>
     </h1>
   
 
@@ -82,28 +85,35 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="外观模式"><a href="#外观模式" class="headerlink" title="外观模式"></a>外观模式</h2><ul>
-<li>外观模式（Facade Pattern）隐藏系统的复杂性，并向客户端提供了一个客户端可以访问系统的接口。这种类型的设计模式属于结构型模式，它向现有的系统添加一个接口，来隐藏系统的复杂性。<br>这种模式涉及到一个单一的类，该类提供了客户端请求的简化方法和对现有系统类方法的委托调用。</li>
-</ul>
+        <h2 id="状态模式"><a href="#状态模式" class="headerlink" title="状态模式"></a>状态模式</h2><p>在状态模式（State Pattern）中，类的行为是基于它的状态改变的。这种类型的设计模式属于行为型模式。<br>在状态模式中，我们创建表示各种状态的对象和一个行为随着状态对象改变而改变的 context 对象。</p>
 <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
-<li>意图：为子系统中的一组接口提供一个一致的界面，外观模式定义了一个高层接口，这个接口使得这一子系统更加容易使用。</li>
-<li>主要解决：降低访问复杂系统的内部子系统时的复杂度，简化客户端与之的接口。</li>
-<li>何时使用： 1、客户端不需要知道系统内部的复杂联系，整个系统只需提供一个”接待员”即可。 2、定义系统的入口。</li>
-<li>如何解决：客户端不与系统耦合，外观类与系统耦合。</li>
-<li>关键代码：在客户端和复杂系统之间再加一层，这一层将调用顺序、依赖关系等处理好。</li>
-<li>应用实例： 1、去医院看病，可能要去挂号、门诊、划价、取药，让患者或患者家属觉得很复杂，如果有提供接待人员，只让接待人员来处理，就很方便。 2、JAVA 的三层开发模式。</li>
-<li>优点： 1、减少系统相互依赖。 2、提高灵活性。 3、提高了安全性。</li>
-<li>缺点：不符合开闭原则，如果要改东西很麻烦，继承重写都不合适。<br>使用场景： 1、为复杂的模块或子系统提供外界访问的模块。 2、子系统相对独立。 3、预防低水平人员带来的风险。</li>
-<li>注意事项：在层次化结构中，可以使用外观模式定义系统中每一层的入口。</li>
+<li>意图：允许对象在内部状态发生改变时改变它的行为，对象看起来好像修改了它的类。</li>
+<li>主要解决：对象的行为依赖于它的状态（属性），并且可以根据它的状态改变而改变它的相关行为。</li>
+<li>何时使用：代码中包含大量与对象状态有关的条件语句。</li>
+<li>如何解决：将各种具体的状态类抽象出来。</li>
+<li>关键代码：通常命令模式的接口中只有一个方法。而状态模式的接口中有一个或者多个方法。而且，状态模式的实现类的方法，一般返回值，或者是改变实例变量的值。也就是说，状态模式一般和对象的状态有关。实现类的方法有不同的功能，覆盖接口中的方法。状态模式和命令模式一样，也可以用于消除 if…else 等条件选择语句。</li>
+<li>应用实例： 1、打篮球的时候运动员可以有正常状态、不正常状态和超常状态。 2、曾侯乙编钟中，’钟是抽象接口’,’钟A’等是具体状态，’曾侯乙编钟’是具体环境（Context）。</li>
+<li>优点： 1、封装了转换规则。 2、枚举可能的状态，在枚举状态之前需要确定状态种类。 3、将所有与某个状态有关的行为放到一个类中，并且可以方便地增加新的状态，只需要改变对象状态即可改变对象的行为。 4、允许状态转换逻辑与状态对象合成一体，而不是某一个巨大的条件语句块。 5、可以让多个环境对象共享一个状态对象，从而减少系统中对象的个数。</li>
+<li>缺点： 1、状态模式的使用必然会增加系统类和对象的个数。 2、状态模式的结构与实现都较为复杂，如果使用不当将导致程序结构和代码的混乱。 3、状态模式对”开闭原则”的支持并不太好，对于可以切换状态的状态模式，增加新的状态类需要修改那些负责状态转换的源代码，否则无法切换到新增状态，而且修改某个状态类的行为也需修改对应类的源代码。</li>
+<li>使用场景： 1、行为随状态改变而改变的场景。 2、条件、分支语句的代替者。</li>
+<li>注意事项：在行为受状态约束的时候使用状态模式，而且状态不超过 5 个。</li>
 </ul>
-<h2 id="个人理解"><a href="#个人理解" class="headerlink" title="个人理解"></a>个人理解</h2><ul>
-<li>上面说的已经很清楚了，不再赘述</li>
-</ul>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><ol>
+<li><p>员工请假程序,员工为客户端,只需要提交请假申请,得到请假是否成功的结果,无需关注内部流程.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> state;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Context c = <span class="keyword">new</span> Context();</div><div class="line">        c.setLeaveDays(<span class="number">4</span>);</div><div class="line">        c.Handle();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>上下文(员工只与该类打交道)来管理员工的请假信息(leaveDays),和领导对请假的意见(access),其内部有一个请假状态的实例(current),这个状态默认提交给请假者的顶头上司(StateA),且该状态可以根据需要跳转(跳转过程由State具体类控制)到其他状态(StateB,StateC),Handle调用当前状态(此时为StateA)的处理函数,传入当前Context(为了让State获取员工请假信息,并能在状态中将当前状态设置为另一种状态)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> state;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Context</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> State current;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> leaveDays;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> access;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Context</span><span class="params">()</span></span>&#123;</div><div class="line">        current = <span class="keyword">new</span> StateA();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setState</span><span class="params">(State current)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.current = current;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getLeaveDays</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> leaveDays;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setLeaveDays</span><span class="params">(<span class="keyword">int</span> leaveDays)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.leaveDays = leaveDays;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isAccess</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> access;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAccess</span><span class="params">(<span class="keyword">boolean</span> access)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.access = access;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Handle</span><span class="params">()</span></span>&#123;</div><div class="line">        current.Handle(<span class="keyword">this</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>State抽象类,与其具体类,每个State都有一个处理函数,传入上下文的对象,根据对象内部的信息进行处理</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 抽象类</span></div><div class="line"><span class="keyword">package</span> state;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">State</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">Handle</span><span class="params">(Context context)</span></span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 状态A,项目经理可以直接拒绝请假,或者同意请假转到状态B判断天数(可以直接在该类判断天数,并选择直接给出结果还是转到部门经理,但是为了熟悉状态模式,天数判断单独分成一个状态).</span></div><div class="line"><span class="keyword">package</span> state;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StateA</span> <span class="keyword">extends</span> <span class="title">State</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Handle</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">        <span class="comment">// 实际情况根据条件判断是同意请假</span></div><div class="line">        <span class="comment">// 此处通过随机数模拟是否同意请假</span></div><div class="line">        context.setAccess(Math.random()&gt;<span class="number">0.3</span>);</div><div class="line">        <span class="keyword">if</span>(!context.isAccess())&#123;</div><div class="line">            System.out.println(<span class="string">"项目经理不同意请假"</span>);</div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            <span class="comment">// 此处改变状态</span></div><div class="line">            context.setState(<span class="keyword">new</span> StateB());</div><div class="line"></div><div class="line">            <span class="comment">// 改变状态后,调用新状态下的处理函数</span></div><div class="line">            context.Handle();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 状态B,根据天数判断是否需要转到部门经理</span></div><div class="line"><span class="keyword">package</span> state;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StateB</span> <span class="keyword">extends</span> <span class="title">State</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Handle</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(context.getLeaveDays()&lt;=<span class="number">3</span>)&#123;</div><div class="line">            System.out.println(<span class="string">"项目经理同意请假且小于3天,请假成功"</span>);</div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            System.out.println(<span class="string">"项目经理同意请假但大于3天,转交部门经理"</span>);</div><div class="line">            context.setState(<span class="keyword">new</span> StateC());</div><div class="line">            context.Handle();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 状态C,部门经理给出结果</span></div><div class="line"><span class="keyword">package</span> state;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StateC</span> <span class="keyword">extends</span> <span class="title">State</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Handle</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">        <span class="comment">// 实际情况根据条件判断是同意请假</span></div><div class="line">        <span class="comment">// 此处通过随机数模拟是否同意请假</span></div><div class="line">        context.setAccess(Math.random()&gt;<span class="number">0.5</span>);</div><div class="line">        <span class="keyword">if</span>(!context.isAccess())&#123;</div><div class="line">            System.out.println(<span class="string">"部门经理不同意请假"</span>);</div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            System.out.println(<span class="string">"部门经理同意请假"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://www.nierunjie.site/2017/05/04/Facade-Pattern.html" data-id="cj2vuglp80004h94dfj7qohks" class="article-share-link">Share</a>
+      <a data-url="https://www.nierunjie.site/2017/05/19/State-Pattern.html" data-id="cj2wk4jxt000ttx4ditcl01gd" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -118,7 +128,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/2/">&laquo;</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><a class="extend next" rel="next" href="/page/4/">&raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo;</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/4/">&raquo;</a>
   </nav>
 
 </section>
@@ -154,6 +164,10 @@
       <ul>
         
           <li>
+            <a href="/2017/05/20/Adapter-Pattern.html">Adapter Pattern</a>
+          </li>
+        
+          <li>
             <a href="/2017/05/19/该网站的恢复策略.html">该网站的恢复策略</a>
           </li>
         
@@ -167,10 +181,6 @@
         
           <li>
             <a href="/2017/05/04/Observer-Pattern.html">Observer Pattern</a>
-          </li>
-        
-          <li>
-            <a href="/2017/05/03/Template-Pattern.html">Template Pattern</a>
           </li>
         
       </ul>
