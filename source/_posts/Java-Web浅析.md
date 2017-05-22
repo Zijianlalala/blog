@@ -63,12 +63,10 @@ public class DatabaseConnect {
 
     public Connection getConnection() {
         try {
-            System.out.println("状态: 开启数据库连接");
             Class.forName(driver);
             c = DriverManager.getConnection(database);
 
         } catch (Exception e) {
-            System.out.println("异常: 数据库连接异常");
             System.out.println(e);
         }
         return c;
@@ -76,11 +74,9 @@ public class DatabaseConnect {
 
     public void close() {
         try {
-            System.out.println("状态: 关闭数据库连接");
             c.close();
 
         } catch (SQLException e) {
-            System.out.println("异常: 数据库关闭异常");
             System.out.println(e);
         }
     }
@@ -104,7 +100,7 @@ public class InitDatabaseListener implements ServletContextListener {
     }
 
     public void contextDestroyed(ServletContextEvent sce) {
-        DatabaseConnect connect = (DatabaseConnect) sce.getServletContext().getAttribute("databaseConnect");
+        DatabaseConnect connect = (DatabaseConnect) sce.getServletContext().getAttribute("connect");
         connect.close();
     }
 

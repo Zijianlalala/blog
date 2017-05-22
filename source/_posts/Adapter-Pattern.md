@@ -36,7 +36,7 @@ public interface MediaPlayer {
 ```
  * AdvancedMediaPlayer.java
 ```java
-public interface AdvancedMediaPlayer {  
+public interface AdvancedMediaPlayer {
     public void playVlc(String fileName);
     public void playMp4(String fileName);
 }
@@ -107,7 +107,7 @@ public class AudioPlayer implements MediaPlayer {
     MediaAdapter mediaAdapter; 
 
     @Override
-    public void play(String audioType, String fileName) {      
+    public void play(String audioType, String fileName) {
 
         //播放 mp3 音乐文件的内置支持
         if(audioType.equalsIgnoreCase("mp3")){
@@ -123,7 +123,7 @@ public class AudioPlayer implements MediaPlayer {
             System.out.println("Invalid media. "+
                     audioType + " format not supported");
         }
-    }   
+    }
 }
 ```
 
