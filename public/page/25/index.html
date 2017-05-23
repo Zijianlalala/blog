@@ -63,10 +63,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Linux压缩解压缩命令" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Linux清除已删除程序的配置文件" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/04/17/Linux压缩解压缩命令/" class="article-date">
-  <time datetime="2017-04-17T13:29:03.000Z" itemprop="datePublished">2017-04-17</time>
+    <a href="/2017/04/17/Linux清除已删除程序的配置文件/" class="article-date">
+  <time datetime="2017-04-17T13:33:14.000Z" itemprop="datePublished">2017-04-17</time>
 </a>
     
   </div>
@@ -77,7 +77,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/17/Linux压缩解压缩命令/">Linux压缩解压缩命令</a>
+      <a class="article-title" href="/2017/04/17/Linux清除已删除程序的配置文件/">Linux清除已删除程序的配置文件</a>
     </h1>
   
 
@@ -85,56 +85,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="tar命令"><a href="#tar命令" class="headerlink" title="tar命令"></a>tar命令</h4><ul>
-<li>解包：tar zxvf FileName.tar</li>
-<li>打包：tar czvf FileName.tar DirName</li>
+        <ul>
+<li>代码<br><code>dpkg -l |grep &quot;^rc&quot;|awk &#39;{print $2}&#39; |xargs aptitude -y purge</code></li>
 </ul>
-<h4 id="gz命令"><a href="#gz命令" class="headerlink" title="gz命令"></a>gz命令</h4><ul>
-<li>解压1：gunzip FileName.gz</li>
-<li>解压2：gzip -d FileName.gz</li>
-<li>压缩：gzip FileName</li>
+<ul>
+<li>解释</li>
 </ul>
-<h4 id="tar-gz-和-tgz"><a href="#tar-gz-和-tgz" class="headerlink" title="tar.gz 和 .tgz"></a>tar.gz 和 .tgz</h4><ul>
-<li>解压：tar zxvf FileName.tar.gz</li>
-<li>压缩：tar zcvf FileName.tar.gz DirName</li>
-<li>压缩多个文件：tar zcvf FileName.tar.gz DirName1 DirName2 DirName3 …</li>
-</ul>
-<h4 id="bz2命令"><a href="#bz2命令" class="headerlink" title="bz2命令"></a>bz2命令</h4><ul>
-<li>解压1：bzip2 -d FileName.bz2</li>
-<li>解压2：bunzip2 FileName.bz2</li>
-<li>压缩： bzip2 -z FileName</li>
-</ul>
-<h4 id="tar-bz2"><a href="#tar-bz2" class="headerlink" title="tar.bz2"></a>tar.bz2</h4><ul>
-<li>解压：tar jxvf FileName.tar.bz2</li>
-<li>压缩：tar jcvf FileName.tar.bz2 DirName</li>
-</ul>
-<h4 id="bz命令"><a href="#bz命令" class="headerlink" title="bz命令"></a>bz命令</h4><ul>
-<li>解压1：bzip2 -d FileName.bz</li>
-<li>解压2：bunzip2 FileName.bz</li>
-<li>压缩：未知</li>
-</ul>
-<h4 id="tar-bz"><a href="#tar-bz" class="headerlink" title="tar.bz"></a>tar.bz</h4><ul>
-<li>解压：tar jxvf FileName.tar.bz</li>
-</ul>
-<h4 id="Z命令"><a href="#Z命令" class="headerlink" title="Z命令"></a>Z命令</h4><ul>
-<li>解压：uncompress FileName.Z</li>
-<li>压缩：compress FileName</li>
-</ul>
-<h4 id="tar-Z"><a href="#tar-Z" class="headerlink" title="tar.Z"></a>tar.Z</h4><ul>
-<li>解压：tar Zxvf FileName.tar.Z   </li>
-<li>压缩：tar Zcvf FileName.tar.Z DirName</li>
-</ul>
-<h4 id="zip命令"><a href="#zip命令" class="headerlink" title="zip命令"></a>zip命令</h4><ul>
-<li>解压：unzip FileName.zip</li>
-<li>注:中文文件名乱码可指定字符集</li>
-<li>unzip -O gbk FileName.zip</li>
-<li>压缩：zip FileName.zip DirName</li>
-</ul>
+<ol>
+<li><code>dpkg -l</code> 列出所有安装的软件</li>
+<li><code>grep &quot;^rc&quot;</code> 找出rc开头的软件(已经被卸载)</li>
+<li><code>awk &#39;{print $2}&#39;</code> 提取出字符串的第二部分(软件名)</li>
+<li><code>xargs</code> 将前面产生的结果当成下个函数的参数</li>
+<li><code>aptitude -y purge</code> 删除软件,过程中出现的选项输入’y’</li>
+</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://www.nierunjie.site/2017/04/17/Linux压缩解压缩命令/" data-id="cj31lzslw000jgq4d7osba83a" class="article-share-link">Share</a>
+      <a data-url="https://www.nierunjie.site/2017/04/17/Linux清除已删除程序的配置文件/" data-id="cj31mnl50000m664dcyb0d2rh" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
@@ -149,7 +117,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/24/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="page-number" href="/page/24/">24</a><span class="page-number current">25</span><a class="page-number" href="/page/26/">26</a><a class="page-number" href="/page/27/">27</a><a class="extend next" rel="next" href="/page/26/">&raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/24/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="page-number" href="/page/24/">24</a><span class="page-number current">25</span><a class="page-number" href="/page/26/">26</a><a class="page-number" href="/page/27/">27</a><a class="page-number" href="/page/28/">28</a><a class="extend next" rel="next" href="/page/26/">&raquo;</a>
   </nav>
 
 </section>
@@ -163,7 +131,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Java/" style="font-size: 13.33px;">Java</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/工具/" style="font-size: 13.33px;">工具</a> <a href="/tags/杂谈/" style="font-size: 10px;">杂谈</a> <a href="/tags/设计模式/" style="font-size: 20px;">设计模式</a>
+      <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Linux/" style="font-size: 17.5px;">Linux</a> <a href="/tags/工具/" style="font-size: 15px;">工具</a> <a href="/tags/杂谈/" style="font-size: 12.5px;">杂谈</a> <a href="/tags/设计模式/" style="font-size: 20px;">设计模式</a>
     </div>
   </div>
 
@@ -185,6 +153,10 @@
       <ul>
         
           <li>
+            <a href="/2017/05/23/Hexo的markdown添加图片/">Hexo的markdown添加图片</a>
+          </li>
+        
+          <li>
             <a href="/2017/05/23/R基本语法/">R基本语法</a>
           </li>
         
@@ -198,10 +170,6 @@
         
           <li>
             <a href="/2017/05/19/State-Pattern/">State Pattern</a>
-          </li>
-        
-          <li>
-            <a href="/2017/05/04/Facade-Pattern/">Facade Pattern</a>
           </li>
         
       </ul>
