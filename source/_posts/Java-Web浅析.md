@@ -84,7 +84,7 @@ public class DatabaseConnect {
 
 ```
 
-* 监听者类实现ServletContextListener,它得到上下文的初始化参数,创建数据库链接类的实例,并把这个实例设置为上下文属性
+* 监听者类实现ServletContextListener,它得到上下文的初始化参数,**创建数据库链接类的实例**,并把这个实例**设置为上下文属性**(**不推荐**)
 ```java
 package pattern;
 
@@ -113,7 +113,50 @@ public class InitDatabaseListener implements ServletContextListener {
     }
 
 }
+```
 
+* 此类实现另一版本数据库连接,通过监听器获取配置文件中的属性,保存在静态变量中,每次使用的时候通过静态变量创建连接,用完断开(**推荐**)
+```java
+package bean;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletContextAttributeListener;
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+import javax.servlet.annotation.WebListener;
+
+import pattern.DatabaseConnect;
+
+@WebListener
+public class ConnectBean implements ServletContextListener, ServletContextAttributeListener{
+
+    private Connection connect;
+    private static String driver;
+    private static String database;
+    public ConnectBean() {
+        this.connect = new DatabaseConnect(driver, database).getConnection();
+    }
+
+    public void contextInitialized(ServletContextEvent sce) {
+        ServletContext servletContext = sce.getServletContext();
+        driver = servletContext.getInitParameter("driver");
+        database = servletContext.getInitParameter("database");
+    }
+
+    public Connection getConnection(){
+        return this.connect;
+    }
+    public void close(){
+        try {
+            connect.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
 ```
 
 * 这个类对应一个数据表
@@ -216,7 +259,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-// 这个content.do映射到Content,在表单提交(post)或者链接(get)中需要使用content.do
+
+import bean.ConnectBean;
+
 @WebServlet("/content.do")
 public class Content extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -227,17 +272,29 @@ public class Content extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
             response.setContentType("text/html");
-            Connection connect = (Connection) getServletContext().getAttribute("connect");
+            // 不推荐的方法,因为数据库一直连接,所以不需要断开
+            // Connection connect =
+            // (Connection)getServletContext().getAttribute("connect");
+
+
+            // 推荐的方法,每次使用创建连接
+            ConnectBean connectbean = new ConnectBean();
+            Connection connect = connectbean.getConnection();
+
             try {
                 PreparedStatement pstmt = connect.prepareStatement("SELECT * FROM INFO");
                 ResultSet rs = pstmt.executeQuery();
-                // 创建Vector,保存数据库查询后返回的结果
                 Vector<Info> v = new Vector<Info>();
 
                 while (rs.next()) {
-                    v.add(new Info(rs.getString(1),rs.getString(2)));	
+                    v.add(new Info(rs.getString(1), rs.getString(2)));
                 }
-                // 将Vector保存为属性
+                rs.close();
+                pstmt.close();
+
+                // 使用完成后断开连接
+                connectbean.close();
+
                 request.setAttribute("content", v);
                 RequestDispatcher view = request.getServletContext().getRequestDispatcher("/content.jsp");
                 view.forward(request, response);
@@ -278,7 +335,6 @@ pageEncoding="UTF-8"%>
     </div>
 </body>
 </html>
-
 ```
 
 1. Web应用启动时,容器读取这个应用的部署描述文件,为这个应用创建一个新的ServletContext
@@ -303,3 +359,5 @@ pageEncoding="UTF-8"%>
 7. Listener通过servletContext.getInitParameter("name")获取配置文件中的参数
 8. 以上获取的**属性**均为Object类的对象,需要进行**类型转化**
 9. 使用JSTL时,复制tomcat目录下/webapps/examples/WEB-INF/lib中的两个文件,到WebContent/WEB-INF/lib目录中,刷新工程.直接在JSP中添加taglib.**无需对web.xml进行任何修改**
+
+
