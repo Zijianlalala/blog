@@ -14,3 +14,6 @@ tags: Hexo
 
 ## 插件
 * [hexo-asset-image](https://github.com/CodeFalling/hexo-asset-image)
+
+## 测试
+![兔斯基](tuzki.gif)
