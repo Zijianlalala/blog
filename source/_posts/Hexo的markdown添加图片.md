@@ -9,8 +9,8 @@ tags: Hexo
  * `post_asset_folder: true`
  * `permalink: :year/:month/:day/:title/`
 2. 运行该命令`npm install https://github.com/CodeFalling/hexo-asset-image --save`
-3. 通过`hexo new "name"`新建文章,此时同时生成一个与文章同名的目录,在此目录中放置图片,例如图片为test.jpg
-4. 在markdown中使用![](test.jpg)显示图片
+3. 通过`hexo new "Hexo的markdown添加图片"`新建文章,此时同时生成一个与文章同名的目录,在此目录中放置图片,例如图片为tuzki.gif
+4. 在markdown中使用`![兔斯基](tuzki.gif)`显示图片
 
 ## 插件
 * [hexo-asset-image](https://github.com/CodeFalling/hexo-asset-image)
