@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>该网站的恢复策略 | 星期八</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="起因 在hexo deploy的时候,只提交public目录下的文件(这是个错误的认识,下文将解释).但是整个hexo项目的配置文件等关键文件还留在本地, 若网站发生一些错误配置,但没有记录配置的过程,造成的后果是不可逆的,于是要备份整个仓库 原本的思路是,在hexo的根目录下git init,将根目录设置为一个git项目,在每次deploy的时候执行git push,项目就被保存在了另一个仓库,">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="该网站的恢复策略">
+<meta property="og:url" content="https://www.nierunjie.site/2017/05/19/该网站的恢复策略/index.html">
+<meta property="og:site_name" content="星期八">
+<meta property="og:description" content="起因 在hexo deploy的时候,只提交public目录下的文件(这是个错误的认识,下文将解释).但是整个hexo项目的配置文件等关键文件还留在本地, 若网站发生一些错误配置,但没有记录配置的过程,造成的后果是不可逆的,于是要备份整个仓库 原本的思路是,在hexo的根目录下git init,将根目录设置为一个git项目,在每次deploy的时候执行git push,项目就被保存在了另一个仓库,">
+<meta property="og:updated_time" content="2017-05-23T13:18:16.624Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="该网站的恢复策略">
+<meta name="twitter:description" content="起因 在hexo deploy的时候,只提交public目录下的文件(这是个错误的认识,下文将解释).但是整个hexo项目的配置文件等关键文件还留在本地, 若网站发生一些错误配置,但没有记录配置的过程,造成的后果是不可逆的,于是要备份整个仓库 原本的思路是,在hexo的根目录下git init,将根目录设置为一个git项目,在每次deploy的时候执行git push,项目就被保存在了另一个仓库,">
+  
+    <link rel="alternate" href="/atom.xml" title="星期八" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">星期八</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">祝世界和平</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://www.nierunjie.site"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-该网站的恢复策略" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/19/该网站的恢复策略/" class="article-date">
+  <time datetime="2017-05-19T12:11:03.000Z" itemprop="datePublished">2017-05-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      该网站的恢复策略
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><ul>
+<li>在<code>hexo deploy</code>的时候,只提交<code>public</code>目录下的文件(这是个错误的认识,下文将解释).但是整个hexo项目的配置文件等关键文件还留在本地, 若网站发生一些错误配置,但没有记录配置的过程,造成的后果是不可逆的,于是要备份整个仓库</li>
+<li>原本的思路是,在hexo的根目录下<code>git init</code>,将根目录设置为一个git项目,在每次deploy的时候执行git push,项目就被保存在了另一个仓库,项目确实被保存在了另一个仓库,但是却没有发现这个仓库里少了一写东西</li>
+<li>在本地测试发布一篇博客的时候,报告错误,在此之前,修改了很多设置,于是想到回退整个仓库,并从远程clone之,当回退到确信没有错误的仓库时,还是报错,于是将问题放到新写的markdown文件上,发现修改了一下格式后,就能正确本地测试,也就是说,解决了最开始的问题.</li>
+<li>但是出现了另一个问题,在将博客推送到服务器的时候,报告缺少<code>.git</code>文件,根据网上论坛提示进行<code>hexo init</code>.(这是错误的,下文解释),在执行完hexo init后(其实没有执行完,中途报错退出了,因为已经存在hexo项目),后果就是这个命令导致缺少一系列配置文件,并缺少了deploy的必要模块,于是重新安装模块…</li>
+<li>再次把仓库回退到正确的版本,并创建一篇格式正确的markdown(格式问题是,设置自动识别代码语言造成的,应关闭该功能),本地测试通过,提交成功(意不意外,惊不惊喜,同样的流程为什么上一步会出现这么复杂的错误的,可能是我改了其他配置吧),但是本应提交网站的仓库,提交了和备份相同的内容,意识到一定是某个配置文件出错,但是正确的仓库版本不应该出现错误的配置文件,</li>
+<li>于是查看模块代码,在deploy有关模块中看到,会先提交.deploy_git里面的内容,如果该目录不存在,则创建之,否则会调用hexo目录下的<code>.git</code>,凑巧我的项目根目录下有这个文件,于是提交了整个项目,问题渐渐清晰</li>
+<li>但是项目根目录下有<code>.deploy_git</code>目录,但这个目录是空的</li>
+<li>于是拿一个新的hexo项目进行测试,从0开始到发布博客走一遍,看到新的hexo的<code>.deploy_git</code>项目下有文件,而且是网站的发布文件,这才发现了最开始的错误认识,网站并不是发布的<code>public</code>而是<code>.deploy_git</code>.这个目录是一个仓库</li>
+<li>于是直接clone网站仓库,将这个仓库改名为<code>.deploy_git</code>,网站又正常提交了.但是注意到,提交后的备份代码<code>.deploy_git</code>目录还是为空</li>
+<li>经过一翻搜索,了解到了git 子模块(submodule)的概念,并理解相关操作,很明显<code>.deploy_git</code>就是整个项目的子模块,成为子模块的原因是我在根目录执行了<code>git init</code></li>
+<li>查询到在项目中添加子模块的方法,<code>.deploy_git</code>模块确确实实已经存在,而且是hexo自动创建,我不能用创建新子模块的方法把这个模块设置为子模块,方法中也提到,创建完成子模块会多一个配置文件,我在本地添加这个配置文件,提交到仓库,无果</li>
+<li>直接在github网站上添加配置文件,然后pull,配置文件就被同步到了本地</li>
+<li>重新clone网站,按照子模块的操作步骤,可以将整个网站(包括.deploy_git)备份下来</li>
+<li>问题解决</li>
+</ul>
+<h2 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h2><ul>
+<li>准备<ol>
+<li>手动在<a href="https://github.com/RigeI/blog" target="_blank" rel="external">备份仓库</a>添加<a href="https://github.com/RigeI/blog/blob/master/.gitmodules" target="_blank" rel="external">.gitmodules</a></li>
+<li>pull备份仓库</li>
+</ol>
+</li>
+<li><p>正常发布</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">hexo clean</div><div class="line">hexo generate</div><div class="line">hexo deploy </div><div class="line">git add -f *</div><div class="line">git commit -m &quot;备份&quot;</div><div class="line">git push origin master</div></pre></td></tr></table></figure>
+</li>
+<li><p>恢复</p>
+<ol>
+<li>git clone git@github.com:RigeI/blog.git</li>
+<li>git submodule init</li>
+<li>git submodule update</li>
+</ol>
+</li>
+<li><p>注:不能使用<code>git clone git@github.com:RigeI/blog.git --recursive</code>进行恢复</p>
+</li>
+</ul>
+<h2 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h2><ul>
+<li>上面提到的任何不懂的信息请自行百度,完全了解后再对网站源码进行修改,否则会进一步扩大对网站和备份的破坏</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://www.nierunjie.site/2017/05/19/该网站的恢复策略/" data-id="cj31lzsnn001mgq4dvoyymufv" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/05/20/Adapter-Pattern/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Adapter Pattern
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/05/19/State-Pattern/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">State Pattern</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Java/" style="font-size: 13.33px;">Java</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/工具/" style="font-size: 13.33px;">工具</a> <a href="/tags/杂谈/" style="font-size: 10px;">杂谈</a> <a href="/tags/设计模式/" style="font-size: 20px;">设计模式</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/05/23/R基本语法/">R基本语法</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/20/Adapter-Pattern/">Adapter Pattern</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/19/该网站的恢复策略/">该网站的恢复策略</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/19/State-Pattern/">State Pattern</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/04/Facade-Pattern/">Facade Pattern</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+    <div class="widget-wrap">
+        <h3 class="widget-title">友情链接</h3>
+        <ul class="widget">
+        
+            <li class='link'><a href='https://github.com/RigeI'>GitHub</a></li>
+        
+            <li class='link'><a href='http://blog.csdn.net/nierunjie'>CSDN</a></li>
+        
+        </ul>
+    </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Rigel<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="http://apps.bdimg.com/libs/jquery/2.0.3/jquery.min.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof jQuery == 'undefined') {
+    document.write(unescape("%3Cscript src='/js/jquery-2.0.3.min.js' type='text/javascript'%3E%3C/script%3E"));
+}
+// ]]>
+</script>
+
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
