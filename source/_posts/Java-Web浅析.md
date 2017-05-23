@@ -242,7 +242,7 @@ public class Info {
 ```
 
 
-* Servlet从上下文得到数据库连接类的实例,得到的为Object类的对象,需要强制转化成连接类的对象
+* Servlet~~从上下文得到数据库连接类的实例~~通过ConnectBean获得数据库链接,得到的为Object类的对象,需要强制转化成连接类的对象
 ```java
 package pattern;
 
