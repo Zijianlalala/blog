@@ -46,6 +46,25 @@ $abc
 [1] 3
 ```
 
+0. 接上,unlist(),unname()
+```R
+> k<-unlist(j)
+> k
+   name  salary   union 
+  "Joe" "55000"  "TRUE" 
+> unname(k)
+[1] "Joe"   "55000" "TRUE" 
+> unname(j)
+[[1]]
+[1] "Joe"
+
+[[2]]
+[1] 55000
+
+[[3]]
+[1] TRUE
+```
+
 0. 添加组件
 ```R
 > x<-list(u=2,v="abc")
@@ -113,3 +132,17 @@ $w
 > length(x)
 [1] 6
 ```
+
+0. 列表使用lapply,sapply
+```R
+> lapply(list(1:3,25:29),median)
+[[1]]
+[1] 2
+
+[[2]]
+[1] 27
+
+> sapply(list(1:3,25:29),median)
+[1]  2 27
+```
+
