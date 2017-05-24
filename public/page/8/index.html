@@ -63,10 +63,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Template-Pattern" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-该网站的恢复策略" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/05/03/Template-Pattern/" class="article-date">
-  <time datetime="2017-05-03T14:06:53.000Z" itemprop="datePublished">2017-05-03</time>
+    <a href="/2017/05/19/该网站的恢复策略/" class="article-date">
+  <time datetime="2017-05-19T12:11:03.000Z" itemprop="datePublished">2017-05-19</time>
 </a>
     
   </div>
@@ -77,7 +77,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/03/Template-Pattern/">Template Pattern</a>
+      <a class="article-title" href="/2017/05/19/该网站的恢复策略/">该网站的恢复策略</a>
     </h1>
   
 
@@ -85,47 +85,52 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="模板模式"><a href="#模板模式" class="headerlink" title="模板模式"></a>模板模式</h2><ul>
-<li>在模板模式（Template Pattern）中，一个抽象类公开定义了执行它的方法的方式/模板。它的子类可以按需要重写方法实现，但调用将以抽象类中定义的方式进行。这种类型的设计模式属于行为型模式。</li>
+        <h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><ul>
+<li>在<code>hexo deploy</code>的时候,只提交<code>public</code>目录下的文件(这是个错误的认识,下文将解释).但是整个hexo项目的配置文件等关键文件还留在本地, 若网站发生一些错误配置,但没有记录配置的过程,造成的后果是不可逆的,于是要备份整个仓库</li>
+<li>原本的思路是,在hexo的根目录下<code>git init</code>,将根目录设置为一个git项目,在每次deploy的时候执行git push,项目就被保存在了另一个仓库,项目确实被保存在了另一个仓库,但是却没有发现这个仓库里少了一写东西</li>
+<li>在本地测试发布一篇博客的时候,报告错误,在此之前,修改了很多设置,于是想到回退整个仓库,并从远程clone之,当回退到确信没有错误的仓库时,还是报错,于是将问题放到新写的markdown文件上,发现修改了一下格式后,就能正确本地测试,也就是说,解决了最开始的问题.</li>
+<li>但是出现了另一个问题,在将博客推送到服务器的时候,报告缺少<code>.git</code>文件,根据网上论坛提示进行<code>hexo init</code>.(这是错误的,下文解释),在执行完hexo init后(其实没有执行完,中途报错退出了,因为已经存在hexo项目),后果就是这个命令导致缺少一系列配置文件,并缺少了deploy的必要模块,于是重新安装模块…</li>
+<li>再次把仓库回退到正确的版本,并创建一篇格式正确的markdown(格式问题是,设置自动识别代码语言造成的,应关闭该功能),本地测试通过,提交成功(意不意外,惊不惊喜,同样的流程为什么上一步会出现这么复杂的错误的,可能是我改了其他配置吧),但是本应提交网站的仓库,提交了和备份相同的内容,意识到一定是某个配置文件出错,但是正确的仓库版本不应该出现错误的配置文件,</li>
+<li>于是查看模块代码,在deploy有关模块中看到,会先提交.deploy_git里面的内容,如果该目录不存在,则创建之,否则会调用hexo目录下的<code>.git</code>,凑巧我的项目根目录下有这个文件,于是提交了整个项目,问题渐渐清晰</li>
+<li>但是项目根目录下有<code>.deploy_git</code>目录,但这个目录是空的</li>
+<li>于是拿一个新的hexo项目进行测试,从0开始到发布博客走一遍,看到新的hexo的<code>.deploy_git</code>项目下有文件,而且是网站的发布文件,这才发现了最开始的错误认识,网站并不是发布的<code>public</code>而是<code>.deploy_git</code>.这个目录是一个仓库</li>
+<li>于是直接clone网站仓库,将这个仓库改名为<code>.deploy_git</code>,网站又正常提交了.但是注意到,提交后的备份代码<code>.deploy_git</code>目录还是为空</li>
+<li>经过一翻搜索,了解到了git 子模块(submodule)的概念,并理解相关操作,很明显<code>.deploy_git</code>就是整个项目的子模块,成为子模块的原因是我在根目录执行了<code>git init</code></li>
+<li>查询到在项目中添加子模块的方法,<code>.deploy_git</code>模块确确实实已经存在,而且是hexo自动创建,我不能用创建新子模块的方法把这个模块设置为子模块,方法中也提到,创建完成子模块会多一个配置文件,我在本地添加这个配置文件,提交到仓库,无果</li>
+<li>直接在github网站上添加配置文件,然后pull,配置文件就被同步到了本地</li>
+<li>重新clone网站,按照子模块的操作步骤,可以将整个网站(包括.deploy_git)备份下来</li>
+<li>问题解决</li>
 </ul>
-<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
-<li>意图：定义一个操作中的算法的骨架，而将一些步骤延迟到子类中。模板方法使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤。</li>
-<li>主要解决：一些方法通用，却在每一个子类都重新写了这一方法。</li>
-<li>何时使用：有一些通用的方法。</li>
-<li>如何解决：将这些通用算法抽象出来。</li>
-<li>关键代码：在抽象类实现，其他步骤在子类实现。</li>
-<li>应用实例： 1、在造房子的时候，地基、走线、水管都一样，只有在建筑的后期才有加壁橱加栅栏等差异。 2、西游记里面菩萨定好的 81 难，这就是一个顶层的逻辑骨架。 3、Spirng 中对 Hibernate 的支持，将一些已经定好的方法封装起来，比如开启事务、获取 Session、关闭 Session 等，程序员不重复写那些已经规范好的代码，直接丢一个实体就可以保存。</li>
-<li>优点： 1、封装不变部分，扩展可变部分。 2、提取公共代码，便于维护。 3、行为由父类控制，子类实现。</li>
-<li>缺点：每一个不同的实现都需要一个子类来实现，导致类的个数增加，使得系统更加庞大。</li>
-<li>使用场景： 1、有多个子类共有的方法，且逻辑相同。 2、重要的、复杂的方法，可以考虑作为模板方法。</li>
-<li>注意事项：为防止恶意操作，一般模板方法都加上 final 关键词。</li>
-</ul>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><ul>
-<li>我们将创建一个定义操作的 Game 抽象类，其中，模板方法设置为 final，这样它就不会被重写。Cricket 和 Football 是扩展了 Game 的实体类，它们重写了抽象类的方法。<br>TemplatePatternDemo，我们的演示类使用 Game 来演示模板模式的用法。</li>
-</ul>
-<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><ol>
-<li><p>创建一个抽象类，它的模板方法被设置为 final。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Game</span> </span>&#123;</div><div class="line">   <span class="function"><span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">initialize</span><span class="params">()</span></span>;</div><div class="line">   <span class="function"><span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">startPlay</span><span class="params">()</span></span>;</div><div class="line">   <span class="function"><span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">endPlay</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">   <span class="comment">//模板</span></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">play</span><span class="params">()</span></span>&#123;</div><div class="line"></div><div class="line">      <span class="comment">//初始化游戏</span></div><div class="line">      initialize();</div><div class="line"></div><div class="line">      <span class="comment">//开始游戏</span></div><div class="line">      startPlay();</div><div class="line"></div><div class="line">      <span class="comment">//结束游戏</span></div><div class="line">      endPlay();</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>创建扩展了上述类的实体类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cricket</span> <span class="keyword">extends</span> <span class="title">Game</span> </span>&#123;</div><div class="line"></div><div class="line">   <span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">void</span> <span class="title">endPlay</span><span class="params">()</span> </span>&#123;</div><div class="line">      System.out.println(<span class="string">"Cricket Game Finished!"</span>);</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">void</span> <span class="title">initialize</span><span class="params">()</span> </span>&#123;</div><div class="line">      System.out.println(<span class="string">"Cricket Game Initialized! Start playing."</span>);</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">void</span> <span class="title">startPlay</span><span class="params">()</span> </span>&#123;</div><div class="line">      System.out.println(<span class="string">"Cricket Game Started. Enjoy the game!"</span>);</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>使用 Game 的模板方法 play() 来演示游戏的定义方式。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TemplatePatternDemo</span> </span>&#123;</div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"></div><div class="line">      Game game = <span class="keyword">new</span> Cricket();</div><div class="line">      game.play();</div><div class="line">      System.out.println();</div><div class="line">      game = <span class="keyword">new</span> Football();</div><div class="line">      game.play();</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
+<h2 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h2><ul>
+<li>准备<ol>
+<li>手动在<a href="https://github.com/RigeI/blog" target="_blank" rel="external">备份仓库</a>添加<a href="https://github.com/RigeI/blog/blob/master/.gitmodules" target="_blank" rel="external">.gitmodules</a></li>
+<li>pull备份仓库</li>
 </ol>
-<h2 id="个人理解"><a href="#个人理解" class="headerlink" title="个人理解"></a>个人理解</h2><ul>
-<li>基类规定步骤,子类实现</li>
-<li>基类给出子类中重复步骤的实现,子类只实现不同的部分</li>
+</li>
+<li><p>正常发布</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">hexo clean</div><div class="line">hexo generate</div><div class="line">hexo deploy </div><div class="line">git add -f *</div><div class="line">git commit -m &quot;备份&quot;</div><div class="line">git push origin master</div></pre></td></tr></table></figure>
+</li>
+<li><p>恢复</p>
+<ol>
+<li>git clone git@github.com:RigeI/blog.git</li>
+<li>git submodule init</li>
+<li>git submodule update</li>
+</ol>
+</li>
+<li><p>注:不能使用<code>git clone git@github.com:RigeI/blog.git --recursive</code>进行恢复</p>
+</li>
+</ul>
+<h2 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h2><ul>
+<li>上面提到的任何不懂的信息请自行百度,完全了解后再对网站源码进行修改,否则会进一步扩大对网站和备份的破坏</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://www.nierunjie.site/2017/05/03/Template-Pattern/" data-id="cj329ej180017zo4dn3cqwh5k" class="article-share-link">Share</a>
+      <a data-url="https://www.nierunjie.site/2017/05/19/该网站的恢复策略/" data-id="cj32be0hu001xqr4dy990w6ew" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
 
     </footer>
   </div>
@@ -137,7 +142,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/7/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="extend next" rel="next" href="/page/9/">&raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/7/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><a class="extend next" rel="next" href="/page/9/">&raquo;</a>
   </nav>
 
 </section>
@@ -151,23 +156,23 @@
       <ul>
         
           <li>
+            <a href="/2017/05/24/R数据框/">R数据框</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/24/R列表/">R列表</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/24/R矩阵和数组/">R矩阵和数组</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/24/R向量/">R向量</a>
+          </li>
+        
+          <li>
             <a href="/2017/05/23/Hexo的markdown添加图片/">Hexo的markdown添加图片</a>
-          </li>
-        
-          <li>
-            <a href="/2017/05/23/R基本语法/">R基本语法</a>
-          </li>
-        
-          <li>
-            <a href="/2017/05/20/Adapter-Pattern/">Adapter Pattern</a>
-          </li>
-        
-          <li>
-            <a href="/2017/05/19/该网站的恢复策略/">该网站的恢复策略</a>
-          </li>
-        
-          <li>
-            <a href="/2017/05/19/State-Pattern/">State Pattern</a>
           </li>
         
       </ul>
@@ -189,7 +194,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Linux/" style="font-size: 17.5px;">Linux</a> <a href="/tags/R语言/" style="font-size: 10px;">R语言</a> <a href="/tags/工具/" style="font-size: 15px;">工具</a> <a href="/tags/杂谈/" style="font-size: 12.5px;">杂谈</a> <a href="/tags/设计模式/" style="font-size: 20px;">设计模式</a>
+      <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Linux/" style="font-size: 17.5px;">Linux</a> <a href="/tags/R语言/" style="font-size: 17.5px;">R语言</a> <a href="/tags/工具/" style="font-size: 15px;">工具</a> <a href="/tags/杂谈/" style="font-size: 12.5px;">杂谈</a> <a href="/tags/设计模式/" style="font-size: 20px;">设计模式</a>
     </div>
   </div>
 

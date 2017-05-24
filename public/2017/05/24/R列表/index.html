@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>R列表 | 星期八</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="赋值,索引 1234567891011121314151617181920212223242526272829303132333435363738&amp;gt; x&amp;lt;-list(u=2,v=&quot;abc&quot;)&amp;gt; x$u[1] 2$v[1] &quot;abc&quot;&amp;gt; x$u[1] 2&amp;gt; &amp;gt; # str的意思是structure,而不是string&amp;gt; str(x)List of 2 $">
+<meta name="keywords" content="R语言">
+<meta property="og:type" content="article">
+<meta property="og:title" content="R列表">
+<meta property="og:url" content="https://www.nierunjie.site/2017/05/24/R列表/index.html">
+<meta property="og:site_name" content="星期八">
+<meta property="og:description" content="赋值,索引 1234567891011121314151617181920212223242526272829303132333435363738&amp;gt; x&amp;lt;-list(u=2,v=&quot;abc&quot;)&amp;gt; x$u[1] 2$v[1] &quot;abc&quot;&amp;gt; x$u[1] 2&amp;gt; &amp;gt; # str的意思是structure,而不是string&amp;gt; str(x)List of 2 $">
+<meta property="og:updated_time" content="2017-05-24T01:31:58.708Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="R列表">
+<meta name="twitter:description" content="赋值,索引 1234567891011121314151617181920212223242526272829303132333435363738&amp;gt; x&amp;lt;-list(u=2,v=&quot;abc&quot;)&amp;gt; x$u[1] 2$v[1] &quot;abc&quot;&amp;gt; x$u[1] 2&amp;gt; &amp;gt; # str的意思是structure,而不是string&amp;gt; str(x)List of 2 $">
+  
+    <link rel="alternate" href="/atom.xml" title="星期八" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">星期八</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">祝世界和平</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://www.nierunjie.site"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-R列表" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/24/R列表/" class="article-date">
+  <time datetime="2017-05-24T01:12:19.000Z" itemprop="datePublished">2017-05-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      R列表
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>赋值,索引</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">&gt; x&lt;-list(u=<span class="number">2</span>,v=<span class="string">"abc"</span>)</div><div class="line">&gt; x</div><div class="line">$u</div><div class="line">[<span class="number">1</span>] <span class="number">2</span></div><div class="line"></div><div class="line">$v</div><div class="line">[<span class="number">1</span>] <span class="string">"abc"</span></div><div class="line"></div><div class="line">&gt; x$u</div><div class="line">[<span class="number">1</span>] <span class="number">2</span></div><div class="line">&gt; </div><div class="line">&gt; <span class="comment"># str的意思是structure,而不是string</span></div><div class="line">&gt; str(x)</div><div class="line">List of <span class="number">2</span></div><div class="line"> $ u: num <span class="number">2</span></div><div class="line"> $ v: chr <span class="string">"abc"</span></div><div class="line">&gt; </div><div class="line">&gt; j&lt;-list(name=<span class="string">"Joe"</span>,salary=<span class="number">55000</span>,union=<span class="literal">TRUE</span>)</div><div class="line">&gt; j$name</div><div class="line">[<span class="number">1</span>] <span class="string">"Joe"</span></div><div class="line">&gt; j[[<span class="number">1</span>]]</div><div class="line">[<span class="number">1</span>] <span class="string">"Joe"</span></div><div class="line">&gt; j[<span class="number">1</span>]</div><div class="line">$name</div><div class="line">[<span class="number">1</span>] <span class="string">"Joe"</span></div><div class="line"></div><div class="line">&gt; j[<span class="string">"name"</span>]</div><div class="line">$name</div><div class="line">[<span class="number">1</span>] <span class="string">"Joe"</span></div><div class="line"></div><div class="line">&gt; </div><div class="line">&gt; z&lt;-vector(mode=<span class="string">"list"</span>)</div><div class="line">&gt; z</div><div class="line">list()</div><div class="line">&gt; z[[<span class="string">"abc"</span>]]&lt;-<span class="number">3</span></div><div class="line">&gt; z</div><div class="line">$abc</div><div class="line">[<span class="number">1</span>] <span class="number">3</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>添加组件</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">&gt; x&lt;-list(u=<span class="number">2</span>,v=<span class="string">"abc"</span>)</div><div class="line">&gt; x$w&lt;-<span class="string">"hahahah"</span></div><div class="line">&gt; x</div><div class="line">$u</div><div class="line">[<span class="number">1</span>] <span class="number">2</span></div><div class="line"></div><div class="line">$v</div><div class="line">[<span class="number">1</span>] <span class="string">"abc"</span></div><div class="line"></div><div class="line">$w</div><div class="line">[<span class="number">1</span>] <span class="string">"hahahah"</span></div><div class="line"></div><div class="line">&gt; x[[<span class="number">4</span>]&lt;-<span class="string">"asd"</span></div><div class="line">&gt; x[<span class="number">5</span>:<span class="number">7</span>]&lt;-<span class="number">5</span>:<span class="number">7</span></div><div class="line">&gt; x</div><div class="line">$u</div><div class="line">[<span class="number">1</span>] <span class="number">2</span></div><div class="line"></div><div class="line">$v</div><div class="line">[<span class="number">1</span>] <span class="string">"abc"</span></div><div class="line"></div><div class="line">$w</div><div class="line">[<span class="number">1</span>] <span class="string">"hahahah"</span></div><div class="line"></div><div class="line">[[<span class="number">4</span>]]</div><div class="line">[<span class="number">1</span>] <span class="string">"asd"</span></div><div class="line"></div><div class="line">[[<span class="number">5</span>]]</div><div class="line">[<span class="number">1</span>] <span class="number">5</span></div><div class="line"></div><div class="line">[[<span class="number">6</span>]]</div><div class="line">[<span class="number">1</span>] <span class="number">6</span></div><div class="line"></div><div class="line">[[<span class="number">7</span>]]</div><div class="line">[<span class="number">1</span>] <span class="number">7</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>删除组件,赋值NULL即可</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&gt;   x[[<span class="number">4</span>]]&lt;-<span class="literal">NULL</span></div><div class="line">&gt; x</div><div class="line">$u</div><div class="line">[<span class="number">1</span>] <span class="number">2</span></div><div class="line"></div><div class="line">$v</div><div class="line">[<span class="number">1</span>] <span class="string">"abc"</span></div><div class="line"></div><div class="line">$w</div><div class="line">[<span class="number">1</span>] <span class="string">"hahahah"</span></div><div class="line"></div><div class="line">[[<span class="number">4</span>]]</div><div class="line">[<span class="number">1</span>] <span class="number">5</span></div><div class="line"></div><div class="line">[[<span class="number">5</span>]]</div><div class="line">[<span class="number">1</span>] <span class="number">6</span></div><div class="line"></div><div class="line">[[<span class="number">6</span>]]</div><div class="line">[<span class="number">1</span>] <span class="number">7</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>获取长度</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; length(x)</div><div class="line">[<span class="number">1</span>] <span class="number">6</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://www.nierunjie.site/2017/05/24/R列表/" data-id="cj32be0gu000xqr4dpqxnkpbk" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R语言/">R语言</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/05/24/R数据框/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          R数据框
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/05/24/R矩阵和数组/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">R矩阵和数组</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/05/24/R数据框/">R数据框</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/24/R列表/">R列表</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/24/R矩阵和数组/">R矩阵和数组</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/24/R向量/">R向量</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/23/Hexo的markdown添加图片/">Hexo的markdown添加图片</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/R语言/">R语言</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工具/">工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂谈/">杂谈</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Linux/" style="font-size: 17.5px;">Linux</a> <a href="/tags/R语言/" style="font-size: 17.5px;">R语言</a> <a href="/tags/工具/" style="font-size: 15px;">工具</a> <a href="/tags/杂谈/" style="font-size: 12.5px;">杂谈</a> <a href="/tags/设计模式/" style="font-size: 20px;">设计模式</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+    <div class="widget-wrap">
+        <h3 class="widget-title">友情链接</h3>
+        <ul class="widget">
+        
+            <li class='link'><a href='https://github.com/RigeI'>GitHub</a></li>
+        
+            <li class='link'><a href='http://blog.csdn.net/nierunjie'>CSDN</a></li>
+        
+        </ul>
+    </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Rigel<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="http://apps.bdimg.com/libs/jquery/2.0.3/jquery.min.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof jQuery == 'undefined') {
+    document.write(unescape("%3Cscript src='/js/jquery-2.0.3.min.js' type='text/javascript'%3E%3C/script%3E"));
+}
+// ]]>
+</script>
+
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
