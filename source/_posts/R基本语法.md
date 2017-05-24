@@ -3,7 +3,7 @@ title: R基本语法
 date: 2017-05-23 21:22:02
 tags: R语言
 ---
-* 求模运算
+0. 求模运算 %%
 ```R
 > 1%%2
 [1] 1
@@ -13,13 +13,13 @@ tags: R语言
 [1] 1
 ```
 
-* 求商,取整
+0. 求商,取整 %/%
 ```R
 > 3%/%2
 [1] 1
 ```
 
-* all 和 any
+0. all(c),any(c),typeof(c)
 ```R
 > x<-1:10
 > y<-x>8
@@ -29,7 +29,7 @@ tags: R语言
 [1] TRUE
 ```
 
-* 判断两个向量相等,建议使用ALL(a==b).identical对于不同的类型相同的值判断为不同
+0. 判断两个向量相等,建议使用ALL(a==b);identical(a,b)判断相等,同时判断数据类型
 ```R
 > x<-1:2
 > y<-c(1,2)
@@ -45,7 +45,7 @@ tags: R语言
 [1] 1 2
 ```
 
-* 设置名字
+0. 设置名字
 ```R
 > x<-1:2
 > names(x)<-c("a","b")
@@ -54,7 +54,7 @@ a b
 1 2 
 ```
 
-* 长度和样式(数据类型)
+0. 长度length(c)和样式mode(c)
 ```R
 > x<-c(5,12,13)
 > length(x)
@@ -75,7 +75,7 @@ a b
 [1] "character"
 ```
 
-* ifelse语句,类似c++中的条件表达式?:
+0. ifelse(a,b,c)语句,类似c++中的条件表达式a?b:c
 ```R
 > x<-1:10
 > y<-ifelse(x%%2,5,12)
@@ -83,7 +83,7 @@ a b
  [1]  5 12  5 12  5 12  5 12  5 12
 ```
 
-* 带默认值的函数,布尔值建议用TRUE/FALSE,而不是T/F
+0. 带默认值的函数,布尔值建议用TRUE/FALSE,而不是T/F
 ```R
 > g <- function(x,y,z=T){
 +     if(z)
@@ -97,7 +97,7 @@ a b
 [1] 2
 ```
 
-* 向量(vector)按行结合(rbind),按列结合(cbind)
+0. 向量vector按行结合rbind(c1,c2),按列结合cbind(c1,c2)
 ```R
 > a<-c(1,2)
 > b<-c(3,4)
@@ -119,7 +119,7 @@ b
 3 
 ```
 
-* 均值和标准差
+0. 均值mean(c)和标准差sd(c)
 ```R
 > x<-c(1,2,3)
 > x[2:3]
@@ -130,7 +130,7 @@ b
 [1] 1
 ```
 
-* 列表,赋值,读取值的三种方式
+0. 列表,赋值,读取值的三种方式
 ```R
 > x<-list(u=2,v="abc")
 > x
@@ -167,9 +167,12 @@ $name
 > z
 list()
 > z[["abc"]]<-3
+> z
+$abc
+[1] 3
 ```
 
-* sapply 和 函数
+0. sapply(c,f),将函数应用于整个向量,第一行输出原始数据,第二行输出运算结果
 ```R
 > ans = function(z) return (c(z,z^2))
 > x<-1:8
@@ -192,7 +195,7 @@ list()
 [2,]    1    4    9   16   25   36   49   64
 ```
 
-* 数据框,数据一般从文件或者数据库中读取
+0. 数据框data.frame,数据一般从文件或者数据库中读取
 ```R
 > d<-data.frame(list(kid=c("Jack","Jill"),age=c(12,10)))
 > d
@@ -201,18 +204,18 @@ list()
 2 Jill  10
 ```
 
-* 矩阵中取出一维的矩阵,自动降为向量,为了防止自动降维,使用参数drop=FALSE
+0. 矩阵中取出一维的矩阵,自动降为向量,为了防止自动降维,使用参数drop=FALSE
 ```R
 > z<-matrix(1:8,ncol=2)
-> r<-z[2,,drop=FALSE]
-> r
+> z[2,]
+[1] 2 6
+> z[2,,drop=FALSE]
      [,1] [,2]
 [1,]    2    6
 ```
 
-* apply 函数应用
+0. apply(m,dimcode,f,fargs) 函数,m为矩阵,dimcode=1为行,2为列,f为函数,fargs为函数的可选参数
 ```R
-> # apply(m,dimcode,f,fargs)
 > z<-matrix(1:6,ncol=2)
 > z
      [,1] [,2]
@@ -226,6 +229,10 @@ list()
 [1,]  2.5
 [2,]  3.5
 [3,]  4.5
+```
+
+0. 矩阵运算%*% 
+```R
 > 
 > x<-matrix(1:6,ncol=2)
 > y<-matrix(1:6,ncol=3)
@@ -255,6 +262,10 @@ list()
 [1,]    9   19   29
 [2,]   12   26   40
 [3,]   15   33   51
+```
+
+0. 矩阵截取与赋值
+```R
 > 
 > a<-matrix(1:12,ncol=3)
 > a
@@ -286,7 +297,7 @@ list()
 [4,]    4   12
 ```
 
-* NA和NULL
+0. NA和NULL
 ```R
 > x<-c(88,NA,12,168,13)
 > x
@@ -309,7 +320,7 @@ list()
 [1]  2  4  6  8 10
 ```
 
-* nchar,toupper,tolower
+0. nchar(字符个数),toupper,tolower
 ```R
 > x<-"abcdaebfab"
 > nchar(x)
@@ -317,11 +328,17 @@ list()
 > y<-toupper(x)
 > y
 [1] "ABCDAEBFAB"
-> 
+```
+
+0. 字符串替换
+```R
+> # a->x , b->y
 > chartr("ab","xy",x)
 [1] "xycdxeyfxy"
+> # ab->xy ,但只替换地一个
 > sub("ab","xy",x)
 [1] "xycdaebfab"
+> # ab->xy ,替换所有
 > gsub("ab","xy",x)
 [1] "xycdaebfxy"
 > 
@@ -329,7 +346,7 @@ list()
 [1] "abcdaebfab" "abcdaebfab"
 ```
 
-* paste连接 和 strsplit分割
+0. paste连接 和 strsplit分割
 ```R
 > u<-paste("abc","de","f")
 > u
@@ -341,16 +358,16 @@ list()
 [1] "abc" "de"  "f" 
 ```
 
-* 新建PDF文件,写入直方图,关闭文件,写入硬盘,rnorm(100),正态分布,100个变量
+0. 新建PDF文件,写入直方图,关闭文件,写入硬盘,rnorm(100),正态分布,100个变量
 ```R
 pdf("xh.pdf")
 hist(rnorm(100))
 dev.off()
 ```
 
-* 重复创建向量
+0. 重复(rep)创建向量
 ```R
-> # reqeat
+> # repeat
 > x<-rep(8,times=4)
 > x
 [1] 8 8 8 8
@@ -362,14 +379,14 @@ dev.off()
 [1] 1 1 2 2 3 3
 ```
 
-* 四舍五入
+0. 四舍五入
 ```R
 > y<-c(1.2,3.4,0.4,5.5)
 > round(y)
 [1] 1 3 0 6
 ```
 
-* 等差数列
+0. 等差数列
 ```R
 > seq(from=12,to=20,by=3)
 [1] 12 15 18
@@ -390,14 +407,12 @@ dev.off()
 integer(0)
 ```
 
-* subset(向量,条件),判断后删除NA
+0. subset(c,f),判断后删除NA
 ```R
 > x<-c(88,NA,12,168,13)
-> x
-[1]  88  NA  12 168  13
 > x[x>50]
 [1]  88  NA 168
-> 
+>
 > x<50
 [1] FALSE    NA  TRUE FALSE  TRUE
 > 
@@ -414,7 +429,7 @@ integer(0)
 [1] 3
 ```
 
-* 直方图和summary
+0. hist绘制直方图
 ```R
 > hn<-hist(Nile)
 > print(hn)
@@ -440,6 +455,10 @@ $equidist
 
 attr(,"class")
 [1] "histogram"
+```
+
+0. summary
+```R
 > summary(hn)
          Length Class  Mode     
 breaks   11     -none- numeric
@@ -450,6 +469,8 @@ xname     1     -none- character
 equidist  1     -none- logical
 ```
 ![直方图样例](HistogramOfNile.png)
+
+
 
 
 
