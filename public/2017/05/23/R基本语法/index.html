@@ -5,18 +5,18 @@
   
   <title>R基本语法 | 星期八</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="求模运算 %% 123456&amp;gt; 1%%2[1] 1&amp;gt; 2%%2[1] 0&amp;gt; 3%%2[1] 1  求商,取整 %/% 12&amp;gt; 3%/%2[1] 1  hist绘制直方图 123456789101112131415161718192021222324&amp;gt; hn&amp;lt;-hist(Nile)&amp;gt; print(hn)$breaks [1]  400  500  600">
+  <meta name="description" content="求模运算 %% 11%%2  求商,取整 %/% 123%/%2[1] 1  hist绘制直方图 1hn &amp;lt;- hist(Nile)  summary 12345678summary(hn)         Length Class  Mode     breaks   11     -none- numericcounts   10     -none- numericdensity">
 <meta name="keywords" content="R语言">
 <meta property="og:type" content="article">
 <meta property="og:title" content="R基本语法">
 <meta property="og:url" content="https://www.nierunjie.site/2017/05/23/R基本语法/index.html">
 <meta property="og:site_name" content="星期八">
-<meta property="og:description" content="求模运算 %% 123456&amp;gt; 1%%2[1] 1&amp;gt; 2%%2[1] 0&amp;gt; 3%%2[1] 1  求商,取整 %/% 12&amp;gt; 3%/%2[1] 1  hist绘制直方图 123456789101112131415161718192021222324&amp;gt; hn&amp;lt;-hist(Nile)&amp;gt; print(hn)$breaks [1]  400  500  600">
+<meta property="og:description" content="求模运算 %% 11%%2  求商,取整 %/% 123%/%2[1] 1  hist绘制直方图 1hn &amp;lt;- hist(Nile)  summary 12345678summary(hn)         Length Class  Mode     breaks   11     -none- numericcounts   10     -none- numericdensity">
 <meta property="og:image" content="https://www.nierunjie.site/2017/05/23/R基本语法/HistogramOfNile.png">
-<meta property="og:updated_time" content="2017-05-24T01:13:53.708Z">
+<meta property="og:updated_time" content="2017-05-25T00:32:58.723Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="R基本语法">
-<meta name="twitter:description" content="求模运算 %% 123456&amp;gt; 1%%2[1] 1&amp;gt; 2%%2[1] 0&amp;gt; 3%%2[1] 1  求商,取整 %/% 12&amp;gt; 3%/%2[1] 1  hist绘制直方图 123456789101112131415161718192021222324&amp;gt; hn&amp;lt;-hist(Nile)&amp;gt; print(hn)$breaks [1]  400  500  600">
+<meta name="twitter:description" content="求模运算 %% 11%%2  求商,取整 %/% 123%/%2[1] 1  hist绘制直方图 1hn &amp;lt;- hist(Nile)  summary 12345678summary(hn)         Length Class  Mode     breaks   11     -none- numericcounts   10     -none- numericdensity">
 <meta name="twitter:image" content="https://www.nierunjie.site/2017/05/23/R基本语法/HistogramOfNile.png">
   
     <link rel="alternate" href="/atom.xml" title="星期八" type="application/atom+xml">
@@ -89,16 +89,16 @@
       
         <ol>
 <li><p>求模运算 %%</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="number">1</span>%%<span class="number">2</span></div><div class="line">[<span class="number">1</span>] <span class="number">1</span></div><div class="line">&gt; <span class="number">2</span>%%<span class="number">2</span></div><div class="line">[<span class="number">1</span>] <span class="number">0</span></div><div class="line">&gt; <span class="number">3</span>%%<span class="number">2</span></div><div class="line">[<span class="number">1</span>] <span class="number">1</span></div></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span>%%<span class="number">2</span></div></pre></td></tr></table></figure>
 </li>
 <li><p>求商,取整 %/%</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="number">3</span>%/%<span class="number">2</span></div><div class="line">[<span class="number">1</span>] <span class="number">1</span></div></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="number">3</span>%/%<span class="number">2</span></div><div class="line">[<span class="number">1</span>] <span class="number">1</span></div></pre></td></tr></table></figure>
 </li>
 <li><p>hist绘制直方图</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&gt; hn&lt;-hist(Nile)</div><div class="line">&gt; print(hn)</div><div class="line">$breaks</div><div class="line"> [<span class="number">1</span>]  <span class="number">400</span>  <span class="number">500</span>  <span class="number">600</span>  <span class="number">700</span>  <span class="number">800</span>  <span class="number">900</span> <span class="number">1000</span> <span class="number">1100</span> <span class="number">1200</span> <span class="number">1300</span></div><div class="line">[<span class="number">11</span>] <span class="number">1400</span></div><div class="line"></div><div class="line">$counts</div><div class="line"> [<span class="number">1</span>]  <span class="number">1</span>  <span class="number">0</span>  <span class="number">5</span> <span class="number">20</span> <span class="number">25</span> <span class="number">19</span> <span class="number">12</span> <span class="number">11</span>  <span class="number">6</span>  <span class="number">1</span></div><div class="line"></div><div class="line">$density</div><div class="line"> [<span class="number">1</span>] <span class="number">0.0001</span> <span class="number">0.0000</span> <span class="number">0.0005</span> <span class="number">0.0020</span> <span class="number">0.0025</span> <span class="number">0.0019</span> <span class="number">0.0012</span></div><div class="line"> [<span class="number">8</span>] <span class="number">0.0011</span> <span class="number">0.0006</span> <span class="number">0.0001</span></div><div class="line"></div><div class="line">$mids</div><div class="line"> [<span class="number">1</span>]  <span class="number">450</span>  <span class="number">550</span>  <span class="number">650</span>  <span class="number">750</span>  <span class="number">850</span>  <span class="number">950</span> <span class="number">1050</span> <span class="number">1150</span> <span class="number">1250</span> <span class="number">1350</span></div><div class="line"></div><div class="line">$xname</div><div class="line">[<span class="number">1</span>] <span class="string">"Nile"</span></div><div class="line"></div><div class="line">$equidist</div><div class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></div><div class="line"></div><div class="line">attr(,<span class="string">"class"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"histogram"</span></div></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hn &lt;- hist(Nile)</div></pre></td></tr></table></figure>
 </li>
 <li><p>summary</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt; summary(hn)</div><div class="line">         Length Class  Mode     </div><div class="line">breaks   <span class="number">11</span>     -none- numeric</div><div class="line">counts   <span class="number">10</span>     -none- numeric</div><div class="line">density  <span class="number">10</span>     -none- numeric</div><div class="line">mids     <span class="number">10</span>     -none- numeric</div><div class="line">xname     <span class="number">1</span>     -none- character</div><div class="line">equidist  <span class="number">1</span>     -none- logical</div></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">summary(hn)</div><div class="line">         Length Class  Mode     </div><div class="line">breaks   <span class="number">11</span>     -none- numeric</div><div class="line">counts   <span class="number">10</span>     -none- numeric</div><div class="line">density  <span class="number">10</span>     -none- numeric</div><div class="line">mids     <span class="number">10</span>     -none- numeric</div><div class="line">xname     <span class="number">1</span>     -none- character</div><div class="line">equidist  <span class="number">1</span>     -none- logical</div></pre></td></tr></table></figure>
 </li>
 </ol>
 <p><img src="/2017/05/23/R基本语法/HistogramOfNile.png" alt="直方图样例"></p>
@@ -110,7 +110,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://www.nierunjie.site/2017/05/23/R基本语法/" data-id="cj333mm420015bw4d0bxob0mp" class="article-share-link">Share</a>
+      <a data-url="https://www.nierunjie.site/2017/05/23/R基本语法/" data-id="cj33prs3q00151v4dy17tbhhn" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R语言/">R语言</a></li></ul>
@@ -152,6 +152,10 @@
       <ul>
         
           <li>
+            <a href="/2017/05/25/R统计/">R统计</a>
+          </li>
+        
+          <li>
             <a href="/2017/05/24/R因子和表/">R因子和表</a>
           </li>
         
@@ -165,10 +169,6 @@
         
           <li>
             <a href="/2017/05/24/R矩阵和数组/">R矩阵和数组</a>
-          </li>
-        
-          <li>
-            <a href="/2017/05/24/R向量/">R向量</a>
           </li>
         
       </ul>
