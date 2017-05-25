@@ -63,10 +63,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-vimrc配置-个人备用" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Linux压缩解压缩命令" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/04/17/vimrc配置-个人备用/" class="article-date">
-  <time datetime="2017-04-17T13:23:11.000Z" itemprop="datePublished">2017-04-17</time>
+    <a href="/2017/04/17/Linux压缩解压缩命令/" class="article-date">
+  <time datetime="2017-04-17T13:29:03.000Z" itemprop="datePublished">2017-04-17</time>
 </a>
     
   </div>
@@ -77,7 +77,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/17/vimrc配置-个人备用/">vimrc配置(个人备用)</a>
+      <a class="article-title" href="/2017/04/17/Linux压缩解压缩命令/">Linux压缩解压缩命令</a>
     </h1>
   
 
@@ -85,24 +85,56 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><ul>
-<li>~/.vimrc是vim的配置文件,保存起来用以恢复vim配置</li>
+        <h4 id="tar命令"><a href="#tar命令" class="headerlink" title="tar命令"></a>tar命令</h4><ul>
+<li>解包：tar zxvf FileName.tar</li>
+<li>打包：tar czvf FileName.tar DirName</li>
 </ul>
-<h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><p>“ 设置编码字符集,解决某些文件打开乱码的情况<br>set encoding=utf-8 fileencodings=ucs-bom,utf-8,cp936</p>
-<p>“ 显示行号<br>set number</p>
-<p>“ 空格代替制表符<br>set expandtab</p>
-<p>“ 不适用vi键盘<br>set nocompatible</p>
-<p>“ 突出显示当前行<br>set cursorline</p>
-<p>“ 自动缩进<br>set autoindent<br>set cindent</p>
-<p>“ Tab键的宽度<br>set tabstop=4</p>
-<p>“ 统一缩进为4<br>set softtabstop=4<br>set shiftwidth=4</p>
-<p>“ 自动判断换行格式<br>set fileformats=unix,dos</p>
-<p>“ vundle<br>set rtp+=~/.vim/bundle/vundle/<br>call vundle#rc()<br>Bundle ‘gmarik/vundle’<br>Bundle ‘bling/vim-airline’<br>Bundle ‘davidhalter/jedi-vim’<br>Plugin ‘Valloric/YouCompleteMe’<br>set laststatus=2</p>
+<h4 id="gz命令"><a href="#gz命令" class="headerlink" title="gz命令"></a>gz命令</h4><ul>
+<li>解压1：gunzip FileName.gz</li>
+<li>解压2：gzip -d FileName.gz</li>
+<li>压缩：gzip FileName</li>
+</ul>
+<h4 id="tar-gz-和-tgz"><a href="#tar-gz-和-tgz" class="headerlink" title="tar.gz 和 .tgz"></a>tar.gz 和 .tgz</h4><ul>
+<li>解压：tar zxvf FileName.tar.gz</li>
+<li>压缩：tar zcvf FileName.tar.gz DirName</li>
+<li>压缩多个文件：tar zcvf FileName.tar.gz DirName1 DirName2 DirName3 …</li>
+</ul>
+<h4 id="bz2命令"><a href="#bz2命令" class="headerlink" title="bz2命令"></a>bz2命令</h4><ul>
+<li>解压1：bzip2 -d FileName.bz2</li>
+<li>解压2：bunzip2 FileName.bz2</li>
+<li>压缩： bzip2 -z FileName</li>
+</ul>
+<h4 id="tar-bz2"><a href="#tar-bz2" class="headerlink" title="tar.bz2"></a>tar.bz2</h4><ul>
+<li>解压：tar jxvf FileName.tar.bz2</li>
+<li>压缩：tar jcvf FileName.tar.bz2 DirName</li>
+</ul>
+<h4 id="bz命令"><a href="#bz命令" class="headerlink" title="bz命令"></a>bz命令</h4><ul>
+<li>解压1：bzip2 -d FileName.bz</li>
+<li>解压2：bunzip2 FileName.bz</li>
+<li>压缩：未知</li>
+</ul>
+<h4 id="tar-bz"><a href="#tar-bz" class="headerlink" title="tar.bz"></a>tar.bz</h4><ul>
+<li>解压：tar jxvf FileName.tar.bz</li>
+</ul>
+<h4 id="Z命令"><a href="#Z命令" class="headerlink" title="Z命令"></a>Z命令</h4><ul>
+<li>解压：uncompress FileName.Z</li>
+<li>压缩：compress FileName</li>
+</ul>
+<h4 id="tar-Z"><a href="#tar-Z" class="headerlink" title="tar.Z"></a>tar.Z</h4><ul>
+<li>解压：tar Zxvf FileName.tar.Z   </li>
+<li>压缩：tar Zcvf FileName.tar.Z DirName</li>
+</ul>
+<h4 id="zip命令"><a href="#zip命令" class="headerlink" title="zip命令"></a>zip命令</h4><ul>
+<li>解压：unzip FileName.zip</li>
+<li>注:中文文件名乱码可指定字符集</li>
+<li>unzip -O gbk FileName.zip</li>
+<li>压缩：zip FileName.zip DirName</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://www.nierunjie.site/2017/04/17/vimrc配置-个人备用/" data-id="cj33rheah001mwt4dxsmuvwnv" class="article-share-link">Share</a>
+      <a data-url="https://www.nierunjie.site/2017/04/17/Linux压缩解压缩命令/" data-id="cj34c23zw000mg84d49g5i8s7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
@@ -117,7 +149,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/32/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/31/">31</a><a class="page-number" href="/page/32/">32</a><span class="page-number current">33</span><a class="page-number" href="/page/34/">34</a><a class="extend next" rel="next" href="/page/34/">&raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/32/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/31/">31</a><a class="page-number" href="/page/32/">32</a><span class="page-number current">33</span><a class="page-number" href="/page/34/">34</a><a class="page-number" href="/page/35/">35</a><a class="extend next" rel="next" href="/page/34/">&raquo;</a>
   </nav>
 
 </section>
@@ -129,6 +161,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/05/25/Linux-tab补全忽略大小写/">Linux tab补全忽略大小写</a>
+          </li>
         
           <li>
             <a href="/2017/05/25/R统计/">R统计</a>
@@ -144,10 +180,6 @@
         
           <li>
             <a href="/2017/05/24/R列表/">R列表</a>
-          </li>
-        
-          <li>
-            <a href="/2017/05/24/R矩阵和数组/">R矩阵和数组</a>
           </li>
         
       </ul>

@@ -330,7 +330,7 @@ pageEncoding="UTF-8"%>
     <div id="content">
         <!--使用JSTL中的forEach-->
         <c:forEach var="temp" items="${content}">
-            ${temp.name}<hr/>
+            ${temp['name']}<hr/>
         </c:forEach>
     </div>
 </body>
@@ -343,7 +343,7 @@ pageEncoding="UTF-8"%>
 
 ### 运行时
 1. 客户发送get或者post请求
-2. 容器通过~~配置文件中的映射关系(推荐使用后者)~~@WebServlet("/content.do"),将请求发送到真正的servlet
+2. 容器通过@WebServlet("/content.do"),将请求发送到真正的servlet
 3. 通过request.setAttribute("属性名",属性值)设置属性
 4. 创建视图RequestDispatcher view = request.getServletContext().getRequestDispatcher("/content.jsp")
 5. view.forward(request, response);

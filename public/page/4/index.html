@@ -63,10 +63,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-R列表" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-R数据框" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/05/24/R列表/" class="article-date">
-  <time datetime="2017-05-24T01:12:19.000Z" itemprop="datePublished">2017-05-24</time>
+    <a href="/2017/05/24/R数据框/" class="article-date">
+  <time datetime="2017-05-24T01:13:10.000Z" itemprop="datePublished">2017-05-24</time>
 </a>
     
   </div>
@@ -77,7 +77,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/24/R列表/">R列表</a>
+      <a class="article-title" href="/2017/05/24/R数据框/">R数据框</a>
     </h1>
   
 
@@ -86,30 +86,27 @@
     <div class="article-entry" itemprop="articleBody">
       
         <ol>
-<li><p>赋值,索引</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">&gt; x&lt;-list(u=<span class="number">2</span>,v=<span class="string">"abc"</span>)</div><div class="line">&gt; x</div><div class="line">$u</div><div class="line">[<span class="number">1</span>] <span class="number">2</span></div><div class="line"></div><div class="line">$v</div><div class="line">[<span class="number">1</span>] <span class="string">"abc"</span></div><div class="line"></div><div class="line">&gt; x$u</div><div class="line">[<span class="number">1</span>] <span class="number">2</span></div><div class="line">&gt; </div><div class="line">&gt; <span class="comment"># str的意思是structure,而不是string</span></div><div class="line">&gt; str(x)</div><div class="line">List of <span class="number">2</span></div><div class="line"> $ u: num <span class="number">2</span></div><div class="line"> $ v: chr <span class="string">"abc"</span></div><div class="line">&gt; </div><div class="line">&gt; j&lt;-list(name=<span class="string">"Joe"</span>,salary=<span class="number">55000</span>,union=<span class="literal">TRUE</span>)</div><div class="line">&gt; j$name</div><div class="line">[<span class="number">1</span>] <span class="string">"Joe"</span></div><div class="line">&gt; j[[<span class="number">1</span>]]</div><div class="line">[<span class="number">1</span>] <span class="string">"Joe"</span></div><div class="line">&gt; j[<span class="number">1</span>]</div><div class="line">$name</div><div class="line">[<span class="number">1</span>] <span class="string">"Joe"</span></div><div class="line"></div><div class="line">&gt; j[<span class="string">"name"</span>]</div><div class="line">$name</div><div class="line">[<span class="number">1</span>] <span class="string">"Joe"</span></div><div class="line"></div><div class="line">&gt; </div><div class="line">&gt; z&lt;-vector(mode=<span class="string">"list"</span>)</div><div class="line">&gt; z</div><div class="line">list()</div><div class="line">&gt; z[[<span class="string">"abc"</span>]]&lt;-<span class="number">3</span></div><div class="line">&gt; z</div><div class="line">$abc</div><div class="line">[<span class="number">1</span>] <span class="number">3</span></div></pre></td></tr></table></figure>
+<li><p>数据框data.frame,数据一般从文件或者数据库中读取</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt; d&lt;-data.frame(list(kid=c(<span class="string">"Jack"</span>,<span class="string">"Jill"</span>),age=c(<span class="number">12</span>,<span class="number">10</span>)))</div><div class="line">&gt; d</div><div class="line">   kid age</div><div class="line"><span class="number">1</span> Jack  <span class="number">12</span></div><div class="line"><span class="number">2</span> Jill  <span class="number">10</span></div></pre></td></tr></table></figure>
 </li>
-<li><p>接上,unlist(),unname()</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&gt; k&lt;-unlist(j)</div><div class="line">&gt; k</div><div class="line">   name  salary   union </div><div class="line">  <span class="string">"Joe"</span> <span class="string">"55000"</span>  <span class="string">"TRUE"</span> </div><div class="line">&gt; unname(k)</div><div class="line">[<span class="number">1</span>] <span class="string">"Joe"</span>   <span class="string">"55000"</span> <span class="string">"TRUE"</span> </div><div class="line">&gt; unname(j)</div><div class="line">[[<span class="number">1</span>]]</div><div class="line">[<span class="number">1</span>] <span class="string">"Joe"</span></div><div class="line"></div><div class="line">[[<span class="number">2</span>]]</div><div class="line">[<span class="number">1</span>] <span class="number">55000</span></div><div class="line"></div><div class="line">[[<span class="number">3</span>]]</div><div class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></div></pre></td></tr></table></figure>
+<li><p>从文件中读取</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; example &lt;- read.table(<span class="string">"test"</span>,header=<span class="literal">TRUE</span>)</div></pre></td></tr></table></figure>
 </li>
-<li><p>添加组件</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">&gt; x&lt;-list(u=<span class="number">2</span>,v=<span class="string">"abc"</span>)</div><div class="line">&gt; x$w&lt;-<span class="string">"hahahah"</span></div><div class="line">&gt; x</div><div class="line">$u</div><div class="line">[<span class="number">1</span>] <span class="number">2</span></div><div class="line"></div><div class="line">$v</div><div class="line">[<span class="number">1</span>] <span class="string">"abc"</span></div><div class="line"></div><div class="line">$w</div><div class="line">[<span class="number">1</span>] <span class="string">"hahahah"</span></div><div class="line"></div><div class="line">&gt; x[[<span class="number">4</span>]&lt;-<span class="string">"asd"</span></div><div class="line">&gt; x[<span class="number">5</span>:<span class="number">7</span>]&lt;-<span class="number">5</span>:<span class="number">7</span></div><div class="line">&gt; x</div><div class="line">$u</div><div class="line">[<span class="number">1</span>] <span class="number">2</span></div><div class="line"></div><div class="line">$v</div><div class="line">[<span class="number">1</span>] <span class="string">"abc"</span></div><div class="line"></div><div class="line">$w</div><div class="line">[<span class="number">1</span>] <span class="string">"hahahah"</span></div><div class="line"></div><div class="line">[[<span class="number">4</span>]]</div><div class="line">[<span class="number">1</span>] <span class="string">"asd"</span></div><div class="line"></div><div class="line">[[<span class="number">5</span>]]</div><div class="line">[<span class="number">1</span>] <span class="number">5</span></div><div class="line"></div><div class="line">[[<span class="number">6</span>]]</div><div class="line">[<span class="number">1</span>] <span class="number">6</span></div><div class="line"></div><div class="line">[[<span class="number">7</span>]]</div><div class="line">[<span class="number">1</span>] <span class="number">7</span></div></pre></td></tr></table></figure>
+<li><p>访问数据框</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&gt; d$kid</div><div class="line">[<span class="number">1</span>] Jack Jill</div><div class="line">Levels: Jack Jill</div><div class="line">&gt; d[<span class="number">1</span>]</div><div class="line">   kid</div><div class="line"><span class="number">1</span> Jack</div><div class="line"><span class="number">2</span> Jill</div><div class="line">&gt; d[[<span class="number">1</span>]]</div><div class="line">[<span class="number">1</span>] Jack Jill</div><div class="line">Levels: Jack Jill</div><div class="line">&gt; d[,<span class="number">1</span>]</div><div class="line">[<span class="number">1</span>] Jack Jill</div><div class="line">Levels: Jack Jill</div><div class="line">&gt; d[<span class="number">1</span>,]</div><div class="line">   kid age</div><div class="line"><span class="number">1</span> Jack  <span class="number">12</span></div></pre></td></tr></table></figure>
 </li>
-<li><p>删除组件,赋值NULL即可</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&gt;   x[[<span class="number">4</span>]]&lt;-<span class="literal">NULL</span></div><div class="line">&gt; x</div><div class="line">$u</div><div class="line">[<span class="number">1</span>] <span class="number">2</span></div><div class="line"></div><div class="line">$v</div><div class="line">[<span class="number">1</span>] <span class="string">"abc"</span></div><div class="line"></div><div class="line">$w</div><div class="line">[<span class="number">1</span>] <span class="string">"hahahah"</span></div><div class="line"></div><div class="line">[[<span class="number">4</span>]]</div><div class="line">[<span class="number">1</span>] <span class="number">5</span></div><div class="line"></div><div class="line">[[<span class="number">5</span>]]</div><div class="line">[<span class="number">1</span>] <span class="number">6</span></div><div class="line"></div><div class="line">[[<span class="number">6</span>]]</div><div class="line">[<span class="number">1</span>] <span class="number">7</span></div></pre></td></tr></table></figure>
+<li><p>合并merge(x,y) 删除不匹配的 merge(x,y,by.x=”列名”,by.y=”列名”) 列名不同但意义相同</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&gt; d1</div><div class="line">     kids states</div><div class="line"><span class="number">1</span>    Jack     CA</div><div class="line"><span class="number">2</span>    Jill     MA</div><div class="line"><span class="number">3</span> Jillian     MA</div><div class="line"><span class="number">4</span>    john     HI</div><div class="line">&gt; d2</div><div class="line">     kids ages</div><div class="line"><span class="number">1</span>    Jack   <span class="number">10</span></div><div class="line"><span class="number">2</span>    Jill    <span class="number">7</span></div><div class="line"><span class="number">3</span> Lillian   <span class="number">12</span></div><div class="line">&gt; merge(d1,d2)</div><div class="line">  kids states ages</div><div class="line"><span class="number">1</span> Jack     CA   <span class="number">10</span></div><div class="line"><span class="number">2</span> Jill     MA    <span class="number">7</span></div></pre></td></tr></table></figure>
 </li>
-<li><p>获取长度</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; length(x)</div><div class="line">[<span class="number">1</span>] <span class="number">6</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>列表使用lapply,sapply</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt; lapply(list(<span class="number">1</span>:<span class="number">3</span>,<span class="number">25</span>:<span class="number">29</span>),median)</div><div class="line">[[<span class="number">1</span>]]</div><div class="line">[<span class="number">1</span>] <span class="number">2</span></div><div class="line"></div><div class="line">[[<span class="number">2</span>]]</div><div class="line">[<span class="number">1</span>] <span class="number">27</span></div><div class="line"></div><div class="line">&gt; sapply(list(<span class="number">1</span>:<span class="number">3</span>,<span class="number">25</span>:<span class="number">29</span>),median)</div><div class="line">[<span class="number">1</span>]  <span class="number">2</span> <span class="number">27</span></div></pre></td></tr></table></figure>
+<li><p>统计文件中没一行的属性个数</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">count.fields(file, sep = <span class="string">""</span>, quote = <span class="string">"\"'"</span>, skip = <span class="number">0</span>,</div><div class="line">             blank.lines.skip = <span class="literal">TRUE</span>, comment.char = <span class="string">"#"</span>)</div></pre></td></tr></table></figure>
 </li>
 </ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://www.nierunjie.site/2017/05/24/R列表/" data-id="cj33rhe9m000xwt4do3i8gz59" class="article-share-link">Share</a>
+      <a data-url="https://www.nierunjie.site/2017/05/24/R数据框/" data-id="cj34c240z001bg84dy4ysmjxv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R语言/">R语言</a></li></ul>
@@ -124,7 +121,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/3/">&laquo;</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/34/">34</a><a class="extend next" rel="next" href="/page/5/">&raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/3/">&laquo;</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/35/">35</a><a class="extend next" rel="next" href="/page/5/">&raquo;</a>
   </nav>
 
 </section>
@@ -136,6 +133,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/05/25/Linux-tab补全忽略大小写/">Linux tab补全忽略大小写</a>
+          </li>
         
           <li>
             <a href="/2017/05/25/R统计/">R统计</a>
@@ -151,10 +152,6 @@
         
           <li>
             <a href="/2017/05/24/R列表/">R列表</a>
-          </li>
-        
-          <li>
-            <a href="/2017/05/24/R矩阵和数组/">R矩阵和数组</a>
           </li>
         
       </ul>
