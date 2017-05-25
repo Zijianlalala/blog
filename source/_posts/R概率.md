@@ -44,11 +44,31 @@ weibull # 威布尔分布
 wilcox # Wilcoxon分布
 ```
 
-0. 生成随机数
+0. 生成随机数,分布前加'r'
 ```R
-# 在分布前面加上'r'
-如runif
+如 runif
 set.seed() # 可再生随机数
+```
+
+0. 分布函数,分布前加'p'
+```R
+如 pbinom
+s<-seq(from=-3,to=+3,length.out = 100) # 生成横坐标
+y<-pnorm(x)
+plot(x,y,main="Standard Normal Distribution",type='l')
+```
+ ![标准正态分布分布函数](pnorm.png) 
+0. 密度函数,分布前加'd'
+```R
+如 dgamma
+y<-dnorm(x)
+plot(x,y,main="Standard Normal Distribution",type='l')
+```
+ ![标准正态分布密度函数](dnorm.png)
+
+0. 分位数(不懂),分布前加q
+```R
+如 qnorm
 ```
 
 0. 生成随机样本
