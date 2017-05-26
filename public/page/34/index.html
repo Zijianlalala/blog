@@ -63,10 +63,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-vimrc配置-个人备用" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Linux清除已删除程序的配置文件" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/04/17/vimrc配置-个人备用/" class="article-date">
-  <time datetime="2017-04-17T13:23:11.000Z" itemprop="datePublished">2017-04-17</time>
+    <a href="/2017/04/17/Linux清除已删除程序的配置文件/" class="article-date">
+  <time datetime="2017-04-17T13:33:14.000Z" itemprop="datePublished">2017-04-17</time>
 </a>
     
   </div>
@@ -77,7 +77,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/17/vimrc配置-个人备用/">vimrc配置(个人备用)</a>
+      <a class="article-title" href="/2017/04/17/Linux清除已删除程序的配置文件/">Linux清除已删除程序的配置文件</a>
     </h1>
   
 
@@ -85,24 +85,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><ul>
-<li>~/.vimrc是vim的配置文件,保存起来用以恢复vim配置</li>
+        <ul>
+<li>代码<br><code>dpkg -l |grep &quot;^rc&quot;|awk &#39;{print $2}&#39; |xargs aptitude -y purge</code></li>
 </ul>
-<h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><p>“ 设置编码字符集,解决某些文件打开乱码的情况<br>set encoding=utf-8 fileencodings=ucs-bom,utf-8,cp936</p>
-<p>“ 显示行号<br>set number</p>
-<p>“ 空格代替制表符<br>set expandtab</p>
-<p>“ 不适用vi键盘<br>set nocompatible</p>
-<p>“ 突出显示当前行<br>set cursorline</p>
-<p>“ 自动缩进<br>set autoindent<br>set cindent</p>
-<p>“ Tab键的宽度<br>set tabstop=4</p>
-<p>“ 统一缩进为4<br>set softtabstop=4<br>set shiftwidth=4</p>
-<p>“ 自动判断换行格式<br>set fileformats=unix,dos</p>
-<p>“ vundle<br>set rtp+=~/.vim/bundle/vundle/<br>call vundle#rc()<br>Bundle ‘gmarik/vundle’<br>Bundle ‘bling/vim-airline’<br>Bundle ‘davidhalter/jedi-vim’<br>Plugin ‘Valloric/YouCompleteMe’<br>set laststatus=2</p>
+<ul>
+<li>解释</li>
+</ul>
+<ol>
+<li><code>dpkg -l</code> 列出所有安装的软件</li>
+<li><code>grep &quot;^rc&quot;</code> 找出rc开头的软件(已经被卸载)</li>
+<li><code>awk &#39;{print $2}&#39;</code> 提取出字符串的第二部分(软件名)</li>
+<li><code>xargs</code> 将前面产生的结果当成下个函数的参数</li>
+<li><code>aptitude -y purge</code> 删除软件,过程中出现的选项输入’y’</li>
+</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://www.nierunjie.site/2017/04/17/vimrc配置-个人备用/" data-id="cj34dfw52001qxn4dnhvzbs9m" class="article-share-link">Share</a>
+      <a data-url="https://www.nierunjie.site/2017/04/17/Linux清除已删除程序的配置文件/" data-id="cj35ad9cy000oz44dhtccehj6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
@@ -117,7 +117,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/33/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><a class="page-number" href="/page/33/">33</a><span class="page-number current">34</span><a class="page-number" href="/page/35/">35</a><a class="extend next" rel="next" href="/page/35/">&raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/33/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><a class="page-number" href="/page/33/">33</a><span class="page-number current">34</span><a class="page-number" href="/page/35/">35</a><a class="page-number" href="/page/36/">36</a><a class="page-number" href="/page/37/">37</a><a class="extend next" rel="next" href="/page/35/">&raquo;</a>
   </nav>
 
 </section>
@@ -131,23 +131,23 @@
       <ul>
         
           <li>
+            <a href="/2017/05/26/R数学运算/">R数学运算</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/26/R统计/">R统计</a>
+          </li>
+        
+          <li>
             <a href="/2017/05/25/Linux-tab补全忽略大小写/">Linux tab补全忽略大小写</a>
           </li>
         
           <li>
-            <a href="/2017/05/25/R概率/">R统计</a>
+            <a href="/2017/05/25/R概率/">R概率</a>
           </li>
         
           <li>
             <a href="/2017/05/24/R因子和表/">R因子和表</a>
-          </li>
-        
-          <li>
-            <a href="/2017/05/24/R数据框/">R数据框</a>
-          </li>
-        
-          <li>
-            <a href="/2017/05/24/R列表/">R列表</a>
           </li>
         
       </ul>
