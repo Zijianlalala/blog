@@ -63,10 +63,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-R语言非线性回归" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Visitor-Pattern" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/05/27/R语言非线性回归/" class="article-date">
-  <time datetime="2017-05-27T03:02:56.000Z" itemprop="datePublished">2017-05-27</time>
+    <a href="/2017/06/01/Visitor-Pattern/" class="article-date">
+  <time datetime="2017-06-01T04:53:41.000Z" itemprop="datePublished">2017-06-01</time>
 </a>
     
   </div>
@@ -77,7 +77,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/27/R语言非线性回归/">R语言非线性回归</a>
+      <a class="article-title" href="/2017/06/01/Visitor-Pattern/">Visitor Pattern</a>
     </h1>
   
 
@@ -85,39 +85,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ol>
-<li><p>非线性最小二乘拟合</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 生成一些仿真数据</span></div><div class="line">set.seed(<span class="number">20170527</span>)  </div><div class="line">x &lt;- seq(<span class="number">0</span>, <span class="number">50</span>, <span class="number">1</span>)</div><div class="line">y &lt;- ((runif(<span class="number">1</span>, <span class="number">10</span>, <span class="number">20</span>)*x)/(runif(<span class="number">1</span>, <span class="number">0</span>, <span class="number">10</span>)+x)) + rnorm(<span class="number">51</span>, <span class="number">0</span>, <span class="number">1</span>)</div><div class="line"><span class="comment"># 对于一些简单的模型，nls函数可以自动找到合适的参数初值</span></div><div class="line">m &lt;- nls(y ~ a*x/(b+x))</div><div class="line"><span class="comment"># 计算模型的拟合优度</span></div><div class="line">cor(y, predict(m))</div><div class="line"><span class="comment"># [1] 0.96535</span></div><div class="line"><span class="comment"># 将结果可视化</span></div><div class="line">plot(x, y) </div><div class="line">lines(x, predict(m), lty = <span class="number">2</span>, col = <span class="string">"red"</span>, lwd = <span class="number">3</span>)</div></pre></td></tr></table></figure>
-<p><img src="/2017/05/27/R语言非线性回归/1.png" alt="最小二乘拟合"></p>
-</li>
-<li><p>选择适宜的迭代初值</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 生成仿真数据，并且此次对于参数没有先验信息</span></div><div class="line">y &lt;- runif(<span class="number">1</span>, <span class="number">5</span>, <span class="number">15</span>)*exp(-runif(<span class="number">1</span>, <span class="number">0.01</span>, <span class="number">0.05</span>)*x) + rnorm(<span class="number">51</span>, <span class="number">0</span>, <span class="number">0.5</span>)</div><div class="line"><span class="comment"># 可视化数据并选择一些参数初值</span></div><div class="line">plot(x, y)</div><div class="line"></div><div class="line"><span class="comment"># 如果不设置初值,直接拟合</span></div><div class="line">m &lt;- nls(y ~ a*exp(-b*x))</div><div class="line"><span class="comment"># 拟合度过低</span></div><div class="line">cor(y, predict(m))</div><div class="line"><span class="comment"># [1] 0.0637522</span></div><div class="line">lines(x, predict(m), col = <span class="string">"green"</span>, lty = <span class="number">2</span>, lwd = <span class="number">3</span>)</div><div class="line"></div><div class="line"><span class="comment"># 通过这个散点图确定参数a, b的初值</span></div><div class="line">a_start &lt;- <span class="number">8</span> <span class="comment"># 参数a是x = 0时y的取值</span></div><div class="line">b_start&lt;- <span class="number">2</span>*log(<span class="number">2</span>)/a_start <span class="comment"># b 是衰减速率</span></div><div class="line"><span class="comment"># 拟合模型</span></div><div class="line">m &lt;- nls(y ~ a*exp(-b*x), start = list(a = a_start, b = b_start))</div><div class="line"></div><div class="line"><span class="comment"># 计算拟合优度</span></div><div class="line">cor(y, predict(m))</div><div class="line"><span class="comment"># [1] 0.930365</span></div><div class="line"><span class="comment"># 将结果可视化</span></div><div class="line">lines(x, predict(m), col = <span class="string">"red"</span>, lty = <span class="number">2</span>, lwd = <span class="number">3</span>)</div></pre></td></tr></table></figure>
-<p><img src="/2017/05/27/R语言非线性回归/2.png" alt="设置初值与不设置初值的拟合"></p>
-</li>
-<li><p>使用自启动函数</p>
-<ul>
-<li><p>这部分代码只是生成了带有随机误差的仿真数据 </p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">library</span>(deSolve)</div><div class="line"><span class="comment"># 利用逻辑斯蒂模型生成人口增长的仿真数据，并用nls估计参数</span></div><div class="line">log_growth &lt;- <span class="keyword">function</span>(Time, State, Pars) &#123;</div><div class="line">    with(as.list(c(State, Pars)), &#123;</div><div class="line">        dN &lt;- R*N*(<span class="number">1</span>-N/K)</div><div class="line">        <span class="keyword">return</span>(list(c(dN)))</div><div class="line">    &#125;)</div><div class="line">&#125;</div><div class="line"><span class="comment"># 逻辑斯蒂增长的参数</span></div><div class="line">pars  &lt;- c(R = <span class="number">0.2</span>, K = <span class="number">1000</span>)</div><div class="line"><span class="comment"># 设定初值</span></div><div class="line">N_ini  &lt;- c(N = <span class="number">1</span>)</div><div class="line"><span class="comment"># 常微分方程的时间阶段（下标t）</span></div><div class="line">times &lt;- seq(<span class="number">0</span>, <span class="number">50</span>, by = <span class="number">1</span>)</div><div class="line"><span class="comment"># 常微分方程</span></div><div class="line">out &lt;- ode(N_ini, times, log_growth, pars)</div><div class="line"><span class="comment"># 添加一些随机波动</span></div><div class="line">N_obs &lt;- out[, <span class="number">2</span>]+rnorm(<span class="number">51</span>, <span class="number">0</span>, <span class="number">50</span>)</div><div class="line"><span class="comment"># 个体数值不能小于1</span></div><div class="line">N_obs &lt;- ifelse(N_obs&lt;<span class="number">1</span>, <span class="number">1</span>, N_obs)</div><div class="line"><span class="comment"># 画图</span></div><div class="line">plot(times, N_obs)</div></pre></td></tr></table></figure>
-</li>
-<li><p>接下来的部分会展现估计参数初值的技巧。R语言中有一个估计逻辑斯蒂方程参数的内建函数（SSlogis），但它使用的是如下方程：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 寻找方程的参数</span></div><div class="line">SS &lt;- getInitial(N_obs ~ SSlogis(times, alpha, xmid, scale), data = data.frame(N_obs = N_obs, times = times))</div></pre></td></tr></table></figure>
-</li>
-<li><p>我们可使用getInitial函数来对模型参数做一个基于数据的初步估计。然后把该函数的输出作为一个向量化参数传递给自启动函数（SSlogis），同时也将无引号的三个参数名赋值给逻辑斯蒂方程（译者注：即alpha，xmid，scale三个参数）。然而，由于SSlogis的参数设定有些不同，我们需要对SSlogis的输出值做一些处理，使得其与逻辑斯蒂方程中的形式一致。</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 改变参数形式</span></div><div class="line">K_start &lt;- SS[<span class="string">"alpha"</span>]</div><div class="line">R_start &lt;- <span class="number">1</span>/SS[<span class="string">"scale"</span>]</div><div class="line">N0_start &lt;- SS[<span class="string">"alpha"</span>]/(exp(SS[<span class="string">"xmid"</span>]/SS[<span class="string">"scale"</span>])+<span class="number">1</span>)</div><div class="line"><span class="comment"># 构建模型的公式</span></div><div class="line">log_formula &lt;- formula(N_obs ~ K*N0*exp(R*times)/(K + N0*(exp(R*times) - <span class="number">1</span>)))</div><div class="line"><span class="comment"># 拟合模型</span></div><div class="line">m &lt;- nls(log_formula, start = list(K = K_start, R = R_start, N0 = N0_start))</div><div class="line"><span class="comment"># 估计参数</span></div><div class="line">summary(m)</div><div class="line"><span class="comment">#    Formula: N_obs ~ K * N0 * exp(R * times)/(K + N0 * (exp(R * times) - 1))</span></div><div class="line"><span class="comment">#    Parameters:</span></div><div class="line"><span class="comment">#     Estimate Std. Error t value Pr(&gt;|t|)    </span></div><div class="line"><span class="comment">#    K  1.012e+03  3.446e+01  29.366   &lt;2e-16 ***</span></div><div class="line"><span class="comment">#    R  2.010e-01  1.504e-02  13.360   &lt;2e-16 ***</span></div><div class="line"><span class="comment">#    N0 9.600e-01  4.582e-01   2.095   0.0415 *  </span></div><div class="line"><span class="comment">#    ---</span></div><div class="line"><span class="comment">#    Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</span></div><div class="line"></div><div class="line"><span class="comment">#    Residual standard error: 49.01 on 48 degrees of freedom</span></div><div class="line"></div><div class="line"><span class="comment">#    Number of iterations to convergence: 1 </span></div><div class="line"><span class="comment">#    Achieved convergence tolerance: 1.537e-06</span></div><div class="line"></div><div class="line"><span class="comment"># 计算拟合优度</span></div><div class="line">cor(N_obs,predict(m))</div><div class="line"></div><div class="line"><span class="comment"># [1] 0.9910316</span></div><div class="line"></div><div class="line"><span class="comment"># 结果可视化</span></div><div class="line">lines(times, predict(m), col = <span class="string">"red"</span>, lty = <span class="number">2</span>, lwd = <span class="number">3</span>)</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><img src="/2017/05/27/R语言非线性回归/3.png" alt="使用自启动函数拟合结果"></p>
-</li>
-</ol>
-
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://www.nierunjie.site/2017/05/27/R语言非线性回归/" data-id="cj36qp2yo001jy84dku30zq8t" class="article-share-link">Share</a>
+      <a data-url="https://www.nierunjie.site/2017/06/01/Visitor-Pattern/" data-id="cj3e62jy40027l14dqkifkl18" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R语言/">R语言</a></li></ul>
-
     </footer>
   </div>
   
@@ -128,7 +102,7 @@
 
 
   <nav id="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/38/">38</a><a class="extend next" rel="next" href="/page/2/">&raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/48/">48</a><a class="extend next" rel="next" href="/page/2/">&raquo;</a>
   </nav>
 
 </section>
@@ -142,23 +116,23 @@
       <ul>
         
           <li>
-            <a href="/2017/05/27/R语言非线性回归/">R语言非线性回归</a>
+            <a href="/2017/06/01/Visitor-Pattern/">Visitor Pattern</a>
           </li>
         
           <li>
-            <a href="/2017/05/26/R数学运算/">R数学运算</a>
+            <a href="/2017/06/01/Memento-Pattern/">Memento Pattern</a>
           </li>
         
           <li>
-            <a href="/2017/05/26/R统计/">R统计</a>
+            <a href="/2017/06/01/Iterator-Pattern/">Iterator Pattern</a>
           </li>
         
           <li>
-            <a href="/2017/05/25/Linux-tab补全忽略大小写/">Linux tab补全忽略大小写</a>
+            <a href="/2017/06/01/Interpreter-Pattern/">Interpreter Pattern</a>
           </li>
         
           <li>
-            <a href="/2017/05/25/R概率/">R概率</a>
+            <a href="/2017/06/01/Chain-of-Responsibility-Pattern/">Chain of Responsibility Pattern</a>
           </li>
         
       </ul>
@@ -179,7 +153,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li></ul>
     </div>
   </div>
 

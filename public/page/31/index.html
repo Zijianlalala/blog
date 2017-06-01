@@ -63,10 +63,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-JDBC添加数据库驱动注意事项" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Strategy-Pattern" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/04/24/JDBC添加数据库驱动注意事项/" class="article-date">
-  <time datetime="2017-04-24T13:16:00.000Z" itemprop="datePublished">2017-04-24</time>
+    <a href="/2017/05/02/Strategy-Pattern/" class="article-date">
+  <time datetime="2017-05-02T12:59:41.000Z" itemprop="datePublished">2017-05-02</time>
 </a>
     
   </div>
@@ -77,7 +77,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/24/JDBC添加数据库驱动注意事项/">JDBC添加数据库驱动注意事项</a>
+      <a class="article-title" href="/2017/05/02/Strategy-Pattern/">Strategy Pattern</a>
     </h1>
   
 
@@ -85,25 +85,51 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ul>
-<li>Eclipse</li>
-<li>SQLite Driver(实际上什么驱动都一样)</li>
+        <h2 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h2><ul>
+<li>在策略模式（Strategy Pattern）中，一个类的行为或其算法可以在运行时更改。这种类型的设计模式属于行为型模式。<br>在策略模式中，我们创建表示各种策略的对象和一个行为随着策略对象改变而改变的 context 对象。策略对象改变 context 对象的执行算法。</li>
 </ul>
-<h2 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h2><ol>
-<li>下载驱动放到WebContent/WEB-INF/lib目录下</li>
-<li>在Eclipse环境刷新目录结构,会多出一个Web App Libraries</li>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
+<li>意图：定义一系列的算法,把它们一个个封装起来, 并且使它们可相互替换。</li>
+<li>主要解决：在有多种算法相似的情况下，使用 if…else 所带来的复杂和难以维护。</li>
+<li>何时使用：一个系统有许多许多类，而区分它们的只是他们直接的行为。</li>
+<li>如何解决：将这些算法封装成一个一个的类，任意地替换。</li>
+<li>关键代码：实现同一个接口。</li>
+<li>应用实例： 1、诸葛亮的锦囊妙计，每一个锦囊就是一个策略。 2、旅行的出游方式，选择骑自行车、坐汽车，每一种旅行方式都是一个策略。 3、JAVA AWT 中的 LayoutManager。</li>
+<li>优点： 1、算法可以自由切换。 2、避免使用多重条件判断。 3、扩展性良好。</li>
+<li>缺点： 1、策略类会增多。 2、所有策略类都需要对外暴露。</li>
+<li>使用场景： 1、如果在一个系统里面有许多类，它们之间的区别仅在于它们的行为，那么使用策略模式可以动态地让一个对象在许多行为中选择一种行为。 2、一个系统需要动态地在几种算法中选择一种。 3、如果一个对象有很多的行为，如果不用恰当的模式，这些行为就只好使用多重的条件选择语句来实现。</li>
+<li>注意事项：如果一个系统的策略多于四个，就需要考虑使用混合模式，解决策略类膨胀的问题。</li>
+</ul>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>我们将创建一个定义活动的 Strategy 接口和实现了 Strategy 接口的实体策略类。Context 是一个使用了某种策略的类。<br>StrategyPatternDemo，我们的演示类使用 Context 和策略对象来演示 Context 在它所配置或使用的策略改变时的行为变化。</p>
+<ol>
+<li><p>创建一个接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Strategy.java</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Strategy</span> </span>&#123;</div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">doOperation</span><span class="params">(<span class="keyword">int</span> num1, <span class="keyword">int</span> num2)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>创建实现接口的实体类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// OperationAdd.java</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OperationAdd</span> <span class="keyword">implements</span> <span class="title">Strategy</span></span>&#123;</div><div class="line">   <span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">doOperation</span><span class="params">(<span class="keyword">int</span> num1, <span class="keyword">int</span> num2)</span> </span>&#123;</div><div class="line">      <span class="keyword">return</span> num1 + num2;</div><div class="line">   &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// OperationSubstract.java</span></div><div class="line"><span class="comment">// OperationMultiply.java</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>创建Context类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Context.java</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Context</span> </span>&#123;</div><div class="line">   <span class="keyword">private</span> Strategy strategy;</div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="title">Context</span><span class="params">(Strategy strategy)</span></span>&#123;</div><div class="line">      <span class="keyword">this</span>.strategy = strategy;</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">executeStrategy</span><span class="params">(<span class="keyword">int</span> num1, <span class="keyword">int</span> num2)</span></span>&#123;</div><div class="line">      <span class="keyword">return</span> strategy.doOperation(num1, num2);</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用 Context 来查看当它改变策略 Strategy 时的行为变化。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// StrategyPatternDemo.java</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StrategyPatternDemo</span> </span>&#123;</div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">      Context context = <span class="keyword">new</span> Context(<span class="keyword">new</span> OperationAdd());</div><div class="line">      System.out.println(<span class="string">"10 + 5 = "</span> + context.executeStrategy(<span class="number">10</span>, <span class="number">5</span>));</div><div class="line"></div><div class="line">      context = <span class="keyword">new</span> Context(<span class="keyword">new</span> OperationSubstract());</div><div class="line">      System.out.println(<span class="string">"10 - 5 = "</span> + context.executeStrategy(<span class="number">10</span>, <span class="number">5</span>));</div><div class="line"></div><div class="line">      context = <span class="keyword">new</span> Context(<span class="keyword">new</span> OperationMultiply());</div><div class="line">      System.out.println(<span class="string">"10 * 5 = "</span> + context.executeStrategy(<span class="number">10</span>, <span class="number">5</span>));</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
 </ol>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
-<li>我知道这篇文章很水,但是为了纪念一下自己把文件放到合适的位置但是没刷新而找了两个小时BUG的都比行为而写了这篇文章</li>
+<h2 id="个人理解"><a href="#个人理解" class="headerlink" title="个人理解"></a>个人理解</h2><ul>
+<li>策略模式是行为型模式,简单工厂模式是创建型模式.这两个模式在实现上貌似很相似,但是本质上不同.工厂模式是根据需要创建对象,策略模式是根据需要选择方法.</li>
 </ul>
+<h4 id="举一个不成熟的例子"><a href="#举一个不成熟的例子" class="headerlink" title="举一个不成熟的例子:"></a>举一个不成熟的例子:</h4><ol>
+<li>策略模式:走在路上,走着走着,面前有三条路,选择一条走下去</li>
+<li>工厂模式:走在路上,走着走着,饿了,正好面前有个面包店,告诉店主,我要一个什么什么样的面包,然后拿到一个面包</li>
+</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://www.nierunjie.site/2017/04/24/JDBC添加数据库驱动注意事项/" data-id="cj36qp2xa000gy84dc9m3bvjh" class="article-share-link">Share</a>
+      <a data-url="https://www.nierunjie.site/2017/05/02/Strategy-Pattern/" data-id="cj3e62jy6002al14dnjoksnl6" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
 
     </footer>
   </div>
@@ -115,7 +141,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/30/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/29/">29</a><a class="page-number" href="/page/30/">30</a><span class="page-number current">31</span><a class="page-number" href="/page/32/">32</a><a class="page-number" href="/page/33/">33</a><span class="space">&hellip;</span><a class="page-number" href="/page/38/">38</a><a class="extend next" rel="next" href="/page/32/">&raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/30/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/29/">29</a><a class="page-number" href="/page/30/">30</a><span class="page-number current">31</span><a class="page-number" href="/page/32/">32</a><a class="page-number" href="/page/33/">33</a><span class="space">&hellip;</span><a class="page-number" href="/page/48/">48</a><a class="extend next" rel="next" href="/page/32/">&raquo;</a>
   </nav>
 
 </section>
@@ -129,23 +155,23 @@
       <ul>
         
           <li>
-            <a href="/2017/05/27/R语言非线性回归/">R语言非线性回归</a>
+            <a href="/2017/06/01/Visitor-Pattern/">Visitor Pattern</a>
           </li>
         
           <li>
-            <a href="/2017/05/26/R数学运算/">R数学运算</a>
+            <a href="/2017/06/01/Memento-Pattern/">Memento Pattern</a>
           </li>
         
           <li>
-            <a href="/2017/05/26/R统计/">R统计</a>
+            <a href="/2017/06/01/Iterator-Pattern/">Iterator Pattern</a>
           </li>
         
           <li>
-            <a href="/2017/05/25/Linux-tab补全忽略大小写/">Linux tab补全忽略大小写</a>
+            <a href="/2017/06/01/Interpreter-Pattern/">Interpreter Pattern</a>
           </li>
         
           <li>
-            <a href="/2017/05/25/R概率/">R概率</a>
+            <a href="/2017/06/01/Chain-of-Responsibility-Pattern/">Chain of Responsibility Pattern</a>
           </li>
         
       </ul>
@@ -166,7 +192,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li></ul>
     </div>
   </div>
 

@@ -63,10 +63,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Template-Pattern" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-R列表" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/05/03/Template-Pattern/" class="article-date">
-  <time datetime="2017-05-03T14:06:53.000Z" itemprop="datePublished">2017-05-03</time>
+    <a href="/2017/05/24/R列表/" class="article-date">
+  <time datetime="2017-05-24T01:12:19.000Z" itemprop="datePublished">2017-05-24</time>
 </a>
     
   </div>
@@ -77,7 +77,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/03/Template-Pattern/">Template Pattern</a>
+      <a class="article-title" href="/2017/05/24/R列表/">R列表</a>
     </h1>
   
 
@@ -85,47 +85,34 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="模板模式"><a href="#模板模式" class="headerlink" title="模板模式"></a>模板模式</h2><ul>
-<li>在模板模式（Template Pattern）中，一个抽象类公开定义了执行它的方法的方式/模板。它的子类可以按需要重写方法实现，但调用将以抽象类中定义的方式进行。这种类型的设计模式属于行为型模式。</li>
-</ul>
-<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
-<li>意图：定义一个操作中的算法的骨架，而将一些步骤延迟到子类中。模板方法使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤。</li>
-<li>主要解决：一些方法通用，却在每一个子类都重新写了这一方法。</li>
-<li>何时使用：有一些通用的方法。</li>
-<li>如何解决：将这些通用算法抽象出来。</li>
-<li>关键代码：在抽象类实现，其他步骤在子类实现。</li>
-<li>应用实例： 1、在造房子的时候，地基、走线、水管都一样，只有在建筑的后期才有加壁橱加栅栏等差异。 2、西游记里面菩萨定好的 81 难，这就是一个顶层的逻辑骨架。 3、Spirng 中对 Hibernate 的支持，将一些已经定好的方法封装起来，比如开启事务、获取 Session、关闭 Session 等，程序员不重复写那些已经规范好的代码，直接丢一个实体就可以保存。</li>
-<li>优点： 1、封装不变部分，扩展可变部分。 2、提取公共代码，便于维护。 3、行为由父类控制，子类实现。</li>
-<li>缺点：每一个不同的实现都需要一个子类来实现，导致类的个数增加，使得系统更加庞大。</li>
-<li>使用场景： 1、有多个子类共有的方法，且逻辑相同。 2、重要的、复杂的方法，可以考虑作为模板方法。</li>
-<li>注意事项：为防止恶意操作，一般模板方法都加上 final 关键词。</li>
-</ul>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><ul>
-<li>我们将创建一个定义操作的 Game 抽象类，其中，模板方法设置为 final，这样它就不会被重写。Cricket 和 Football 是扩展了 Game 的实体类，它们重写了抽象类的方法。<br>TemplatePatternDemo，我们的演示类使用 Game 来演示模板模式的用法。</li>
-</ul>
-<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><ol>
-<li><p>创建一个抽象类，它的模板方法被设置为 final。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Game</span> </span>&#123;</div><div class="line">   <span class="function"><span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">initialize</span><span class="params">()</span></span>;</div><div class="line">   <span class="function"><span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">startPlay</span><span class="params">()</span></span>;</div><div class="line">   <span class="function"><span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">endPlay</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">   <span class="comment">//模板</span></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">play</span><span class="params">()</span></span>&#123;</div><div class="line"></div><div class="line">      <span class="comment">//初始化游戏</span></div><div class="line">      initialize();</div><div class="line"></div><div class="line">      <span class="comment">//开始游戏</span></div><div class="line">      startPlay();</div><div class="line"></div><div class="line">      <span class="comment">//结束游戏</span></div><div class="line">      endPlay();</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <ol>
+<li><p>赋值,索引</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">&gt; x&lt;-list(u=<span class="number">2</span>,v=<span class="string">"abc"</span>)</div><div class="line">&gt; x</div><div class="line">$u</div><div class="line">[<span class="number">1</span>] <span class="number">2</span></div><div class="line"></div><div class="line">$v</div><div class="line">[<span class="number">1</span>] <span class="string">"abc"</span></div><div class="line"></div><div class="line">&gt; x$u</div><div class="line">[<span class="number">1</span>] <span class="number">2</span></div><div class="line">&gt; </div><div class="line">&gt; <span class="comment"># str的意思是structure,而不是string</span></div><div class="line">&gt; str(x)</div><div class="line">List of <span class="number">2</span></div><div class="line"> $ u: num <span class="number">2</span></div><div class="line"> $ v: chr <span class="string">"abc"</span></div><div class="line">&gt; </div><div class="line">&gt; j&lt;-list(name=<span class="string">"Joe"</span>,salary=<span class="number">55000</span>,union=<span class="literal">TRUE</span>)</div><div class="line">&gt; j$name</div><div class="line">[<span class="number">1</span>] <span class="string">"Joe"</span></div><div class="line">&gt; j[[<span class="number">1</span>]]</div><div class="line">[<span class="number">1</span>] <span class="string">"Joe"</span></div><div class="line">&gt; j[<span class="number">1</span>]</div><div class="line">$name</div><div class="line">[<span class="number">1</span>] <span class="string">"Joe"</span></div><div class="line"></div><div class="line">&gt; j[<span class="string">"name"</span>]</div><div class="line">$name</div><div class="line">[<span class="number">1</span>] <span class="string">"Joe"</span></div><div class="line"></div><div class="line">&gt; </div><div class="line">&gt; z&lt;-vector(mode=<span class="string">"list"</span>)</div><div class="line">&gt; z</div><div class="line">list()</div><div class="line">&gt; z[[<span class="string">"abc"</span>]]&lt;-<span class="number">3</span></div><div class="line">&gt; z</div><div class="line">$abc</div><div class="line">[<span class="number">1</span>] <span class="number">3</span></div></pre></td></tr></table></figure>
 </li>
-<li><p>创建扩展了上述类的实体类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cricket</span> <span class="keyword">extends</span> <span class="title">Game</span> </span>&#123;</div><div class="line"></div><div class="line">   <span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">void</span> <span class="title">endPlay</span><span class="params">()</span> </span>&#123;</div><div class="line">      System.out.println(<span class="string">"Cricket Game Finished!"</span>);</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">void</span> <span class="title">initialize</span><span class="params">()</span> </span>&#123;</div><div class="line">      System.out.println(<span class="string">"Cricket Game Initialized! Start playing."</span>);</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">void</span> <span class="title">startPlay</span><span class="params">()</span> </span>&#123;</div><div class="line">      System.out.println(<span class="string">"Cricket Game Started. Enjoy the game!"</span>);</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li><p>接上,unlist(),unname()</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&gt; k&lt;-unlist(j)</div><div class="line">&gt; k</div><div class="line">   name  salary   union </div><div class="line">  <span class="string">"Joe"</span> <span class="string">"55000"</span>  <span class="string">"TRUE"</span> </div><div class="line">&gt; unname(k)</div><div class="line">[<span class="number">1</span>] <span class="string">"Joe"</span>   <span class="string">"55000"</span> <span class="string">"TRUE"</span> </div><div class="line">&gt; unname(j)</div><div class="line">[[<span class="number">1</span>]]</div><div class="line">[<span class="number">1</span>] <span class="string">"Joe"</span></div><div class="line"></div><div class="line">[[<span class="number">2</span>]]</div><div class="line">[<span class="number">1</span>] <span class="number">55000</span></div><div class="line"></div><div class="line">[[<span class="number">3</span>]]</div><div class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></div></pre></td></tr></table></figure>
 </li>
-<li><p>使用 Game 的模板方法 play() 来演示游戏的定义方式。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TemplatePatternDemo</span> </span>&#123;</div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"></div><div class="line">      Game game = <span class="keyword">new</span> Cricket();</div><div class="line">      game.play();</div><div class="line">      System.out.println();</div><div class="line">      game = <span class="keyword">new</span> Football();</div><div class="line">      game.play();</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li><p>添加组件</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">&gt; x&lt;-list(u=<span class="number">2</span>,v=<span class="string">"abc"</span>)</div><div class="line">&gt; x$w&lt;-<span class="string">"hahahah"</span></div><div class="line">&gt; x</div><div class="line">$u</div><div class="line">[<span class="number">1</span>] <span class="number">2</span></div><div class="line"></div><div class="line">$v</div><div class="line">[<span class="number">1</span>] <span class="string">"abc"</span></div><div class="line"></div><div class="line">$w</div><div class="line">[<span class="number">1</span>] <span class="string">"hahahah"</span></div><div class="line"></div><div class="line">&gt; x[[<span class="number">4</span>]&lt;-<span class="string">"asd"</span></div><div class="line">&gt; x[<span class="number">5</span>:<span class="number">7</span>]&lt;-<span class="number">5</span>:<span class="number">7</span></div><div class="line">&gt; x</div><div class="line">$u</div><div class="line">[<span class="number">1</span>] <span class="number">2</span></div><div class="line"></div><div class="line">$v</div><div class="line">[<span class="number">1</span>] <span class="string">"abc"</span></div><div class="line"></div><div class="line">$w</div><div class="line">[<span class="number">1</span>] <span class="string">"hahahah"</span></div><div class="line"></div><div class="line">[[<span class="number">4</span>]]</div><div class="line">[<span class="number">1</span>] <span class="string">"asd"</span></div><div class="line"></div><div class="line">[[<span class="number">5</span>]]</div><div class="line">[<span class="number">1</span>] <span class="number">5</span></div><div class="line"></div><div class="line">[[<span class="number">6</span>]]</div><div class="line">[<span class="number">1</span>] <span class="number">6</span></div><div class="line"></div><div class="line">[[<span class="number">7</span>]]</div><div class="line">[<span class="number">1</span>] <span class="number">7</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>删除组件,赋值NULL即可</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&gt;   x[[<span class="number">4</span>]]&lt;-<span class="literal">NULL</span></div><div class="line">&gt; x</div><div class="line">$u</div><div class="line">[<span class="number">1</span>] <span class="number">2</span></div><div class="line"></div><div class="line">$v</div><div class="line">[<span class="number">1</span>] <span class="string">"abc"</span></div><div class="line"></div><div class="line">$w</div><div class="line">[<span class="number">1</span>] <span class="string">"hahahah"</span></div><div class="line"></div><div class="line">[[<span class="number">4</span>]]</div><div class="line">[<span class="number">1</span>] <span class="number">5</span></div><div class="line"></div><div class="line">[[<span class="number">5</span>]]</div><div class="line">[<span class="number">1</span>] <span class="number">6</span></div><div class="line"></div><div class="line">[[<span class="number">6</span>]]</div><div class="line">[<span class="number">1</span>] <span class="number">7</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>获取长度</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; length(x)</div><div class="line">[<span class="number">1</span>] <span class="number">6</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>列表使用lapply,sapply</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt; lapply(list(<span class="number">1</span>:<span class="number">3</span>,<span class="number">25</span>:<span class="number">29</span>),median)</div><div class="line">[[<span class="number">1</span>]]</div><div class="line">[<span class="number">1</span>] <span class="number">2</span></div><div class="line"></div><div class="line">[[<span class="number">2</span>]]</div><div class="line">[<span class="number">1</span>] <span class="number">27</span></div><div class="line"></div><div class="line">&gt; sapply(list(<span class="number">1</span>:<span class="number">3</span>,<span class="number">25</span>:<span class="number">29</span>),median)</div><div class="line">[<span class="number">1</span>]  <span class="number">2</span> <span class="number">27</span></div></pre></td></tr></table></figure>
 </li>
 </ol>
-<h2 id="个人理解"><a href="#个人理解" class="headerlink" title="个人理解"></a>个人理解</h2><ul>
-<li>基类规定步骤,子类实现</li>
-<li>基类给出子类中重复步骤的实现,子类只实现不同的部分</li>
-</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://www.nierunjie.site/2017/05/03/Template-Pattern/" data-id="cj36qp2yy001sy84d37i9bi7o" class="article-share-link">Share</a>
+      <a data-url="https://www.nierunjie.site/2017/05/24/R列表/" data-id="cj3e62jww001bl14d4rz3h8e0" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R语言/">R语言</a></li></ul>
 
     </footer>
   </div>
@@ -137,7 +124,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/17/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="page-number" href="/page/17/">17</a><span class="page-number current">18</span><a class="page-number" href="/page/19/">19</a><a class="page-number" href="/page/20/">20</a><span class="space">&hellip;</span><a class="page-number" href="/page/38/">38</a><a class="extend next" rel="next" href="/page/19/">&raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/17/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="page-number" href="/page/17/">17</a><span class="page-number current">18</span><a class="page-number" href="/page/19/">19</a><a class="page-number" href="/page/20/">20</a><span class="space">&hellip;</span><a class="page-number" href="/page/48/">48</a><a class="extend next" rel="next" href="/page/19/">&raquo;</a>
   </nav>
 
 </section>
@@ -151,23 +138,23 @@
       <ul>
         
           <li>
-            <a href="/2017/05/27/R语言非线性回归/">R语言非线性回归</a>
+            <a href="/2017/06/01/Visitor-Pattern/">Visitor Pattern</a>
           </li>
         
           <li>
-            <a href="/2017/05/26/R数学运算/">R数学运算</a>
+            <a href="/2017/06/01/Memento-Pattern/">Memento Pattern</a>
           </li>
         
           <li>
-            <a href="/2017/05/26/R统计/">R统计</a>
+            <a href="/2017/06/01/Iterator-Pattern/">Iterator Pattern</a>
           </li>
         
           <li>
-            <a href="/2017/05/25/Linux-tab补全忽略大小写/">Linux tab补全忽略大小写</a>
+            <a href="/2017/06/01/Interpreter-Pattern/">Interpreter Pattern</a>
           </li>
         
           <li>
-            <a href="/2017/05/25/R概率/">R概率</a>
+            <a href="/2017/06/01/Chain-of-Responsibility-Pattern/">Chain of Responsibility Pattern</a>
           </li>
         
       </ul>
@@ -188,7 +175,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li></ul>
     </div>
   </div>
 

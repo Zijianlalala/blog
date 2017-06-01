@@ -63,10 +63,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-JDBC浅析" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Decorator-Pattern" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/04/25/JDBC浅析/" class="article-date">
-  <time datetime="2017-04-25T00:54:03.000Z" itemprop="datePublished">2017-04-25</time>
+    <a href="/2017/05/03/Decorator-Pattern/" class="article-date">
+  <time datetime="2017-05-03T12:45:30.000Z" itemprop="datePublished">2017-05-03</time>
 </a>
     
   </div>
@@ -77,7 +77,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/25/JDBC浅析/">JDBC浅析</a>
+      <a class="article-title" href="/2017/05/03/Decorator-Pattern/">Decorator Pattern</a>
     </h1>
   
 
@@ -85,80 +85,37 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="JDBC介绍"><a href="#JDBC介绍" class="headerlink" title="JDBC介绍"></a>JDBC介绍</h2><ul>
-<li><a href="http://baike.baidu.com/link?url=dJRfeHbxsfQoipAv8M7_pRpk88uBnCMWREdGXMI4hYpSmMekcSsVBrtfhHZYIBnYejVeyWY8U8pg-W9RfweYI_" target="_blank" rel="external">百度百科关于JDBC的介绍</a></li>
-<li>介绍JDBC常用的接口和类及其方法</li>
+        <h2 id="装饰器模式"><a href="#装饰器模式" class="headerlink" title="装饰器模式"></a>装饰器模式</h2><ul>
+<li>装饰器模式（Decorator Pattern）允许向一个现有的对象添加新的功能，同时又不改变其结构。这种类型的设计模式属于结构型模式，它是作为现有的类的一个包装。<br>这种模式创建了一个装饰类，用来包装原有的类，并在保持类方法签名完整性的前提下，提供了额外的功能。<br>我们通过下面的实例来演示装饰器模式的用法。其中，我们将把一个形状装饰上不同的颜色，同时又不改变形状类。</li>
 </ul>
-<h2 id="JDBC常用接口和类"><a href="#JDBC常用接口和类" class="headerlink" title="JDBC常用接口和类"></a>JDBC常用接口和类</h2><h3 id="interface-Driver"><a href="#interface-Driver" class="headerlink" title="interface Driver"></a>interface Driver</h3><ul>
-<li>The interface that every driver class must implement.</li>
-<li>这是每个驱动类都必须实现的接口</li>
-<li>以SQLlite为例,<code>public class org.sqlite.JDBC implements java.sql.Driver</code>实现该接口</li>
-<li><code>Class.forName(&quot;org.sqlite.JDBC&quot;)</code><br>is equivalent to:<br><code>Class.forName(&quot;org.sqlite.JDBC&quot;, true, this.getClass().getClassLoader())</code></li>
-<li><p><code>Class.forName(name,initialize,loader)</code><br>name - fully qualified name of the desired class<br>initialize - if true the class will be initialized.<br>loader - class loader from which the class must be loaded</p>
-</li>
-<li><p>例:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Class.forName(<span class="string">"org.sqlite.JDBC"</span>); <span class="comment">// 将驱动加载到内存</span></div></pre></td></tr></table></figure>
-</li>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
+<li>意图：动态地给一个对象添加一些额外的职责。就增加功能来说，装饰器模式相比生成子类更为灵活。</li>
+<li>主要解决：一般的，我们为了扩展一个类经常使用继承方式实现，由于继承为类引入静态特征，并且随着扩展功能的增多，子类会很膨胀。</li>
+<li>何时使用：在不想增加很多子类的情况下扩展类。</li>
+<li>如何解决：将具体功能职责划分，同时继承装饰者模式。</li>
+<li>关键代码： 1、Component 类充当抽象角色，不应该具体实现。 2、修饰类引用和继承 Component 类，具体扩展类重写父类方法。</li>
+<li>应用实例： 1、孙悟空有 72 变，当他变成”庙宇”后，他的根本还是一只猴子，但是他又有了庙宇的功能。 2、不论一幅画有没有画框都可以挂在墙上，但是通常都是有画框的，并且实际上是画框被挂在墙上。在挂在墙上之前，画可以被蒙上玻璃，装到框子里；这时画、玻璃和画框形成了一个物体。</li>
+<li>优点：装饰类和被装饰类可以独立发展，不会相互耦合，装饰模式是继承的一个替代模式，装饰模式可以动态扩展一个实现类的功能。</li>
+<li>缺点：多层装饰比较复杂。</li>
+<li>使用场景： 1、扩展一个类的功能。 2、动态增加功能，动态撤销。</li>
+<li>注意事项：可代替继承。</li>
 </ul>
-<h3 id="interface-Connection"><a href="#interface-Connection" class="headerlink" title="interface Connection"></a>interface Connection</h3><ul>
-<li>A connection (session) with a specific database.</li>
-<li><code>Statement createStatement() throws SQLException</code>Creates a Statement object for sending SQL statements to the database. SQL statements without parameters are normally executed using Statement objects. If the same SQL statement is executed many times, it may be more efficient to use a PreparedStatement object.</li>
-<li><code>PreparedStatement prepareStatement(String sql)throws SQLException</code>Creates a PreparedStatement object for sending parameterized SQL statements to the database</li>
-<li><p>注意:无参数的SQL使用<code>createStatement()</code>方法创建Statement对象;有参数的使用<code>prepareStatement()</code>创建PreparedStatement对象,防止SQL注入</p>
-</li>
-<li><p>例:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Connection c = <span class="keyword">null</span>; <span class="comment">//创建空的Connection对象</span></div></pre></td></tr></table></figure>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><ul>
+<li><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Salary.java</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Salary</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getReward</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> <span class="number">0</span>;&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// Person.java</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> <span class="keyword">extends</span> <span class="title">Salary</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> String name;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">double</span> baseSalary = <span class="number">1</span>;</div><div class="line"></div><div class="line">    Person(String name, <span class="keyword">double</span> baseSalary) &#123;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">        <span class="keyword">this</span>.baseSalary = baseSalary;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getReward</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> baseSalary;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// Reward.java</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Reward</span> <span class="keyword">extends</span> <span class="title">Salary</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> Salary salary = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Reward</span><span class="params">(Salary salary)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.salary = salary;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getSalary</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> salary.getReward();<span class="comment">// 这个改成具体方法</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// Reward_add100.java</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Reward_add100</span> <span class="keyword">extends</span> <span class="title">Reward</span></span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Reward_add100</span><span class="params">(Salary salary)</span></span>&#123;</div><div class="line">        <span class="keyword">super</span>(salary);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getReward</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">100</span>+<span class="keyword">super</span>.getSalary();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// Reward_mul2.java</span></div><div class="line"><span class="keyword">package</span> reward;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Reward_mul2</span> <span class="keyword">extends</span> <span class="title">Reward</span></span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Reward_mul2</span><span class="params">(Salary salary)</span></span>&#123;</div><div class="line">        <span class="keyword">super</span>(salary);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getReward</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">2</span>*<span class="keyword">super</span>.getSalary();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// Test.java</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Person person = <span class="keyword">new</span> Person(<span class="string">"小菜"</span>,<span class="number">100</span>);</div><div class="line"></div><div class="line">        <span class="keyword">double</span> s1=<span class="keyword">new</span> Reward_mul2(<span class="keyword">new</span> Reward_add100(person)).getReward();</div><div class="line">        <span class="keyword">double</span> s2=<span class="keyword">new</span> Reward_add100(<span class="keyword">new</span> Reward_mul2(person)).getReward();</div><div class="line"></div><div class="line">        System.out.print(<span class="string">"(100+100)*2 = "</span>+s1+<span class="string">"\n"</span>);</div><div class="line">        System.out.print(<span class="string">"100*2+100 = "</span>+s2+<span class="string">"\n"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="Class-DriverManager"><a href="#Class-DriverManager" class="headerlink" title="Class DriverManager"></a>Class DriverManager</h3><ul>
-<li>该类重载3个getConnection方法得到Connection</li>
-</ul>
-<ol>
-<li><code>getConnection(String url)</code><br> SQLite使用此方法,传入数据库文件的地址,返回Connection</li>
-<li><code>getConnection(String url, Properties info)</code><br> info为参数列表,正常情况下至少包含帐号密码</li>
-<li><code>getConnection(String url, String user, String password)</code><br> MySQL连接时可在url中指明字符集<code>useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false</code></li>
-</ol>
-<ul>
-<li><p>例:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">c = DriverManager.getConnection(<span class="string">"jdbc:sqlite:"</span> + file.db); <span class="comment">// 连接数据库</span></div></pre></td></tr></table></figure>
-<p>注:file.db为SQLite数据库文件路径</p>
-</li>
-</ul>
-<h3 id="interface-Statement"><a href="#interface-Statement" class="headerlink" title="interface Statement"></a>interface Statement</h3><ul>
-<li>The object used for executing a static SQL statement and returning the results it produces.</li>
-<li><code>ResultSet executeQuery(String sql)throws SQLException</code> 使用静态SQL语句返回ResultSet对象</li>
-<li><code>int executeUpdate(String sql)throws SQLException</code> INSERT, UPDATE, or DELETE等不返回ResultSet的SQL语句使用此方法,返回值为DML的行数(不懂)或者返回0</li>
-<li>注意:传入的SQL语句直接传给数据库,如果组成sql的字符串有输入的部分,存在SQL注入的危险,建议使用PreparedStatement</li>
-<li>例:<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Statement stmt = c.createStatement(); <span class="comment">// 通过Connection对象创建Statement对象</span></div><div class="line">String sql = <span class="string">"CREATE TABLE USER(ID INT PRIMARY KEY NOT NULL,USERNAME TEXT NOT NULL ,PASSWORD INT NOT NULL)"</span>;</div><div class="line">stmt.executeUpdate(sql); <span class="comment">// 通过Statment执行SQL语句,有注入危险</span></div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="interface-PreparedStatement-extends-tatement"><a href="#interface-PreparedStatement-extends-tatement" class="headerlink" title="interface PreparedStatement extends tatement"></a>interface PreparedStatement extends tatement</h3><ul>
-<li>An object that represents a precompiled SQL statement.</li>
-<li>继承自Statement,预编译SQL语句的部分,传入SQL语句中的参数,因为SQL语句部分已经编译,可以解决由Statement带来的SQL注入风险,<br>因为SQL语句部分已经被编译,所以有更高的执行效率,多次提交的SQL语句建议用此类的对象</li>
-<li><p>例:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">PreparedStatement pstmt = con.prepareStatement(<span class="string">"UPDATE EMPLOYEES SET SALARY = ? WHERE ID = ?"</span>); <span class="comment">// 创建PreparedStatement对象</span></div><div class="line">pstmt.setBigDecimal(<span class="number">1</span>, <span class="number">153833.00</span>); <span class="comment">// 插入参数</span></div><div class="line">pstmt.setInt(<span class="number">2</span>, <span class="number">110592</span>);</div><div class="line">ResultSet rs = pstmt.executeQuery(); <span class="comment">//执行语句,并返回ResultSet对象</span></div></pre></td></tr></table></figure>
-<p>使用setXXX方法设置参数,如上所示<br>常用set方法<br><code>setString(int parameterIndex, String x)</code><br><code>setTime(int parameterIndex, Time x)</code><br><code>setInt(int parameterIndex, int x)</code></p>
-</li>
-</ul>
-<h3 id="interface-ResultSet"><a href="#interface-ResultSet" class="headerlink" title="interface ResultSet"></a>interface ResultSet</h3><ul>
-<li>A table of data representing a database result set, which is usually generated by executing a statement that queries the database.</li>
-<li><code>boolean next()</code>Moves the cursor forward one row from its current position.</li>
-<li><code>getString(String columnLabel)</code>以字符串形式返回游标(cursor)所在行,属性为columnLable的数据元素的值</li>
-<li>例:<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">rs.next(); <span class="comment">// 游标在数据的前一行,要得到第一行数据需要移动一次游标</span></div><div class="line">String cnt = rs.getString(<span class="number">1</span>); <span class="comment">// 得到第一列的数据元素</span></div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><ul>
-<li>操作完成后断开所有连接释放资源<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">rs.close();</div><div class="line">pstmt.close(); <span class="comment">// stmt.close()</span></div><div class="line">c.close();</div></pre></td></tr></table></figure>
-</li>
+<h2 id="个人理解"><a href="#个人理解" class="headerlink" title="个人理解"></a>个人理解</h2><ul>
+<li>装饰者模式是个结构型模式,这些设计模式关注类和对象的组合。继承的概念被用来组合接口和定义组合对象获得新功能的方式。装饰者模式,继承A类,同时,属性包含一个A类的对象,一般的,构造函数传入一个A类的对象,并把这个对象赋值给自身的属性,然后对这个属性进行操作.</li>
+<li>这个模式的优势是,需要某个功能,可以单独的开发这个功能,且只需要考虑本体的接口,如果不需要某个功能了,只需要在组合的时候去掉.但是,如果用继承实现,则不容易修改中间的某个类,装饰者比继承更灵活</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://www.nierunjie.site/2017/04/25/JDBC浅析/" data-id="cj36qp2x8000ey84dyfu5z406" class="article-share-link">Share</a>
+      <a data-url="https://www.nierunjie.site/2017/05/03/Decorator-Pattern/" data-id="cj3e62jvd000al14d55n34mhm" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
 
     </footer>
   </div>
@@ -170,7 +127,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/29/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="page-number" href="/page/29/">29</a><span class="page-number current">30</span><a class="page-number" href="/page/31/">31</a><a class="page-number" href="/page/32/">32</a><span class="space">&hellip;</span><a class="page-number" href="/page/38/">38</a><a class="extend next" rel="next" href="/page/31/">&raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/29/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="page-number" href="/page/29/">29</a><span class="page-number current">30</span><a class="page-number" href="/page/31/">31</a><a class="page-number" href="/page/32/">32</a><span class="space">&hellip;</span><a class="page-number" href="/page/48/">48</a><a class="extend next" rel="next" href="/page/31/">&raquo;</a>
   </nav>
 
 </section>
@@ -184,23 +141,23 @@
       <ul>
         
           <li>
-            <a href="/2017/05/27/R语言非线性回归/">R语言非线性回归</a>
+            <a href="/2017/06/01/Visitor-Pattern/">Visitor Pattern</a>
           </li>
         
           <li>
-            <a href="/2017/05/26/R数学运算/">R数学运算</a>
+            <a href="/2017/06/01/Memento-Pattern/">Memento Pattern</a>
           </li>
         
           <li>
-            <a href="/2017/05/26/R统计/">R统计</a>
+            <a href="/2017/06/01/Iterator-Pattern/">Iterator Pattern</a>
           </li>
         
           <li>
-            <a href="/2017/05/25/Linux-tab补全忽略大小写/">Linux tab补全忽略大小写</a>
+            <a href="/2017/06/01/Interpreter-Pattern/">Interpreter Pattern</a>
           </li>
         
           <li>
-            <a href="/2017/05/25/R概率/">R概率</a>
+            <a href="/2017/06/01/Chain-of-Responsibility-Pattern/">Chain of Responsibility Pattern</a>
           </li>
         
       </ul>
@@ -221,7 +178,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li></ul>
     </div>
   </div>
 

@@ -63,10 +63,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-R列表" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Bridge-Pattern" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/05/24/R列表/" class="article-date">
-  <time datetime="2017-05-24T01:12:19.000Z" itemprop="datePublished">2017-05-24</time>
+    <a href="/2017/06/01/Bridge-Pattern/" class="article-date">
+  <time datetime="2017-06-01T04:51:33.000Z" itemprop="datePublished">2017-06-01</time>
 </a>
     
   </div>
@@ -77,7 +77,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/24/R列表/">R列表</a>
+      <a class="article-title" href="/2017/06/01/Bridge-Pattern/">Bridge Pattern</a>
     </h1>
   
 
@@ -85,35 +85,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ol>
-<li><p>赋值,索引</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">&gt; x&lt;-list(u=<span class="number">2</span>,v=<span class="string">"abc"</span>)</div><div class="line">&gt; x</div><div class="line">$u</div><div class="line">[<span class="number">1</span>] <span class="number">2</span></div><div class="line"></div><div class="line">$v</div><div class="line">[<span class="number">1</span>] <span class="string">"abc"</span></div><div class="line"></div><div class="line">&gt; x$u</div><div class="line">[<span class="number">1</span>] <span class="number">2</span></div><div class="line">&gt; </div><div class="line">&gt; <span class="comment"># str的意思是structure,而不是string</span></div><div class="line">&gt; str(x)</div><div class="line">List of <span class="number">2</span></div><div class="line"> $ u: num <span class="number">2</span></div><div class="line"> $ v: chr <span class="string">"abc"</span></div><div class="line">&gt; </div><div class="line">&gt; j&lt;-list(name=<span class="string">"Joe"</span>,salary=<span class="number">55000</span>,union=<span class="literal">TRUE</span>)</div><div class="line">&gt; j$name</div><div class="line">[<span class="number">1</span>] <span class="string">"Joe"</span></div><div class="line">&gt; j[[<span class="number">1</span>]]</div><div class="line">[<span class="number">1</span>] <span class="string">"Joe"</span></div><div class="line">&gt; j[<span class="number">1</span>]</div><div class="line">$name</div><div class="line">[<span class="number">1</span>] <span class="string">"Joe"</span></div><div class="line"></div><div class="line">&gt; j[<span class="string">"name"</span>]</div><div class="line">$name</div><div class="line">[<span class="number">1</span>] <span class="string">"Joe"</span></div><div class="line"></div><div class="line">&gt; </div><div class="line">&gt; z&lt;-vector(mode=<span class="string">"list"</span>)</div><div class="line">&gt; z</div><div class="line">list()</div><div class="line">&gt; z[[<span class="string">"abc"</span>]]&lt;-<span class="number">3</span></div><div class="line">&gt; z</div><div class="line">$abc</div><div class="line">[<span class="number">1</span>] <span class="number">3</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>接上,unlist(),unname()</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&gt; k&lt;-unlist(j)</div><div class="line">&gt; k</div><div class="line">   name  salary   union </div><div class="line">  <span class="string">"Joe"</span> <span class="string">"55000"</span>  <span class="string">"TRUE"</span> </div><div class="line">&gt; unname(k)</div><div class="line">[<span class="number">1</span>] <span class="string">"Joe"</span>   <span class="string">"55000"</span> <span class="string">"TRUE"</span> </div><div class="line">&gt; unname(j)</div><div class="line">[[<span class="number">1</span>]]</div><div class="line">[<span class="number">1</span>] <span class="string">"Joe"</span></div><div class="line"></div><div class="line">[[<span class="number">2</span>]]</div><div class="line">[<span class="number">1</span>] <span class="number">55000</span></div><div class="line"></div><div class="line">[[<span class="number">3</span>]]</div><div class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>添加组件</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">&gt; x&lt;-list(u=<span class="number">2</span>,v=<span class="string">"abc"</span>)</div><div class="line">&gt; x$w&lt;-<span class="string">"hahahah"</span></div><div class="line">&gt; x</div><div class="line">$u</div><div class="line">[<span class="number">1</span>] <span class="number">2</span></div><div class="line"></div><div class="line">$v</div><div class="line">[<span class="number">1</span>] <span class="string">"abc"</span></div><div class="line"></div><div class="line">$w</div><div class="line">[<span class="number">1</span>] <span class="string">"hahahah"</span></div><div class="line"></div><div class="line">&gt; x[[<span class="number">4</span>]&lt;-<span class="string">"asd"</span></div><div class="line">&gt; x[<span class="number">5</span>:<span class="number">7</span>]&lt;-<span class="number">5</span>:<span class="number">7</span></div><div class="line">&gt; x</div><div class="line">$u</div><div class="line">[<span class="number">1</span>] <span class="number">2</span></div><div class="line"></div><div class="line">$v</div><div class="line">[<span class="number">1</span>] <span class="string">"abc"</span></div><div class="line"></div><div class="line">$w</div><div class="line">[<span class="number">1</span>] <span class="string">"hahahah"</span></div><div class="line"></div><div class="line">[[<span class="number">4</span>]]</div><div class="line">[<span class="number">1</span>] <span class="string">"asd"</span></div><div class="line"></div><div class="line">[[<span class="number">5</span>]]</div><div class="line">[<span class="number">1</span>] <span class="number">5</span></div><div class="line"></div><div class="line">[[<span class="number">6</span>]]</div><div class="line">[<span class="number">1</span>] <span class="number">6</span></div><div class="line"></div><div class="line">[[<span class="number">7</span>]]</div><div class="line">[<span class="number">1</span>] <span class="number">7</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>删除组件,赋值NULL即可</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&gt;   x[[<span class="number">4</span>]]&lt;-<span class="literal">NULL</span></div><div class="line">&gt; x</div><div class="line">$u</div><div class="line">[<span class="number">1</span>] <span class="number">2</span></div><div class="line"></div><div class="line">$v</div><div class="line">[<span class="number">1</span>] <span class="string">"abc"</span></div><div class="line"></div><div class="line">$w</div><div class="line">[<span class="number">1</span>] <span class="string">"hahahah"</span></div><div class="line"></div><div class="line">[[<span class="number">4</span>]]</div><div class="line">[<span class="number">1</span>] <span class="number">5</span></div><div class="line"></div><div class="line">[[<span class="number">5</span>]]</div><div class="line">[<span class="number">1</span>] <span class="number">6</span></div><div class="line"></div><div class="line">[[<span class="number">6</span>]]</div><div class="line">[<span class="number">1</span>] <span class="number">7</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>获取长度</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; length(x)</div><div class="line">[<span class="number">1</span>] <span class="number">6</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>列表使用lapply,sapply</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt; lapply(list(<span class="number">1</span>:<span class="number">3</span>,<span class="number">25</span>:<span class="number">29</span>),median)</div><div class="line">[[<span class="number">1</span>]]</div><div class="line">[<span class="number">1</span>] <span class="number">2</span></div><div class="line"></div><div class="line">[[<span class="number">2</span>]]</div><div class="line">[<span class="number">1</span>] <span class="number">27</span></div><div class="line"></div><div class="line">&gt; sapply(list(<span class="number">1</span>:<span class="number">3</span>,<span class="number">25</span>:<span class="number">29</span>),median)</div><div class="line">[<span class="number">1</span>]  <span class="number">2</span> <span class="number">27</span></div></pre></td></tr></table></figure>
-</li>
-</ol>
-
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://www.nierunjie.site/2017/05/24/R列表/" data-id="cj36qp2y5000zy84d9r1b85rt" class="article-share-link">Share</a>
+      <a data-url="https://www.nierunjie.site/2017/06/01/Bridge-Pattern/" data-id="cj3e62juj0002l14d7xjsx6fq" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R语言/">R语言</a></li></ul>
-
     </footer>
   </div>
   
@@ -124,7 +102,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/7/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/38/">38</a><a class="extend next" rel="next" href="/page/9/">&raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/7/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/48/">48</a><a class="extend next" rel="next" href="/page/9/">&raquo;</a>
   </nav>
 
 </section>
@@ -138,23 +116,23 @@
       <ul>
         
           <li>
-            <a href="/2017/05/27/R语言非线性回归/">R语言非线性回归</a>
+            <a href="/2017/06/01/Visitor-Pattern/">Visitor Pattern</a>
           </li>
         
           <li>
-            <a href="/2017/05/26/R数学运算/">R数学运算</a>
+            <a href="/2017/06/01/Memento-Pattern/">Memento Pattern</a>
           </li>
         
           <li>
-            <a href="/2017/05/26/R统计/">R统计</a>
+            <a href="/2017/06/01/Iterator-Pattern/">Iterator Pattern</a>
           </li>
         
           <li>
-            <a href="/2017/05/25/Linux-tab补全忽略大小写/">Linux tab补全忽略大小写</a>
+            <a href="/2017/06/01/Interpreter-Pattern/">Interpreter Pattern</a>
           </li>
         
           <li>
-            <a href="/2017/05/25/R概率/">R概率</a>
+            <a href="/2017/06/01/Chain-of-Responsibility-Pattern/">Chain of Responsibility Pattern</a>
           </li>
         
       </ul>
@@ -175,7 +153,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li></ul>
     </div>
   </div>
 

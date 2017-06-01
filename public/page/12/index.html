@@ -63,10 +63,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-R基本语法" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-R数学运算" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/05/23/R基本语法/" class="article-date">
-  <time datetime="2017-05-23T13:22:02.000Z" itemprop="datePublished">2017-05-23</time>
+    <a href="/2017/05/26/R数学运算/" class="article-date">
+  <time datetime="2017-05-26T03:11:46.000Z" itemprop="datePublished">2017-05-26</time>
 </a>
     
   </div>
@@ -77,7 +77,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/23/R基本语法/">R基本语法</a>
+      <a class="article-title" href="/2017/05/26/R数学运算/">R数学运算</a>
     </h1>
   
 
@@ -86,29 +86,24 @@
     <div class="article-entry" itemprop="articleBody">
       
         <ol>
-<li><p>求模运算 %%</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span>%%<span class="number">2</span></div></pre></td></tr></table></figure>
+<li><p>集合运算</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">union(x,y) <span class="comment"># 并</span></div><div class="line">intersect(x,y) <span class="comment"># 交</span></div><div class="line">setdiff(x,y) <span class="comment"># 差</span></div><div class="line">setequal(x,y) <span class="comment"># 检验相等</span></div><div class="line">c %<span class="keyword">in</span>% y <span class="comment"># 检验c是y的元素</span></div><div class="line">choose(n,k) <span class="comment"># n个中选k个元素子集的个数,排列</span></div><div class="line">combn(c,n) <span class="comment"># 显示集合c中 n个元素的组合</span></div></pre></td></tr></table></figure>
 </li>
-<li><p>求商,取整 %/%</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="number">3</span>%/%<span class="number">2</span></div><div class="line">[<span class="number">1</span>] <span class="number">1</span></div></pre></td></tr></table></figure>
+<li><p>solve 解线性方程组</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; a&lt;-matrix(c(<span class="number">1</span>,-<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>),nrow=<span class="number">2</span>)</div><div class="line">&gt; b&lt;-c(<span class="number">2</span>,<span class="number">4</span>)</div><div class="line">&gt; solve(a,b)</div><div class="line">[<span class="number">1</span>] -<span class="number">1</span>  <span class="number">3</span></div></pre></td></tr></table></figure>
 </li>
-<li><p>hist绘制直方图</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hn &lt;- hist(Nile)</div></pre></td></tr></table></figure>
+<li><p>其他线性代数运算函数</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">t() <span class="comment"># 转置</span></div><div class="line">qr() <span class="comment"># QR分解(不懂)</span></div><div class="line">chol() <span class="comment"># Cholesky(同不懂)</span></div><div class="line">det() <span class="comment"># 行列式的值</span></div><div class="line">eigen() <span class="comment"># 矩阵的特征值和特征向量</span></div><div class="line">diag () <span class="comment"># 从方阵中提出对角矩阵</span></div><div class="line">sweep() <span class="comment"># 数值分析批量运算符</span></div></pre></td></tr></table></figure>
 </li>
-<li><p>summary</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">summary(hn)</div><div class="line">         Length Class  Mode     </div><div class="line">breaks   <span class="number">11</span>     -none- numeric</div><div class="line">counts   <span class="number">10</span>     -none- numeric</div><div class="line">density  <span class="number">10</span>     -none- numeric</div><div class="line">mids     <span class="number">10</span>     -none- numeric</div><div class="line">xname     <span class="number">1</span>     -none- character</div><div class="line">equidist  <span class="number">1</span>     -none- logical</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><img src="/2017/05/23/R基本语法/HistogramOfNile.png" alt="直方图样例"></p>
-<ol>
-<li>新建PDF文件,写入直方图,关闭文件,写入硬盘,rnorm(100),正态分布,100个变量<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">pdf(<span class="string">"xh.pdf"</span>)</div><div class="line">hist(rnorm(<span class="number">100</span>))</div><div class="line">dev.off()</div></pre></td></tr></table></figure>
+<li><p>其他包</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">deSolve处理微分方程</div></pre></td></tr></table></figure>
 </li>
 </ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://www.nierunjie.site/2017/05/23/R基本语法/" data-id="cj36qp2yc0016y84dygm4rkgf" class="article-share-link">Share</a>
+      <a data-url="https://www.nierunjie.site/2017/05/26/R数学运算/" data-id="cj3e62jx5001ll14daah52ond" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R语言/">R语言</a></li></ul>
@@ -123,7 +118,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/11/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/38/">38</a><a class="extend next" rel="next" href="/page/13/">&raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/11/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/48/">48</a><a class="extend next" rel="next" href="/page/13/">&raquo;</a>
   </nav>
 
 </section>
@@ -137,23 +132,23 @@
       <ul>
         
           <li>
-            <a href="/2017/05/27/R语言非线性回归/">R语言非线性回归</a>
+            <a href="/2017/06/01/Visitor-Pattern/">Visitor Pattern</a>
           </li>
         
           <li>
-            <a href="/2017/05/26/R数学运算/">R数学运算</a>
+            <a href="/2017/06/01/Memento-Pattern/">Memento Pattern</a>
           </li>
         
           <li>
-            <a href="/2017/05/26/R统计/">R统计</a>
+            <a href="/2017/06/01/Iterator-Pattern/">Iterator Pattern</a>
           </li>
         
           <li>
-            <a href="/2017/05/25/Linux-tab补全忽略大小写/">Linux tab补全忽略大小写</a>
+            <a href="/2017/06/01/Interpreter-Pattern/">Interpreter Pattern</a>
           </li>
         
           <li>
-            <a href="/2017/05/25/R概率/">R概率</a>
+            <a href="/2017/06/01/Chain-of-Responsibility-Pattern/">Chain of Responsibility Pattern</a>
           </li>
         
       </ul>
@@ -174,7 +169,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li></ul>
     </div>
   </div>
 

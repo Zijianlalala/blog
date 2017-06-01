@@ -63,10 +63,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-R数学运算" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Memento-Pattern" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/05/26/R数学运算/" class="article-date">
-  <time datetime="2017-05-26T03:11:46.000Z" itemprop="datePublished">2017-05-26</time>
+    <a href="/2017/06/01/Memento-Pattern/" class="article-date">
+  <time datetime="2017-06-01T04:53:29.000Z" itemprop="datePublished">2017-06-01</time>
 </a>
     
   </div>
@@ -77,7 +77,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/26/R数学运算/">R数学运算</a>
+      <a class="article-title" href="/2017/06/01/Memento-Pattern/">Memento Pattern</a>
     </h1>
   
 
@@ -85,28 +85,28 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ol>
-<li><p>集合运算</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">union(x,y) <span class="comment"># 并</span></div><div class="line">intersect(x,y) <span class="comment"># 交</span></div><div class="line">setdiff(x,y) <span class="comment"># 差</span></div><div class="line">setequal(x,y) <span class="comment"># 检验相等</span></div><div class="line">c %<span class="keyword">in</span>% y <span class="comment"># 检验c是y的元素</span></div><div class="line">choose(n,k) <span class="comment"># n个中选k个元素子集的个数,排列</span></div><div class="line">combn(c,n) <span class="comment"># 显示集合c中 n个元素的组合</span></div></pre></td></tr></table></figure>
+        <h2 id="基本代码"><a href="#基本代码" class="headerlink" title="基本代码"></a>基本代码</h2><ul>
+<li><p>主类测试</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> memento;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * 备忘录对客户端透明,客户端只需要创建发起人和管理者的对象</div><div class="line">	 * 如果备忘录修改所记录的内容</div><div class="line">	 * 客户端不需要作出改变</div><div class="line">	 * </div><div class="line">	 * 发起人和备忘录之间是紧耦合的</div><div class="line">	 * 如果备忘录修改所记录的内容</div><div class="line">	 * 则需要修改备忘录和发起人</div><div class="line">	 * 不符合开放封闭原则</div><div class="line">	 * */</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		<span class="comment">// 创建发起人对象,设置其状态并显示</span></div><div class="line">		Originator o = <span class="keyword">new</span> Originator();</div><div class="line">		o.setState(<span class="string">"On"</span>);</div><div class="line">		o.show();</div><div class="line"></div><div class="line">		<span class="comment">// 创建管理者对象,保存当前发起人状态</span></div><div class="line">		Caretaker c = <span class="keyword">new</span> Caretaker();</div><div class="line">		c.setMenento(o.createMemento());</div><div class="line">		</div><div class="line">		<span class="comment">// 改变发起人状态,并显示</span></div><div class="line">		o.setState(<span class="string">"Off"</span>);</div><div class="line">		o.show();</div><div class="line">		</div><div class="line">		<span class="comment">// 通过管理者,恢复发起人状态</span></div><div class="line">		o.setMemento(c.getMenento());</div><div class="line">		o.show();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
-<li><p>solve 解线性方程组</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; a&lt;-matrix(c(<span class="number">1</span>,-<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>),nrow=<span class="number">2</span>)</div><div class="line">&gt; b&lt;-c(<span class="number">2</span>,<span class="number">4</span>)</div><div class="line">&gt; solve(a,b)</div><div class="line">[<span class="number">1</span>] -<span class="number">1</span>  <span class="number">3</span></div></pre></td></tr></table></figure>
+<li><p>发起人</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> memento;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Originator</span> </span>&#123;</div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * 发起人(Originator)</div><div class="line">	 * state为属性,此处为了说明原理,只写一个属性,一般为多个</div><div class="line">	 * get/set方法修改该属性</div><div class="line">	 * crateMemento返回当前state</div><div class="line">	 * setMemento(Memento memento)通过被保存的信息给state赋值</div><div class="line">	 * */</div><div class="line">	<span class="keyword">private</span> String state;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getState</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> state;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setState</span><span class="params">(String state)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.state = state;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">// 创建备忘录,在备忘录中保存需要保存的信息(并非所有属性)</span></div><div class="line">	<span class="function"><span class="keyword">public</span> Memento <span class="title">createMemento</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">new</span> Memento(state);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="comment">// 依次获取备忘录中的信息并赋值</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMemento</span><span class="params">(Memento memento)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.state = memento.getState();</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;</div><div class="line">		System.out.println(<span class="string">"State="</span> + <span class="keyword">this</span>.state);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
-<li><p>其他线性代数运算函数</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">t() <span class="comment"># 转置</span></div><div class="line">qr() <span class="comment"># QR分解(不懂)</span></div><div class="line">chol() <span class="comment"># Cholesky(同不懂)</span></div><div class="line">det() <span class="comment"># 行列式的值</span></div><div class="line">eigen() <span class="comment"># 矩阵的特征值和特征向量</span></div><div class="line">diag () <span class="comment"># 从方阵中提出对角矩阵</span></div><div class="line">sweep() <span class="comment"># 数值分析批量运算符</span></div></pre></td></tr></table></figure>
+<li><p>备忘录</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> memento;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Memento</span> </span>&#123;</div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * 备忘录(Memento)</div><div class="line">	 * 只保存Originator给出的需要保存的信息</div><div class="line">	 * */</div><div class="line">	<span class="keyword">private</span> String state;</div><div class="line"></div><div class="line">	<span class="comment">// 通过一个构造函数获得状态的信息</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Memento</span><span class="params">(String state)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.state = state;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">// 通过不同的get方法得到保存的所有信息</span></div><div class="line">	<span class="comment">// 此处用一个仅用get说明模式的用法</span></div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getState</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> state;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
-<li><p>其他包</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">deSolve处理微分方程</div></pre></td></tr></table></figure>
+<li><p>管理者</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> memento;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Caretaker</span> </span>&#123;</div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * 管理者类Caretaker</div><div class="line">	 * 维护一个备忘录属性</div><div class="line">	 * 仅有get和set方法</div><div class="line">	 * */</div><div class="line">	<span class="keyword">private</span> Memento menento;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> Memento <span class="title">getMenento</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> menento;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMenento</span><span class="params">(Memento menento)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.menento = menento;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
-</ol>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://www.nierunjie.site/2017/05/26/R数学运算/" data-id="cj36qp2yf0018y84di95dyryh" class="article-share-link">Share</a>
+      <a data-url="https://www.nierunjie.site/2017/06/01/Memento-Pattern/" data-id="cj3e62jwm0013l14dzxfl7f5i" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R语言/">R语言</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
 
     </footer>
   </div>
@@ -118,7 +118,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/">&laquo;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/38/">38</a><a class="extend next" rel="next" href="/page/3/">&raquo;</a>
+    <a class="extend prev" rel="prev" href="/">&laquo;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/48/">48</a><a class="extend next" rel="next" href="/page/3/">&raquo;</a>
   </nav>
 
 </section>
@@ -132,23 +132,23 @@
       <ul>
         
           <li>
-            <a href="/2017/05/27/R语言非线性回归/">R语言非线性回归</a>
+            <a href="/2017/06/01/Visitor-Pattern/">Visitor Pattern</a>
           </li>
         
           <li>
-            <a href="/2017/05/26/R数学运算/">R数学运算</a>
+            <a href="/2017/06/01/Memento-Pattern/">Memento Pattern</a>
           </li>
         
           <li>
-            <a href="/2017/05/26/R统计/">R统计</a>
+            <a href="/2017/06/01/Iterator-Pattern/">Iterator Pattern</a>
           </li>
         
           <li>
-            <a href="/2017/05/25/Linux-tab补全忽略大小写/">Linux tab补全忽略大小写</a>
+            <a href="/2017/06/01/Interpreter-Pattern/">Interpreter Pattern</a>
           </li>
         
           <li>
-            <a href="/2017/05/25/R概率/">R概率</a>
+            <a href="/2017/06/01/Chain-of-Responsibility-Pattern/">Chain of Responsibility Pattern</a>
           </li>
         
       </ul>
@@ -169,7 +169,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li></ul>
     </div>
   </div>
 
