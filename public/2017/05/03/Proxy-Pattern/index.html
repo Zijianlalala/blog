@@ -12,10 +12,12 @@
 <meta property="og:url" content="https://www.nierunjie.site/2017/05/03/Proxy-Pattern/index.html">
 <meta property="og:site_name" content="星期八">
 <meta property="og:description" content="代理模式 在代理模式（Proxy Pattern）中，一个类代表另一个类的功能。这种类型的设计模式属于结构型模式。在代理模式中，我们创建具有现有对象的对象，以便向外界提供功能接口。  介绍 意图：为其他对象提供一种代理以控制对这个对象的访问。 主要解决：在直接访问对象时带来的问题，比如说：要访问的对象在远程的机器上。在面向对象系统中，有些对象由于某些原因（比如对象创建开销很大，或者某些操作需要安全">
-<meta property="og:updated_time" content="2017-05-23T13:18:16.624Z">
+<meta property="og:image" content="https://www.nierunjie.site/2017/05/03/Proxy-Pattern/Proxy.png">
+<meta property="og:updated_time" content="2017-06-02T13:50:31.365Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Proxy Pattern">
 <meta name="twitter:description" content="代理模式 在代理模式（Proxy Pattern）中，一个类代表另一个类的功能。这种类型的设计模式属于结构型模式。在代理模式中，我们创建具有现有对象的对象，以便向外界提供功能接口。  介绍 意图：为其他对象提供一种代理以控制对这个对象的访问。 主要解决：在直接访问对象时带来的问题，比如说：要访问的对象在远程的机器上。在面向对象系统中，有些对象由于某些原因（比如对象创建开销很大，或者某些操作需要安全">
+<meta name="twitter:image" content="https://www.nierunjie.site/2017/05/03/Proxy-Pattern/Proxy.png">
   
     <link rel="alternate" href="/atom.xml" title="星期八" type="application/atom+xml">
   
@@ -99,6 +101,10 @@
 <li>缺点： 1、由于在客户端和真实主题之间增加了代理对象，因此有些类型的代理模式可能会造成请求的处理速度变慢。 2、实现代理模式需要额外的工作，有些代理模式的实现非常复杂。<br>使用场景：按职责来划分，通常有以下使用场景： 1、远程代理。 2、虚拟代理。 3、Copy-on-Write 代理。 4、保护（Protect or Access）代理。 5、Cache代理。 6、防火墙（Firewall）代理。 7、同步化（Synchronization）代理。 8、智能引用（Smart Reference）代理。</li>
 <li>注意事项： 1、和适配器模式的区别：适配器模式主要改变所考虑对象的接口，而代理模式不能改变所代理类的接口。 2、和装饰器模式的区别：装饰器模式为了增强功能，而代理模式是为了加以控制。</li>
 </ul>
+<h2 id="基本代码"><a href="#基本代码" class="headerlink" title="基本代码"></a>基本代码</h2><ul>
+<li>UML图<br><img src="/2017/05/03/Proxy-Pattern/Proxy.png" alt="代理模式"></li>
+</ul>
+<hr>
 <h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><ul>
 <li>我们将创建一个 Image 接口和实现了 Image 接口的实体类。ProxyImage 是一个代理类，减少 RealImage 对象加载的内存占用。<br>ProxyPatternDemo，我们的演示类使用 ProxyImage 来获取要加载的 Image 对象，并按照需求进行显示。</li>
 </ul>
@@ -120,7 +126,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://www.nierunjie.site/2017/05/03/Proxy-Pattern/" data-id="cj3e7v5pk0019eg4dkjh5ioem" class="article-share-link">Share</a>
+      <a data-url="https://www.nierunjie.site/2017/05/03/Proxy-Pattern/" data-id="cj3fx6dni001ln04d72uuurg7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -162,6 +168,14 @@
       <ul>
         
           <li>
+            <a href="/2017/06/02/Mediator-Pattern/">Mediator Pattern</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/02/Command-Pattern/">Command Pattern</a>
+          </li>
+        
+          <li>
             <a href="/2017/06/01/Visitor-Pattern/">Visitor Pattern</a>
           </li>
         
@@ -171,14 +185,6 @@
         
           <li>
             <a href="/2017/06/01/Iterator-Pattern/">Iterator Pattern</a>
-          </li>
-        
-          <li>
-            <a href="/2017/06/01/Interpreter-Pattern/">Interpreter Pattern</a>
-          </li>
-        
-          <li>
-            <a href="/2017/06/01/Chain-of-Responsibility-Pattern/">Chain of Responsibility Pattern</a>
           </li>
         
       </ul>

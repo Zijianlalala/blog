@@ -3,7 +3,11 @@ title: Composite Pattern
 date: 2017-06-01 12:51:46
 tags: 设计模式
 ---
+
 ## 基本代码
+* UML图
+![组合模式](Composite.png)
+
 * 主类测试
 ```java
 package composite;

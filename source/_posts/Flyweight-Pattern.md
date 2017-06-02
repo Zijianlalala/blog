@@ -1,5 +1,9 @@
 ---
 title: Flyweight Pattern
 date: 2017-06-01 12:52:00
-tags:
+tags: 设计模式
 ---
+
+## 基本代码
+![享元模式](Flyweight.png)
+***

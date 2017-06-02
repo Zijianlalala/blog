@@ -12,10 +12,12 @@
 <meta property="og:url" content="https://www.nierunjie.site/2017/05/02/Strategy-Pattern/index.html">
 <meta property="og:site_name" content="星期八">
 <meta property="og:description" content="策略模式 在策略模式（Strategy Pattern）中，一个类的行为或其算法可以在运行时更改。这种类型的设计模式属于行为型模式。在策略模式中，我们创建表示各种策略的对象和一个行为随着策略对象改变而改变的 context 对象。策略对象改变 context 对象的执行算法。  介绍 意图：定义一系列的算法,把它们一个个封装起来, 并且使它们可相互替换。 主要解决：在有多种算法相似的情况下，使用">
-<meta property="og:updated_time" content="2017-05-23T13:18:16.624Z">
+<meta property="og:image" content="https://www.nierunjie.site/2017/05/02/Strategy-Pattern/Strategy.png">
+<meta property="og:updated_time" content="2017-06-02T13:50:52.273Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Strategy Pattern">
 <meta name="twitter:description" content="策略模式 在策略模式（Strategy Pattern）中，一个类的行为或其算法可以在运行时更改。这种类型的设计模式属于行为型模式。在策略模式中，我们创建表示各种策略的对象和一个行为随着策略对象改变而改变的 context 对象。策略对象改变 context 对象的执行算法。  介绍 意图：定义一系列的算法,把它们一个个封装起来, 并且使它们可相互替换。 主要解决：在有多种算法相似的情况下，使用">
+<meta name="twitter:image" content="https://www.nierunjie.site/2017/05/02/Strategy-Pattern/Strategy.png">
   
     <link rel="alternate" href="/atom.xml" title="星期八" type="application/atom+xml">
   
@@ -100,6 +102,10 @@
 <li>使用场景： 1、如果在一个系统里面有许多类，它们之间的区别仅在于它们的行为，那么使用策略模式可以动态地让一个对象在许多行为中选择一种行为。 2、一个系统需要动态地在几种算法中选择一种。 3、如果一个对象有很多的行为，如果不用恰当的模式，这些行为就只好使用多重的条件选择语句来实现。</li>
 <li>注意事项：如果一个系统的策略多于四个，就需要考虑使用混合模式，解决策略类膨胀的问题。</li>
 </ul>
+<h2 id="基本代码"><a href="#基本代码" class="headerlink" title="基本代码"></a>基本代码</h2><ul>
+<li>UML图<br><img src="/2017/05/02/Strategy-Pattern/Strategy.png" alt="策略模式"></li>
+</ul>
+<hr>
 <h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>我们将创建一个定义活动的 Strategy 接口和实现了 Strategy 接口的实体策略类。Context 是一个使用了某种策略的类。<br>StrategyPatternDemo，我们的演示类使用 Context 和策略对象来演示 Context 在它所配置或使用的策略改变时的行为变化。</p>
 <ol>
 <li><p>创建一个接口</p>
@@ -126,7 +132,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://www.nierunjie.site/2017/05/02/Strategy-Pattern/" data-id="cj3e7v5qh0026eg4dqan8ahko" class="article-share-link">Share</a>
+      <a data-url="https://www.nierunjie.site/2017/05/02/Strategy-Pattern/" data-id="cj3fx6dof002in04dedpbzydp" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -168,6 +174,14 @@
       <ul>
         
           <li>
+            <a href="/2017/06/02/Mediator-Pattern/">Mediator Pattern</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/02/Command-Pattern/">Command Pattern</a>
+          </li>
+        
+          <li>
             <a href="/2017/06/01/Visitor-Pattern/">Visitor Pattern</a>
           </li>
         
@@ -177,14 +191,6 @@
         
           <li>
             <a href="/2017/06/01/Iterator-Pattern/">Iterator Pattern</a>
-          </li>
-        
-          <li>
-            <a href="/2017/06/01/Interpreter-Pattern/">Interpreter Pattern</a>
-          </li>
-        
-          <li>
-            <a href="/2017/06/01/Chain-of-Responsibility-Pattern/">Chain of Responsibility Pattern</a>
           </li>
         
       </ul>

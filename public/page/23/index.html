@@ -63,10 +63,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Adapter-Pattern" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Hexo的markdown添加图片" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/05/20/Adapter-Pattern/" class="article-date">
-  <time datetime="2017-05-20T00:20:30.000Z" itemprop="datePublished">2017-05-20</time>
+    <a href="/2017/05/23/Hexo的markdown添加图片/" class="article-date">
+  <time datetime="2017-05-23T13:46:35.000Z" itemprop="datePublished">2017-05-23</time>
 </a>
     
   </div>
@@ -77,7 +77,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/20/Adapter-Pattern/">Adapter Pattern</a>
+      <a class="article-title" href="/2017/05/23/Hexo的markdown添加图片/">Hexo的markdown添加图片</a>
     </h1>
   
 
@@ -85,69 +85,28 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="适配器模式"><a href="#适配器模式" class="headerlink" title="适配器模式"></a>适配器模式</h2><p>适配器模式（Adapter Pattern）是作为两个不兼容的接口之间的桥梁。这种类型的设计模式属于结构型模式，它结合了两个独立接口的功能。<br>这种模式涉及到一个单一的类，该类负责加入独立的或不兼容的接口功能。举个真实的例子，读卡器是作为内存卡和笔记本之间的适配器。您将内存卡插入读卡器，再将读卡器插入笔记本，这样就可以通过笔记本来读取内存卡。<br>我们通过下面的实例来演示适配器模式的使用。其中，音频播放器设备只能播放 mp3 文件，通过使用一个更高级的音频播放器来播放 vlc 和 mp4 文件。</p>
-<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
-<li>意图：将一个类的接口转换成客户希望的另外一个接口。适配器模式使得原本由于接口不兼容而不能一起工作的那些类可以一起工作。</li>
-<li>主要解决：主要解决在软件系统中，常常要将一些”现存的对象”放到新的环境中，而新环境要求的接口是现对象不能满足的。</li>
-<li>何时使用： 1、系统需要使用现有的类，而此类的接口不符合系统的需要。 2、想要建立一个可以重复使用的类，用于与一些彼此之间没有太大关联的一些类，包括一些可能在将来引进的类一起工作，这些源类不一定有一致的接口。 3、通过接口转换，将一个类插入另一个类系中。（比如老虎和飞禽，现在多了一个飞虎，在不增加实体的需求下，增加一个适配器，在里面包容一个虎对象，实现飞的接口。）</li>
-<li>如何解决：继承或依赖（推荐）。</li>
-<li>关键代码：适配器继承或依赖已有的对象，实现想要的目标接口。</li>
-<li>应用实例： 1、美国电器 110V，中国 220V，就要有一个适配器将 110V 转化为 220V。 2、JAVA JDK 1.1 提供了 Enumeration 接口，而在 1.2 中提供了 Iterator 接口，想要使用 1.2 的 JDK，则要将以前系统的 Enumeration 接口转化为 Iterator 接口，这时就需要适配器模式。 3、在 LINUX 上运行 WINDOWS 程序。 4、JAVA 中的 jdbc。</li>
-<li>优点： 1、可以让任何两个没有关联的类一起运行。 2、提高了类的复用。 3、增加了类的透明度。 4、灵活性好。</li>
-<li>缺点： 1、过多地使用适配器，会让系统非常零乱，不易整体进行把握。比如，明明看到调用的是 A 接口，其实内部被适配成了 B 接口的实现，一个系统如果太多出现这种情况，无异于一场灾难。因此如果不是很有必要，可以不使用适配器，而是直接对系统进行重构。 2.由于 JAVA 至多继承一个类，所以至多只能适配一个适配者类，而且目标类必须是抽象类。</li>
-<li>使用场景：有动机地修改一个正常运行的系统的接口，这时应该考虑使用适配器模式。</li>
-<li>注意事项：适配器不是在详细设计时添加的，而是解决正在服役的项目的问题。</li>
-</ul>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>我们有一个 MediaPlayer 接口和一个实现了 MediaPlayer 接口的实体类 AudioPlayer。默认情况下，AudioPlayer 可以播放 mp3 格式的音频文件。<br>我们还有另一个接口 AdvancedMediaPlayer 和实现了 AdvancedMediaPlayer 接口的实体类。该类可以播放 vlc 和 mp4 格式的文件。<br>我们想要让 AudioPlayer 播放其他格式的音频文件。为了实现这个功能，我们需要创建一个实现了 MediaPlayer 接口的适配器类 MediaAdapter，并使用 AdvancedMediaPlayer 对象来播放所需的格式。<br>AudioPlayer 使用适配器类 MediaAdapter 传递所需的音频类型，不需要知道能播放所需格式音频的实际类。AdapterPatternDemo，我们的演示类使用 AudioPlayer 类来播放各种格式。</p>
-<ol>
-<li><p>为媒体播放器和更高级的媒体播放器创建接口。</p>
-<ul>
-<li><p>MediaPlayer.java</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">MediaPlayer</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">play</span><span class="params">(String audioType, String fileName)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>AdvancedMediaPlayer.java</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">AdvancedMediaPlayer</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">playVlc</span><span class="params">(String fileName)</span></span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">playMp4</span><span class="params">(String fileName)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
+        <h2 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h2><ol>
+<li>设置根目录下<code>_config.yml</code>中的两个参数<ul>
+<li><code>post_asset_folder: true</code></li>
+<li><code>permalink: :year/:month/:day/:title/</code></li>
 </ul>
 </li>
-<li><p>创建实现了 AdvancedMediaPlayer 接口的实体类。</p>
-<ul>
-<li><p>VlcPlayer.java</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">VlcPlayer</span> <span class="keyword">implements</span> <span class="title">AdvancedMediaPlayer</span></span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">playVlc</span><span class="params">(String fileName)</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"Playing vlc file. Name: "</span>+ fileName);       </div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">playMp4</span><span class="params">(String fileName)</span> </span>&#123;</div><div class="line">        <span class="comment">//什么也不做</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>Mp4Player.java</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Mp4Player</span> <span class="keyword">implements</span> <span class="title">AdvancedMediaPlayer</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">playVlc</span><span class="params">(String fileName)</span> </span>&#123;</div><div class="line">        <span class="comment">//什么也不做</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">playMp4</span><span class="params">(String fileName)</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"Playing mp4 file. Name: "</span>+ fileName);        </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><strong>以上,为在写适配器模式之前已经存在的类,但是接口不兼容,因此写适配器来兼容接口</strong></p>
-</li>
-<li><p>创建实现了 MediaPlayer 接口的适配器类。 </p>
-<ul>
-<li>MediaAdapter.java<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MediaAdapter</span> <span class="keyword">implements</span> <span class="title">MediaPlayer</span> </span>&#123;</div><div class="line"></div><div class="line">    AdvancedMediaPlayer advancedMusicPlayer;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MediaAdapter</span><span class="params">(String audioType)</span></span>&#123;</div><div class="line">        <span class="keyword">if</span>(audioType.equalsIgnoreCase(<span class="string">"vlc"</span>) )&#123;</div><div class="line">            advancedMusicPlayer = <span class="keyword">new</span> VlcPlayer();         </div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (audioType.equalsIgnoreCase(<span class="string">"mp4"</span>))&#123;</div><div class="line">            advancedMusicPlayer = <span class="keyword">new</span> Mp4Player();</div><div class="line">        &#125; </div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">play</span><span class="params">(String audioType, String fileName)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(audioType.equalsIgnoreCase(<span class="string">"vlc"</span>))&#123;</div><div class="line">            advancedMusicPlayer.playVlc(fileName);</div><div class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(audioType.equalsIgnoreCase(<span class="string">"mp4"</span>))&#123;</div><div class="line">            advancedMusicPlayer.playMp4(fileName);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>创建实现了 MediaPlayer 接口的实体类。</p>
-<ul>
-<li>AudioPlayer.java<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 可以用状态模式重写该类,状态为audioType</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AudioPlayer</span> <span class="keyword">implements</span> <span class="title">MediaPlayer</span> </span>&#123;</div><div class="line">    MediaAdapter mediaAdapter; </div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">play</span><span class="params">(String audioType, String fileName)</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="comment">//播放 mp3 音乐文件的内置支持</span></div><div class="line">        <span class="keyword">if</span>(audioType.equalsIgnoreCase(<span class="string">"mp3"</span>))&#123;</div><div class="line">            System.out.println(<span class="string">"Playing mp3 file. Name: "</span>+ fileName);           </div><div class="line">        &#125; </div><div class="line">        <span class="comment">//mediaAdapter 提供了播放其他文件格式的支持</span></div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(audioType.equalsIgnoreCase(<span class="string">"vlc"</span>) </div><div class="line">                || audioType.equalsIgnoreCase(<span class="string">"mp4"</span>))&#123;</div><div class="line">            mediaAdapter = <span class="keyword">new</span> MediaAdapter(audioType);</div><div class="line">            mediaAdapter.play(audioType, fileName);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span>&#123;</div><div class="line">            System.out.println(<span class="string">"Invalid media. "</span>+</div><div class="line">                    audioType + <span class="string">" format not supported"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>使用 AudioPlayer 来播放不同类型的音频格式。</p>
-<ul>
-<li>AdapterPatternDemo.java<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AdapterPatternDemo</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        AudioPlayer audioPlayer = <span class="keyword">new</span> AudioPlayer();</div><div class="line"></div><div class="line">        audioPlayer.play(<span class="string">"mp3"</span>, <span class="string">"beyond the horizon.mp3"</span>);</div><div class="line">        audioPlayer.play(<span class="string">"mp4"</span>, <span class="string">"alone.mp4"</span>);</div><div class="line">        audioPlayer.play(<span class="string">"vlc"</span>, <span class="string">"far far away.vlc"</span>);</div><div class="line">        audioPlayer.play(<span class="string">"avi"</span>, <span class="string">"mind me.avi"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
+<li>运行该命令<code>npm install https://github.com/CodeFalling/hexo-asset-image --save</code></li>
+<li>通过<code>hexo new &quot;Hexo的markdown添加图片&quot;</code>新建文章,此时同时生成一个与文章同名的目录,在此目录中放置图片,例如图片为tuzki.gif</li>
+<li>在markdown中使用<code>![兔斯基](tuzki.gif)</code>显示图片</li>
 </ol>
+<h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><ul>
+<li><a href="https://github.com/CodeFalling/hexo-asset-image" target="_blank" rel="external">hexo-asset-image</a></li>
+</ul>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p><img src="/2017/05/23/Hexo的markdown添加图片/tuzki.gif" alt="兔斯基"></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://www.nierunjie.site/2017/05/20/Adapter-Pattern/" data-id="cj3e7v5no0002eg4dpkwvegj0" class="article-share-link">Share</a>
+      <a data-url="https://www.nierunjie.site/2017/05/23/Hexo的markdown添加图片/" data-id="cj3fx6dme000mn04d5l1ix89r" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
 
     </footer>
   </div>
@@ -159,7 +118,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/22/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="page-number" href="/page/22/">22</a><span class="page-number current">23</span><a class="page-number" href="/page/24/">24</a><a class="page-number" href="/page/25/">25</a><span class="space">&hellip;</span><a class="page-number" href="/page/48/">48</a><a class="extend next" rel="next" href="/page/24/">&raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/22/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="page-number" href="/page/22/">22</a><span class="page-number current">23</span><a class="page-number" href="/page/24/">24</a><a class="page-number" href="/page/25/">25</a><span class="space">&hellip;</span><a class="page-number" href="/page/50/">50</a><a class="extend next" rel="next" href="/page/24/">&raquo;</a>
   </nav>
 
 </section>
@@ -173,6 +132,14 @@
       <ul>
         
           <li>
+            <a href="/2017/06/02/Mediator-Pattern/">Mediator Pattern</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/02/Command-Pattern/">Command Pattern</a>
+          </li>
+        
+          <li>
             <a href="/2017/06/01/Visitor-Pattern/">Visitor Pattern</a>
           </li>
         
@@ -182,14 +149,6 @@
         
           <li>
             <a href="/2017/06/01/Iterator-Pattern/">Iterator Pattern</a>
-          </li>
-        
-          <li>
-            <a href="/2017/06/01/Interpreter-Pattern/">Interpreter Pattern</a>
-          </li>
-        
-          <li>
-            <a href="/2017/06/01/Chain-of-Responsibility-Pattern/">Chain of Responsibility Pattern</a>
           </li>
         
       </ul>

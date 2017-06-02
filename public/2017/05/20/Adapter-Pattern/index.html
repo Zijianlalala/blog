@@ -12,10 +12,12 @@
 <meta property="og:url" content="https://www.nierunjie.site/2017/05/20/Adapter-Pattern/index.html">
 <meta property="og:site_name" content="星期八">
 <meta property="og:description" content="适配器模式适配器模式（Adapter Pattern）是作为两个不兼容的接口之间的桥梁。这种类型的设计模式属于结构型模式，它结合了两个独立接口的功能。这种模式涉及到一个单一的类，该类负责加入独立的或不兼容的接口功能。举个真实的例子，读卡器是作为内存卡和笔记本之间的适配器。您将内存卡插入读卡器，再将读卡器插入笔记本，这样就可以通过笔记本来读取内存卡。我们通过下面的实例来演示适配器模式的使用。其中，音">
-<meta property="og:updated_time" content="2017-05-23T13:18:16.620Z">
+<meta property="og:image" content="https://www.nierunjie.site/2017/05/20/Adapter-Pattern/Adapter.png">
+<meta property="og:updated_time" content="2017-06-02T13:41:55.526Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Adapter Pattern">
 <meta name="twitter:description" content="适配器模式适配器模式（Adapter Pattern）是作为两个不兼容的接口之间的桥梁。这种类型的设计模式属于结构型模式，它结合了两个独立接口的功能。这种模式涉及到一个单一的类，该类负责加入独立的或不兼容的接口功能。举个真实的例子，读卡器是作为内存卡和笔记本之间的适配器。您将内存卡插入读卡器，再将读卡器插入笔记本，这样就可以通过笔记本来读取内存卡。我们通过下面的实例来演示适配器模式的使用。其中，音">
+<meta name="twitter:image" content="https://www.nierunjie.site/2017/05/20/Adapter-Pattern/Adapter.png">
   
     <link rel="alternate" href="/atom.xml" title="星期八" type="application/atom+xml">
   
@@ -98,6 +100,10 @@
 <li>使用场景：有动机地修改一个正常运行的系统的接口，这时应该考虑使用适配器模式。</li>
 <li>注意事项：适配器不是在详细设计时添加的，而是解决正在服役的项目的问题。</li>
 </ul>
+<h2 id="基本代码"><a href="#基本代码" class="headerlink" title="基本代码"></a>基本代码</h2><ul>
+<li>UML图<br><img src="/2017/05/20/Adapter-Pattern/Adapter.png" alt="适配器模式"></li>
+</ul>
+<hr>
 <h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>我们有一个 MediaPlayer 接口和一个实现了 MediaPlayer 接口的实体类 AudioPlayer。默认情况下，AudioPlayer 可以播放 mp3 格式的音频文件。<br>我们还有另一个接口 AdvancedMediaPlayer 和实现了 AdvancedMediaPlayer 接口的实体类。该类可以播放 vlc 和 mp4 格式的文件。<br>我们想要让 AudioPlayer 播放其他格式的音频文件。为了实现这个功能，我们需要创建一个实现了 MediaPlayer 接口的适配器类 MediaAdapter，并使用 AdvancedMediaPlayer 对象来播放所需的格式。<br>AudioPlayer 使用适配器类 MediaAdapter 传递所需的音频类型，不需要知道能播放所需格式音频的实际类。AdapterPatternDemo，我们的演示类使用 AudioPlayer 类来播放各种格式。</p>
 <ol>
 <li><p>为媒体播放器和更高级的媒体播放器创建接口。</p>
@@ -144,7 +150,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://www.nierunjie.site/2017/05/20/Adapter-Pattern/" data-id="cj3e7v5no0002eg4dpkwvegj0" class="article-share-link">Share</a>
+      <a data-url="https://www.nierunjie.site/2017/05/20/Adapter-Pattern/" data-id="cj3fx6dlf0002n04d52l88w7j" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -186,6 +192,14 @@
       <ul>
         
           <li>
+            <a href="/2017/06/02/Mediator-Pattern/">Mediator Pattern</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/02/Command-Pattern/">Command Pattern</a>
+          </li>
+        
+          <li>
             <a href="/2017/06/01/Visitor-Pattern/">Visitor Pattern</a>
           </li>
         
@@ -195,14 +209,6 @@
         
           <li>
             <a href="/2017/06/01/Iterator-Pattern/">Iterator Pattern</a>
-          </li>
-        
-          <li>
-            <a href="/2017/06/01/Interpreter-Pattern/">Interpreter Pattern</a>
-          </li>
-        
-          <li>
-            <a href="/2017/06/01/Chain-of-Responsibility-Pattern/">Chain of Responsibility Pattern</a>
           </li>
         
       </ul>

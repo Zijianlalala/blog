@@ -63,10 +63,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-R数据框" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-R概率" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/05/24/R数据框/" class="article-date">
-  <time datetime="2017-05-24T01:13:10.000Z" itemprop="datePublished">2017-05-24</time>
+    <a href="/2017/05/25/R概率/" class="article-date">
+  <time datetime="2017-05-25T00:31:38.000Z" itemprop="datePublished">2017-05-25</time>
 </a>
     
   </div>
@@ -77,7 +77,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/24/R数据框/">R数据框</a>
+      <a class="article-title" href="/2017/05/25/R概率/">R概率</a>
     </h1>
   
 
@@ -86,27 +86,38 @@
     <div class="article-entry" itemprop="articleBody">
       
         <ol>
-<li><p>数据框data.frame,数据一般从文件或者数据库中读取</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt; d&lt;-data.frame(list(kid=c(<span class="string">"Jack"</span>,<span class="string">"Jill"</span>),age=c(<span class="number">12</span>,<span class="number">10</span>)))</div><div class="line">&gt; d</div><div class="line">   kid age</div><div class="line"><span class="number">1</span> Jack  <span class="number">12</span></div><div class="line"><span class="number">2</span> Jill  <span class="number">10</span></div></pre></td></tr></table></figure>
+<li><p>函数</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">mean(x) <span class="comment"># 平均值</span></div><div class="line">median(x) <span class="comment"># 中位数</span></div><div class="line">sd(x) <span class="comment"># 标准差</span></div><div class="line">var(x) <span class="comment"># 每两列间的协方差</span></div><div class="line">cor(x,y) <span class="comment"># 相关系数矩阵</span></div><div class="line">cov(x,y) <span class="comment"># 协方差矩阵</span></div><div class="line">choose(n,k) <span class="comment"># 计算组合数</span></div><div class="line">combn(items,k) <span class="comment"># 在items中取出k项的组合</span></div></pre></td></tr></table></figure>
 </li>
-<li><p>从文件中读取</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; example &lt;- read.table(<span class="string">"test"</span>,header=<span class="literal">TRUE</span>)</div></pre></td></tr></table></figure>
+<li><p>分布</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">dnorm <span class="comment"># 正态概率密度</span></div><div class="line">pnorm <span class="comment"># 正态分布函数</span></div><div class="line">qnorm <span class="comment"># 正态分位数函数</span></div><div class="line">rnorm <span class="comment"># 正态分布的随机数</span></div><div class="line"></div><div class="line">binom <span class="comment"># 二项分布</span></div><div class="line">geom <span class="comment">#几何分布</span></div><div class="line">hyper <span class="comment"># 超几何分布</span></div><div class="line">nbinom <span class="comment"># 负二项分布</span></div><div class="line">pois <span class="comment"># 泊松分布</span></div><div class="line"></div><div class="line">beta <span class="comment">#贝塔分布</span></div><div class="line">cauchy <span class="comment"># 柯西分布</span></div><div class="line">chisq <span class="comment"># 卡方分布</span></div><div class="line">exp <span class="comment"># 指数分布</span></div><div class="line">f <span class="comment"># F分布</span></div><div class="line">gamma <span class="comment"># 伽玛分布</span></div><div class="line">lnorm <span class="comment"># 对数正态分布</span></div><div class="line">logis <span class="comment"># 逻辑分布</span></div><div class="line">norm <span class="comment"># 正态分布</span></div><div class="line">t <span class="comment"># t分布</span></div><div class="line">unif <span class="comment"># 均匀分布</span></div><div class="line">weibull <span class="comment"># 威布尔分布</span></div><div class="line">wilcox <span class="comment"># Wilcoxon分布</span></div></pre></td></tr></table></figure>
 </li>
-<li><p>访问数据框</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&gt; d$kid</div><div class="line">[<span class="number">1</span>] Jack Jill</div><div class="line">Levels: Jack Jill</div><div class="line">&gt; d[<span class="number">1</span>]</div><div class="line">   kid</div><div class="line"><span class="number">1</span> Jack</div><div class="line"><span class="number">2</span> Jill</div><div class="line">&gt; d[[<span class="number">1</span>]]</div><div class="line">[<span class="number">1</span>] Jack Jill</div><div class="line">Levels: Jack Jill</div><div class="line">&gt; d[,<span class="number">1</span>]</div><div class="line">[<span class="number">1</span>] Jack Jill</div><div class="line">Levels: Jack Jill</div><div class="line">&gt; d[<span class="number">1</span>,]</div><div class="line">   kid age</div><div class="line"><span class="number">1</span> Jack  <span class="number">12</span></div></pre></td></tr></table></figure>
+<li><p>生成随机数,分布前加’r’</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">如 runif</div><div class="line">set.seed() <span class="comment"># 可再生随机数</span></div></pre></td></tr></table></figure>
 </li>
-<li><p>合并merge(x,y) 删除不匹配的 merge(x,y,by.x=”列名”,by.y=”列名”) 列名不同但意义相同</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&gt; d1</div><div class="line">     kids states</div><div class="line"><span class="number">1</span>    Jack     CA</div><div class="line"><span class="number">2</span>    Jill     MA</div><div class="line"><span class="number">3</span> Jillian     MA</div><div class="line"><span class="number">4</span>    john     HI</div><div class="line">&gt; d2</div><div class="line">     kids ages</div><div class="line"><span class="number">1</span>    Jack   <span class="number">10</span></div><div class="line"><span class="number">2</span>    Jill    <span class="number">7</span></div><div class="line"><span class="number">3</span> Lillian   <span class="number">12</span></div><div class="line">&gt; merge(d1,d2)</div><div class="line">  kids states ages</div><div class="line"><span class="number">1</span> Jack     CA   <span class="number">10</span></div><div class="line"><span class="number">2</span> Jill     MA    <span class="number">7</span></div></pre></td></tr></table></figure>
+<li><p>分布函数,分布前加’p’</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">如 pbinom</div><div class="line">s&lt;-seq(from=-<span class="number">3</span>,to=+<span class="number">3</span>,length.out = <span class="number">100</span>) <span class="comment"># 生成横坐标</span></div><div class="line">y&lt;-pnorm(x)</div><div class="line">plot(x,y,main=<span class="string">"Standard Normal Distribution"</span>,type=<span class="string">'l'</span>)</div></pre></td></tr></table></figure>
+<p><img src="/2017/05/25/R概率/pnorm.png" alt="标准正态分布分布函数"> </p>
 </li>
-<li><p>统计文件中没一行的属性个数</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">count.fields(file, sep = <span class="string">""</span>, quote = <span class="string">"\"'"</span>, skip = <span class="number">0</span>,</div><div class="line">             blank.lines.skip = <span class="literal">TRUE</span>, comment.char = <span class="string">"#"</span>)</div></pre></td></tr></table></figure>
+<li><p>密度函数,分布前加’d’</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">如 dgamma</div><div class="line">y&lt;-dnorm(x)</div><div class="line">plot(x,y,main=<span class="string">"Standard Normal Distribution"</span>,type=<span class="string">'l'</span>)</div></pre></td></tr></table></figure>
+<p><img src="/2017/05/25/R概率/dnorm.png" alt="标准正态分布密度函数"></p>
+</li>
+<li><p>分位数(不懂),分布前加q</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">如 qnorm</div></pre></td></tr></table></figure>
+</li>
+<li><p>生成随机样本</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sample(vec,n)</div></pre></td></tr></table></figure>
+</li>
+<li><p>生成随机序列</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sample(c(<span class="literal">T</span>,<span class="literal">F</span>),<span class="number">10</span>,replace=<span class="literal">TRUE</span>)</div></pre></td></tr></table></figure>
 </li>
 </ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://www.nierunjie.site/2017/05/24/R数据框/" data-id="cj3e7v5py001oeg4domcjbh53" class="article-share-link">Share</a>
+      <a data-url="https://www.nierunjie.site/2017/05/25/R概率/" data-id="cj3fx6do00022n04dr50qjrkr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R语言/">R语言</a></li></ul>
@@ -121,7 +132,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/16/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><span class="page-number current">17</span><a class="page-number" href="/page/18/">18</a><a class="page-number" href="/page/19/">19</a><span class="space">&hellip;</span><a class="page-number" href="/page/48/">48</a><a class="extend next" rel="next" href="/page/18/">&raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/16/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><span class="page-number current">17</span><a class="page-number" href="/page/18/">18</a><a class="page-number" href="/page/19/">19</a><span class="space">&hellip;</span><a class="page-number" href="/page/50/">50</a><a class="extend next" rel="next" href="/page/18/">&raquo;</a>
   </nav>
 
 </section>
@@ -135,6 +146,14 @@
       <ul>
         
           <li>
+            <a href="/2017/06/02/Mediator-Pattern/">Mediator Pattern</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/02/Command-Pattern/">Command Pattern</a>
+          </li>
+        
+          <li>
             <a href="/2017/06/01/Visitor-Pattern/">Visitor Pattern</a>
           </li>
         
@@ -144,14 +163,6 @@
         
           <li>
             <a href="/2017/06/01/Iterator-Pattern/">Iterator Pattern</a>
-          </li>
-        
-          <li>
-            <a href="/2017/06/01/Interpreter-Pattern/">Interpreter Pattern</a>
-          </li>
-        
-          <li>
-            <a href="/2017/06/01/Chain-of-Responsibility-Pattern/">Chain of Responsibility Pattern</a>
           </li>
         
       </ul>

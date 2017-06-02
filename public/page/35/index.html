@@ -63,10 +63,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Simple-Factory-Pattern" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Abstract-Factory-Pattern" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/05/01/Simple-Factory-Pattern/" class="article-date">
-  <time datetime="2017-05-01T08:23:14.000Z" itemprop="datePublished">2017-05-01</time>
+    <a href="/2017/05/01/Abstract-Factory-Pattern/" class="article-date">
+  <time datetime="2017-05-01T11:54:57.000Z" itemprop="datePublished">2017-05-01</time>
 </a>
     
   </div>
@@ -77,7 +77,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/01/Simple-Factory-Pattern/">Simple Factory Pattern</a>
+      <a class="article-title" href="/2017/05/01/Abstract-Factory-Pattern/">Abstract Factory Pattern</a>
     </h1>
   
 
@@ -85,45 +85,59 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h2><p>工厂模式（Factory Pattern）是 Java 中最常用的设计模式之一。这种类型的设计模式属于创建型模式，它提供了一种创建对象的最佳方式。<br>在工厂模式中，我们在创建对象时不会对客户端暴露创建逻辑，并且是通过使用一个共同的接口来指向新创建的对象。</p>
+        <h2 id="抽象工厂模式"><a href="#抽象工厂模式" class="headerlink" title="抽象工厂模式"></a>抽象工厂模式</h2><p>抽象工厂模式（Abstract Factory Pattern）是围绕一个超级工厂创建其他工厂。该超级工厂又称为其他工厂的工厂。这种类型的设计模式属于创建型模式，它提供了一种创建对象的最佳方式。<br>在抽象工厂模式中，接口是负责创建一个相关对象的工厂，不需要显式指定它们的类。每个生成的工厂都能按照工厂模式提供对象。</p>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ul>
+<li><em>产品族</em> 是指位于不同产品等级结构中，功能相关联的产品组成的家族。一般是位于不同的等级结构中的相同位置上。显然，每一个产品族中含有产品的数目，与产品等级结构的数目是相等的，形成一个二维的坐标系，水平坐标是产品等级结构，纵坐标是产品族。叫做相图。<br>当有多个不同的等级结构的产品时，如果使用工厂方法模式就势必要使用多个独立的工厂等级结构来对付这些产品的等级结构。如果这些产品等级结构是平行的，会导致多个平行的工厂等级结构。<br>抽象工厂模式使用同一个 工厂等级结构负责这些不同产品等级结构产品对象的创建。<br>对于每一个产品族，都有一个具体工厂。而每一个具体工厂创建属于同一个产品族，但是分属于不同等级结构的产品。<br>通过引进抽象工厂模式，可以处理具有相同（或者相似）等级结构的多个产品族中的产品对象的创建问题。<br>由于每个具体工厂角色都需要负责两个不同等级结构的产品对象的创建，因此每个工厂角色都需要提供两个工厂方法，分别用于创建两个等级结构的产品。既然每个具体工厂角色都需要实现这两个工厂方法，所以具有一般性，不妨抽象出来，移动到抽象工厂角色中加以声明。</li>
+</ul>
 <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
-<li><p>意图：定义一个创建对象的接口，让其子类自己决定实例化哪一个工厂类，工厂模式使其创建过程延迟到子类进行。</p>
-</li>
-<li><p>主要解决：主要解决接口选择的问题。</p>
-</li>
-<li><p>何时使用：我们明确地计划不同条件下创建不同实例时。</p>
-</li>
-<li><p>如何解决：让其子类实现工厂接口，返回的也是一个抽象的产品。</p>
-</li>
-<li><p>关键代码：创建过程在其子类执行。</p>
-</li>
-<li><p>优点： 1、一个调用者想创建一个对象，只要知道其名称就可以了。 2、扩展性高，如果想增加一个产品，只要扩展一个工厂类就可以。 3、屏蔽产品的具体实现，调用者只关心产品的接口。</p>
-</li>
-<li><p>缺点：每次增加一个产品时，都需要增加一个具体类，修改工厂类，在一定程度上增加了系统的复杂度，同时也增加了系统具体类的依赖。这并不是什么好事。</p>
-</li>
-<li><p>使用场景： 1、日志记录器：记录可能记录到本地硬盘、系统事件、远程服务器等，用户可以选择记录日志到什么地方。 2、数据库访问，当用户不知道最后系统采用哪一类数据库，以及数据库可能有变化时。 3、设计一个连接服务器的框架，需要三个协议，”POP3”、”IMAP”、”HTTP”，可以把这三个作为产品类，共同实现一个接口。</p>
-</li>
-<li><p>注意事项：作为一种创建类模式，在任何需要生成复杂对象的地方，都可以使用工厂方法模式。有一点需要注意的地方就是复杂对象适合使用工厂模式，而简单对象，特别是只需要通过 new 就可以完成创建的对象，无需使用工厂模式。如果使用工厂模式，就需要引入一个工厂类，会增加系统的复杂度。</p>
-</li>
+<li>意图：提供一个创建一系列相关或相互依赖对象的接口，而无需指定它们具体的类。</li>
+<li>主要解决：主要解决接口选择的问题。</li>
+<li>何时使用：系统的产品有多于一个的产品族，而系统只消费其中某一族的产品。</li>
+<li>如何解决：在一个产品族里面，定义多个产品。</li>
+<li>关键代码：在一个工厂里聚合多个同类产品。</li>
+<li>应用实例：工作了，为了参加一些聚会，肯定有两套或多套衣服吧，比如说有商务装（成套，一系列具体产品）、时尚装（成套，一系列具体产品），甚至对于一个家庭来说，可能有商务女装、商务男装、时尚女装、时尚男装，这些也都是成套的，即一系列具体产品。假设一种情况（现实中是不存在的，要不然，没法进入共产主义了，但有利于说明抽象工厂模式），在您的家中，某一个衣柜（具体工厂）只能存放某一种这样的衣服（成套，一系列具体产品），每次拿这种成套的衣服时也自然要从这个衣柜中取出了。用 OO 的思想去理解，所有的衣柜（具体工厂）都是衣柜类的（抽象工厂）某一个，而每一件成套的衣服又包括具体的上衣（某一具体产品），裤子（某一具体产品），这些具体的上衣其实也都是上衣（抽象产品），具体的裤子也都是裤子（另一个抽象产品）。</li>
+<li>优点：当一个产品族中的多个对象被设计成一起工作时，它能保证客户端始终只使用同一个产品族中的对象。</li>
+<li>缺点：产品族扩展非常困难，要增加一个系列的某一产品，既要在抽象的 Creator 里加代码，又要在具体的里面加代码。</li>
+<li>使用场景： 1、QQ 换皮肤，一整套一起换。 2、生成不同操作系统的程序。</li>
+<li>注意事项：产品族难扩展，产品等级易扩展。</li>
 </ul>
-<h3 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤"></a>实现步骤</h3><ol>
-<li>创建一个接口(抽象产品角色)</li>
-<li>创建多个实现接口的实体类(具体产品角色)</li>
-<li>创建一个工厂，生成基于给定信息的实体类的对象(工厂角色)</li>
+<h2 id="基本代码"><a href="#基本代码" class="headerlink" title="基本代码"></a>基本代码</h2><ul>
+<li>UML图<br><img src="/2017/05/01/Abstract-Factory-Pattern/Abstract-Factory.png" alt="抽象工厂模式"></li>
+</ul>
+<hr>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><ul>
+<li>我们将创建 Shape 和 Color 接口和实现这些接口的实体类。下一步是创建抽象工厂类 AbstractFactory。接着定义工厂类 ShapeFactory 和 ColorFactory，这两个工厂类都是扩展了 AbstractFactory。然后创建一个工厂创造器/生成器类 FactoryProducer。<br>AbstractFactoryPatternDemo，我们的演示类使用 FactoryProducer 来获取 AbstractFactory 对象。它将向 AbstractFactory 传递形状信息 Shape（CIRCLE / RECTANGLE / SQUARE），以便获取它所需对象的类型。同时它还向 AbstractFactory 传递颜色信息 Color（RED / GREEN / BLUE），以便获取它所需对象的类型。</li>
+</ul>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
+<li><p>创建一个接口Shape.创建一个接口Color.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Shape</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">draw</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>实现上面两个接口,每个实现多个类</p>
+</li>
+<li><p>为Color和Shape对象创建抽象工厂类来获取工厂.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// AbstractFactory.java</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">AbstractFactory</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">abstract</span> Color <span class="title">getColor</span><span class="params">(String color)</span></span>;</div><div class="line">    <span class="function"><span class="keyword">abstract</span> Shape <span class="title">getShape</span><span class="params">(String shape)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>扩展AbstractFactory的工厂类,基于给定信息生成实体类对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ShapeFactory</span> <span class="keyword">extends</span> <span class="title">AbstractFactory</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> Shape <span class="title">getShape</span><span class="params">(String shapeType)</span></span>&#123;</div><div class="line">        <span class="keyword">if</span>(shapeType == <span class="keyword">null</span>)&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">        &#125;        </div><div class="line">        <span class="keyword">if</span>(shapeType.equalsIgnoreCase(<span class="string">"CIRCLE"</span>))&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> Circle();</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(shapeType.equalsIgnoreCase(<span class="string">"RECTANGLE"</span>))&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> Rectangle();</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(shapeType.equalsIgnoreCase(<span class="string">"SQUARE"</span>))&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> Square();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">     &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function">Color <span class="title">getColor</span><span class="params">(String color)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+</li>
 </ol>
-<h3 id="角色介绍"><a href="#角色介绍" class="headerlink" title="角色介绍"></a>角色介绍</h3><ul>
-<li>工厂角色（Creator）：这是简单工厂模式的核心，由它负责创建所有的类的内部逻辑。当然工厂类必须能够被外界调用，创建所需要的产品对象。</li>
-<li>抽象（Product）产品角色：简单工厂模式所创建的所有对象的父类，注意，这里的父类可以是接口也可以是抽象类，它负责描述所有实例所共有的公共接口。</li>
-<li>具体产品（Concrete Product）角色：简单工厂所创建的具体实例对象，这些具体的产品往往都拥有共同的父类。</li>
-</ul>
+<p>同样的还有一个ColorFactory.java,其中的getShape返回空</p>
+<ol>
+<li><p>创建一个工厂创造器/生成器类,通过传递形状或颜色来获取工厂</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FactoryProducer</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> AbstractFactory <span class="title">getFactory</span><span class="params">(String choice)</span></span>&#123;</div><div class="line">        <span class="keyword">if</span>(choice.equalsIgnoreCase(<span class="string">"SHAPE"</span>))&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> ShapeFactory();</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(choice.equalsIgnoreCase(<span class="string">"COLOR"</span>))&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> ColorFactory();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用 FactoryProducer 来获取 AbstractFactory，通过传递类型信息来获取实体类的对象。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AbstractFactoryPatternDemo</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="comment">//获取形状工厂</span></div><div class="line">        AbstractFactory shapeFactory = FactoryProducer.getFactory(<span class="string">"SHAPE"</span>);</div><div class="line"></div><div class="line">        <span class="comment">//获取形状为 Circle 的对象</span></div><div class="line">        Shape shape1 = shapeFactory.getShape(<span class="string">"CIRCLE"</span>);</div><div class="line"></div><div class="line">        <span class="comment">//调用 Circle 的 draw 方法</span></div><div class="line">        shape1.draw();</div></pre></td></tr></table></figure>
+</li>
+</ol>
 <h2 id="个人理解"><a href="#个人理解" class="headerlink" title="个人理解"></a>个人理解</h2><ul>
-<li>这是最简单的设计模式,但却有一种恍然大悟的感觉,同时意识到自己以前写的代码有多么不可维护,有其实在写一个网站的时候,写完删掉重做的次数太多了.今天看到deepin的创始人谈linux,提到windows和os x的软件和操作系统之间都有接口,所以很久以前给windows开发的应用到现在还可以用,而linux的软件则是直接依赖底层,从复杂的依赖关系可以看出来,从来没有意识到的,如果操作系统底层进行了修改,有很多的软件就不能用</li>
+<li>简单工厂和工厂方法只能创建一类产品,当需样创建不同类产品时,可以将产品类的抽象类再次抽象,形成一个 <strong>创建工厂的工厂</strong> 再利用创建的工厂,创建具体产品</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://www.nierunjie.site/2017/05/01/Simple-Factory-Pattern/" data-id="cj3e7v5qa001yeg4dcktsi6np" class="article-share-link">Share</a>
+      <a data-url="https://www.nierunjie.site/2017/05/01/Abstract-Factory-Pattern/" data-id="cj3fx6dl90001n04dh99f56q1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -138,7 +152,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/34/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/33/">33</a><a class="page-number" href="/page/34/">34</a><span class="page-number current">35</span><a class="page-number" href="/page/36/">36</a><a class="page-number" href="/page/37/">37</a><span class="space">&hellip;</span><a class="page-number" href="/page/48/">48</a><a class="extend next" rel="next" href="/page/36/">&raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/34/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/33/">33</a><a class="page-number" href="/page/34/">34</a><span class="page-number current">35</span><a class="page-number" href="/page/36/">36</a><a class="page-number" href="/page/37/">37</a><span class="space">&hellip;</span><a class="page-number" href="/page/50/">50</a><a class="extend next" rel="next" href="/page/36/">&raquo;</a>
   </nav>
 
 </section>
@@ -152,6 +166,14 @@
       <ul>
         
           <li>
+            <a href="/2017/06/02/Mediator-Pattern/">Mediator Pattern</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/02/Command-Pattern/">Command Pattern</a>
+          </li>
+        
+          <li>
             <a href="/2017/06/01/Visitor-Pattern/">Visitor Pattern</a>
           </li>
         
@@ -161,14 +183,6 @@
         
           <li>
             <a href="/2017/06/01/Iterator-Pattern/">Iterator Pattern</a>
-          </li>
-        
-          <li>
-            <a href="/2017/06/01/Interpreter-Pattern/">Interpreter Pattern</a>
-          </li>
-        
-          <li>
-            <a href="/2017/06/01/Chain-of-Responsibility-Pattern/">Chain of Responsibility Pattern</a>
           </li>
         
       </ul>

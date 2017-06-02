@@ -63,10 +63,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-PHP不能解析" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Linux压缩解压缩命令" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/04/17/PHP不能解析/" class="article-date">
-  <time datetime="2017-04-17T13:12:02.000Z" itemprop="datePublished">2017-04-17</time>
+    <a href="/2017/04/17/Linux压缩解压缩命令/" class="article-date">
+  <time datetime="2017-04-17T13:29:03.000Z" itemprop="datePublished">2017-04-17</time>
 </a>
     
   </div>
@@ -77,7 +77,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/17/PHP不能解析/">PHP不能解析</a>
+      <a class="article-title" href="/2017/04/17/Linux压缩解压缩命令/">Linux压缩解压缩命令</a>
     </h1>
   
 
@@ -85,22 +85,56 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="环境："><a href="#环境：" class="headerlink" title="环境："></a>环境：</h2><ul>
-<li>linux mint 18</li>
-<li>php7</li>
-<li>apache2</li>
+        <h4 id="tar命令"><a href="#tar命令" class="headerlink" title="tar命令"></a>tar命令</h4><ul>
+<li>解包：tar zxvf FileName.tar</li>
+<li>打包：tar czvf FileName.tar DirName</li>
 </ul>
-<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><ul>
-<li>默认安装情况下缺少一个组建，安装后就可以正常工作</li>
+<h4 id="gz命令"><a href="#gz命令" class="headerlink" title="gz命令"></a>gz命令</h4><ul>
+<li>解压1：gunzip FileName.gz</li>
+<li>解压2：gzip -d FileName.gz</li>
+<li>压缩：gzip FileName</li>
 </ul>
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><ul>
-<li><code>sudo apt install libapache2-mod-php7.0</code></li>
+<h4 id="tar-gz-和-tgz"><a href="#tar-gz-和-tgz" class="headerlink" title="tar.gz 和 .tgz"></a>tar.gz 和 .tgz</h4><ul>
+<li>解压：tar zxvf FileName.tar.gz</li>
+<li>压缩：tar zcvf FileName.tar.gz DirName</li>
+<li>压缩多个文件：tar zcvf FileName.tar.gz DirName1 DirName2 DirName3 …</li>
+</ul>
+<h4 id="bz2命令"><a href="#bz2命令" class="headerlink" title="bz2命令"></a>bz2命令</h4><ul>
+<li>解压1：bzip2 -d FileName.bz2</li>
+<li>解压2：bunzip2 FileName.bz2</li>
+<li>压缩： bzip2 -z FileName</li>
+</ul>
+<h4 id="tar-bz2"><a href="#tar-bz2" class="headerlink" title="tar.bz2"></a>tar.bz2</h4><ul>
+<li>解压：tar jxvf FileName.tar.bz2</li>
+<li>压缩：tar jcvf FileName.tar.bz2 DirName</li>
+</ul>
+<h4 id="bz命令"><a href="#bz命令" class="headerlink" title="bz命令"></a>bz命令</h4><ul>
+<li>解压1：bzip2 -d FileName.bz</li>
+<li>解压2：bunzip2 FileName.bz</li>
+<li>压缩：未知</li>
+</ul>
+<h4 id="tar-bz"><a href="#tar-bz" class="headerlink" title="tar.bz"></a>tar.bz</h4><ul>
+<li>解压：tar jxvf FileName.tar.bz</li>
+</ul>
+<h4 id="Z命令"><a href="#Z命令" class="headerlink" title="Z命令"></a>Z命令</h4><ul>
+<li>解压：uncompress FileName.Z</li>
+<li>压缩：compress FileName</li>
+</ul>
+<h4 id="tar-Z"><a href="#tar-Z" class="headerlink" title="tar.Z"></a>tar.Z</h4><ul>
+<li>解压：tar Zxvf FileName.tar.Z   </li>
+<li>压缩：tar Zcvf FileName.tar.Z DirName</li>
+</ul>
+<h4 id="zip命令"><a href="#zip命令" class="headerlink" title="zip命令"></a>zip命令</h4><ul>
+<li>解压：unzip FileName.zip</li>
+<li>注:中文文件名乱码可指定字符集</li>
+<li>unzip -O gbk FileName.zip</li>
+<li>压缩：zip FileName.zip DirName</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://www.nierunjie.site/2017/04/17/PHP不能解析/" data-id="cj3e7v5pg0014eg4d7j5koxgj" class="article-share-link">Share</a>
+      <a data-url="https://www.nierunjie.site/2017/04/17/Linux压缩解压缩命令/" data-id="cj3fx6dn10015n04d1dxz8mqp" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
@@ -115,7 +149,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/47/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/46/">46</a><a class="page-number" href="/page/47/">47</a><span class="page-number current">48</span>
+    <a class="extend prev" rel="prev" href="/page/47/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/46/">46</a><a class="page-number" href="/page/47/">47</a><span class="page-number current">48</span><a class="page-number" href="/page/49/">49</a><a class="page-number" href="/page/50/">50</a><a class="extend next" rel="next" href="/page/49/">&raquo;</a>
   </nav>
 
 </section>
@@ -129,6 +163,14 @@
       <ul>
         
           <li>
+            <a href="/2017/06/02/Mediator-Pattern/">Mediator Pattern</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/02/Command-Pattern/">Command Pattern</a>
+          </li>
+        
+          <li>
             <a href="/2017/06/01/Visitor-Pattern/">Visitor Pattern</a>
           </li>
         
@@ -138,14 +180,6 @@
         
           <li>
             <a href="/2017/06/01/Iterator-Pattern/">Iterator Pattern</a>
-          </li>
-        
-          <li>
-            <a href="/2017/06/01/Interpreter-Pattern/">Interpreter Pattern</a>
-          </li>
-        
-          <li>
-            <a href="/2017/06/01/Chain-of-Responsibility-Pattern/">Chain of Responsibility Pattern</a>
           </li>
         
       </ul>
