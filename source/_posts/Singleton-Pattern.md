@@ -13,37 +13,37 @@ tags: 设计模式
 package singleton;
 
 public class Singleton {
-	private static Singleton instance;
+    private static Singleton instance;
 
-	private Singleton() {
-	}
+    private Singleton() {
+    }
 
-	/**
-	 * (浪费)时间换(节省)空间 懒汉式
-	 */
-	public static Singleton getInstance() {
-		if (instance == null) {
-			instance = new Singleton();
-		}
-		return instance;
-	}
+    /**
+     * (浪费)时间换(节省)空间 懒汉式
+     */
+    public static Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton();
+        }
+        return instance;
+    }
 
-	public static void main(String[] args) {
-		try {
-			// 使用反射创建对象
-			Singleton t1 = Singleton.class.newInstance();
-			Singleton t2 = Singleton.class.newInstance();
-			Singleton t3 = Singleton.getInstance();
-			Singleton t4 = Singleton.getInstance();
-			
-			System.out.println(t1); // singleton.Singleton@6bc7c054
-			System.out.println(t2); // singleton.Singleton@232204a1
-			System.out.println(t3); // singleton.Singleton@4aa298b7
-			System.out.println(t4); // singleton.Singleton@4aa298b7
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-	}
+    public static void main(String[] args) {
+        try {
+            // 使用反射创建对象
+            Singleton t1 = Singleton.class.newInstance();
+            Singleton t2 = Singleton.class.newInstance();
+            Singleton t3 = Singleton.getInstance();
+            Singleton t4 = Singleton.getInstance();
+
+            System.out.println(t1); // singleton.Singleton@6bc7c054
+            System.out.println(t2); // singleton.Singleton@232204a1
+            System.out.println(t3); // singleton.Singleton@4aa298b7
+            System.out.println(t4); // singleton.Singleton@4aa298b7
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
 }
 ```
 
@@ -52,17 +52,17 @@ public class Singleton {
 package singleton;
 
 public class Singleton2 {
-	/**
-	 * (浪费)空间换(节省)时间 饿汉式
-	 */
-	private static Singleton2 instance = new Singleton2();
+    /**
+     * (浪费)空间换(节省)时间 饿汉式
+     */
+    private static Singleton2 instance = new Singleton2();
 
-	private Singleton2() {
-	}
+    private Singleton2() {
+    }
 
-	public static Singleton2 getInstance() {
-		return instance;
-	}
+    public static Singleton2 getInstance() {
+        return instance;
+    }
 }
 ```
 * 懒汉式代码可以看出,在**单例类中**通过**反射**创建对象,创建的**并不是同一个对象**,在单例类外不能通过反射创建对象.

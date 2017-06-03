@@ -10,7 +10,7 @@ tags: Linux
 
 ## 内容
 
-" 设置编码字符集,解决某些文件打开乱码的情况 
+" 设置编码字符集
 set encoding=utf-8 fileencodings=ucs-bom,utf-8,cp936
 
 " 显示行号
@@ -36,6 +36,9 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 
+" 光标移动到buffer的顶部和底部时保持5行距离
+set scrolloff=5
+
 " 自动判断换行格式
 set fileformats=unix,dos
 
@@ -47,4 +50,8 @@ Bundle 'bling/vim-airline'
 Bundle 'davidhalter/jedi-vim'
 Plugin 'Valloric/YouCompleteMe'
 set laststatus=2
+
+" YCM配置
+let g:ycm_enable_diagnostic_signs = 0
+let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 
