@@ -106,5 +106,5 @@ public class AbstractFactoryPatternDemo {
         //调用 Circle 的 draw 方法
         shape1.draw();
 ```
-## 个人理解
+## 其他
 * 简单工厂和工厂方法只能创建一类产品,当需样创建不同类产品时,可以将产品类的抽象类再次抽象,形成一个 **创建工厂的工厂** 再利用创建的工厂,创建具体产品

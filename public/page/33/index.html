@@ -85,9 +85,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h2><ul>
-<li>在策略模式（Strategy Pattern）中，一个类的行为或其算法可以在运行时更改。这种类型的设计模式属于行为型模式。<br>在策略模式中，我们创建表示各种策略的对象和一个行为随着策略对象改变而改变的 context 对象。策略对象改变 context 对象的执行算法。</li>
-</ul>
+        <h2 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h2><p>在策略模式（Strategy Pattern）中，一个类的行为或其算法可以在运行时更改。这种类型的设计模式属于行为型模式。<br>在策略模式中，我们创建表示各种策略的对象和一个行为随着策略对象改变而改变的 context 对象。策略对象改变 context 对象的执行算法。</p>
 <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
 <li>意图：定义一系列的算法,把它们一个个封装起来, 并且使它们可相互替换。</li>
 <li>主要解决：在有多种算法相似的情况下，使用 if…else 所带来的复杂和难以维护。</li>
@@ -119,18 +117,14 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// StrategyPatternDemo.java</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StrategyPatternDemo</span> </span>&#123;</div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">      Context context = <span class="keyword">new</span> Context(<span class="keyword">new</span> OperationAdd());</div><div class="line">      System.out.println(<span class="string">"10 + 5 = "</span> + context.executeStrategy(<span class="number">10</span>, <span class="number">5</span>));</div><div class="line"></div><div class="line">      context = <span class="keyword">new</span> Context(<span class="keyword">new</span> OperationSubstract());</div><div class="line">      System.out.println(<span class="string">"10 - 5 = "</span> + context.executeStrategy(<span class="number">10</span>, <span class="number">5</span>));</div><div class="line"></div><div class="line">      context = <span class="keyword">new</span> Context(<span class="keyword">new</span> OperationMultiply());</div><div class="line">      System.out.println(<span class="string">"10 * 5 = "</span> + context.executeStrategy(<span class="number">10</span>, <span class="number">5</span>));</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<h2 id="个人理解"><a href="#个人理解" class="headerlink" title="个人理解"></a>个人理解</h2><ul>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
 <li>策略模式是行为型模式,简单工厂模式是创建型模式.这两个模式在实现上貌似很相似,但是本质上不同.工厂模式是根据需要创建对象,策略模式是根据需要选择方法.</li>
 </ul>
-<h4 id="举一个不成熟的例子"><a href="#举一个不成熟的例子" class="headerlink" title="举一个不成熟的例子:"></a>举一个不成熟的例子:</h4><ol>
-<li>策略模式:走在路上,走着走着,面前有三条路,选择一条走下去</li>
-<li>工厂模式:走在路上,走着走着,饿了,正好面前有个面包店,告诉店主,我要一个什么什么样的面包,然后拿到一个面包</li>
-</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://www.nierunjie.site/2017/05/02/Strategy-Pattern/" data-id="cj3hyndbd002igc4dtuwvqxg6" class="article-share-link">Share</a>
+      <a data-url="https://www.nierunjie.site/2017/05/02/Strategy-Pattern/" data-id="cj3ipzjp0002im84d1ck8ae81" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>

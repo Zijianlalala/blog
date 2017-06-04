@@ -130,14 +130,14 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AbstractFactoryPatternDemo</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="comment">//获取形状工厂</span></div><div class="line">        AbstractFactory shapeFactory = FactoryProducer.getFactory(<span class="string">"SHAPE"</span>);</div><div class="line"></div><div class="line">        <span class="comment">//获取形状为 Circle 的对象</span></div><div class="line">        Shape shape1 = shapeFactory.getShape(<span class="string">"CIRCLE"</span>);</div><div class="line"></div><div class="line">        <span class="comment">//调用 Circle 的 draw 方法</span></div><div class="line">        shape1.draw();</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<h2 id="个人理解"><a href="#个人理解" class="headerlink" title="个人理解"></a>个人理解</h2><ul>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
 <li>简单工厂和工厂方法只能创建一类产品,当需样创建不同类产品时,可以将产品类的抽象类再次抽象,形成一个 <strong>创建工厂的工厂</strong> 再利用创建的工厂,创建具体产品</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://www.nierunjie.site/2017/05/01/Abstract-Factory-Pattern/" data-id="cj3hynd7m0002gc4d41dluxxg" class="article-share-link">Share</a>
+      <a data-url="https://www.nierunjie.site/2017/05/01/Abstract-Factory-Pattern/" data-id="cj3ipzjlz0001m84djwhh0hm3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>

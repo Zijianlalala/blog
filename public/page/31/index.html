@@ -85,9 +85,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h2><ul>
-<li>在代理模式（Proxy Pattern）中，一个类代表另一个类的功能。这种类型的设计模式属于结构型模式。<br>在代理模式中，我们创建具有现有对象的对象，以便向外界提供功能接口。</li>
-</ul>
+        <h2 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h2><p>在代理模式（Proxy Pattern）中，一个类代表另一个类的功能。这种类型的设计模式属于结构型模式。<br>在代理模式中，我们创建具有现有对象的对象，以便向外界提供功能接口。</p>
 <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
 <li>意图：为其他对象提供一种代理以控制对这个对象的访问。</li>
 <li>主要解决：在直接访问对象时带来的问题，比如说：要访问的对象在远程的机器上。在面向对象系统中，有些对象由于某些原因（比如对象创建开销很大，或者某些操作需要安全控制，或者需要进程外的访问），直接访问会给使用者或者系统结构带来很多麻烦，我们可以在访问此对象时加上一个对此对象的访问层。</li>
@@ -117,14 +115,14 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProxyPatternDemo</span> </span>&#123;</div><div class="line">	</div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">      Image image = <span class="keyword">new</span> ProxyImage(<span class="string">"test_10mb.jpg"</span>);</div><div class="line"></div><div class="line">      <span class="comment">//图像将从磁盘加载</span></div><div class="line">      image.display(); </div><div class="line">      System.out.println(<span class="string">""</span>);</div><div class="line">      <span class="comment">//图像将无法从磁盘加载</span></div><div class="line">      image.display(); </div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<h2 id="另一个示例"><a href="#另一个示例" class="headerlink" title="另一个示例"></a>另一个示例</h2><h2 id="个人理解"><a href="#个人理解" class="headerlink" title="个人理解"></a>个人理解</h2><ul>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
 <li>代理类和真实类实现同一接口,所以公共方法名相同,代理类内部有一个真实类的对象,代理类每次调用的都是真实类的对象,由此可以在代理类内对真实类的访问进行限制,同时,也隐藏类真实类的实现方法</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://www.nierunjie.site/2017/05/03/Proxy-Pattern/" data-id="cj3hyndaa001lgc4dg2qrgfr5" class="article-share-link">Share</a>
+      <a data-url="https://www.nierunjie.site/2017/05/03/Proxy-Pattern/" data-id="cj3ipzjo3001lm84dc8zoci1y" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>

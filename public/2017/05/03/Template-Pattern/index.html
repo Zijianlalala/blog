@@ -5,18 +5,18 @@
   
   <title>Template Pattern | 星期八</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="模板模式 在模板模式（Template Pattern）中，一个抽象类公开定义了执行它的方法的方式/模板。它的子类可以按需要重写方法实现，但调用将以抽象类中定义的方式进行。这种类型的设计模式属于行为型模式。  介绍 意图：定义一个操作中的算法的骨架，而将一些步骤延迟到子类中。模板方法使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤。 主要解决：一些方法通用，却在每一个子类都重新写了这">
+  <meta name="description" content="模板模式在模板模式（Template Pattern）中，一个抽象类公开定义了执行它的方法的方式/模板。它的子类可以按需要重写方法实现，但调用将以抽象类中定义的方式进行。这种类型的设计模式属于行为型模式。 介绍 意图：定义一个操作中的算法的骨架，而将一些步骤延迟到子类中。模板方法使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤。 主要解决：一些方法通用，却在每一个子类都重新写了这一方">
 <meta name="keywords" content="设计模式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Template Pattern">
 <meta property="og:url" content="https://www.nierunjie.site/2017/05/03/Template-Pattern/index.html">
 <meta property="og:site_name" content="星期八">
-<meta property="og:description" content="模板模式 在模板模式（Template Pattern）中，一个抽象类公开定义了执行它的方法的方式/模板。它的子类可以按需要重写方法实现，但调用将以抽象类中定义的方式进行。这种类型的设计模式属于行为型模式。  介绍 意图：定义一个操作中的算法的骨架，而将一些步骤延迟到子类中。模板方法使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤。 主要解决：一些方法通用，却在每一个子类都重新写了这">
+<meta property="og:description" content="模板模式在模板模式（Template Pattern）中，一个抽象类公开定义了执行它的方法的方式/模板。它的子类可以按需要重写方法实现，但调用将以抽象类中定义的方式进行。这种类型的设计模式属于行为型模式。 介绍 意图：定义一个操作中的算法的骨架，而将一些步骤延迟到子类中。模板方法使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤。 主要解决：一些方法通用，却在每一个子类都重新写了这一方">
 <meta property="og:image" content="https://www.nierunjie.site/2017/05/03/Template-Pattern/Template.png">
-<meta property="og:updated_time" content="2017-06-02T13:35:07.625Z">
+<meta property="og:updated_time" content="2017-06-04T12:56:28.353Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Template Pattern">
-<meta name="twitter:description" content="模板模式 在模板模式（Template Pattern）中，一个抽象类公开定义了执行它的方法的方式/模板。它的子类可以按需要重写方法实现，但调用将以抽象类中定义的方式进行。这种类型的设计模式属于行为型模式。  介绍 意图：定义一个操作中的算法的骨架，而将一些步骤延迟到子类中。模板方法使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤。 主要解决：一些方法通用，却在每一个子类都重新写了这">
+<meta name="twitter:description" content="模板模式在模板模式（Template Pattern）中，一个抽象类公开定义了执行它的方法的方式/模板。它的子类可以按需要重写方法实现，但调用将以抽象类中定义的方式进行。这种类型的设计模式属于行为型模式。 介绍 意图：定义一个操作中的算法的骨架，而将一些步骤延迟到子类中。模板方法使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤。 主要解决：一些方法通用，却在每一个子类都重新写了这一方">
 <meta name="twitter:image" content="https://www.nierunjie.site/2017/05/03/Template-Pattern/Template.png">
   
     <link rel="alternate" href="/atom.xml" title="星期八" type="application/atom+xml">
@@ -87,9 +87,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="模板模式"><a href="#模板模式" class="headerlink" title="模板模式"></a>模板模式</h2><ul>
-<li>在模板模式（Template Pattern）中，一个抽象类公开定义了执行它的方法的方式/模板。它的子类可以按需要重写方法实现，但调用将以抽象类中定义的方式进行。这种类型的设计模式属于行为型模式。</li>
-</ul>
+        <h2 id="模板模式"><a href="#模板模式" class="headerlink" title="模板模式"></a>模板模式</h2><p>在模板模式（Template Pattern）中，一个抽象类公开定义了执行它的方法的方式/模板。它的子类可以按需要重写方法实现，但调用将以抽象类中定义的方式进行。这种类型的设计模式属于行为型模式。</p>
 <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
 <li>意图：定义一个操作中的算法的骨架，而将一些步骤延迟到子类中。模板方法使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤。</li>
 <li>主要解决：一些方法通用，却在每一个子类都重新写了这一方法。</li>
@@ -120,7 +118,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TemplatePatternDemo</span> </span>&#123;</div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"></div><div class="line">      Game game = <span class="keyword">new</span> Cricket();</div><div class="line">      game.play();</div><div class="line">      System.out.println();</div><div class="line">      game = <span class="keyword">new</span> Football();</div><div class="line">      game.play();</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<h2 id="个人理解"><a href="#个人理解" class="headerlink" title="个人理解"></a>个人理解</h2><ul>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
 <li>基类规定步骤,子类实现</li>
 <li>基类给出子类中重复步骤的实现,子类只实现不同的部分</li>
 </ul>
@@ -128,7 +126,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://www.nierunjie.site/2017/05/03/Template-Pattern/" data-id="cj3hyndbf002kgc4dcdjrqncp" class="article-share-link">Share</a>
+      <a data-url="https://www.nierunjie.site/2017/05/03/Template-Pattern/" data-id="cj3ipzjp1002km84dnxof55ja" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
