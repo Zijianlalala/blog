@@ -4,12 +4,9 @@ date: 2017-04-17 21:23:11
 tags: Linux
 ---
 
-## 说明
-* ~/.vimrc是vim的配置文件,保存起来用以恢复vim配置
-
-
 ## 内容
-
+* ~/.vimrc是vim的配置文件,保存起来用以恢复vim配置
+```text
 " 设置编码字符集
 set encoding=utf-8 fileencodings=ucs-bom,utf-8,cp936
 
@@ -52,6 +49,8 @@ Plugin 'Valloric/YouCompleteMe'
 set laststatus=2
 
 " YCM配置
+" 错误提示不显示左边>>
 let g:ycm_enable_diagnostic_signs = 0
-let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 
+let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+```
