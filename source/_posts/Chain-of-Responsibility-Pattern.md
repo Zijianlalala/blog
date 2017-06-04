@@ -14,20 +14,19 @@ tags: 设计模式
 package chainOfResponsibility;
 
 public class Main {
+    public static void main(String[] args) {
+        Handler h1 = new ConcreteHandler1();
+        Handler h2 = new ConcreteHandler2();
+        Handler h3 = new ConcreteHandler3();
+        // 责任链的跳转在客户端设置
+        h1.setSuccessor(h2);
+        h2.setSuccessor(h3);
 
-	public static void main(String[] args) {
-		Handler h1 = new ConcreteHandler1();
-		Handler h2 = new ConcreteHandler2();
-		Handler h3 = new ConcreteHandler3();
-		// 责任链的跳转在客户端设置
-		h1.setSuccessor(h2);
-		h2.setSuccessor(h3);
-		
-		int[] requests={2,5,14,22,18,3,27,20};
-		for(int request : requests){
-			h1.HandleRequest(request);
-		}
-	}
+        int[] requests={2,5,14,22,18,3,27,20};
+        for(int request : requests){
+            h1.HandleRequest(request);
+        }
+    }
 
 }
 ```
@@ -37,14 +36,13 @@ public class Main {
 package chainOfResponsibility;
 
 public abstract class Handler {
-	protected Handler successor;
-	public void setSuccessor(Handler successor){
-		this.successor = successor;
-	}
-	
-	public abstract void HandleRequest(int request);
-}
+    protected Handler successor;
+    public void setSuccessor(Handler successor){
+        this.successor = successor;
+    }
 
+    public abstract void HandleRequest(int request);
+}
 ```
 
 * 具体实现类
@@ -53,17 +51,15 @@ package chainOfResponsibility;
 
 public class ConcreteHandler1 extends Handler {
 
-	@Override
-	public void HandleRequest(int request) {
-		if (request >= 0 && request < 10) {
-			String temp = this.getClass().getSimpleName() + " 处理 " + request;
-			System.out.println(temp);
-		} else if (successor != null) {
-			successor.HandleRequest(request);
-		}
-
-	}
-
+    @Override
+    public void HandleRequest(int request) {
+        if (request >= 0 && request < 10) {
+            String temp = this.getClass().getSimpleName() + " 处理 " + request;
+            System.out.println(temp);
+        } else if (successor != null) {
+            successor.HandleRequest(request);
+        }
+    }
 }
 
 
@@ -71,16 +67,15 @@ package chainOfResponsibility;
 
 public class ConcreteHandler2 extends Handler {
 
-	@Override
-	public void HandleRequest(int request) {
-		if (request >= 10 && request < 20) {
-			String temp = this.getClass().getSimpleName() + " 处理 " + request;
-			System.out.println(temp);
-		} else if (successor != null) {
-			successor.HandleRequest(request);
-		}
-	}
-
+    @Override
+    public void HandleRequest(int request) {
+        if (request >= 10 && request < 20) {
+            String temp = this.getClass().getSimpleName() + " 处理 " + request;
+            System.out.println(temp);
+        } else if (successor != null) {
+            successor.HandleRequest(request);
+        }
+    }
 }
 
 
@@ -88,16 +83,15 @@ package chainOfResponsibility;
 
 public class ConcreteHandler3 extends Handler {
 
-	@Override
-	public void HandleRequest(int request) {
-		if (request >= 20 && request < 30) {
-			String temp = this.getClass().getSimpleName() + " 处理 " + request;
-			System.out.println(temp);
-		} else if (successor != null) {
-			successor.HandleRequest(request);
-		}
-	}
-
+    @Override
+    public void HandleRequest(int request) {
+        if (request >= 20 && request < 30) {
+            String temp = this.getClass().getSimpleName() + " 处理 " + request;
+            System.out.println(temp);
+        } else if (successor != null) {
+            successor.HandleRequest(request);
+        }
+    }
 }
 ```
 ## 其他

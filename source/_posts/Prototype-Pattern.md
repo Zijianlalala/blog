@@ -172,24 +172,24 @@ package protoytpe;
 import java.util.Vector;
 
 public class Main {
-	public static void main(String[] args) {
-		Production banana = new Production("1", "香蕉");
+    public static void main(String[] args) {
+        Production banana = new Production("1", "香蕉");
 
-		Vector<PersonalOrder> v = new Vector<PersonalOrder>();
-		v.add(new PersonalOrder(banana, 1000));
-		v.add(v.get(0).clone());
-		v.add(v.get(0).clone());
-		v.add(v.get(0).clone());
-		v.get(0).setOrderNum(20);
-		v.get(1).setOrderType("Company");
-		v.get(2).setProduction(new Production("2", "苹果"));
-		
-		
-		for (PersonalOrder p : v) {
-			p.printOrder();
-			System.out.println();
-		}
-	}
+        Vector<PersonalOrder> v = new Vector<PersonalOrder>();
+        v.add(new PersonalOrder(banana, 1000));
+        v.add(v.get(0).clone());
+        v.add(v.get(0).clone());
+        v.add(v.get(0).clone());
+        v.get(0).setOrderNum(20);
+        v.get(1).setOrderType("Company");
+        v.get(2).setProduction(new Production("2", "苹果"));
+
+
+        for (PersonalOrder p : v) {
+            p.printOrder();
+            System.out.println();
+        }
+    }
 
 }
 ```
@@ -224,13 +224,13 @@ public class Main {
 package protoytpe;
 
 public abstract interface IOrder {
-	public abstract Production getProduction();
+    public abstract Production getProduction();
 
-	public abstract void setProduction(Production production);
+    public abstract void setProduction(Production production);
 
-	public abstract int getOrderNum();
+    public abstract int getOrderNum();
 
-	public abstract void setOrderNum(int orderNum);
+    public abstract void setOrderNum(int orderNum);
 }
 
 ```
@@ -242,64 +242,61 @@ package protoytpe;
 
 public class PersonalOrder implements IOrder, Cloneable {
 
-	private String orderType;
-	private Production production;
-	private int orderNum;
+    private String orderType;
+    private Production production;
+    private int orderNum;
 
-	public PersonalOrder(Production production, int orderNum) {
-		this.production = production;
-		this.orderNum = orderNum;
-		this.setOrderType("Personal");
-	}
+    public PersonalOrder(Production production, int orderNum) {
+        this.production = production;
+        this.orderNum = orderNum;
+        this.setOrderType("Personal");
+    }
 
-	private PersonalOrder(Production prodution) {
-		this.production = prodution;
-	}
+    private PersonalOrder(Production prodution) {
+        this.production = prodution;
+    }
 
-	@Override
-	public Production getProduction() {
-		return production;
-	}
+    @Override
+    public Production getProduction() {
+        return production;
+    }
 
-	@Override
-	public void setProduction(Production production) {
-		this.production = production;
+    @Override
+    public void setProduction(Production production) {
+        this.production = production;
+    }
 
-	}
+    @Override
+    public int getOrderNum() {
+        return orderNum;
+    }
 
-	@Override
-	public int getOrderNum() {
-		return orderNum;
-	}
+    @Override
+    public void setOrderNum(int orderNum) {
+        this.orderNum = orderNum;
+    }
 
-	@Override
-	public void setOrderNum(int orderNum) {
-		this.orderNum = orderNum;
+    public String getOrderType() {
+        return orderType;
+    }
 
-	}
+    public void setOrderType(String orderType) {
+        this.orderType = orderType;
+    }
 
-	public String getOrderType() {
-		return orderType;
-	}
+    public void printOrder() {
+        System.out.println("订单类型：" + this.orderType);
+        System.out.println("订单数量：" + this.orderNum);
+        System.out.println("产品编号：" + this.getProduction().getId());
+        System.out.println("产品名称：" + this.getProduction().getName());
+    }
 
-	public void setOrderType(String orderType) {
-		this.orderType = orderType;
-	}
-
-	public void printOrder() {
-
-		System.out.println("订单类型：" + this.orderType);
-		System.out.println("订单数量：" + this.orderNum);
-		System.out.println("产品编号：" + this.getProduction().getId());
-		System.out.println("产品名称：" + this.getProduction().getName());
-	}
-
-	public PersonalOrder clone() {
-		PersonalOrder po = new PersonalOrder(this.production);
-		po.setOrderNum(this.getOrderNum());
-		po.setOrderType(this.getOrderType());
-		return po;
-	}
+    public PersonalOrder clone() {
+        PersonalOrder po = new PersonalOrder(this.production);
+        po.setOrderNum(this.getOrderNum());
+        po.setOrderType(this.getOrderType());
+        return po;
+    }
 
 }
 ```
@@ -309,63 +306,61 @@ package protoytpe;
 
 public class CompanyOrder implements IOrder, Cloneable {
 
-	private String orderType;
-	private Production production;
-	private int orderNum;
+    private String orderType;
+    private Production production;
+    private int orderNum;
 
-	public CompanyOrder(Production production, int orderNum) {
-		this.production = production;
-		this.orderNum = orderNum;
-		this.setOrderType("Company");
-	}
+    public CompanyOrder(Production production, int orderNum) {
+        this.production = production;
+        this.orderNum = orderNum;
+        this.setOrderType("Company");
+    }
 
-	private CompanyOrder(Production production) {
-		this.production = production;
-	}
+    private CompanyOrder(Production production) {
+        this.production = production;
+    }
 
-	@Override
-	public Production getProduction() {
-		return production;
-	}
+    @Override
+    public Production getProduction() {
+        return production;
+    }
 
-	@Override
-	public void setProduction(Production production) {
-		this.production = production;
+    @Override
+    public void setProduction(Production production) {
+        this.production = production;
+    }
 
-	}
+    @Override
+    public int getOrderNum() {
+        return orderNum;
+    }
 
-	@Override
-	public int getOrderNum() {
-		return orderNum;
-	}
+    @Override
+    public void setOrderNum(int orderNum) {
+        this.orderNum = orderNum;
+    }
 
-	@Override
-	public void setOrderNum(int orderNum) {
-		this.orderNum = orderNum;
+    public String getOrderType() {
+        return orderType;
+    }
 
-	}
+    public void setOrderType(String orderType) {
+        this.orderType = orderType;
+    }
 
-	public String getOrderType() {
-		return orderType;
-	}
+    public void printOrder() {
+        System.out.println("订单类型：" + this.orderType);
+        System.out.println("订单数量：" + this.orderNum);
+        System.out.println("产品编号：" + this.getProduction().getId());
+        System.out.println("产品名称：" + this.getProduction().getName());
+    }
 
-	public void setOrderType(String orderType) {
-		this.orderType = orderType;
-	}
-
-	public void printOrder() {
-		System.out.println("订单类型：" + this.orderType);
-		System.out.println("订单数量：" + this.orderNum);
-		System.out.println("产品编号：" + this.getProduction().getId());
-		System.out.println("产品名称：" + this.getProduction().getName());
-	}
-
-	public CompanyOrder clone() {
-		CompanyOrder co = new CompanyOrder(this.production);
-		co.setOrderNum(this.getOrderNum());
-		co.setOrderType(this.getOrderType());
-		return co;
-	}
+    public CompanyOrder clone() {
+        CompanyOrder co = new CompanyOrder(this.production);
+        co.setOrderNum(this.getOrderNum());
+        co.setOrderType(this.getOrderType());
+        return co;
+    }
 
 }
 ```
@@ -374,34 +369,33 @@ public class CompanyOrder implements IOrder, Cloneable {
 package protoytpe;
 
 public class Production implements Cloneable {
-	private String id;
-	private String name;
+    private String id;
+    private String name;
 
-	public String getId() {
-		return id;
-	}
+    public String getId() {
+        return id;
+    }
 
-	public Production(String id, String name) {
-		this.id = id;
-		this.name = name;
-	}
+    public Production(String id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 
-	public void setId(String id) {
-		this.id = id;
-	}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public Object clone() {
-		return this.clone();
-	}
-
+    public Object clone() {
+        return this.clone();
+    }
 }
 
 ```
