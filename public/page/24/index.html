@@ -63,10 +63,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-R基本语法" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Hexo的markdown添加图片" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/05/23/R基本语法/" class="article-date">
-  <time datetime="2017-05-23T13:22:02.000Z" itemprop="datePublished">2017-05-23</time>
+    <a href="/2017/05/23/Hexo的markdown添加图片/" class="article-date">
+  <time datetime="2017-05-23T13:46:35.000Z" itemprop="datePublished">2017-05-23</time>
 </a>
     
   </div>
@@ -77,7 +77,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/23/R基本语法/">R基本语法</a>
+      <a class="article-title" href="/2017/05/23/Hexo的markdown添加图片/">Hexo的markdown添加图片</a>
     </h1>
   
 
@@ -85,33 +85,28 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ol>
-<li><p>求模运算 %%</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span>%%<span class="number">2</span></div></pre></td></tr></table></figure>
+        <h2 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h2><ol>
+<li>设置根目录下<code>_config.yml</code>中的两个参数<ul>
+<li><code>post_asset_folder: true</code></li>
+<li><code>permalink: :year/:month/:day/:title/</code></li>
+</ul>
 </li>
-<li><p>求商,取整 %/%</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="number">3</span>%/%<span class="number">2</span></div><div class="line">[<span class="number">1</span>] <span class="number">1</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>hist绘制直方图</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hn &lt;- hist(Nile)</div></pre></td></tr></table></figure>
-</li>
-<li><p>summary</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">summary(hn)</div><div class="line">         Length Class  Mode     </div><div class="line">breaks   <span class="number">11</span>     -none- numeric</div><div class="line">counts   <span class="number">10</span>     -none- numeric</div><div class="line">density  <span class="number">10</span>     -none- numeric</div><div class="line">mids     <span class="number">10</span>     -none- numeric</div><div class="line">xname     <span class="number">1</span>     -none- character</div><div class="line">equidist  <span class="number">1</span>     -none- logical</div></pre></td></tr></table></figure>
-</li>
+<li>运行该命令<code>npm install https://github.com/CodeFalling/hexo-asset-image --save</code></li>
+<li>通过<code>hexo new &quot;Hexo的markdown添加图片&quot;</code>新建文章,此时同时生成一个与文章同名的目录,在此目录中放置图片,例如图片为tuzki.gif</li>
+<li>在markdown中使用<code>![兔斯基](tuzki.gif)</code>显示图片</li>
 </ol>
-<p><img src="/2017/05/23/R基本语法/HistogramOfNile.png" alt="直方图样例"></p>
-<ol>
-<li>新建PDF文件,写入直方图,关闭文件,写入硬盘,rnorm(100),正态分布,100个变量<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">pdf(<span class="string">"xh.pdf"</span>)</div><div class="line">hist(rnorm(<span class="number">100</span>))</div><div class="line">dev.off()</div></pre></td></tr></table></figure>
-</li>
-</ol>
+<h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><ul>
+<li><a href="https://github.com/CodeFalling/hexo-asset-image" target="_blank" rel="external">hexo-asset-image</a></li>
+</ul>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p><img src="/2017/05/23/Hexo的markdown添加图片/tuzki.gif" alt="兔斯基"></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://www.nierunjie.site/2017/05/23/R基本语法/" data-id="cj3iqa1zb001vxr4danki53lr" class="article-share-link">Share</a>
+      <a data-url="https://www.nierunjie.site/2017/05/23/Hexo的markdown添加图片/" data-id="cj3k2ry1a000mea4ddk0k0i89" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R语言/">R语言</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
 
     </footer>
   </div>
@@ -123,7 +118,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/23/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="page-number" href="/page/23/">23</a><span class="page-number current">24</span><a class="page-number" href="/page/25/">25</a><a class="page-number" href="/page/26/">26</a><span class="space">&hellip;</span><a class="page-number" href="/page/50/">50</a><a class="extend next" rel="next" href="/page/25/">&raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/23/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="page-number" href="/page/23/">23</a><span class="page-number current">24</span><a class="page-number" href="/page/25/">25</a><a class="page-number" href="/page/26/">26</a><span class="space">&hellip;</span><a class="page-number" href="/page/51/">51</a><a class="extend next" rel="next" href="/page/25/">&raquo;</a>
   </nav>
 
 </section>
@@ -135,6 +130,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/06/05/堆排序/">堆排序</a>
+          </li>
         
           <li>
             <a href="/2017/06/02/Mediator-Pattern/">Mediator Pattern</a>
@@ -152,10 +151,6 @@
             <a href="/2017/06/01/Memento-Pattern/">Memento Pattern</a>
           </li>
         
-          <li>
-            <a href="/2017/06/01/Iterator-Pattern/">Iterator Pattern</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -165,7 +160,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Java/" style="font-size: 14px;">Java</a> <a href="/tags/Linux/" style="font-size: 16px;">Linux</a> <a href="/tags/R语言/" style="font-size: 18px;">R语言</a> <a href="/tags/工具/" style="font-size: 14px;">工具</a> <a href="/tags/杂谈/" style="font-size: 12px;">杂谈</a> <a href="/tags/设计模式/" style="font-size: 20px;">设计模式</a>
+      <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Java/" style="font-size: 14px;">Java</a> <a href="/tags/Linux/" style="font-size: 16px;">Linux</a> <a href="/tags/R语言/" style="font-size: 18px;">R语言</a> <a href="/tags/工具/" style="font-size: 14px;">工具</a> <a href="/tags/数据结构与算法/" style="font-size: 10px;">数据结构与算法</a> <a href="/tags/杂谈/" style="font-size: 12px;">杂谈</a> <a href="/tags/设计模式/" style="font-size: 20px;">设计模式</a>
     </div>
   </div>
 
