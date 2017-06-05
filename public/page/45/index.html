@@ -63,10 +63,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-使用Cloudflare屏蔽个人网站广告" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-JDBC添加数据库驱动注意事项" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/04/22/使用Cloudflare屏蔽个人网站广告/" class="article-date">
-  <time datetime="2017-04-22T10:04:34.000Z" itemprop="datePublished">2017-04-22</time>
+    <a href="/2017/04/24/JDBC添加数据库驱动注意事项/" class="article-date">
+  <time datetime="2017-04-24T13:16:00.000Z" itemprop="datePublished">2017-04-24</time>
 </a>
     
   </div>
@@ -77,7 +77,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/22/使用Cloudflare屏蔽个人网站广告/">使用Cloudflare屏蔽个人网站广告</a>
+      <a class="article-title" href="/2017/04/24/JDBC添加数据库驱动注意事项/">JDBC添加数据库驱动注意事项</a>
     </h1>
   
 
@@ -85,31 +85,25 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
-<li>两个会用到的网站:<a href="https://www.cloudflare.com/" target="_blank" rel="external">Cloudflare官网</a>,<a href="https://whois.aliyun.com/" target="_blank" rel="external">万网</a></li>
-<li>因为运营商劫持,原本简洁的网站(Hexo)加上烦人的广告</li>
-<li>究其原因还是http协议不够完善,改用https可以逃过运营商的广告</li>
-<li>原理详见<a href="http://baike.baidu.com/link?url=Kq6gxU_rHGAGX-kWZww_HDqGaafeyeiwbJz1gWWhOdM9rawhkPRfl2yfidKD4IP54xqHMfEGCwUMj0RucbO7A_" target="_blank" rel="external">https</a></li>
+        <h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ul>
+<li>Eclipse</li>
+<li>SQLite Driver(实际上什么驱动都一样)</li>
 </ul>
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
-<li>首先要有一个网站</li>
-<li>注册Cloudflare,添加网站域名信息</li>
-<li>按照提示修改DNS(必需步骤)</li>
-<li>在Cloudflare面板修改相关设置,让网站只能通过https访问</li>
+<h2 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h2><ol>
+<li>下载驱动放到WebContent/WEB-INF/lib目录下</li>
+<li>在Eclipse环境刷新目录结构,会多出一个Web App Libraries</li>
 </ol>
-<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ul>
-<li>以上操作修改完大概一个小时才会生效</li>
-<li>生效后Cloudflare主页显示”Status:Active”</li>
-<li>会造成某些运营商提供的网络不能访问,比如”山东广电网络”</li>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li>我知道这篇文章很水,但是为了纪念一下自己把文件放到合适的位置但是没刷新而找了两个小时BUG的都比行为而写了这篇文章</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://www.nierunjie.site/2017/04/22/使用Cloudflare屏蔽个人网站广告/" data-id="cj3k2ry3j002sea4d98k2pp0n" class="article-share-link">Share</a>
+      <a data-url="https://www.nierunjie.site/2017/04/24/JDBC添加数据库驱动注意事项/" data-id="cj3k9lqng000yi74d86jnmbjc" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具/">工具</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 
     </footer>
   </div>
@@ -121,7 +115,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/44/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="page-number" href="/page/44/">44</a><span class="page-number current">45</span><a class="page-number" href="/page/46/">46</a><a class="page-number" href="/page/47/">47</a><span class="space">&hellip;</span><a class="page-number" href="/page/51/">51</a><a class="extend next" rel="next" href="/page/46/">&raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/44/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="page-number" href="/page/44/">44</a><span class="page-number current">45</span><a class="page-number" href="/page/46/">46</a><a class="page-number" href="/page/47/">47</a><span class="space">&hellip;</span><a class="page-number" href="/page/52/">52</a><a class="extend next" rel="next" href="/page/46/">&raquo;</a>
   </nav>
 
 </section>
@@ -133,6 +127,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/06/05/快速排序/">快速排序</a>
+          </li>
         
           <li>
             <a href="/2017/06/05/堆排序/">堆排序</a>
@@ -150,10 +148,6 @@
             <a href="/2017/06/01/Visitor-Pattern/">Visitor Pattern</a>
           </li>
         
-          <li>
-            <a href="/2017/06/01/Memento-Pattern/">Memento Pattern</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -163,7 +157,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Java/" style="font-size: 14px;">Java</a> <a href="/tags/Linux/" style="font-size: 16px;">Linux</a> <a href="/tags/R语言/" style="font-size: 18px;">R语言</a> <a href="/tags/工具/" style="font-size: 14px;">工具</a> <a href="/tags/数据结构与算法/" style="font-size: 10px;">数据结构与算法</a> <a href="/tags/杂谈/" style="font-size: 12px;">杂谈</a> <a href="/tags/设计模式/" style="font-size: 20px;">设计模式</a>
+      <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Java/" style="font-size: 14px;">Java</a> <a href="/tags/Linux/" style="font-size: 16px;">Linux</a> <a href="/tags/R语言/" style="font-size: 18px;">R语言</a> <a href="/tags/工具/" style="font-size: 14px;">工具</a> <a href="/tags/数据结构与算法/" style="font-size: 12px;">数据结构与算法</a> <a href="/tags/杂谈/" style="font-size: 12px;">杂谈</a> <a href="/tags/设计模式/" style="font-size: 20px;">设计模式</a>
     </div>
   </div>
 
