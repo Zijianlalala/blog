@@ -63,10 +63,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-JDBC添加数据库驱动注意事项" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-解决TLP造成的U盘不能挂载" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/04/24/JDBC添加数据库驱动注意事项/" class="article-date">
-  <time datetime="2017-04-24T13:16:00.000Z" itemprop="datePublished">2017-04-24</time>
+    <a href="/2017/04/21/解决TLP造成的U盘不能挂载/" class="article-date">
+  <time datetime="2017-04-21T15:15:41.000Z" itemprop="datePublished">2017-04-21</time>
 </a>
     
   </div>
@@ -77,7 +77,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/24/JDBC添加数据库驱动注意事项/">JDBC添加数据库驱动注意事项</a>
+      <a class="article-title" href="/2017/04/21/解决TLP造成的U盘不能挂载/">解决TLP造成的U盘不能挂载</a>
     </h1>
   
 
@@ -85,25 +85,29 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ul>
-<li>Eclipse</li>
-<li>SQLite Driver(实际上什么驱动都一样)</li>
+        <h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><ul>
+<li>TLP brings you the benefits of advanced power management for Linux without the need to understand every technical detail. TLP comes with a default configuration already optimized for battery life, so you may just install and forget it. Nevertheless TLP is highly customizable to fulfil your specific requirements.</li>
 </ul>
-<h2 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h2><ol>
-<li>下载驱动放到WebContent/WEB-INF/lib目录下</li>
-<li>在Eclipse环境刷新目录结构,会多出一个Web App Libraries</li>
+<ul>
+<li>most internal laptop bluetooth devices and all external bluetooth dongles are USB devices. Some do not implement autosuspend mode properly, giving trouble to connected devices.</li>
+</ul>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><ol>
+<li>执行<code>tlp-stat -u | grep btusb</code>并记录ID后面的数字，例如ID XXXX:XXXX</li>
+<li>管理员权限打开配置文件<code>sudo vim /etc/default/tlp</code></li>
+<li>配置文件中添加<code>USB_BLACKLIST=&quot;XXXX:XXXX&quot;</code></li>
+<li>执行<code>sudo tlp usb</code>应用配置</li>
 </ol>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
-<li>我知道这篇文章很水,但是为了纪念一下自己把文件放到合适的位置但是没刷新而找了两个小时BUG的都比行为而写了这篇文章</li>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
+<li><a href="http://linrunner.de/en/tlp/docs/tlp-faq.html#powertop" target="_blank" rel="external">官方网站FAQ</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://www.nierunjie.site/2017/04/24/JDBC添加数据库驱动注意事项/" data-id="cj3k9n3nk000y284dxmxkuua1" class="article-share-link">Share</a>
+      <a data-url="https://www.nierunjie.site/2017/04/21/解决TLP造成的U盘不能挂载/" data-id="cj3lepr24002v324dirtzt6e0" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具/">工具</a></li></ul>
 
     </footer>
   </div>
@@ -115,7 +119,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/44/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="page-number" href="/page/44/">44</a><span class="page-number current">45</span><a class="page-number" href="/page/46/">46</a><a class="page-number" href="/page/47/">47</a><span class="space">&hellip;</span><a class="page-number" href="/page/52/">52</a><a class="extend next" rel="next" href="/page/46/">&raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/44/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="page-number" href="/page/44/">44</a><span class="page-number current">45</span><a class="page-number" href="/page/46/">46</a><a class="page-number" href="/page/47/">47</a><span class="space">&hellip;</span><a class="page-number" href="/page/50/">50</a><a class="extend next" rel="next" href="/page/46/">&raquo;</a>
   </nav>
 
 </section>
@@ -157,7 +161,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Java/" style="font-size: 14px;">Java</a> <a href="/tags/Linux/" style="font-size: 16px;">Linux</a> <a href="/tags/R语言/" style="font-size: 18px;">R语言</a> <a href="/tags/工具/" style="font-size: 14px;">工具</a> <a href="/tags/数据结构与算法/" style="font-size: 12px;">数据结构与算法</a> <a href="/tags/杂谈/" style="font-size: 12px;">杂谈</a> <a href="/tags/设计模式/" style="font-size: 20px;">设计模式</a>
+      <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Linux/" style="font-size: 16px;">Linux</a> <a href="/tags/R语言/" style="font-size: 18px;">R语言</a> <a href="/tags/工具/" style="font-size: 14px;">工具</a> <a href="/tags/数据结构与算法/" style="font-size: 12px;">数据结构与算法</a> <a href="/tags/杂谈/" style="font-size: 12px;">杂谈</a> <a href="/tags/设计模式/" style="font-size: 20px;">设计模式</a>
     </div>
   </div>
 
