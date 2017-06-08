@@ -5,18 +5,18 @@
   
   <title>Bridge Pattern | 星期八</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="桥接模式桥接（Bridge）是用于把抽象化与实现化解耦，使得二者可以独立变化。这种类型的设计模式属于结构型模式，它通过提供抽象化和实现化之间的桥接结构，来实现二者的解耦。这种模式涉及到一个作为桥接的接口，使得实体类的功能独立于接口实现类。这两种类型的类可被结构化改变而互不影响。 介绍意图：将抽象部分与实现部分分离，使它们都可以独立的变化。主要解决：在有多种可能会变化的情况下，用继承会造成类爆炸问题">
+  <meta name="description" content="桥接模式桥接（Bridge）是用于把抽象化与实现化解耦，使得二者可以独立变化。这种类型的设计模式属于结构型模式，它通过提供抽象化和实现化之间的桥接结构，来实现二者的解耦。这种模式涉及到一个作为桥接的接口，使得实体类的功能独立于接口实现类。这两种类型的类可被结构化改变而互不影响。 介绍 意图：将抽象部分与实现部分分离，使它们都可以独立的变化。 主要解决：在有多种可能会变化的情况下，用继承会造成类爆炸">
 <meta name="keywords" content="设计模式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Bridge Pattern">
 <meta property="og:url" content="https://www.nierunjie.site/2017/06/01/Bridge-Pattern/index.html">
 <meta property="og:site_name" content="星期八">
-<meta property="og:description" content="桥接模式桥接（Bridge）是用于把抽象化与实现化解耦，使得二者可以独立变化。这种类型的设计模式属于结构型模式，它通过提供抽象化和实现化之间的桥接结构，来实现二者的解耦。这种模式涉及到一个作为桥接的接口，使得实体类的功能独立于接口实现类。这两种类型的类可被结构化改变而互不影响。 介绍意图：将抽象部分与实现部分分离，使它们都可以独立的变化。主要解决：在有多种可能会变化的情况下，用继承会造成类爆炸问题">
+<meta property="og:description" content="桥接模式桥接（Bridge）是用于把抽象化与实现化解耦，使得二者可以独立变化。这种类型的设计模式属于结构型模式，它通过提供抽象化和实现化之间的桥接结构，来实现二者的解耦。这种模式涉及到一个作为桥接的接口，使得实体类的功能独立于接口实现类。这两种类型的类可被结构化改变而互不影响。 介绍 意图：将抽象部分与实现部分分离，使它们都可以独立的变化。 主要解决：在有多种可能会变化的情况下，用继承会造成类爆炸">
 <meta property="og:image" content="https://www.nierunjie.site/2017/06/01/Bridge-Pattern/Bridge.png">
-<meta property="og:updated_time" content="2017-06-04T12:53:02.679Z">
+<meta property="og:updated_time" content="2017-06-08T09:51:21.228Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Bridge Pattern">
-<meta name="twitter:description" content="桥接模式桥接（Bridge）是用于把抽象化与实现化解耦，使得二者可以独立变化。这种类型的设计模式属于结构型模式，它通过提供抽象化和实现化之间的桥接结构，来实现二者的解耦。这种模式涉及到一个作为桥接的接口，使得实体类的功能独立于接口实现类。这两种类型的类可被结构化改变而互不影响。 介绍意图：将抽象部分与实现部分分离，使它们都可以独立的变化。主要解决：在有多种可能会变化的情况下，用继承会造成类爆炸问题">
+<meta name="twitter:description" content="桥接模式桥接（Bridge）是用于把抽象化与实现化解耦，使得二者可以独立变化。这种类型的设计模式属于结构型模式，它通过提供抽象化和实现化之间的桥接结构，来实现二者的解耦。这种模式涉及到一个作为桥接的接口，使得实体类的功能独立于接口实现类。这两种类型的类可被结构化改变而互不影响。 介绍 意图：将抽象部分与实现部分分离，使它们都可以独立的变化。 主要解决：在有多种可能会变化的情况下，用继承会造成类爆炸">
 <meta name="twitter:image" content="https://www.nierunjie.site/2017/06/01/Bridge-Pattern/Bridge.png">
   
     <link rel="alternate" href="/atom.xml" title="星期八" type="application/atom+xml">
@@ -88,7 +88,18 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="桥接模式"><a href="#桥接模式" class="headerlink" title="桥接模式"></a>桥接模式</h2><p>桥接（Bridge）是用于把抽象化与实现化解耦，使得二者可以独立变化。这种类型的设计模式属于结构型模式，它通过提供抽象化和实现化之间的桥接结构，来实现二者的解耦。<br>这种模式涉及到一个作为桥接的接口，使得实体类的功能独立于接口实现类。这两种类型的类可被结构化改变而互不影响。</p>
-<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p><strong>意图</strong>：将抽象部分与实现部分分离，使它们都可以独立的变化。<br><strong>主要解决</strong>：在有多种可能会变化的情况下，用继承会造成类爆炸问题，扩展起来不灵活。<br><strong>何时使用</strong>：实现系统可能有多个角度分类，每一种角度都可能变化。<br><strong>如何解决</strong>：把这种多角度分类分离出来，让它们独立变化，减少它们之间耦合。<br><strong>关键代码</strong>：抽象类依赖实现类。<br><strong>应用实例</strong>： 1、猪八戒从天蓬元帅转世投胎到猪，转世投胎的机制将尘世划分为两个等级，即：灵魂和肉体，前者相当于抽象化，后者相当于实现化。生灵通过功能的委派，调用肉体对象的功能，使得生灵可以动态地选择。 2、墙上的开关，可以看到的开关是抽象的，不用管里面具体怎么实现的。<br><strong>优点</strong>： 1、抽象和实现的分离。 2、优秀的扩展能力。 3、实现细节对客户透明。<br><strong>缺点</strong>：桥接模式的引入会增加系统的理解与设计难度，由于聚合关联关系建立在抽象层，要求开发者针对抽象进行设计与编程。<br><strong>使用场景</strong>： 1、如果一个系统需要在构件的抽象化角色和具体化角色之间增加更多的灵活性，避免在两个层次之间建立静态的继承联系，通过桥接模式可以使它们在抽象层建立一个关联关系。 2、对于那些不希望使用继承或因为多层次继承导致系统类的个数急剧增加的系统，桥接模式尤为适用。 3、一个类存在两个独立变化的维度，且这两个维度都需要进行扩展。<br><strong>注意事项</strong>：对于两个独立变化的维度，使用桥接模式再适合不过了。</p>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
+<li>意图：将抽象部分与实现部分分离，使它们都可以独立的变化。</li>
+<li>主要解决：在有多种可能会变化的情况下，用继承会造成类爆炸问题，扩展起来不灵活。</li>
+<li>何时使用：实现系统可能有多个角度分类，每一种角度都可能变化。</li>
+<li>如何解决：把这种多角度分类分离出来，让它们独立变化，减少它们之间耦合。</li>
+<li>关键代码：抽象类依赖实现类。</li>
+<li>应用实例： 1、猪八戒从天蓬元帅转世投胎到猪，转世投胎的机制将尘世划分为两个等级，即：灵魂和肉体，前者相当于抽象化，后者相当于实现化。生灵通过功能的委派，调用肉体对象的功能，使得生灵可以动态地选择。 2、墙上的开关，可以看到的开关是抽象的，不用管里面具体怎么实现的。</li>
+<li>优点： 1、抽象和实现的分离。 2、优秀的扩展能力。 3、实现细节对客户透明。</li>
+<li>缺点：桥接模式的引入会增加系统的理解与设计难度，由于聚合关联关系建立在抽象层，要求开发者针对抽象进行设计与编程。</li>
+<li>使用场景： 1、如果一个系统需要在构件的抽象化角色和具体化角色之间增加更多的灵活性，避免在两个层次之间建立静态的继承联系，通过桥接模式可以使它们在抽象层建立一个关联关系。 2、对于那些不希望使用继承或因为多层次继承导致系统类的个数急剧增加的系统，桥接模式尤为适用。 3、一个类存在两个独立变化的维度，且这两个维度都需要进行扩展。</li>
+<li>注意事项：对于两个独立变化的维度，使用桥接模式再适合不过了。</li>
+</ul>
 <h2 id="基本代码"><a href="#基本代码" class="headerlink" title="基本代码"></a>基本代码</h2><ul>
 <li><p>UML图<br><img src="/2017/06/01/Bridge-Pattern/Bridge.png" alt="桥接模式"></p>
 </li>
@@ -112,7 +123,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://www.nierunjie.site/2017/06/01/Bridge-Pattern/" data-id="cj3ll5nle0004lg4d5jmh6lfk" class="article-share-link">Share</a>
+      <a data-url="https://www.nierunjie.site/2017/06/01/Bridge-Pattern/" data-id="cj3o995lm0002dp4dzclk2pz0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
