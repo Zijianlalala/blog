@@ -1,7 +1,7 @@
 ---
 title: Hexo的markdown添加图片
 date: 2017-05-23 21:46:35
-tags: Hexo
+tags: 杂谈
 ---
 
 ## 操作
