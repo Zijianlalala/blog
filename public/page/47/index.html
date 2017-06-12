@@ -63,10 +63,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-使用Cloudflare屏蔽个人网站广告" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-JDBC浅析" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/04/22/使用Cloudflare屏蔽个人网站广告/" class="article-date">
-  <time datetime="2017-04-22T10:04:34.000Z" itemprop="datePublished">2017-04-22</time>
+    <a href="/2017/04/25/JDBC浅析/" class="article-date">
+  <time datetime="2017-04-25T00:54:03.000Z" itemprop="datePublished">2017-04-25</time>
 </a>
     
   </div>
@@ -77,7 +77,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/22/使用Cloudflare屏蔽个人网站广告/">使用Cloudflare屏蔽个人网站广告</a>
+      <a class="article-title" href="/2017/04/25/JDBC浅析/">JDBC浅析</a>
     </h1>
   
 
@@ -85,31 +85,80 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
-<li>两个会用到的网站:<a href="https://www.cloudflare.com/" target="_blank" rel="external">Cloudflare官网</a>,<a href="https://whois.aliyun.com/" target="_blank" rel="external">万网</a></li>
-<li>因为运营商劫持,原本简洁的网站(Hexo)加上烦人的广告</li>
-<li>究其原因还是http协议不够完善,改用https可以逃过运营商的广告</li>
-<li>原理详见<a href="http://baike.baidu.com/link?url=Kq6gxU_rHGAGX-kWZww_HDqGaafeyeiwbJz1gWWhOdM9rawhkPRfl2yfidKD4IP54xqHMfEGCwUMj0RucbO7A_" target="_blank" rel="external">https</a></li>
+        <h2 id="JDBC介绍"><a href="#JDBC介绍" class="headerlink" title="JDBC介绍"></a>JDBC介绍</h2><ul>
+<li><a href="http://baike.baidu.com/link?url=dJRfeHbxsfQoipAv8M7_pRpk88uBnCMWREdGXMI4hYpSmMekcSsVBrtfhHZYIBnYejVeyWY8U8pg-W9RfweYI_" target="_blank" rel="external">百度百科关于JDBC的介绍</a></li>
+<li>介绍JDBC常用的接口和类及其方法</li>
 </ul>
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
-<li>首先要有一个网站</li>
-<li>注册Cloudflare,添加网站域名信息</li>
-<li>按照提示修改DNS(必需步骤)</li>
-<li>在Cloudflare面板修改相关设置,让网站只能通过https访问</li>
+<h2 id="JDBC常用接口和类"><a href="#JDBC常用接口和类" class="headerlink" title="JDBC常用接口和类"></a>JDBC常用接口和类</h2><h3 id="interface-Driver"><a href="#interface-Driver" class="headerlink" title="interface Driver"></a>interface Driver</h3><ul>
+<li>The interface that every driver class must implement.</li>
+<li>这是每个驱动类都必须实现的接口</li>
+<li>以SQLlite为例,<code>public class org.sqlite.JDBC implements java.sql.Driver</code>实现该接口</li>
+<li><code>Class.forName(&quot;org.sqlite.JDBC&quot;)</code><br>is equivalent to:<br><code>Class.forName(&quot;org.sqlite.JDBC&quot;, true, this.getClass().getClassLoader())</code></li>
+<li><p><code>Class.forName(name,initialize,loader)</code><br>name - fully qualified name of the desired class<br>initialize - if true the class will be initialized.<br>loader - class loader from which the class must be loaded</p>
+</li>
+<li><p>例:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Class.forName(<span class="string">"org.sqlite.JDBC"</span>); <span class="comment">// 将驱动加载到内存</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="interface-Connection"><a href="#interface-Connection" class="headerlink" title="interface Connection"></a>interface Connection</h3><ul>
+<li>A connection (session) with a specific database.</li>
+<li><code>Statement createStatement() throws SQLException</code>Creates a Statement object for sending SQL statements to the database. SQL statements without parameters are normally executed using Statement objects. If the same SQL statement is executed many times, it may be more efficient to use a PreparedStatement object.</li>
+<li><code>PreparedStatement prepareStatement(String sql)throws SQLException</code>Creates a PreparedStatement object for sending parameterized SQL statements to the database</li>
+<li><p>注意:无参数的SQL使用<code>createStatement()</code>方法创建Statement对象;有参数的使用<code>prepareStatement()</code>创建PreparedStatement对象,防止SQL注入</p>
+</li>
+<li><p>例:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Connection c = <span class="keyword">null</span>; <span class="comment">//创建空的Connection对象</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Class-DriverManager"><a href="#Class-DriverManager" class="headerlink" title="Class DriverManager"></a>Class DriverManager</h3><ul>
+<li>该类重载3个getConnection方法得到Connection</li>
+</ul>
+<ol>
+<li><code>getConnection(String url)</code><br> SQLite使用此方法,传入数据库文件的地址,返回Connection</li>
+<li><code>getConnection(String url, Properties info)</code><br> info为参数列表,正常情况下至少包含帐号密码</li>
+<li><code>getConnection(String url, String user, String password)</code><br> MySQL连接时可在url中指明字符集<code>useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false</code></li>
 </ol>
-<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ul>
-<li>以上操作修改完大概一个小时才会生效</li>
-<li>生效后Cloudflare主页显示”Status:Active”</li>
-<li>会造成某些运营商提供的网络不能访问,比如”山东广电网络”</li>
+<ul>
+<li><p>例:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">c = DriverManager.getConnection(<span class="string">"jdbc:sqlite:"</span> + file.db); <span class="comment">// 连接数据库</span></div></pre></td></tr></table></figure>
+<p>注:file.db为SQLite数据库文件路径</p>
+</li>
+</ul>
+<h3 id="interface-Statement"><a href="#interface-Statement" class="headerlink" title="interface Statement"></a>interface Statement</h3><ul>
+<li>The object used for executing a static SQL statement and returning the results it produces.</li>
+<li><code>ResultSet executeQuery(String sql)throws SQLException</code> 使用静态SQL语句返回ResultSet对象</li>
+<li><code>int executeUpdate(String sql)throws SQLException</code> INSERT, UPDATE, or DELETE等不返回ResultSet的SQL语句使用此方法,返回值为DML的行数(不懂)或者返回0</li>
+<li>注意:传入的SQL语句直接传给数据库,如果组成sql的字符串有输入的部分,存在SQL注入的危险,建议使用PreparedStatement</li>
+<li>例:<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Statement stmt = c.createStatement(); <span class="comment">// 通过Connection对象创建Statement对象</span></div><div class="line">String sql = <span class="string">"CREATE TABLE USER(ID INT PRIMARY KEY NOT NULL,USERNAME TEXT NOT NULL ,PASSWORD INT NOT NULL)"</span>;</div><div class="line">stmt.executeUpdate(sql); <span class="comment">// 通过Statment执行SQL语句,有注入危险</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="interface-PreparedStatement-extends-tatement"><a href="#interface-PreparedStatement-extends-tatement" class="headerlink" title="interface PreparedStatement extends tatement"></a>interface PreparedStatement extends tatement</h3><ul>
+<li>An object that represents a precompiled SQL statement.</li>
+<li>继承自Statement,预编译SQL语句的部分,传入SQL语句中的参数,因为SQL语句部分已经编译,可以解决由Statement带来的SQL注入风险,<br>因为SQL语句部分已经被编译,所以有更高的执行效率,多次提交的SQL语句建议用此类的对象</li>
+<li><p>例:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">PreparedStatement pstmt = con.prepareStatement(<span class="string">"UPDATE EMPLOYEES SET SALARY = ? WHERE ID = ?"</span>); <span class="comment">// 创建PreparedStatement对象</span></div><div class="line">pstmt.setBigDecimal(<span class="number">1</span>, <span class="number">153833.00</span>); <span class="comment">// 插入参数</span></div><div class="line">pstmt.setInt(<span class="number">2</span>, <span class="number">110592</span>);</div><div class="line">ResultSet rs = pstmt.executeQuery(); <span class="comment">//执行语句,并返回ResultSet对象</span></div></pre></td></tr></table></figure>
+<p>使用setXXX方法设置参数,如上所示<br>常用set方法<br><code>setString(int parameterIndex, String x)</code><br><code>setTime(int parameterIndex, Time x)</code><br><code>setInt(int parameterIndex, int x)</code></p>
+</li>
+</ul>
+<h3 id="interface-ResultSet"><a href="#interface-ResultSet" class="headerlink" title="interface ResultSet"></a>interface ResultSet</h3><ul>
+<li>A table of data representing a database result set, which is usually generated by executing a statement that queries the database.</li>
+<li><code>boolean next()</code>Moves the cursor forward one row from its current position.</li>
+<li><code>getString(String columnLabel)</code>以字符串形式返回游标(cursor)所在行,属性为columnLable的数据元素的值</li>
+<li>例:<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">rs.next(); <span class="comment">// 游标在数据的前一行,要得到第一行数据需要移动一次游标</span></div><div class="line">String cnt = rs.getString(<span class="number">1</span>); <span class="comment">// 得到第一列的数据元素</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><ul>
+<li>操作完成后断开所有连接释放资源<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">rs.close();</div><div class="line">pstmt.close(); <span class="comment">// stmt.close()</span></div><div class="line">c.close();</div></pre></td></tr></table></figure>
+</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://www.nierunjie.site/2017/04/22/使用Cloudflare屏蔽个人网站广告/" data-id="cj3tv6vbb002par4debo0w5hl" class="article-share-link">Share</a>
+      <a data-url="https://www.nierunjie.site/2017/04/25/JDBC浅析/" data-id="cj3ucj8kz000vvr4d2bfwq3md" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具/">工具</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 
     </footer>
   </div>
@@ -121,7 +170,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/46/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/45/">45</a><a class="page-number" href="/page/46/">46</a><span class="page-number current">47</span><a class="page-number" href="/page/48/">48</a><a class="page-number" href="/page/49/">49</a><span class="space">&hellip;</span><a class="page-number" href="/page/53/">53</a><a class="extend next" rel="next" href="/page/48/">&raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/46/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/45/">45</a><a class="page-number" href="/page/46/">46</a><span class="page-number current">47</span><a class="page-number" href="/page/48/">48</a><a class="page-number" href="/page/49/">49</a><span class="space">&hellip;</span><a class="page-number" href="/page/54/">54</a><a class="extend next" rel="next" href="/page/48/">&raquo;</a>
   </nav>
 
 </section>
@@ -133,6 +182,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/06/12/对于Hibernate后第二次唤醒出现GRUB菜单探究/">对于Hibernate后第二次唤醒出现GRUB菜单探究</a>
+          </li>
         
           <li>
             <a href="/2017/06/08/插入音乐样例/">插入音乐样例</a>
@@ -148,10 +201,6 @@
         
           <li>
             <a href="/2017/06/05/堆排序/">堆排序</a>
-          </li>
-        
-          <li>
-            <a href="/2017/06/02/Mediator-Pattern/">Mediator Pattern</a>
           </li>
         
       </ul>
