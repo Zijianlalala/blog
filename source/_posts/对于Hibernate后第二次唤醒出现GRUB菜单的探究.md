@@ -1,5 +1,5 @@
 ---
-title: 对于Hibernate后第二次唤醒出现GRUB菜单探究
+title: 对于Hibernate后第二次唤醒出现GRUB菜单的探究
 date: 2017-06-12 23:47:33
 tags: Linux
 ---
