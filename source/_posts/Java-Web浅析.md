@@ -137,7 +137,6 @@ public class ConnectBean implements ServletContextListener, ServletContextAttrib
     private static String driver;
     private static String database;
     public ConnectBean() {
-        this.connect = new DatabaseConnect(driver, database).getConnection();
     }
 
     public void contextInitialized(ServletContextEvent sce) {
@@ -147,6 +146,7 @@ public class ConnectBean implements ServletContextListener, ServletContextAttrib
     }
 
     public Connection getConnection(){
+        this.connect = new DatabaseConnect(driver, database).getConnection();
         return this.connect;
     }
     public void close(){
