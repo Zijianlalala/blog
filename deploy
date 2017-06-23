@@ -5,5 +5,3 @@ hexo deploy
 git add .
 git commit -m "备份"
 git push origin master
-
-firefox --new-window https://www.nierunjie.site/ &
