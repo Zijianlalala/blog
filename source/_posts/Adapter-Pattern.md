@@ -84,7 +84,7 @@ public class Mp4Player implements AdvancedMediaPlayer{
 ```java
 public class MediaAdapter implements MediaPlayer {
 
-    AdvancedMediaPlayer advancedMusicPlayer;
+    private AdvancedMediaPlayer advancedMusicPlayer;
 
     public MediaAdapter(String audioType){
         if(audioType.equalsIgnoreCase("vlc") ){
@@ -109,7 +109,7 @@ public class MediaAdapter implements MediaPlayer {
 ```java
 // 可以用状态模式重写该类,状态为audioType
 public class AudioPlayer implements MediaPlayer {
-    MediaAdapter mediaAdapter; 
+    private MediaAdapter mediaAdapter; 
 
     @Override
     public void play(String audioType, String fileName) {
