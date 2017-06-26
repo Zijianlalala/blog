@@ -7,6 +7,7 @@ tags: 设计模式
 单例模式（Singleton Pattern）是 Java 中最简单的设计模式之一。这种类型的设计模式属于创建型模式，它提供了一种创建对象的最佳方式。
 这种模式涉及到一个单一的类，该类负责创建自己的对象，同时确保只有单个对象被创建。这个类提供了一种访问其唯一的对象的方式，可以直接访问，不需要实例化该类的对象。
 ### 注意：
+
 0. 单例类只能有一个实例。
 0. 单例类必须自己创建自己的唯一实例。
 0. 单例类必须给所有其他对象提供这一实例。
@@ -32,6 +33,7 @@ tags: 设计模式
 package singleton;
 
 public class Singleton {
+
     private static Singleton instance;
 
     private Singleton() {
@@ -45,23 +47,6 @@ public class Singleton {
             instance = new Singleton();
         }
         return instance;
-    }
-
-    public static void main(String[] args) {
-        try {
-            // 使用反射创建对象
-            Singleton t1 = Singleton.class.newInstance();
-            Singleton t2 = Singleton.class.newInstance();
-            Singleton t3 = Singleton.getInstance();
-            Singleton t4 = Singleton.getInstance();
-
-            System.out.println(t1); // singleton.Singleton@6bc7c054
-            System.out.println(t2); // singleton.Singleton@232204a1
-            System.out.println(t3); // singleton.Singleton@4aa298b7
-            System.out.println(t4); // singleton.Singleton@4aa298b7
-        } catch (Exception e) {
-            System.out.println(e);
-        }
     }
 }
 ```
@@ -84,4 +69,28 @@ public class Singleton2 {
     }
 }
 ```
-* 懒汉式代码可以看出,在**单例类中**通过**反射**创建对象,创建的**并不是同一个对象**,在单例类外不能通过反射创建对象.
+
+* 关于通过反射调用对象
+```java
+package singleton;
+
+import java.lang.reflect.Method;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception{
+    
+        Class<?> c1= Class.forName("singleton.Singleton");
+        Method method1 = c1.getMethod("getInstance");
+        Singleton s1 = (Singleton) method1.invoke(null);
+        System.out.println(s1); // singleton.Singleton@232204a1
+         
+        Class<?> c2= Class.forName("singleton.Singleton");
+        Method method2 = c2.getMethod("getInstance"); 
+        Singleton s2 = (Singleton) method2.invoke(null);
+        System.out.println(s2); // singleton.Singleton@232204a1
+        }
+}
+
+```
+* 反射不破坏单例模式特性
