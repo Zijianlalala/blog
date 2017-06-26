@@ -102,8 +102,8 @@ public class ConcreteVisitor1 extends Visitor {
     }
 
     @Override
-    public void visitConcreteElementB(ConcreteElementB concreteElementA) {
-        System.out.println(concreteElementA.getClass().getSimpleName() + "被" + this.getClass().getSimpleName() + "访问");
+    public void visitConcreteElementB(ConcreteElementB concreteElementB) {
+        System.out.println(concreteElementB.getClass().getSimpleName() + "被" + this.getClass().getSimpleName() + "访问");
     }
 }
 
@@ -118,8 +118,8 @@ public class ConcreteVisitor2 extends Visitor {
     }
 
     @Override
-    public void visitConcreteElementB(ConcreteElementB concreteElementA) {
-        System.out.println(concreteElementA.getClass().getSimpleName() + "被" + this.getClass().getSimpleName() + "访问");
+    public void visitConcreteElementB(ConcreteElementB concreteElementB) {
+        System.out.println(concreteElementB.getClass().getSimpleName() + "被" + this.getClass().getSimpleName() + "访问");
     }
 
 }
