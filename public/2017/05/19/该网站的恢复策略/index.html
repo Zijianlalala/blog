@@ -70,7 +70,7 @@
 <meta property="og:url" content="https://www.nierunjie.site/2017/05/19/该网站的恢复策略/index.html">
 <meta property="og:site_name" content="星期八">
 <meta property="og:description" content="起因 在hexo deploy的时候,只提交public目录下的文件(这是个错误的认识,下文将解释).但是整个hexo项目的配置文件等关键文件还留在本地, 若网站发生一些错误配置,但没有记录配置的过程,造成的后果是不可逆的,于是要备份整个仓库 原本的思路是,在hexo的根目录下git init,将根目录设置为一个git项目,在每次deploy的时候执行git push,项目就被保存在了另一个仓库,">
-<meta property="og:updated_time" content="2017-05-23T13:18:16.624Z">
+<meta property="og:updated_time" content="2017-06-26T12:52:29.904Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="该网站的恢复策略">
 <meta name="twitter:description" content="起因 在hexo deploy的时候,只提交public目录下的文件(这是个错误的认识,下文将解释).但是整个hexo项目的配置文件等关键文件还留在本地, 若网站发生一些错误配置,但没有记录配置的过程,造成的后果是不可逆的,于是要备份整个仓库 原本的思路是,在hexo的根目录下git init,将根目录设置为一个git项目,在每次deploy的时候执行git push,项目就被保存在了另一个仓库,">
@@ -316,7 +316,8 @@
 </ul>
 <h2 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h2><ul>
 <li>准备<ol>
-<li>手动在<a href="https://github.com/RigeI/blog" target="_blank" rel="external">备份仓库</a>添加<a href="https://github.com/RigeI/blog/blob/master/.gitmodules" target="_blank" rel="external">.gitmodules</a></li>
+<li>在本地仓库根目录<code>git init</code>,目的是添加<code>.git</code>目录.push 本地仓库</li>
+<li>手动在<a href="https://github.com/RigeI/blog" target="_blank" rel="external">远程备份仓库</a>添加<a href="https://github.com/RigeI/blog/blob/master/.gitmodules" target="_blank" rel="external">.gitmodules</a></li>
 <li>pull备份仓库</li>
 </ol>
 </li>
