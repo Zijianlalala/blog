@@ -99,7 +99,7 @@ public class Abstraction {
 package bridge;
 /**
  * Abstraction已经可以调用Implementor中的方法
- * 实现RefinedAbstraction继承Abstracition,体现依赖倒转原则
+ * 扩展Abstracition,实现RefinedAbstraction
  * 为日后扩展与RefinedAbstarction同级的类提供方便
  * */
 public class RefinedAbstraction extends Abstraction {
