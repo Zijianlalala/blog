@@ -14,4 +14,4 @@ type: "about"
 欢迎指正博客中出现的错误,我们将认真对待您的每一个意见
 
 ## 联系方式
-mail: nierunjie@foxmail.com
+Mail: nierunjie@foxmail.com
