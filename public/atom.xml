@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.nierunjie.site/"/>
-  <updated>2017-06-12T16:22:53.091Z</updated>
+  <updated>2017-06-30T07:37:47.778Z</updated>
   <id>https://www.nierunjie.site/</id>
   
   <author>
@@ -16,11 +16,36 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Java考试技巧</title>
+    <link href="https://www.nierunjie.site/2017/06/30/Java%E8%80%83%E8%AF%95%E6%8A%80%E5%B7%A7/"/>
+    <id>https://www.nierunjie.site/2017/06/30/Java考试技巧/</id>
+    <published>2017-06-30T07:31:00.000Z</published>
+    <updated>2017-06-30T07:37:47.778Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="java阅卷标准"><a href="#java阅卷标准" class="headerlink" title="java阅卷标准"></a>java阅卷标准</h2><p>看心情</p>
+<h2 id="高分方法"><a href="#高分方法" class="headerlink" title="高分方法"></a>高分方法</h2><p>上柱香祈祷吧</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;java阅卷标准&quot;&gt;&lt;a href=&quot;#java阅卷标准&quot; class=&quot;headerlink&quot; title=&quot;java阅卷标准&quot;&gt;&lt;/a&gt;java阅卷标准&lt;/h2&gt;&lt;p&gt;看心情&lt;/p&gt;
+&lt;h2 id=&quot;高分方法&quot;&gt;&lt;a href=&quot;#高分方法&quot; class=&quot;h
+    
+    </summary>
+    
+      <category term="杂谈" scheme="https://www.nierunjie.site/categories/%E6%9D%82%E8%B0%88/"/>
+    
+    
+      <category term="星相占卜" scheme="https://www.nierunjie.site/tags/%E6%98%9F%E7%9B%B8%E5%8D%A0%E5%8D%9C/"/>
+    
+  </entry>
+  
+  <entry>
     <title>对于Hibernate后第二次唤醒出现GRUB菜单的探究</title>
     <link href="https://www.nierunjie.site/2017/06/12/%E5%AF%B9%E4%BA%8EHibernate%E5%90%8E%E7%AC%AC%E4%BA%8C%E6%AC%A1%E5%94%A4%E9%86%92%E5%87%BA%E7%8E%B0GRUB%E8%8F%9C%E5%8D%95%E7%9A%84%E6%8E%A2%E7%A9%B6/"/>
     <id>https://www.nierunjie.site/2017/06/12/对于Hibernate后第二次唤醒出现GRUB菜单的探究/</id>
     <published>2017-06-12T15:47:33.000Z</published>
-    <updated>2017-06-12T16:22:53.091Z</updated>
+    <updated>2017-06-30T07:44:46.244Z</updated>
     
     <content type="html"><![CDATA[<h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><ul>
 <li>Kernel 4.10.0-generic</li>
@@ -68,6 +93,8 @@
     
     </summary>
     
+      <category term="Linux" scheme="https://www.nierunjie.site/categories/Linux/"/>
+    
     
       <category term="Linux" scheme="https://www.nierunjie.site/tags/Linux/"/>
     
@@ -78,7 +105,7 @@
     <link href="https://www.nierunjie.site/2017/06/08/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/"/>
     <id>https://www.nierunjie.site/2017/06/08/归并排序/</id>
     <published>2017-06-08T13:35:00.000Z</published>
-    <updated>2017-06-08T14:46:51.954Z</updated>
+    <updated>2017-06-30T07:43:13.520Z</updated>
     
     <content type="html"><![CDATA[<h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><ul>
 <li>MergeSort<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="comment">// 将数组a拆分成start到mid 和 mid+1到end 两部分</span></div><div class="line"><span class="comment">// 这两部分均有序</span></div><div class="line"><span class="comment">// 将这两部分合并成一个有序的数组</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> start,<span class="keyword">int</span> mid,<span class="keyword">int</span> end)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="comment">// 创建临时空间,大小为数组a的大小</span></div><div class="line">    <span class="keyword">int</span> *temp = <span class="keyword">new</span> <span class="keyword">int</span>[end-start+<span class="number">1</span>];</div><div class="line">    <span class="comment">// i 为前半个数组的索引</span></div><div class="line">    <span class="keyword">int</span> i=start;</div><div class="line">    <span class="comment">// j 为后半个数组的索引</span></div><div class="line">    <span class="keyword">int</span> j=mid+<span class="number">1</span>;</div><div class="line">    <span class="comment">// k为临时空间temp的索引</span></div><div class="line">    <span class="keyword">int</span> k=<span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="comment">// 3个循环为具体合并过程</span></div><div class="line">    <span class="keyword">while</span>(i&lt;=mid &amp;&amp; j&lt;=end)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span>(a[i]&lt;=a[j])</div><div class="line">            temp[k++]=a[i++];</div><div class="line">        <span class="keyword">else</span></div><div class="line">            temp[k++]=a[j++];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">while</span>(i&lt;=mid)</div><div class="line">        temp[k++]=a[i++];</div><div class="line">    <span class="keyword">while</span>(j&lt;=end)</div><div class="line">        temp[k++]=a[j++];</div><div class="line">    </div><div class="line">    <span class="comment">// 把临时空间的内容放回到a数组</span></div><div class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;k;i++)</div><div class="line">        a[start+i]=temp[i];</div><div class="line">    </div><div class="line">    <span class="comment">// 删除临时空间</span></div><div class="line">    <span class="keyword">delete</span> []temp;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge_sort</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> start,<span class="keyword">int</span> end)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="comment">// 空数组直接返回</span></div><div class="line">    <span class="comment">// start&gt;end 是错误的输入</span></div><div class="line">    <span class="comment">// start=end 表示数组中只有一个元素需要排序,</span></div><div class="line">    <span class="comment">// 是递归退出的条件</span></div><div class="line">    <span class="keyword">if</span>(a==<span class="literal">NULL</span> || start&gt;=end)</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    </div><div class="line">    <span class="comment">// 分割数组,如果数组待排序个数大于1就继续分割</span></div><div class="line">    <span class="comment">// 只有一个元素可以视为有序</span></div><div class="line">    <span class="keyword">int</span> mid=(end+start)/<span class="number">2</span>;</div><div class="line">    merge_sort(a,start,mid);</div><div class="line">    merge_sort(a,mid+<span class="number">1</span>,end);</div><div class="line"></div><div class="line">    <span class="comment">// 将有序数组进行合并</span></div><div class="line">    merge(a,start,mid,end);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 输出数组,不属于归并排序,可忽略</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_array</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> start,<span class="keyword">int</span> end)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=start;i&lt;=end;i++)</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">cout</span>&lt;&lt;a[i]&lt;&lt;<span class="string">" "</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> a[]=&#123;<span class="number">-20</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">-1</span>,<span class="number">2</span>,<span class="number">-10</span>&#125;;</div><div class="line">    print_array(a,<span class="number">0</span>,<span class="number">7</span>);</div><div class="line">    merge_sort(a,<span class="number">0</span>,<span class="number">7</span>);</div><div class="line">    print_array(a,<span class="number">0</span>,<span class="number">7</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -93,6 +120,8 @@
     
     </summary>
     
+      <category term="数据结构与算法" scheme="https://www.nierunjie.site/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    
     
       <category term="数据结构与算法" scheme="https://www.nierunjie.site/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
     
@@ -103,7 +132,7 @@
     <link href="https://www.nierunjie.site/2017/06/05/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/"/>
     <id>https://www.nierunjie.site/2017/06/05/快速排序/</id>
     <published>2017-06-05T13:52:50.000Z</published>
-    <updated>2017-06-05T13:59:47.502Z</updated>
+    <updated>2017-06-30T07:47:06.019Z</updated>
     
     <content type="html"><![CDATA[<h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><ul>
 <li>QuickSort.cpp<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> &amp;a,<span class="keyword">int</span> &amp;b)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> temp=a;</div><div class="line">    a=b;</div><div class="line">    b=temp;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 参数:</div><div class="line"> * r[]为待排序数组</div><div class="line"> * first,end为索引</div><div class="line"> *</div><div class="line"> * 说明:</div><div class="line"> * 此函数将待排数组以第一个元素为标准</div><div class="line"> * 分为两部分,小的在该元素前,大的在该元素后</div><div class="line"> * 并返回最后该元素的位置</div><div class="line"> * */</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">Partition</span><span class="params">(<span class="keyword">int</span> r[],<span class="keyword">int</span> first,<span class="keyword">int</span> end)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> i = first;</div><div class="line">    <span class="keyword">int</span> j = end;</div><div class="line">    <span class="keyword">while</span>(i&lt;j)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">while</span>(i&lt;j &amp;&amp; r[i]&lt;=r[j]) j--;</div><div class="line">        <span class="keyword">if</span>(i&lt;j)&#123;</div><div class="line">            swap(r[i],r[j]);</div><div class="line">            i++;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">while</span>(i&lt;j &amp;&amp; r[i]&lt;=r[j]) i++;</div><div class="line">        <span class="keyword">if</span>(i&lt;j)&#123;</div><div class="line">            swap(r[i],r[j]);</div><div class="line">            j--;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> i;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> *</div><div class="line"> * 说明:</div><div class="line"> * 递归调用排序算法</div><div class="line"> *</div><div class="line"> * */</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">QuickSort</span><span class="params">(<span class="keyword">int</span> r[],<span class="keyword">int</span> first,<span class="keyword">int</span> end)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span>(first&lt;end)&#123;</div><div class="line">        <span class="keyword">int</span> pivot = Partition(r,first,end);</div><div class="line">        QuickSort(r,first,pivot<span class="number">-1</span>);</div><div class="line">        QuickSort(r,pivot+<span class="number">1</span>,end);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> a[] = &#123;<span class="number">15</span>,<span class="number">-4</span>,<span class="number">3</span>,<span class="number">-2</span>,<span class="number">1</span>,<span class="number">55</span>&#125;;</div><div class="line">    </div><div class="line">    <span class="comment">// 数组a的索引从0到5,</span></div><div class="line">    QuickSort(a,<span class="number">0</span>,<span class="number">5</span>);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=<span class="number">5</span>;i++)</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">cout</span>&lt;&lt;a[i]&lt;&lt;<span class="string">'\t'</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -118,6 +147,8 @@
     
     </summary>
     
+      <category term="数据结构与算法" scheme="https://www.nierunjie.site/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    
     
       <category term="数据结构与算法" scheme="https://www.nierunjie.site/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
     
@@ -128,7 +159,7 @@
     <link href="https://www.nierunjie.site/2017/06/05/%E5%A0%86%E6%8E%92%E5%BA%8F/"/>
     <id>https://www.nierunjie.site/2017/06/05/堆排序/</id>
     <published>2017-06-05T11:31:56.000Z</published>
-    <updated>2017-06-08T13:39:12.725Z</updated>
+    <updated>2017-06-30T07:48:05.919Z</updated>
     
     <content type="html"><![CDATA[<h2 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h2><ul>
 <li>HeapSort.cpp<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> &amp;a,<span class="keyword">int</span> &amp;b)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> temp=a;</div><div class="line">    a=b;</div><div class="line">    b=temp;</div><div class="line">&#125;</div><div class="line"><span class="comment">/**</span></div><div class="line"> * 说明:</div><div class="line"> * 大根堆,即跟必须为最大的节点</div><div class="line"> * </div><div class="line"> * 应用条件:</div><div class="line"> * 除了被筛选节点和其左右儿子,该节点子树均为大根堆</div><div class="line"> *</div><div class="line"> * 参数:</div><div class="line"> * r[] 为待调整数组</div><div class="line"> * k 为被筛选的节点,从k,2k,2k+1中寻找最大值放在k的位置</div><div class="line"> * m 为需要进行筛选的二叉堆的节点个数</div><div class="line"> * */</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Sift</span><span class="params">(<span class="keyword">int</span> r[],<span class="keyword">int</span> k,<span class="keyword">int</span> m)</span></span></div><div class="line">&#123;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> i = k;</div><div class="line">    <span class="keyword">int</span> j=<span class="number">2</span>*i;</div><div class="line">    <span class="keyword">while</span>(j&lt;=m)</div><div class="line">    &#123;</div><div class="line">        <span class="comment">// j 定位到值最大的儿子</span></div><div class="line">        <span class="keyword">if</span>(j+<span class="number">1</span>&lt;=m &amp;&amp; r[j<span class="number">-1</span>]&lt;r[j]) j++;  </div><div class="line"></div><div class="line">        <span class="comment">// j 位置的值比 i 位置的小</span></div><div class="line">        <span class="comment">// 为大根堆,不需要调整</span></div><div class="line">        <span class="keyword">if</span>(r[j<span class="number">-1</span>]&lt;r[i<span class="number">-1</span>]) <span class="keyword">break</span>;    </div><div class="line"></div><div class="line">        <span class="comment">// 否则交换位置</span></div><div class="line">        <span class="keyword">else</span>&#123;</div><div class="line">            swap(r[j<span class="number">-1</span>],r[i<span class="number">-1</span>]);</div><div class="line"></div><div class="line">            <span class="comment">// 交换位置导致原本子树的大根堆被破坏</span></div><div class="line">            <span class="comment">// 所以要对该子树进行调整</span></div><div class="line">            i=j;</div><div class="line">            j=<span class="number">2</span>*i;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 说明:</div><div class="line"> * 堆排序</div><div class="line"> *</div><div class="line"> * 参数:</div><div class="line"> * r[] 为被排序数组,n为数组元素个数</div><div class="line"> * */</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">HeapSort</span><span class="params">(<span class="keyword">int</span> r[],<span class="keyword">int</span> n)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = n/<span class="number">2</span>;i&gt;=<span class="number">1</span>;i--)</div><div class="line">    &#123;</div><div class="line">        <span class="comment">// 由于Sift的应用条件是,i节点的子树必须为大根堆,</span></div><div class="line">        <span class="comment">// 所以从最后一个树开始,倒序至根节点</span></div><div class="line">        <span class="comment">// 循环结束后,跟节点为最大值</span></div><div class="line">        Sift(r,i,n);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">1</span>;i&lt;n;i++)</div><div class="line">    &#123;</div><div class="line">        <span class="comment">// 交换第一个节点和最后一个节点</span></div><div class="line">        swap(r[<span class="number">0</span>],r[n-i]);</div><div class="line">        <span class="comment">// 此时最后一个节点为最大值</span></div><div class="line">        <span class="comment">// 开始循环后</span></div><div class="line">        <span class="comment">// 待排序的最大值总被放到待排序数组的最后</span></div><div class="line">        </div><div class="line">        <span class="comment">// 每次只有根节点不是最大堆,所以交换位置后只需从跟节点开始调整一次</span></div><div class="line">        Sift(r,<span class="number">1</span>,n-i);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> t=<span class="number">8</span>;</div><div class="line">    <span class="keyword">int</span> a[] = &#123;<span class="number">9</span>,<span class="number">-1</span>,<span class="number">1</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">0</span>,<span class="number">-2</span>,<span class="number">10</span>&#125;;</div><div class="line">    HeapSort(a,t);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;t;i++)</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">cout</span>&lt;&lt;a[i]&lt;&lt;<span class="string">" "</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -143,6 +174,8 @@
     
     </summary>
     
+      <category term="数据结构与算法" scheme="https://www.nierunjie.site/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    
     
       <category term="数据结构与算法" scheme="https://www.nierunjie.site/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
     
@@ -153,7 +186,7 @@
     <link href="https://www.nierunjie.site/2017/06/02/Mediator-Pattern/"/>
     <id>https://www.nierunjie.site/2017/06/02/Mediator-Pattern/</id>
     <published>2017-06-02T03:04:32.000Z</published>
-    <updated>2017-06-08T10:02:21.601Z</updated>
+    <updated>2017-06-30T07:57:15.790Z</updated>
     
     <content type="html"><![CDATA[<h2 id="中介者模式"><a href="#中介者模式" class="headerlink" title="中介者模式"></a>中介者模式</h2><p>中介者模式（Mediator Pattern）是用来降低多个对象和类之间的通信复杂性。这种模式提供了一个中介类，该类通常处理不同类之间的通信，并支持松耦合，使代码易于维护。中介者模式属于行为型模式。</p>
 <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
@@ -195,6 +228,8 @@
     
     </summary>
     
+      <category term="设计模式" scheme="https://www.nierunjie.site/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
     
       <category term="设计模式" scheme="https://www.nierunjie.site/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
@@ -205,7 +240,7 @@
     <link href="https://www.nierunjie.site/2017/06/02/Command-Pattern/"/>
     <id>https://www.nierunjie.site/2017/06/02/Command-Pattern/</id>
     <published>2017-06-02T03:02:25.000Z</published>
-    <updated>2017-06-08T09:53:38.260Z</updated>
+    <updated>2017-06-30T07:54:03.133Z</updated>
     
     <content type="html"><![CDATA[<h2 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h2><p>命令模式（Command Pattern）是一种数据驱动的设计模式，它属于行为型模式。请求以命令的形式包裹在对象中，并传给调用对象。调用对象寻找可以处理该命令的合适的对象，并把该命令传给相应的对象，该对象执行命令。</p>
 <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
@@ -247,6 +282,8 @@
     
     </summary>
     
+      <category term="设计模式" scheme="https://www.nierunjie.site/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
     
       <category term="设计模式" scheme="https://www.nierunjie.site/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
@@ -257,7 +294,7 @@
     <link href="https://www.nierunjie.site/2017/06/01/Visitor-Pattern/"/>
     <id>https://www.nierunjie.site/2017/06/01/Visitor-Pattern/</id>
     <published>2017-06-01T04:53:41.000Z</published>
-    <updated>2017-06-26T16:15:39.294Z</updated>
+    <updated>2017-06-30T07:53:19.578Z</updated>
     
     <content type="html"><![CDATA[<h2 id="访问者模式"><a href="#访问者模式" class="headerlink" title="访问者模式"></a>访问者模式</h2><p>在访问者模式（Visitor Pattern）中，我们使用了一个访问者类，它改变了元素类的执行算法。通过这种方式，元素的执行算法可以随着访问者改变而改变。这种类型的设计模式属于行为型模式。根据模式，元素对象已接受访问者对象，这样访问者对象就可以处理元素对象上的操作。</p>
 <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
@@ -325,6 +362,8 @@
     
     </summary>
     
+      <category term="设计模式" scheme="https://www.nierunjie.site/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
     
       <category term="设计模式" scheme="https://www.nierunjie.site/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
@@ -335,7 +374,7 @@
     <link href="https://www.nierunjie.site/2017/06/01/Memento-Pattern/"/>
     <id>https://www.nierunjie.site/2017/06/01/Memento-Pattern/</id>
     <published>2017-06-01T04:53:29.000Z</published>
-    <updated>2017-06-08T09:55:51.796Z</updated>
+    <updated>2017-06-30T07:57:19.954Z</updated>
     
     <content type="html"><![CDATA[<h2 id="备忘录模式"><a href="#备忘录模式" class="headerlink" title="备忘录模式"></a>备忘录模式</h2><p>备忘录模式（Memento Pattern）保存一个对象的某个状态，以便在适当的时候恢复对象。备忘录模式属于行为型模式。</p>
 <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
@@ -376,6 +415,8 @@
     
     </summary>
     
+      <category term="设计模式" scheme="https://www.nierunjie.site/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
     
       <category term="设计模式" scheme="https://www.nierunjie.site/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
@@ -386,7 +427,7 @@
     <link href="https://www.nierunjie.site/2017/06/01/Iterator-Pattern/"/>
     <id>https://www.nierunjie.site/2017/06/01/Iterator-Pattern/</id>
     <published>2017-06-01T04:53:11.000Z</published>
-    <updated>2017-06-08T09:55:05.726Z</updated>
+    <updated>2017-06-30T07:52:58.190Z</updated>
     
     <content type="html"><![CDATA[<h2 id="迭代器模式"><a href="#迭代器模式" class="headerlink" title="迭代器模式"></a>迭代器模式</h2><p>迭代器模式（Iterator Pattern）是 Java 和 .Net 编程环境中非常常用的设计模式。这种模式用于顺序访问集合对象的元素，不需要知道集合对象的底层表示。<br>迭代器模式属于行为型模式</p>
 <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
@@ -412,6 +453,8 @@
     
     </summary>
     
+      <category term="设计模式" scheme="https://www.nierunjie.site/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
     
       <category term="设计模式" scheme="https://www.nierunjie.site/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
@@ -422,7 +465,7 @@
     <link href="https://www.nierunjie.site/2017/06/01/Interpreter-Pattern/"/>
     <id>https://www.nierunjie.site/2017/06/01/Interpreter-Pattern/</id>
     <published>2017-06-01T04:53:01.000Z</published>
-    <updated>2017-06-04T12:54:20.534Z</updated>
+    <updated>2017-06-30T07:53:05.882Z</updated>
     
     <content type="html"><![CDATA[<h2 id="解释器模式"><a href="#解释器模式" class="headerlink" title="解释器模式"></a>解释器模式</h2><h2 id="基本代码"><a href="#基本代码" class="headerlink" title="基本代码"></a>基本代码</h2><p><img src="/2017/06/01/Interpreter-Pattern/Interpreter.png" alt="解释器模式"></p>
 <hr>
@@ -434,6 +477,8 @@
     
     </summary>
     
+      <category term="设计模式" scheme="https://www.nierunjie.site/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
     
       <category term="设计模式" scheme="https://www.nierunjie.site/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
@@ -444,7 +489,7 @@
     <link href="https://www.nierunjie.site/2017/06/01/Chain-of-Responsibility-Pattern/"/>
     <id>https://www.nierunjie.site/2017/06/01/Chain-of-Responsibility-Pattern/</id>
     <published>2017-06-01T04:52:38.000Z</published>
-    <updated>2017-06-08T10:01:46.108Z</updated>
+    <updated>2017-06-30T07:53:59.605Z</updated>
     
     <content type="html"><![CDATA[<h2 id="责任链模式"><a href="#责任链模式" class="headerlink" title="责任链模式"></a>责任链模式</h2><p>顾名思义，责任链模式（Chain of Responsibility Pattern）为请求创建了一个接收者对象的链。这种模式给予请求的类型，对请求的发送者和接收者进行解耦。这种类型的设计模式属于行为型模式。</p>
 <p>在这种模式中，通常每个接收者都包含对另一个接收者的引用。如果一个对象不能处理该请求，那么它会把相同的请求传给下一个接收者，依此类推。</p>
@@ -481,6 +526,8 @@
     
     </summary>
     
+      <category term="设计模式" scheme="https://www.nierunjie.site/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
     
       <category term="设计模式" scheme="https://www.nierunjie.site/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
@@ -491,7 +538,7 @@
     <link href="https://www.nierunjie.site/2017/06/01/Flyweight-Pattern/"/>
     <id>https://www.nierunjie.site/2017/06/01/Flyweight-Pattern/</id>
     <published>2017-06-01T04:52:00.000Z</published>
-    <updated>2017-06-20T01:26:28.799Z</updated>
+    <updated>2017-06-30T07:53:28.254Z</updated>
     
     <content type="html"><![CDATA[<h2 id="享元模式"><a href="#享元模式" class="headerlink" title="享元模式"></a>享元模式</h2><p>享元模式（Flyweight Pattern）主要用于减少创建对象的数量，以减少内存占用和提高性能。这种类型的设计模式属于结构型模式，它提供了减少对象数量从而改善应用所需的对象结构的方式。</p>
 <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
@@ -532,6 +579,8 @@
     
     </summary>
     
+      <category term="设计模式" scheme="https://www.nierunjie.site/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
     
       <category term="设计模式" scheme="https://www.nierunjie.site/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
@@ -542,7 +591,7 @@
     <link href="https://www.nierunjie.site/2017/06/01/Composite-Pattern/"/>
     <id>https://www.nierunjie.site/2017/06/01/Composite-Pattern/</id>
     <published>2017-06-01T04:51:46.000Z</published>
-    <updated>2017-06-08T09:54:11.640Z</updated>
+    <updated>2017-06-30T07:54:06.553Z</updated>
     
     <content type="html"><![CDATA[<h2 id="组合模式"><a href="#组合模式" class="headerlink" title="组合模式"></a>组合模式</h2><p>组合模式（Composite Pattern），又叫部分整体模式，是用于把一组相似的对象当作一个单一的对象。组合模式依据树形结构来组合对象，用来表示部分以及整体层次。这种类型的设计模式属于结构型模式，它创建了对象组的树形结构。<br>这种模式创建了一个包含自己对象组的类。该类提供了修改相同对象组的方式。</p>
 <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
@@ -581,6 +630,8 @@
     
     </summary>
     
+      <category term="设计模式" scheme="https://www.nierunjie.site/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
     
       <category term="设计模式" scheme="https://www.nierunjie.site/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
@@ -591,7 +642,7 @@
     <link href="https://www.nierunjie.site/2017/06/01/Bridge-Pattern/"/>
     <id>https://www.nierunjie.site/2017/06/01/Bridge-Pattern/</id>
     <published>2017-06-01T04:51:33.000Z</published>
-    <updated>2017-06-26T15:00:04.732Z</updated>
+    <updated>2017-06-30T07:53:46.569Z</updated>
     
     <content type="html"><![CDATA[<h2 id="桥接模式"><a href="#桥接模式" class="headerlink" title="桥接模式"></a>桥接模式</h2><p>桥接（Bridge）是用于把抽象化与实现化解耦，使得二者可以独立变化。这种类型的设计模式属于结构型模式，它通过提供抽象化和实现化之间的桥接结构，来实现二者的解耦。<br>这种模式涉及到一个作为桥接的接口，使得实体类的功能独立于接口实现类。这两种类型的类可被结构化改变而互不影响。</p>
 <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
@@ -633,6 +684,8 @@
     
     </summary>
     
+      <category term="设计模式" scheme="https://www.nierunjie.site/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
     
       <category term="设计模式" scheme="https://www.nierunjie.site/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
@@ -643,7 +696,7 @@
     <link href="https://www.nierunjie.site/2017/06/01/Builder-Pattern/"/>
     <id>https://www.nierunjie.site/2017/06/01/Builder-Pattern/</id>
     <published>2017-06-01T04:51:19.000Z</published>
-    <updated>2017-06-08T10:01:25.495Z</updated>
+    <updated>2017-06-30T07:53:50.057Z</updated>
     
     <content type="html"><![CDATA[<h2 id="建造者模式"><a href="#建造者模式" class="headerlink" title="建造者模式"></a>建造者模式</h2><p>建造者模式（Builder Pattern）使用多个简单的对象一步一步构建成一个复杂的对象。这种类型的设计模式属于创建型模式，它提供了一种创建对象的最佳方式。</p>
 <p>一个 Builder 类会一步一步构造最终的对象。该 Builder 类是独立于其他对象的。</p>
@@ -684,6 +737,8 @@
     
     </summary>
     
+      <category term="设计模式" scheme="https://www.nierunjie.site/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
     
       <category term="设计模式" scheme="https://www.nierunjie.site/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
@@ -694,7 +749,7 @@
     <link href="https://www.nierunjie.site/2017/06/01/Singleton-Pattern/"/>
     <id>https://www.nierunjie.site/2017/06/01/Singleton-Pattern/</id>
     <published>2017-06-01T04:51:02.000Z</published>
-    <updated>2017-06-26T14:12:09.706Z</updated>
+    <updated>2017-06-30T07:44:08.028Z</updated>
     
     <content type="html"><![CDATA[<h2 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h2><p>单例模式（Singleton Pattern）是 Java 中最简单的设计模式之一。这种类型的设计模式属于创建型模式，它提供了一种创建对象的最佳方式。<br>这种模式涉及到一个单一的类，该类负责创建自己的对象，同时确保只有单个对象被创建。这个类提供了一种访问其唯一的对象的方式，可以直接访问，不需要实例化该类的对象。</p>
 <h3 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h3><ol>
@@ -737,6 +792,8 @@
     
     </summary>
     
+      <category term="设计模式" scheme="https://www.nierunjie.site/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
     
       <category term="设计模式" scheme="https://www.nierunjie.site/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
@@ -747,7 +804,7 @@
     <link href="https://www.nierunjie.site/2017/05/27/R%E8%AF%AD%E8%A8%80%E9%9D%9E%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/"/>
     <id>https://www.nierunjie.site/2017/05/27/R语言非线性回归/</id>
     <published>2017-05-27T03:02:56.000Z</published>
-    <updated>2017-05-27T03:51:34.037Z</updated>
+    <updated>2017-06-30T07:45:10.628Z</updated>
     
     <content type="html"><![CDATA[<ol>
 <li><p>非线性最小二乘拟合</p>
@@ -783,6 +840,8 @@
     
     </summary>
     
+      <category term="R语言" scheme="https://www.nierunjie.site/categories/R%E8%AF%AD%E8%A8%80/"/>
+    
     
       <category term="R语言" scheme="https://www.nierunjie.site/tags/R%E8%AF%AD%E8%A8%80/"/>
     
@@ -793,7 +852,7 @@
     <link href="https://www.nierunjie.site/2017/05/26/R%E6%95%B0%E5%AD%A6%E8%BF%90%E7%AE%97/"/>
     <id>https://www.nierunjie.site/2017/05/26/R数学运算/</id>
     <published>2017-05-26T03:11:46.000Z</published>
-    <updated>2017-05-26T03:22:14.753Z</updated>
+    <updated>2017-06-30T07:45:32.072Z</updated>
     
     <content type="html"><![CDATA[<ol>
 <li><p>集合运算</p>
@@ -819,6 +878,8 @@
     
     </summary>
     
+      <category term="R语言" scheme="https://www.nierunjie.site/categories/R%E8%AF%AD%E8%A8%80/"/>
+    
     
       <category term="R语言" scheme="https://www.nierunjie.site/tags/R%E8%AF%AD%E8%A8%80/"/>
     
@@ -829,7 +890,7 @@
     <link href="https://www.nierunjie.site/2017/05/26/R%E7%BB%9F%E8%AE%A1/"/>
     <id>https://www.nierunjie.site/2017/05/26/R统计/</id>
     <published>2017-05-26T02:36:43.000Z</published>
-    <updated>2017-05-26T03:12:09.795Z</updated>
+    <updated>2017-06-30T07:44:58.324Z</updated>
     
     <content type="html"><![CDATA[<ol>
 <li><p>addmargins() 每行的和与每列的和</p>
@@ -855,33 +916,10 @@
     
     </summary>
     
+      <category term="R语言" scheme="https://www.nierunjie.site/categories/R%E8%AF%AD%E8%A8%80/"/>
+    
     
       <category term="R语言" scheme="https://www.nierunjie.site/tags/R%E8%AF%AD%E8%A8%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux tab补全忽略大小写</title>
-    <link href="https://www.nierunjie.site/2017/05/25/Linux-tab%E8%A1%A5%E5%85%A8%E5%BF%BD%E7%95%A5%E5%A4%A7%E5%B0%8F%E5%86%99/"/>
-    <id>https://www.nierunjie.site/2017/05/25/Linux-tab补全忽略大小写/</id>
-    <published>2017-05-25T11:24:32.000Z</published>
-    <updated>2017-05-25T11:29:58.896Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><ul>
-<li>在~/.inputrc(没有就新建)中添加<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">set</span> show-all-if-ambiguous on</div></pre></td></tr></table></figure>
-</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;代码&quot;&gt;&lt;a href=&quot;#代码&quot; class=&quot;headerlink&quot; title=&quot;代码&quot;&gt;&lt;/a&gt;代码&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;在~/.inputrc(没有就新建)中添加&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="https://www.nierunjie.site/tags/Linux/"/>
     
   </entry>
   

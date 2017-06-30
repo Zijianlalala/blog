@@ -2,6 +2,7 @@
 title: Composite Pattern
 date: 2017-06-01 12:51:46
 tags: 设计模式
+category: 设计模式
 ---
 
 ## 组合模式

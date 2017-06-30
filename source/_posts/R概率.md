@@ -2,6 +2,7 @@
 title: R概率
 date: 2017-05-25 08:31:38
 tags: R语言
+category: R语言
 ---
 
 0. 函数

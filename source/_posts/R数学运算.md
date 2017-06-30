@@ -2,6 +2,7 @@
 title: R数学运算
 date: 2017-05-26 11:11:46
 tags: R语言
+category: R语言
 ---
 
 0. 集合运算

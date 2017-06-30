@@ -1,7 +1,8 @@
 ---
 title: Linux清除已删除程序的配置文件
 date: 2017-04-17 21:33:14
-tags: Linux
+tags: 命令
+category: Linux
 ---
 * 代码
 `dpkg -l |grep "^rc"|awk '{print $2}' |xargs aptitude -y purge`

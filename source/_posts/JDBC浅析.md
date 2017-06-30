@@ -2,8 +2,8 @@
 title: JDBC浅析
 date: 2017-04-25 08:54:03
 tags: Java
+category: Java
 ---
-
 ## JDBC介绍
 *   [百度百科关于JDBC的介绍](http://baike.baidu.com/link?url=dJRfeHbxsfQoipAv8M7_pRpk88uBnCMWREdGXMI4hYpSmMekcSsVBrtfhHZYIBnYejVeyWY8U8pg-W9RfweYI_)
 *   介绍JDBC常用的接口和类及其方法

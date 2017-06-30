@@ -2,6 +2,7 @@
 title: R统计
 date: 2017-05-26 10:36:43
 tags: R语言
+category: R语言
 ---
 
 0. addmargins() 每行的和与每列的和

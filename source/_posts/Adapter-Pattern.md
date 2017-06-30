@@ -2,6 +2,7 @@
 title: Adapter Pattern
 date: 2017-05-20 08:20:30
 tags: 设计模式
+category: 设计模式
 ---
 
 ## 适配器模式

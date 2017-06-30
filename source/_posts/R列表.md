@@ -2,6 +2,7 @@
 title: R列表
 date: 2017-05-24 09:12:19
 tags: R语言
+category: R语言
 ---
 
 0. 赋值,索引

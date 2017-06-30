@@ -2,6 +2,7 @@
 title: Strategy Pattern
 date: 2017-05-02 20:59:41
 tags: 设计模式
+category: 设计模式
 ---
 
 ## 策略模式

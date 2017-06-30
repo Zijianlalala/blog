@@ -2,6 +2,7 @@
 title: Bridge Pattern
 date: 2017-06-01 12:51:33
 tags: 设计模式
+category: 设计模式
 ---
 
 ## 桥接模式

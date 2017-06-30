@@ -1,7 +1,8 @@
 ---
 title: vimrc配置(个人备用)
 date: 2017-04-17 21:23:11
-tags: Linux
+tags: 配置文件
+category: Linux
 ---
 
 ## 内容

@@ -2,6 +2,7 @@
 title: Factory Method
 date: 2017-05-01 16:58:49
 tags: 设计模式
+category: 设计模式
 ---
 
 ## 工厂模式

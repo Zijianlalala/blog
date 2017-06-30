@@ -2,6 +2,7 @@
 title: Proxy Pattern
 date: 2017-05-03 21:53:44
 tags: 设计模式
+category: 设计模式
 ---
 
 ## 代理模式

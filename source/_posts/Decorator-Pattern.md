@@ -2,6 +2,7 @@
 title: Decorator Pattern
 date: 2017-05-03 20:45:30
 tags: 设计模式
+category: 设计模式
 ---
 
 ## 装饰器模式

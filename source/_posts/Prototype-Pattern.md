@@ -2,6 +2,7 @@
 title: Prototype Pattern
 date: 2017-05-02 19:40:52
 tags: 设计模式
+category: 设计模式
 ---
 
 ## 原型模式

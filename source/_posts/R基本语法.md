@@ -2,6 +2,7 @@
 title: R基本语法
 date: 2017-05-23 21:22:02
 tags: R语言
+category: R语言
 ---
 
 0. 求模运算 %%

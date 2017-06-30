@@ -246,7 +246,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://www.nierunjie.site/2017/05/26/R统计/">
+    <link itemprop="mainEntityOfPage" href="https://www.nierunjie.site/2017/05/26/R数学运算/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Rigel">
@@ -268,8 +268,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/05/26/R统计/" itemprop="url">
-                  R统计
+                <a class="post-title-link" href="/2017/05/26/R数学运算/" itemprop="url">
+                  R数学运算
                 </a>
               
             
@@ -285,7 +285,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-26T10:36:43+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-26T11:11:46+08:00">
                 2017-05-26
               </time>
             
@@ -295,6 +295,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/R语言/" itemprop="url" rel="index">
+                    <span itemprop="name">R语言</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -324,17 +346,17 @@
         
           
             <ol>
-<li><p>addmargins() 每行的和与每列的和</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt; a</div><div class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>]</div><div class="line">[<span class="number">1</span>,]    <span class="number">1</span>    <span class="number">1</span></div><div class="line">[<span class="number">2</span>,]   -<span class="number">1</span>    <span class="number">1</span></div><div class="line">&gt; addmargins(a)</div><div class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>] [,<span class="number">3</span>]</div><div class="line">[<span class="number">1</span>,]    <span class="number">1</span>    <span class="number">1</span>    <span class="number">2</span></div><div class="line">[<span class="number">2</span>,]   -<span class="number">1</span>    <span class="number">1</span>    <span class="number">0</span></div><div class="line">[<span class="number">3</span>,]    <span class="number">0</span>    <span class="number">2</span>    <span class="number">2</span></div></pre></td></tr></table></figure>
+<li><p>集合运算</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">union(x,y) <span class="comment"># 并</span></div><div class="line">intersect(x,y) <span class="comment"># 交</span></div><div class="line">setdiff(x,y) <span class="comment"># 差</span></div><div class="line">setequal(x,y) <span class="comment"># 检验相等</span></div><div class="line">c %<span class="keyword">in</span>% y <span class="comment"># 检验c是y的元素</span></div><div class="line">choose(n,k) <span class="comment"># n个中选k个元素子集的个数,排列</span></div><div class="line">combn(c,n) <span class="comment"># 显示集合c中 n个元素的组合</span></div></pre></td></tr></table></figure>
 </li>
-<li><p>aggergate() 根据分组应用函数</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Splits the data into subsets, </span></div><div class="line"><span class="comment"># computes summary statistics for each, </span></div><div class="line"><span class="comment"># and returns the result in a convenient form.</span></div><div class="line">aggregate(被分组的数据框,分组的条件,分组后应用的函数)</div><div class="line">如 aggregate(aba[,-<span class="number">1</span>],list(aba$Gender),median)</div></pre></td></tr></table></figure>
+<li><p>solve 解线性方程组</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; a&lt;-matrix(c(<span class="number">1</span>,-<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>),nrow=<span class="number">2</span>)</div><div class="line">&gt; b&lt;-c(<span class="number">2</span>,<span class="number">4</span>)</div><div class="line">&gt; solve(a,b)</div><div class="line">[<span class="number">1</span>] -<span class="number">1</span>  <span class="number">3</span></div></pre></td></tr></table></figure>
 </li>
-<li><p>cut(a,b,labels=FALSE) 把a中的元素根据b划分的区间来分组,返回a被分到b的哪个区间</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; z&lt;-runif(<span class="number">1</span>)</div><div class="line">&gt; m&lt;-seq(from=<span class="number">0.0</span>,to=<span class="number">1.0</span>,by=<span class="number">0.1</span>)</div><div class="line">&gt; cut(z,m,labels = <span class="literal">F</span>)</div><div class="line"> [<span class="number">1</span>] <span class="number">10</span>  <span class="number">5</span>  <span class="number">4</span>  <span class="number">5</span>  <span class="number">5</span>  <span class="number">7</span>  <span class="number">7</span>  <span class="number">6</span>  <span class="number">9</span>  <span class="number">8</span></div></pre></td></tr></table></figure>
+<li><p>其他线性代数运算函数</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">t() <span class="comment"># 转置</span></div><div class="line">qr() <span class="comment"># QR分解(不懂)</span></div><div class="line">chol() <span class="comment"># Cholesky(同不懂)</span></div><div class="line">det() <span class="comment"># 行列式的值</span></div><div class="line">eigen() <span class="comment"># 矩阵的特征值和特征向量</span></div><div class="line">diag () <span class="comment"># 从方阵中提出对角矩阵</span></div><div class="line">sweep() <span class="comment"># 数值分析批量运算符</span></div></pre></td></tr></table></figure>
 </li>
-<li><p>排序</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt; sort(z) <span class="comment"># 根据decreasing = F 设置升序排列</span></div><div class="line"> [<span class="number">1</span>] <span class="number">0.3923360</span> <span class="number">0.4462011</span> <span class="number">0.4541803</span> <span class="number">0.4978729</span> <span class="number">0.5658257</span></div><div class="line"> [<span class="number">6</span>] <span class="number">0.6684959</span> <span class="number">0.6897590</span> <span class="number">0.7623066</span> <span class="number">0.8501145</span> <span class="number">0.9762984</span></div><div class="line">&gt; order(z)</div><div class="line"> [<span class="number">1</span>]  <span class="number">3</span>  <span class="number">4</span>  <span class="number">2</span>  <span class="number">5</span>  <span class="number">8</span>  <span class="number">6</span>  <span class="number">7</span> <span class="number">10</span>  <span class="number">9</span>  <span class="number">1</span></div><div class="line">&gt; z[order(z)] <span class="comment"># 可以根据数据框中的某一列排序</span></div><div class="line"> [<span class="number">1</span>] <span class="number">0.3923360</span> <span class="number">0.4462011</span> <span class="number">0.4541803</span> <span class="number">0.4978729</span> <span class="number">0.5658257</span></div><div class="line"> [<span class="number">6</span>] <span class="number">0.6684959</span> <span class="number">0.6897590</span> <span class="number">0.7623066</span> <span class="number">0.8501145</span> <span class="number">0.9762984</span></div></pre></td></tr></table></figure>
+<li><p>其他包</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">deSolve处理微分方程</div></pre></td></tr></table></figure>
 </li>
 </ol>
 
@@ -375,7 +397,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/18/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><span class="page-number current">19</span><a class="page-number" href="/page/20/">20</a><span class="space">&hellip;</span><a class="page-number" href="/page/53/">53</a><a class="extend next" rel="next" href="/page/20/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/18/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><span class="page-number current">19</span><a class="page-number" href="/page/20/">20</a><span class="space">&hellip;</span><a class="page-number" href="/page/54/">54</a><a class="extend next" rel="next" href="/page/20/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -420,12 +442,21 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
           
 
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
           
 
           
@@ -433,7 +464,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -456,7 +487,7 @@
               <span class="links-of-author-item">
                 <a href="https://github.com/rigei" target="_blank" title="GitHub">
                   
-                    <i class="fa fa-fw fa-github"></i>
+                    <i class="fa fa-fw fa-globe"></i>
                   
                   GitHub
                 </a>

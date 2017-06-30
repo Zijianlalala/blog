@@ -1,7 +1,8 @@
 ---
 title: PHP不能解析
 date: 2017-04-17 21:12:02
-tags: Linux
+tags: PHP
+category: Linux
 ---
 
 ## 环境：

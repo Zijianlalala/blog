@@ -75,15 +75,23 @@ deploy:
   branch: master 
 
 feed: 
-    type: atom
-    path: atom.xml
-    limit: 20
+  type: atom
+  path: atom.xml
+  limit: 20
 
 # # #  自定义内容  # # #  #
 archive_generator:
-    per_page: 21  //为0时表示不分页全展示
-    yearly: true  //按年生成归档
-    monthly: true //按月生成归档
+  per_page: 21  //为0时表示不分页全展示
+  yearly: true  //按年生成归档
+  monthly: true //按月生成归档
 
 tag_generator:
-    per_page: 21
+  per_page: 20
+
+category_generator:
+  per_page: 10
+
+index_generator:
+  path: '/'
+  per_page: 1
+  order_by: -date

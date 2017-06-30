@@ -1,7 +1,8 @@
 ---
 title: 压力测试工具Siege
 date: 2017-04-18 23:16:07
-tags: 工具
+tags: 压力测试
+category: 工具
 ---
 ## 说明
 * Siege是对网站进行压力测试的工具

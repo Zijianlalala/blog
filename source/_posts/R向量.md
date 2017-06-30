@@ -2,6 +2,7 @@
 title: R向量
 date: 2017-05-24 09:09:26
 tags: R语言
+category: R语言
 ---
 
 0. all(c),any(c),typeof(c)

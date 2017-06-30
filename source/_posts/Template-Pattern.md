@@ -2,6 +2,7 @@
 title: Template Pattern
 date: 2017-05-03 22:06:53
 tags: 设计模式
+category: 设计模式
 ---
 
 ## 模板模式

@@ -2,6 +2,7 @@
 title: Abstract Factory Pattern
 date: 2017-05-01 19:54:57
 tags: 设计模式
+category: 设计模式
 ---
 
 ## 抽象工厂模式

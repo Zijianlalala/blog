@@ -2,6 +2,7 @@
 title: State Pattern
 date: 2017-05-19 14:05:29
 tags: 设计模式
+category: 设计模式
 ---
 
 ## 状态模式

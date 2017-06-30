@@ -1,7 +1,8 @@
 ---
 title: Linux压缩解压缩命令
 date: 2017-04-17 21:29:03
-tags: Linux
+tags: 命令
+category: Linux
 ---
 
 #### tar命令

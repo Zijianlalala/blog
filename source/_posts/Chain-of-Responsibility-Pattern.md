@@ -2,6 +2,7 @@
 title: Chain of Responsibility Pattern
 date: 2017-06-01 12:52:38
 tags: 设计模式
+category: 设计模式
 ---
 ## 责任链模式
 顾名思义，责任链模式（Chain of Responsibility Pattern）为请求创建了一个接收者对象的链。这种模式给予请求的类型，对请求的发送者和接收者进行解耦。这种类型的设计模式属于行为型模式。

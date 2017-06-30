@@ -2,6 +2,7 @@
 title: R数据框
 date: 2017-05-24 09:13:10
 tags: R语言
+category: R语言
 ---
 
 0. 数据框data.frame,数据一般从文件或者数据库中读取

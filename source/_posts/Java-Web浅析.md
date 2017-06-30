@@ -2,8 +2,10 @@
 title: Java Web浅析
 date: 2017-04-26 20:40:08
 tags: Java
+category: Java
 ---
-
+## 写在前面
+Java Web 技术发展飞快,以下是很简单很朴素的介绍,重在理解web程序运行的流程,未使用框架,没有实际应用价值
 ## 准备
 * servlet容器基本概念:
 Tomcat是Servlet的运行环境,即一个Servlet容器。 

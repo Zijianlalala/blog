@@ -1,7 +1,8 @@
 ---
 title: 解决TLP造成的U盘不能挂载
 date: 2017-04-21 23:15:41
-tags: 工具
+tags: 配置文件
+category: 工具
 ---
 
 ## 描述

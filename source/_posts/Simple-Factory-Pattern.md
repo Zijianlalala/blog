@@ -2,6 +2,7 @@
 title: Simple Factory Pattern
 date: 2017-05-01 16:23:14
 tags: 设计模式
+category: 设计模式
 ---
 ## 简单工厂模式
 * 简单工厂模式不再被单独看成一种设计模式,简单了解后,着重看 **反射**
