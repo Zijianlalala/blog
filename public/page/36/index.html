@@ -246,7 +246,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://www.nierunjie.site/2017/05/03/Proxy-Pattern/">
+    <link itemprop="mainEntityOfPage" href="https://www.nierunjie.site/2017/05/04/Observer-Pattern/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Rigel">
@@ -268,8 +268,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/05/03/Proxy-Pattern/" itemprop="url">
-                  Proxy Pattern
+                <a class="post-title-link" href="/2017/05/04/Observer-Pattern/" itemprop="url">
+                  Observer Pattern
                 </a>
               
             
@@ -285,8 +285,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-03T21:53:44+08:00">
-                2017-05-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-04T22:08:34+08:00">
+                2017-05-04
               </time>
             
 
@@ -345,38 +345,32 @@
       
         
           
-            <h2 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h2><p>在代理模式（Proxy Pattern）中，一个类代表另一个类的功能。这种类型的设计模式属于结构型模式。<br>在代理模式中，我们创建具有现有对象的对象，以便向外界提供功能接口。</p>
+            <h2 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h2><p>当对象间存在一对多关系时，则使用观察者模式（Observer Pattern）。比如，当一个对象被修改时，则会自动通知它的依赖对象。观察者模式属于行为型模式。</p>
 <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
-<li>意图：为其他对象提供一种代理以控制对这个对象的访问。</li>
-<li>主要解决：在直接访问对象时带来的问题，比如说：要访问的对象在远程的机器上。在面向对象系统中，有些对象由于某些原因（比如对象创建开销很大，或者某些操作需要安全控制，或者需要进程外的访问），直接访问会给使用者或者系统结构带来很多麻烦，我们可以在访问此对象时加上一个对此对象的访问层。</li>
-<li>何时使用：想在访问一个类时做一些控制。</li>
-<li>如何解决：增加中间层。</li>
-<li>关键代码：实现与被代理类组合。</li>
-<li>应用实例： 1、Windows 里面的快捷方式。 2、猪八戒去找高翠兰结果是孙悟空变的，可以这样理解：把高翠兰的外貌抽象出来，高翠兰本人和孙悟空都实现了这个接口，猪八戒访问高翠兰的时候看不出来这个是孙悟空，所以说孙悟空是高翠兰代理类。 3、买火车票不一定在火车站买，也可以去代售点。 4、一张支票或银行存单是账户中资金的代理。支票在市场交易中用来代替现金，并提供对签发人账号上资金的控制。 5、spring aop。</li>
-<li>优点： 1、职责清晰。 2、高扩展性。 3、智能化。</li>
-<li>缺点： 1、由于在客户端和真实主题之间增加了代理对象，因此有些类型的代理模式可能会造成请求的处理速度变慢。 2、实现代理模式需要额外的工作，有些代理模式的实现非常复杂。<br>使用场景：按职责来划分，通常有以下使用场景： 1、远程代理。 2、虚拟代理。 3、Copy-on-Write 代理。 4、保护（Protect or Access）代理。 5、Cache代理。 6、防火墙（Firewall）代理。 7、同步化（Synchronization）代理。 8、智能引用（Smart Reference）代理。</li>
-<li>注意事项： 1、和适配器模式的区别：适配器模式主要改变所考虑对象的接口，而代理模式不能改变所代理类的接口。 2、和装饰器模式的区别：装饰器模式为了增强功能，而代理模式是为了加以控制。</li>
+<li>意图：定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并被自动更新。</li>
+<li>主要解决：一个对象状态改变给其他对象通知的问题，而且要考虑到易用和低耦合，保证高度的协作。</li>
+<li>何时使用：一个对象（目标对象）的状态发生改变，所有的依赖对象（观察者对象）都将得到通知，进行广播通知。</li>
+<li>如何解决：使用面向对象技术，可以将这种依赖关系弱化。</li>
+<li>关键代码：在抽象类里有一个 ArrayList 存放观察者们。</li>
+<li>应用实例： 1、拍卖的时候，拍卖师观察最高标价，然后通知给其他竞价者竞价。 2、西游记里面悟空请求菩萨降服红孩儿，菩萨洒了一地水招来一个老乌龟，这个乌龟就是观察者，他观察菩萨洒水这个动作。</li>
+<li>优点： 1、观察者和被观察者是抽象耦合的。 2、建立一套触发机制。</li>
+<li>缺点： 1、如果一个被观察者对象有很多的直接和间接的观察者的话，将所有的观察者都通知到会花费很多时间。 2、如果在观察者和观察目标之间有循环依赖的话，观察目标会触发它们之间进行循环调用，可能导致系统崩溃。 3、观察者模式没有相应的机制让观察者知道所观察的目标对象是怎么发生变化的，而仅仅只是知道观察目标发生了变化。</li>
+<li>使用场景： 1、有多个子类共有的方法，且逻辑相同。 2、重要的、复杂的方法，可以考虑作为模板方法。</li>
+<li>注意事项： 1、JAVA 中已经有了对观察者模式的支持类。 2、避免循环引用。 3、如果顺序执行，某一观察者错误会导致系统卡壳，一般采用异步方式。</li>
 </ul>
 <h2 id="基本代码"><a href="#基本代码" class="headerlink" title="基本代码"></a>基本代码</h2><ul>
-<li>UML图<br><img src="/2017/05/03/Proxy-Pattern/Proxy.png" alt="代理模式"></li>
+<li>UML图<br><img src="/2017/05/04/Observer-Pattern/Observer.png" alt="观察者模式"></li>
 </ul>
 <hr>
 <h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><ul>
-<li>我们将创建一个 Image 接口和实现了 Image 接口的实体类。ProxyImage 是一个代理类，减少 RealImage 对象加载的内存占用。<br>ProxyPatternDemo，我们的演示类使用 ProxyImage 来获取要加载的 Image 对象，并按照需求进行显示。</li>
+<li>直接放代码，我偷懒了<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">// 抽象主题角色,该角色调用Shout方法的时候,所有的观察者调用其update</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Animal</span> <span class="keyword">extends</span> <span class="title">Observable</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">Shout</span><span class="params">()</span></span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 真实主题角色</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> String name;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Cat</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>();</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Shout</span><span class="params">()</span></span>&#123;</div><div class="line">            System.out.println(<span class="string">"喵喵喵"</span>);</div><div class="line">            setChanged();</div><div class="line">            notifyObservers(<span class="keyword">this</span>);</div><div class="line">        &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 同上</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> String name;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Dog</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>();</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Shout</span><span class="params">()</span> </span>&#123;</div><div class="line">            System.out.println(<span class="string">"汪汪旺"</span>);</div><div class="line">            setChanged();</div><div class="line">            notifyObservers(<span class="keyword">this</span>);</div><div class="line">        &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 观察者角色，与上面类似，可以有抽象观察者和具体观察者角色</span></div><div class="line"><span class="comment">// 这里直接实现一个观察者，让这个观察者观察两个状态</span></div><div class="line"><span class="comment">// 猫叫和狗叫都触发观察者的update,但是效果不同</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Jerry</span> <span class="keyword">extends</span> <span class="title">Animal</span> <span class="keyword">implements</span> <span class="title">Observer</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> String name;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Jerry</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>();</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 观察者必须实现这个方法,该方法在主题发生改变时调用</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(Observable o, Object arg)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (o <span class="keyword">instanceof</span> Cat) &#123;</div><div class="line">            Cat c = (Cat) o;</div><div class="line">            System.out.println(c.getName() + <span class="string">"来了,快跑啊"</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (o <span class="keyword">instanceof</span> Dog) &#123;</div><div class="line">            Dog c = (Dog) o;</div><div class="line">            System.out.println(c.getName() + <span class="string">"来了,不用跑"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Shout</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"此处应有老鼠的叫声"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 测试</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Cat c = <span class="keyword">new</span> Cat(<span class="string">"Tom"</span>);</div><div class="line">        Dog d = <span class="keyword">new</span> Dog(<span class="string">"Jack"</span>);</div><div class="line">        Jerry j = <span class="keyword">new</span> Jerry(<span class="string">"Jerry"</span>);</div><div class="line">        c.addObserver(j);</div><div class="line">        d.addObserver(j);</div><div class="line">        c.Shout();</div><div class="line">        d.Shout();	</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
 </ul>
-<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><ol>
-<li><p>创建一个接口。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Image</span> </span>&#123;</div><div class="line">   <span class="function"><span class="keyword">void</span> <span class="title">display</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>创建实现接口的实体类。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// RealImage</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RealImage</span> <span class="keyword">implements</span> <span class="title">Image</span> </span>&#123;</div><div class="line"></div><div class="line">   <span class="keyword">private</span> String fileName;</div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="title">RealImage</span><span class="params">(String fileName)</span></span>&#123;</div><div class="line">      <span class="keyword">this</span>.fileName = fileName;</div><div class="line">      loadFromDisk(fileName);</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span> </span>&#123;</div><div class="line">      System.out.println(<span class="string">"Displaying "</span> + fileName);</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">loadFromDisk</span><span class="params">(String fileName)</span></span>&#123;</div><div class="line">      System.out.println(<span class="string">"Loading "</span> + fileName);</div><div class="line">   &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// ProxyImage</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProxyImage</span> <span class="keyword">implements</span> <span class="title">Image</span></span>&#123;</div><div class="line"></div><div class="line">   <span class="keyword">private</span> RealImage realImage;</div><div class="line">   <span class="keyword">private</span> String fileName;</div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="title">ProxyImage</span><span class="params">(String fileName)</span></span>&#123;</div><div class="line">      <span class="keyword">this</span>.fileName = fileName;</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span> </span>&#123;</div><div class="line">      <span class="keyword">if</span>(realImage == <span class="keyword">null</span>)&#123;</div><div class="line">         realImage = <span class="keyword">new</span> RealImage(fileName);</div><div class="line">      &#125;</div><div class="line">      realImage.display();</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>当被请求时，使用 ProxyImage 来获取 RealImage 类的对象。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProxyPatternDemo</span> </span>&#123;</div><div class="line">	</div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">      Image image = <span class="keyword">new</span> ProxyImage(<span class="string">"test_10mb.jpg"</span>);</div><div class="line"></div><div class="line">      <span class="comment">//图像将从磁盘加载</span></div><div class="line">      image.display(); </div><div class="line">      System.out.println(<span class="string">""</span>);</div><div class="line">      <span class="comment">//图像将无法从磁盘加载</span></div><div class="line">      image.display(); </div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
-<li>代理类和真实类实现同一接口,所以公共方法名相同,代理类内部有一个真实类的对象,代理类每次调用的都是真实类的对象,由此可以在代理类内对真实类的访问进行限制,同时,也隐藏类真实类的实现方法</li>
+<li>观察者角色主要是为了实现，一个类改变，其他类收到通知，进行相应的改变</li>
+<li>java实现的Observer接口和Observable类，就是根据观察者模式实现的，Observer接口是我见过最水的一个接口</li>
+<li>C#中的委托和事件，相对java耦合行更低</li>
+<li>Head First中家庭影院的例子，个人认为用模板方法模式更合适</li>
 </ul>
 
           
@@ -416,7 +410,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/35/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/35/">35</a><span class="page-number current">36</span><a class="page-number" href="/page/37/">37</a><span class="space">&hellip;</span><a class="page-number" href="/page/54/">54</a><a class="extend next" rel="next" href="/page/37/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/35/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/35/">35</a><span class="page-number current">36</span><a class="page-number" href="/page/37/">37</a><span class="space">&hellip;</span><a class="page-number" href="/page/56/">56</a><a class="extend next" rel="next" href="/page/37/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -461,7 +455,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">54</span>
+                <span class="site-state-item-count">56</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -472,7 +466,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -483,7 +477,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

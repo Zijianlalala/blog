@@ -246,7 +246,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://www.nierunjie.site/2017/05/26/R数学运算/">
+    <link itemprop="mainEntityOfPage" href="https://www.nierunjie.site/2017/06/01/Singleton-Pattern/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Rigel">
@@ -268,8 +268,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/05/26/R数学运算/" itemprop="url">
-                  R数学运算
+                <a class="post-title-link" href="/2017/06/01/Singleton-Pattern/" itemprop="url">
+                  Singleton Pattern
                 </a>
               
             
@@ -285,8 +285,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-26T11:11:46+08:00">
-                2017-05-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-01T12:51:02+08:00">
+                2017-06-01
               </time>
             
 
@@ -308,8 +308,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/R语言/" itemprop="url" rel="index">
-                    <span itemprop="name">R语言</span>
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
                   </a>
                 </span>
 
@@ -345,20 +345,39 @@
       
         
           
-            <ol>
-<li><p>集合运算</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">union(x,y) <span class="comment"># 并</span></div><div class="line">intersect(x,y) <span class="comment"># 交</span></div><div class="line">setdiff(x,y) <span class="comment"># 差</span></div><div class="line">setequal(x,y) <span class="comment"># 检验相等</span></div><div class="line">c %<span class="keyword">in</span>% y <span class="comment"># 检验c是y的元素</span></div><div class="line">choose(n,k) <span class="comment"># n个中选k个元素子集的个数,排列</span></div><div class="line">combn(c,n) <span class="comment"># 显示集合c中 n个元素的组合</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>solve 解线性方程组</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; a&lt;-matrix(c(<span class="number">1</span>,-<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>),nrow=<span class="number">2</span>)</div><div class="line">&gt; b&lt;-c(<span class="number">2</span>,<span class="number">4</span>)</div><div class="line">&gt; solve(a,b)</div><div class="line">[<span class="number">1</span>] -<span class="number">1</span>  <span class="number">3</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>其他线性代数运算函数</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">t() <span class="comment"># 转置</span></div><div class="line">qr() <span class="comment"># QR分解(不懂)</span></div><div class="line">chol() <span class="comment"># Cholesky(同不懂)</span></div><div class="line">det() <span class="comment"># 行列式的值</span></div><div class="line">eigen() <span class="comment"># 矩阵的特征值和特征向量</span></div><div class="line">diag () <span class="comment"># 从方阵中提出对角矩阵</span></div><div class="line">sweep() <span class="comment"># 数值分析批量运算符</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>其他包</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">deSolve处理微分方程</div></pre></td></tr></table></figure>
-</li>
+            <h2 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h2><p>单例模式（Singleton Pattern）是 Java 中最简单的设计模式之一。这种类型的设计模式属于创建型模式，它提供了一种创建对象的最佳方式。<br>这种模式涉及到一个单一的类，该类负责创建自己的对象，同时确保只有单个对象被创建。这个类提供了一种访问其唯一的对象的方式，可以直接访问，不需要实例化该类的对象。</p>
+<h3 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h3><ol>
+<li>单例类只能有一个实例。</li>
+<li>单例类必须自己创建自己的唯一实例。</li>
+<li>单例类必须给所有其他对象提供这一实例。</li>
 </ol>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
+<li>意图：保证一个类仅有一个实例，并提供一个访问它的全局访问点。</li>
+<li>主要解决：一个全局使用的类频繁地创建与销毁。</li>
+<li>何时使用：当您想控制实例数目，节省系统资源的时候。</li>
+<li>如何解决：判断系统是否已经有这个单例，如果有则返回，如果没有则创建。</li>
+<li>关键代码：构造函数是私有的。</li>
+<li>应用实例： 1、一个党只能有一个主席。 2、Windows 是多进程多线程的，在操作一个文件的时候，就不可避免地出现多个进程或线程同时操作一个文件的现象，所以所有文件的处理必须通过唯一的实例来进行。 3、一些设备管理器常常设计为单例模式，比如一个电脑有两台打印机，在输出的时候就要处理不能两台打印机打印同一个文件。</li>
+<li>优点： 1、在内存里只有一个实例，减少了内存的开销，尤其是频繁的创建和销毁实例（比如管理学院首页页面缓存）。 2、避免对资源的多重占用（比如写文件操作）。</li>
+<li>缺点：没有接口，不能继承，与单一职责原则冲突，一个类应该只关心内部逻辑，而不关心外面怎么样来实例化。</li>
+<li>使用场景： 1、要求生产唯一序列号。 2、WEB 中的计数器，不用每次刷新都在数据库里加一次，用单例先缓存起来。 3、创建的一个对象需要消耗的资源过多，比如 I/O 与数据库的连接等。</li>
+<li>注意事项：getInstance() 方法中需要使用同步锁 synchronized (Singleton.class) 防止多线程同时进入造成 instance 被多次实例化。</li>
+</ul>
+<h2 id="基本代码"><a href="#基本代码" class="headerlink" title="基本代码"></a>基本代码</h2><ul>
+<li><p>UML图<br><img src="/2017/06/01/Singleton-Pattern/Singleton.png" alt="单例模式"></p>
+</li>
+<li><p>懒汉式</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> singleton;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton instance;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * (浪费)时间换(节省)空间 懒汉式</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (instance == <span class="keyword">null</span>) &#123;</div><div class="line">            instance = <span class="keyword">new</span> Singleton();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> instance;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>饿汉式</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> singleton;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton2</span> </span>&#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * (浪费)空间换(节省)时间 饿汉式</div><div class="line">     */</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton2 instance = <span class="keyword">new</span> Singleton2();</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton2</span><span class="params">()</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton2 <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> instance;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>关于通过反射调用对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> singleton;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.lang.reflect.Method;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception</span>&#123;</div><div class="line">    </div><div class="line">        Class&lt;?&gt; c1= Class.forName(<span class="string">"singleton.Singleton"</span>);</div><div class="line">        Method method1 = c1.getMethod(<span class="string">"getInstance"</span>);</div><div class="line">        Singleton s1 = (Singleton) method1.invoke(<span class="keyword">null</span>);</div><div class="line">        System.out.println(s1); <span class="comment">// singleton.Singleton@232204a1</span></div><div class="line">         </div><div class="line">        Class&lt;?&gt; c2= Class.forName(<span class="string">"singleton.Singleton"</span>);</div><div class="line">        Method method2 = c2.getMethod(<span class="string">"getInstance"</span>); </div><div class="line">        Singleton s2 = (Singleton) method2.invoke(<span class="keyword">null</span>);</div><div class="line">        System.out.println(s2); <span class="comment">// singleton.Singleton@232204a1</span></div><div class="line">        &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>反射不破坏单例模式特性</p>
+</li>
+</ul>
 
           
         
@@ -397,7 +416,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/18/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><span class="page-number current">19</span><a class="page-number" href="/page/20/">20</a><span class="space">&hellip;</span><a class="page-number" href="/page/54/">54</a><a class="extend next" rel="next" href="/page/20/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/18/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><span class="page-number current">19</span><a class="page-number" href="/page/20/">20</a><span class="space">&hellip;</span><a class="page-number" href="/page/56/">56</a><a class="extend next" rel="next" href="/page/20/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -442,7 +461,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">54</span>
+                <span class="site-state-item-count">56</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -453,7 +472,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -464,7 +483,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

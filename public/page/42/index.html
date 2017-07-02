@@ -246,7 +246,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://www.nierunjie.site/2017/05/01/Simple-Factory-Pattern/">
+    <link itemprop="mainEntityOfPage" href="https://www.nierunjie.site/2017/05/01/Abstract-Factory-Pattern/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Rigel">
@@ -268,8 +268,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/05/01/Simple-Factory-Pattern/" itemprop="url">
-                  Simple Factory Pattern
+                <a class="post-title-link" href="/2017/05/01/Abstract-Factory-Pattern/" itemprop="url">
+                  Abstract Factory Pattern
                 </a>
               
             
@@ -285,7 +285,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-01T16:23:14+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-01T19:54:57+08:00">
                 2017-05-01
               </time>
             
@@ -345,33 +345,28 @@
       
         
           
-            <h2 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h2><ul>
-<li>简单工厂模式不再被单独看成一种设计模式,简单了解后,着重看 <strong>反射</strong></li>
+            <h2 id="抽象工厂模式"><a href="#抽象工厂模式" class="headerlink" title="抽象工厂模式"></a>抽象工厂模式</h2><p>抽象工厂模式（Abstract Factory Pattern）是围绕一个超级工厂创建其他工厂。该超级工厂又称为其他工厂的工厂。这种类型的设计模式属于创建型模式，它提供了一种创建对象的最佳方式。<br>在抽象工厂模式中，接口是负责创建一个相关对象的工厂，不需要显式指定它们的类。每个生成的工厂都能按照工厂模式提供对象。</p>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ul>
+<li><em>产品族</em> 是指位于不同产品等级结构中，功能相关联的产品组成的家族。一般是位于不同的等级结构中的相同位置上。显然，每一个产品族中含有产品的数目，与产品等级结构的数目是相等的，形成一个二维的坐标系，水平坐标是产品等级结构，纵坐标是产品族。叫做相图。<br>当有多个不同的等级结构的产品时，如果使用工厂方法模式就势必要使用多个独立的工厂等级结构来对付这些产品的等级结构。如果这些产品等级结构是平行的，会导致多个平行的工厂等级结构。<br>抽象工厂模式使用同一个 工厂等级结构负责这些不同产品等级结构产品对象的创建。<br>对于每一个产品族，都有一个具体工厂。而每一个具体工厂创建属于同一个产品族，但是分属于不同等级结构的产品。<br>通过引进抽象工厂模式，可以处理具有相同（或者相似）等级结构的多个产品族中的产品对象的创建问题。<br>由于每个具体工厂角色都需要负责两个不同等级结构的产品对象的创建，因此每个工厂角色都需要提供两个工厂方法，分别用于创建两个等级结构的产品。既然每个具体工厂角色都需要实现这两个工厂方法，所以具有一般性，不妨抽象出来，移动到抽象工厂角色中加以声明。</li>
 </ul>
-<h3 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤"></a>实现步骤</h3><ol>
-<li>创建一个接口(抽象产品角色)</li>
-<li>创建多个实现接口的实体类(具体产品角色)</li>
-<li>创建一个工厂，生成基于给定信息的实体类的对象(工厂角色)</li>
-</ol>
-<h3 id="角色介绍"><a href="#角色介绍" class="headerlink" title="角色介绍"></a>角色介绍</h3><ul>
-<li>工厂角色（Creator）：这是简单工厂模式的核心，由它负责创建所有的类的内部逻辑。当然工厂类必须能够被外界调用，创建所需要的产品对象。</li>
-<li>抽象（Product）产品角色：简单工厂模式所创建的所有对象的父类，注意，这里的父类可以是接口也可以是抽象类，它负责描述所有实例所共有的公共接口。</li>
-<li>具体产品（Concrete Product）角色：简单工厂所创建的具体实例对象，这些具体的产品往往都拥有共同的父类。</li>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
+<li>意图：提供一个创建一系列相关或相互依赖对象的接口，而无需指定它们具体的类。</li>
+<li>主要解决：主要解决接口选择的问题。</li>
+<li>何时使用：系统的产品有多于一个的产品族，而系统只消费其中某一族的产品。</li>
+<li>如何解决：在一个产品族里面，定义多个产品。</li>
+<li>关键代码：在一个工厂里聚合多个同类产品。</li>
+<li>应用实例：工作了，为了参加一些聚会，肯定有两套或多套衣服吧，比如说有商务装（成套，一系列具体产品）、时尚装（成套，一系列具体产品），甚至对于一个家庭来说，可能有商务女装、商务男装、时尚女装、时尚男装，这些也都是成套的，即一系列具体产品。假设一种情况（现实中是不存在的，要不然，没法进入共产主义了，但有利于说明抽象工厂模式），在您的家中，某一个衣柜（具体工厂）只能存放某一种这样的衣服（成套，一系列具体产品），每次拿这种成套的衣服时也自然要从这个衣柜中取出了。用 OO 的思想去理解，所有的衣柜（具体工厂）都是衣柜类的（抽象工厂）某一个，而每一件成套的衣服又包括具体的上衣（某一具体产品），裤子（某一具体产品），这些具体的上衣其实也都是上衣（抽象产品），具体的裤子也都是裤子（另一个抽象产品）。</li>
+<li>优点：当一个产品族中的多个对象被设计成一起工作时，它能保证客户端始终只使用同一个产品族中的对象。</li>
+<li>缺点：产品族扩展非常困难，要增加一个系列的某一产品，既要在抽象的 Creator 里加代码，又要在具体的里面加代码。</li>
+<li>使用场景： 1、QQ 换皮肤，一整套一起换。 2、生成不同操作系统的程序。</li>
+<li>注意事项：产品族难扩展，产品等级易扩展。</li>
 </ul>
-<h2 id="控制反转"><a href="#控制反转" class="headerlink" title="控制反转"></a>控制反转</h2><p>控制反转（Inversion of Control，英文缩写为IoC）是一个重要的面向对象编程的法则来削减计算机程序的耦合问题。 控制反转一般分为两种类型，依赖注入（Dependency Injection，简称DI）和依赖查找（Dependency Lookup）。依赖注入应用比较广泛。</p>
-<h2 id="依赖注入"><a href="#依赖注入" class="headerlink" title="依赖注入"></a>依赖注入</h2><p>可以把IoC模式看做是工厂模式的升华，可以把IoC看作是一个大工厂，只不过这个大工厂里要生成的对象都是在XML文件中给出定义的，然后利用Java 的“反射”编程，根据XML中给出的类名生成相应的对象。</p>
-<p>关于什么是依赖注入，在Stack Overflow上面有一个问题，如何向一个5岁的小孩解释依赖注入，其中得分最高的一个答案是：</p>
-<blockquote>
-<p>When you go and get things out of the refrigerator for yourself, you can cause problems. You might leave the door open, you might get something Mommy or Daddy doesn’t want you to have. You might even be looking for something we don’t even have or which has expired. What you should be doing is stating a need, “I need something to drink with lunch,” and then we will make sure you have something when you sit down to eat.</p>
-</blockquote>
-<h2 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h2><p>Java反射机制主要提供了以下功能： 在运行时判断任意一个对象所属的类；在<strong>运行时构造任意一个类的对象</strong>；在运行时判断任意一个类所具有的成员变量和方法；在运行时调用任意一个对象的方法；生成动态代理。<br><code>Class.forName(&quot;String&quot;)</code> 通过字符串传入类名的具体位置可以创建该类的对象,解决工厂模式中,增加产品类就需要修改工厂类的问题.可以通过配置文件解决具体类名过长的问题</p>
-<ul>
-<li><a href="http://www.cnblogs.com/lzq198754/p/5780331.html" target="_blank" rel="external">参考代码</a><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">fruit</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Apple</span> <span class="keyword">implements</span> <span class="title">fruit</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"Apple"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Orange</span> <span class="keyword">implements</span> <span class="title">fruit</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"Orange"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Factory</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> fruit <span class="title">getInstance</span><span class="params">(String ClassName)</span> </span>&#123;</div><div class="line">        fruit f = <span class="keyword">null</span>;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            f = (fruit) Class.forName(ClassName).newInstance();</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> f;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
+<h2 id="基本代码"><a href="#基本代码" class="headerlink" title="基本代码"></a>基本代码</h2><ul>
+<li>UML图<br><img src="/2017/05/01/Abstract-Factory-Pattern/Abstract-Factory.png" alt="抽象工厂模式"></li>
 </ul>
-<h2 id="综上"><a href="#综上" class="headerlink" title="综上"></a>综上</h2><ul>
-<li>依赖注入是控制反转中的一种</li>
-<li>反射是实现依赖注入的手段</li>
+<hr>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
+<li>简单工厂和工厂方法只能创建一类产品,当需样创建不同类产品时,可以将产品类的抽象类再次抽象,形成一个 <strong>创建工厂的工厂</strong> 再利用创建的工厂,创建具体产品</li>
 </ul>
 
           
@@ -411,7 +406,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/41/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/41/">41</a><span class="page-number current">42</span><a class="page-number" href="/page/43/">43</a><span class="space">&hellip;</span><a class="page-number" href="/page/54/">54</a><a class="extend next" rel="next" href="/page/43/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/41/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/41/">41</a><span class="page-number current">42</span><a class="page-number" href="/page/43/">43</a><span class="space">&hellip;</span><a class="page-number" href="/page/56/">56</a><a class="extend next" rel="next" href="/page/43/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -456,7 +451,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">54</span>
+                <span class="site-state-item-count">56</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -467,7 +462,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -478,7 +473,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
