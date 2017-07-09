@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.nierunjie.site/"/>
-  <updated>2017-07-09T14:43:40.158Z</updated>
+  <updated>2017-07-09T15:10:10.394Z</updated>
   <id>https://www.nierunjie.site/</id>
   
   <author>
@@ -20,15 +20,16 @@
     <link href="https://www.nierunjie.site/2017/07/09/linuxmint%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AE%A4fcitx%E5%9B%BE%E6%A0%87%E7%9A%84%E6%96%B9%E6%B3%95/"/>
     <id>https://www.nierunjie.site/2017/07/09/linuxmint修改默认fcitx图标的方法/</id>
     <published>2017-07-09T14:40:00.000Z</published>
-    <updated>2017-07-09T14:43:40.158Z</updated>
+    <updated>2017-07-09T15:10:10.394Z</updated>
     
     <content type="html"><![CDATA[<p>有一次碰巧遇到了,没有记下来,现在需要了,又不知道改哪个配置,万一哪天又碰到了,就记录下来,要是一直没碰到,就放在这里做个警示吧,让你不保存配置过程,傻了吧</p>
+<p>哈哈哈哈,我运气就是好,点开一个觉得不可能是的地方,竟然就是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">General Enable support for indicators(Requies Cinnamon restart)  ON</div></pre></td></tr></table></figure></p>
 ]]></content>
     
     <summary type="html">
     
       &lt;p&gt;有一次碰巧遇到了,没有记下来,现在需要了,又不知道改哪个配置,万一哪天又碰到了,就记录下来,要是一直没碰到,就放在这里做个警示吧,让你不保存配置过程,傻了吧&lt;/p&gt;
-
+&lt;p&gt;哈哈哈哈,我运气就是好,点开一个觉得不可能是的地方,竟然就是&lt;br&gt;&lt;figure class=&quot;hi
     
     </summary>
     
