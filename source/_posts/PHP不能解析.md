@@ -2,7 +2,7 @@
 title: PHP不能解析
 date: 2017-04-17 21:12:02
 tags: PHP
-category: Linux
+category: 配置文件
 ---
 
 ## 环境：

@@ -246,7 +246,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://www.nierunjie.site/2017/05/01/Abstract-Factory-Pattern/">
+    <link itemprop="mainEntityOfPage" href="https://www.nierunjie.site/2017/05/02/Strategy-Pattern/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Rigel">
@@ -268,8 +268,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/05/01/Abstract-Factory-Pattern/" itemprop="url">
-                  Abstract Factory Pattern
+                <a class="post-title-link" href="/2017/05/02/Strategy-Pattern/" itemprop="url">
+                  Strategy Pattern
                 </a>
               
             
@@ -285,8 +285,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-01T19:54:57+08:00">
-                2017-05-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-02T20:59:41+08:00">
+                2017-05-02
               </time>
             
 
@@ -345,28 +345,40 @@
       
         
           
-            <h2 id="抽象工厂模式"><a href="#抽象工厂模式" class="headerlink" title="抽象工厂模式"></a>抽象工厂模式</h2><p>抽象工厂模式（Abstract Factory Pattern）是围绕一个超级工厂创建其他工厂。该超级工厂又称为其他工厂的工厂。这种类型的设计模式属于创建型模式，它提供了一种创建对象的最佳方式。<br>在抽象工厂模式中，接口是负责创建一个相关对象的工厂，不需要显式指定它们的类。每个生成的工厂都能按照工厂模式提供对象。</p>
-<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ul>
-<li><em>产品族</em> 是指位于不同产品等级结构中，功能相关联的产品组成的家族。一般是位于不同的等级结构中的相同位置上。显然，每一个产品族中含有产品的数目，与产品等级结构的数目是相等的，形成一个二维的坐标系，水平坐标是产品等级结构，纵坐标是产品族。叫做相图。<br>当有多个不同的等级结构的产品时，如果使用工厂方法模式就势必要使用多个独立的工厂等级结构来对付这些产品的等级结构。如果这些产品等级结构是平行的，会导致多个平行的工厂等级结构。<br>抽象工厂模式使用同一个 工厂等级结构负责这些不同产品等级结构产品对象的创建。<br>对于每一个产品族，都有一个具体工厂。而每一个具体工厂创建属于同一个产品族，但是分属于不同等级结构的产品。<br>通过引进抽象工厂模式，可以处理具有相同（或者相似）等级结构的多个产品族中的产品对象的创建问题。<br>由于每个具体工厂角色都需要负责两个不同等级结构的产品对象的创建，因此每个工厂角色都需要提供两个工厂方法，分别用于创建两个等级结构的产品。既然每个具体工厂角色都需要实现这两个工厂方法，所以具有一般性，不妨抽象出来，移动到抽象工厂角色中加以声明。</li>
-</ul>
+            <h2 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h2><p>在策略模式（Strategy Pattern）中，一个类的行为或其算法可以在运行时更改。这种类型的设计模式属于行为型模式。<br>在策略模式中，我们创建表示各种策略的对象和一个行为随着策略对象改变而改变的 context 对象。策略对象改变 context 对象的执行算法。</p>
 <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
-<li>意图：提供一个创建一系列相关或相互依赖对象的接口，而无需指定它们具体的类。</li>
-<li>主要解决：主要解决接口选择的问题。</li>
-<li>何时使用：系统的产品有多于一个的产品族，而系统只消费其中某一族的产品。</li>
-<li>如何解决：在一个产品族里面，定义多个产品。</li>
-<li>关键代码：在一个工厂里聚合多个同类产品。</li>
-<li>应用实例：工作了，为了参加一些聚会，肯定有两套或多套衣服吧，比如说有商务装（成套，一系列具体产品）、时尚装（成套，一系列具体产品），甚至对于一个家庭来说，可能有商务女装、商务男装、时尚女装、时尚男装，这些也都是成套的，即一系列具体产品。假设一种情况（现实中是不存在的，要不然，没法进入共产主义了，但有利于说明抽象工厂模式），在您的家中，某一个衣柜（具体工厂）只能存放某一种这样的衣服（成套，一系列具体产品），每次拿这种成套的衣服时也自然要从这个衣柜中取出了。用 OO 的思想去理解，所有的衣柜（具体工厂）都是衣柜类的（抽象工厂）某一个，而每一件成套的衣服又包括具体的上衣（某一具体产品），裤子（某一具体产品），这些具体的上衣其实也都是上衣（抽象产品），具体的裤子也都是裤子（另一个抽象产品）。</li>
-<li>优点：当一个产品族中的多个对象被设计成一起工作时，它能保证客户端始终只使用同一个产品族中的对象。</li>
-<li>缺点：产品族扩展非常困难，要增加一个系列的某一产品，既要在抽象的 Creator 里加代码，又要在具体的里面加代码。</li>
-<li>使用场景： 1、QQ 换皮肤，一整套一起换。 2、生成不同操作系统的程序。</li>
-<li>注意事项：产品族难扩展，产品等级易扩展。</li>
+<li>意图：定义一系列的算法,把它们一个个封装起来, 并且使它们可相互替换。</li>
+<li>主要解决：在有多种算法相似的情况下，使用 if…else 所带来的复杂和难以维护。</li>
+<li>何时使用：一个系统有许多许多类，而区分它们的只是他们直接的行为。</li>
+<li>如何解决：将这些算法封装成一个一个的类，任意地替换。</li>
+<li>关键代码：实现同一个接口。</li>
+<li>应用实例： 1、诸葛亮的锦囊妙计，每一个锦囊就是一个策略。 2、旅行的出游方式，选择骑自行车、坐汽车，每一种旅行方式都是一个策略。 3、JAVA AWT 中的 LayoutManager。</li>
+<li>优点： 1、算法可以自由切换。 2、避免使用多重条件判断。 3、扩展性良好。</li>
+<li>缺点： 1、策略类会增多。 2、所有策略类都需要对外暴露。</li>
+<li>使用场景： 1、如果在一个系统里面有许多类，它们之间的区别仅在于它们的行为，那么使用策略模式可以动态地让一个对象在许多行为中选择一种行为。 2、一个系统需要动态地在几种算法中选择一种。 3、如果一个对象有很多的行为，如果不用恰当的模式，这些行为就只好使用多重的条件选择语句来实现。</li>
+<li>注意事项：如果一个系统的策略多于四个，就需要考虑使用混合模式，解决策略类膨胀的问题。</li>
 </ul>
 <h2 id="基本代码"><a href="#基本代码" class="headerlink" title="基本代码"></a>基本代码</h2><ul>
-<li>UML图<br><img src="/2017/05/01/Abstract-Factory-Pattern/Abstract-Factory.png" alt="抽象工厂模式"></li>
+<li>UML图<br><img src="/2017/05/02/Strategy-Pattern/Strategy.png" alt="策略模式"></li>
 </ul>
 <hr>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>我们将创建一个定义活动的 Strategy 接口和实现了 Strategy 接口的实体策略类。Context 是一个使用了某种策略的类。<br>StrategyPatternDemo，我们的演示类使用 Context 和策略对象来演示 Context 在它所配置或使用的策略改变时的行为变化。</p>
+<ol>
+<li><p>创建一个接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Strategy.java</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Strategy</span> </span>&#123;</div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">doOperation</span><span class="params">(<span class="keyword">int</span> num1, <span class="keyword">int</span> num2)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>创建实现接口的实体类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// OperationAdd.java</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OperationAdd</span> <span class="keyword">implements</span> <span class="title">Strategy</span></span>&#123;</div><div class="line">   <span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">doOperation</span><span class="params">(<span class="keyword">int</span> num1, <span class="keyword">int</span> num2)</span> </span>&#123;</div><div class="line">      <span class="keyword">return</span> num1 + num2;</div><div class="line">   &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// OperationSubstract.java</span></div><div class="line"><span class="comment">// OperationMultiply.java</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>创建Context类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Context.java</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Context</span> </span>&#123;</div><div class="line">   <span class="keyword">private</span> Strategy strategy;</div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="title">Context</span><span class="params">(Strategy strategy)</span></span>&#123;</div><div class="line">      <span class="keyword">this</span>.strategy = strategy;</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">executeStrategy</span><span class="params">(<span class="keyword">int</span> num1, <span class="keyword">int</span> num2)</span></span>&#123;</div><div class="line">      <span class="keyword">return</span> strategy.doOperation(num1, num2);</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用 Context 来查看当它改变策略 Strategy 时的行为变化。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// StrategyPatternDemo.java</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StrategyPatternDemo</span> </span>&#123;</div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">      Context context = <span class="keyword">new</span> Context(<span class="keyword">new</span> OperationAdd());</div><div class="line">      System.out.println(<span class="string">"10 + 5 = "</span> + context.executeStrategy(<span class="number">10</span>, <span class="number">5</span>));</div><div class="line"></div><div class="line">      context = <span class="keyword">new</span> Context(<span class="keyword">new</span> OperationSubstract());</div><div class="line">      System.out.println(<span class="string">"10 - 5 = "</span> + context.executeStrategy(<span class="number">10</span>, <span class="number">5</span>));</div><div class="line"></div><div class="line">      context = <span class="keyword">new</span> Context(<span class="keyword">new</span> OperationMultiply());</div><div class="line">      System.out.println(<span class="string">"10 * 5 = "</span> + context.executeStrategy(<span class="number">10</span>, <span class="number">5</span>));</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
-<li>简单工厂和工厂方法只能创建一类产品,当需样创建不同类产品时,可以将产品类的抽象类再次抽象,形成一个 <strong>创建工厂的工厂</strong> 再利用创建的工厂,创建具体产品</li>
+<li>策略模式是行为型模式,简单工厂模式是创建型模式.这两个模式在实现上貌似很相似,但是本质上不同.工厂模式是根据需要创建对象,策略模式是根据需要选择方法.</li>
 </ul>
 
           
@@ -406,7 +418,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/41/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/41/">41</a><span class="page-number current">42</span><a class="page-number" href="/page/43/">43</a><span class="space">&hellip;</span><a class="page-number" href="/page/56/">56</a><a class="extend next" rel="next" href="/page/43/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/41/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/41/">41</a><span class="page-number current">42</span><a class="page-number" href="/page/43/">43</a><span class="space">&hellip;</span><a class="page-number" href="/page/58/">58</a><a class="extend next" rel="next" href="/page/43/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -451,7 +463,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">56</span>
+                <span class="site-state-item-count">58</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -462,7 +474,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -473,7 +485,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

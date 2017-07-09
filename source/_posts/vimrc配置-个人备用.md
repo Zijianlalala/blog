@@ -1,13 +1,13 @@
 ---
 title: vimrc配置(个人备用)
 date: 2017-04-17 21:23:11
-tags: 配置文件
-category: Linux
+tags: vim
+category: 配置文件
 ---
 
 ## 内容
 * ~/.vimrc是vim的配置文件,保存起来用以恢复vim配置
-```text
+```txt
 " 设置编码字符集
 set encoding=utf-8 fileencodings=ucs-bom,utf-8,cp936
 

@@ -246,7 +246,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://www.nierunjie.site/2017/06/02/Command-Pattern/">
+    <link itemprop="mainEntityOfPage" href="https://www.nierunjie.site/2017/06/05/堆排序/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Rigel">
@@ -268,8 +268,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/06/02/Command-Pattern/" itemprop="url">
-                  Command Pattern
+                <a class="post-title-link" href="/2017/06/05/堆排序/" itemprop="url">
+                  堆排序
                 </a>
               
             
@@ -285,8 +285,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-02T11:02:25+08:00">
-                2017-06-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-05T19:31:56+08:00">
+                2017-06-05
               </time>
             
 
@@ -308,8 +308,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/设计模式/" itemprop="url" rel="index">
-                    <span itemprop="name">设计模式</span>
+                  <a href="/categories/数据结构与算法/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构与算法</span>
                   </a>
                 </span>
 
@@ -345,36 +345,8 @@
       
         
           
-            <h2 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h2><p>命令模式（Command Pattern）是一种数据驱动的设计模式，它属于行为型模式。请求以命令的形式包裹在对象中，并传给调用对象。调用对象寻找可以处理该命令的合适的对象，并把该命令传给相应的对象，该对象执行命令。</p>
-<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
-<li>意图：将一个请求封装成一个对象，从而使您可以用不同的请求对客户进行参数化。</li>
-<li>主要解决：在软件系统中，行为请求者与行为实现者通常是一种紧耦合的关系，但某些场合，比如需要对行为进行记录、撤销或重做、事务等处理时，这种无法抵御变化的紧耦合的设计就不太合适。</li>
-<li>何时使用：在某些场合，比如要对行为进行”记录、撤销/重做、事务”等处理，这种无法抵御变化的紧耦合是不合适的。在这种情况下，如何将”行为请求者”与”行为实现者”解耦？将一组行为抽象为对象，可以实现二者之间的松耦合。</li>
-<li>如何解决：通过调用者调用接受者执行命令，顺序：调用者→接受者→命令。</li>
-<li>关键代码：定义三个角色：1、received 真正的命令执行对象 2、Command 3、invoker 使用命令对象的入口</li>
-<li>应用实例：struts 1 中的 action 核心控制器 ActionServlet 只有一个，相当于 Invoker，而模型层的类会随着不同的应用有不同的模型类，相当于具体的 Command。</li>
-<li>优点： 1、降低了系统耦合度。 2、新的命令可以很容易添加到系统中去。</li>
-<li>缺点：使用命令模式可能会导致某些系统有过多的具体命令类。</li>
-<li>使用场景：认为是命令的地方都可以使用命令模式，比如： 1、GUI 中每一个按钮都是一条命令。 2、模拟 CMD。</li>
-<li>注意事项：系统需要支持命令的撤销(Undo)操作和恢复(Redo)操作，也可以考虑使用命令模式，见命令模式的扩展。</li>
-</ul>
-<h2 id="基本代码"><a href="#基本代码" class="headerlink" title="基本代码"></a>基本代码</h2><ul>
-<li><p>UML图<br><img src="/2017/06/02/Command-Pattern/Command.png" alt="命令模式"></p>
-</li>
-<li><p>测试</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> command;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="comment">// 负责接收请求,</span></div><div class="line">        <span class="comment">// 如果抽象Receiver,可以创建多个请求接收者</span></div><div class="line">        Receiver r = <span class="keyword">new</span> Receiver();</div><div class="line"></div><div class="line">        <span class="comment">// 创建(多种)命令,将命令交给r执行</span></div><div class="line">        <span class="comment">// 每种命令对应一个实现Command接口的类</span></div><div class="line">        <span class="comment">// 每个命令可以调用不同的Receiver对象</span></div><div class="line">        Command c = <span class="keyword">new</span> ConcreteCommand(r);</div><div class="line"></div><div class="line">        <span class="comment">// i 负责记录 c 命令,并执行命令</span></div><div class="line">        Invoker i = <span class="keyword">new</span> Invoker();</div><div class="line">        i.setCommand(c);</div><div class="line">        i.ExecuteCommand();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>Receiver</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> command;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Receiver</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Action</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"执行请求!"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>Command</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> command;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Command</span> </span>&#123;</div><div class="line">    <span class="keyword">protected</span> Receiver receiver;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Command</span><span class="params">(Receiver receiver)</span></span>&#123;</div><div class="line">        <span class="keyword">this</span>.receiver = receiver;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">Execute</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>ConcreteCommand</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> command;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConcreteCommand</span> <span class="keyword">extends</span> <span class="title">Command</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ConcreteCommand</span><span class="params">(Receiver receiver)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(receiver);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Execute</span><span class="params">()</span> </span>&#123;</div><div class="line">        receiver.Action();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>Invoker</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> command;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Invoker</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> Command command;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCommand</span><span class="params">(Command command)</span></span>&#123;</div><div class="line">        <span class="keyword">this</span>.command = command;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ExecuteCommand</span><span class="params">()</span></span>&#123;</div><div class="line">        command.Execute();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+            <h2 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h2><ul>
+<li>HeapSort.cpp<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> &amp;a,<span class="keyword">int</span> &amp;b)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> temp=a;</div><div class="line">    a=b;</div><div class="line">    b=temp;</div><div class="line">&#125;</div><div class="line"><span class="comment">/**</span></div><div class="line"> * 说明:</div><div class="line"> * 大根堆,即跟必须为最大的节点</div><div class="line"> * </div><div class="line"> * 应用条件:</div><div class="line"> * 除了被筛选节点和其左右儿子,该节点子树均为大根堆</div><div class="line"> *</div><div class="line"> * 参数:</div><div class="line"> * r[] 为待调整数组</div><div class="line"> * k 为被筛选的节点,从k,2k,2k+1中寻找最大值放在k的位置</div><div class="line"> * m 为需要进行筛选的二叉堆的节点个数</div><div class="line"> * */</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Sift</span><span class="params">(<span class="keyword">int</span> r[],<span class="keyword">int</span> k,<span class="keyword">int</span> m)</span></span></div><div class="line">&#123;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> i = k;</div><div class="line">    <span class="keyword">int</span> j=<span class="number">2</span>*i;</div><div class="line">    <span class="keyword">while</span>(j&lt;=m)</div><div class="line">    &#123;</div><div class="line">        <span class="comment">// j 定位到值最大的儿子</span></div><div class="line">        <span class="keyword">if</span>(j+<span class="number">1</span>&lt;=m &amp;&amp; r[j<span class="number">-1</span>]&lt;r[j]) j++;  </div><div class="line"></div><div class="line">        <span class="comment">// j 位置的值比 i 位置的小</span></div><div class="line">        <span class="comment">// 为大根堆,不需要调整</span></div><div class="line">        <span class="keyword">if</span>(r[j<span class="number">-1</span>]&lt;r[i<span class="number">-1</span>]) <span class="keyword">break</span>;    </div><div class="line"></div><div class="line">        <span class="comment">// 否则交换位置</span></div><div class="line">        <span class="keyword">else</span>&#123;</div><div class="line">            swap(r[j<span class="number">-1</span>],r[i<span class="number">-1</span>]);</div><div class="line"></div><div class="line">            <span class="comment">// 交换位置导致原本子树的大根堆被破坏</span></div><div class="line">            <span class="comment">// 所以要对该子树进行调整</span></div><div class="line">            i=j;</div><div class="line">            j=<span class="number">2</span>*i;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 说明:</div><div class="line"> * 堆排序</div><div class="line"> *</div><div class="line"> * 参数:</div><div class="line"> * r[] 为被排序数组,n为数组元素个数</div><div class="line"> * */</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">HeapSort</span><span class="params">(<span class="keyword">int</span> r[],<span class="keyword">int</span> n)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = n/<span class="number">2</span>;i&gt;=<span class="number">1</span>;i--)</div><div class="line">    &#123;</div><div class="line">        <span class="comment">// 由于Sift的应用条件是,i节点的子树必须为大根堆,</span></div><div class="line">        <span class="comment">// 所以从最后一个树开始,倒序至根节点</span></div><div class="line">        <span class="comment">// 循环结束后,跟节点为最大值</span></div><div class="line">        Sift(r,i,n);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">1</span>;i&lt;n;i++)</div><div class="line">    &#123;</div><div class="line">        <span class="comment">// 交换第一个节点和最后一个节点</span></div><div class="line">        swap(r[<span class="number">0</span>],r[n-i]);</div><div class="line">        <span class="comment">// 此时最后一个节点为最大值</span></div><div class="line">        <span class="comment">// 开始循环后</span></div><div class="line">        <span class="comment">// 待排序的最大值总被放到待排序数组的最后</span></div><div class="line">        </div><div class="line">        <span class="comment">// 每次只有根节点不是最大堆,所以交换位置后只需从跟节点开始调整一次</span></div><div class="line">        Sift(r,<span class="number">1</span>,n-i);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> t=<span class="number">8</span>;</div><div class="line">    <span class="keyword">int</span> a[] = &#123;<span class="number">9</span>,<span class="number">-1</span>,<span class="number">1</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">0</span>,<span class="number">-2</span>,<span class="number">10</span>&#125;;</div><div class="line">    HeapSort(a,t);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;t;i++)</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">cout</span>&lt;&lt;a[i]&lt;&lt;<span class="string">" "</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
 
@@ -415,7 +387,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/56/">56</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/58/">58</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -460,7 +432,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">56</span>
+                <span class="site-state-item-count">58</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -471,7 +443,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -482,7 +454,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

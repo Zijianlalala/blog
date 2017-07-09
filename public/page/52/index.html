@@ -246,7 +246,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://www.nierunjie.site/2017/04/18/网站压力测试工具Siege/">
+    <link itemprop="mainEntityOfPage" href="https://www.nierunjie.site/2017/04/22/使用Cloudflare屏蔽个人网站广告/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Rigel">
@@ -268,8 +268,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/04/18/网站压力测试工具Siege/" itemprop="url">
-                  压力测试工具Siege
+                <a class="post-title-link" href="/2017/04/22/使用Cloudflare屏蔽个人网站广告/" itemprop="url">
+                  使用Cloudflare屏蔽个人网站广告
                 </a>
               
             
@@ -285,8 +285,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-18T23:16:07+08:00">
-                2017-04-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-22T18:04:34+08:00">
+                2017-04-22
               </time>
             
 
@@ -345,17 +345,22 @@
       
         
           
-            <h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><ul>
-<li>Siege是对网站进行压力测试的工具</li>
+            <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
+<li>两个会用到的网站:<a href="https://www.cloudflare.com/" target="_blank" rel="external">Cloudflare官网</a>,<a href="https://whois.aliyun.com/" target="_blank" rel="external">万网</a></li>
+<li>因为运营商劫持,原本简洁的网站(Hexo)加上烦人的广告</li>
+<li>究其原因还是http协议不够完善,改用https可以逃过运营商的广告</li>
+<li>原理详见<a href="http://baike.baidu.com/link?url=Kq6gxU_rHGAGX-kWZww_HDqGaafeyeiwbJz1gWWhOdM9rawhkPRfl2yfidKD4IP54xqHMfEGCwUMj0RucbO7A_" target="_blank" rel="external">https</a></li>
 </ul>
-<h2 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h2><ul>
-<li>siege -c 100 -r 10 -b www.nierunjie.site</li>
-</ul>
-<h2 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h2><ul>
-<li>100个客户端，访问www.nierunjie.site，每个客户端10次</li>
-</ul>
-<h2 id="墙裂建议"><a href="#墙裂建议" class="headerlink" title="墙裂建议"></a>墙裂建议</h2><ul>
-<li>看程序的帮助文档会有更多收获</li>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
+<li>首先要有一个网站</li>
+<li>注册Cloudflare,添加网站域名信息</li>
+<li>按照提示修改DNS(必需步骤)</li>
+<li>在Cloudflare面板修改相关设置,让网站只能通过https访问</li>
+</ol>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ul>
+<li>以上操作修改完大概一个小时才会生效</li>
+<li>生效后Cloudflare主页显示”Status:Active”</li>
+<li>会造成某些运营商提供的网络不能访问,比如”山东广电网络”</li>
 </ul>
 
           
@@ -395,7 +400,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/51/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/51/">51</a><span class="page-number current">52</span><a class="page-number" href="/page/53/">53</a><span class="space">&hellip;</span><a class="page-number" href="/page/56/">56</a><a class="extend next" rel="next" href="/page/53/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/51/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/51/">51</a><span class="page-number current">52</span><a class="page-number" href="/page/53/">53</a><span class="space">&hellip;</span><a class="page-number" href="/page/58/">58</a><a class="extend next" rel="next" href="/page/53/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -440,7 +445,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">56</span>
+                <span class="site-state-item-count">58</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -451,7 +456,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -462,7 +467,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

@@ -246,7 +246,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://www.nierunjie.site/2017/05/23/Hexo的markdown添加图片/">
+    <link itemprop="mainEntityOfPage" href="https://www.nierunjie.site/2017/05/24/R矩阵和数组/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Rigel">
@@ -268,8 +268,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/05/23/Hexo的markdown添加图片/" itemprop="url">
-                  Hexo的markdown添加图片
+                <a class="post-title-link" href="/2017/05/24/R矩阵和数组/" itemprop="url">
+                  R矩阵和数组
                 </a>
               
             
@@ -285,8 +285,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-23T21:46:35+08:00">
-                2017-05-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-24T09:11:21+08:00">
+                2017-05-24
               </time>
             
 
@@ -308,8 +308,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/杂谈/" itemprop="url" rel="index">
-                    <span itemprop="name">杂谈</span>
+                  <a href="/categories/R语言/" itemprop="url" rel="index">
+                    <span itemprop="name">R语言</span>
                   </a>
                 </span>
 
@@ -345,20 +345,26 @@
       
         
           
-            <h2 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h2><ol>
-<li>设置根目录下<code>_config.yml</code>中的两个参数<ul>
-<li><code>post_asset_folder: true</code></li>
-<li><code>permalink: :year/:month/:day/:title/</code></li>
-</ul>
+            <ol>
+<li><p>矩阵中取出一维的矩阵,自动降为向量,为了防止自动降维,使用参数drop=FALSE</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt; z&lt;-matrix(<span class="number">1</span>:<span class="number">8</span>,ncol=<span class="number">2</span>)</div><div class="line">&gt; z[<span class="number">2</span>,]</div><div class="line">[<span class="number">1</span>] <span class="number">2</span> <span class="number">6</span></div><div class="line">&gt; z[<span class="number">2</span>,,drop=<span class="literal">FALSE</span>]</div><div class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>]</div><div class="line">[<span class="number">1</span>,]    <span class="number">2</span>    <span class="number">6</span></div></pre></td></tr></table></figure>
 </li>
-<li>运行该命令<code>npm install https://github.com/CodeFalling/hexo-asset-image --save</code></li>
-<li>通过<code>hexo new &quot;Hexo的markdown添加图片&quot;</code>新建文章,此时同时生成一个与文章同名的目录,在此目录中放置图片,例如图片为tuzki.gif</li>
-<li>在markdown中使用<code>![兔斯基](tuzki.gif)</code>显示图片</li>
+<li><p>apply(m,dimcode,f,fargs) 函数,m为矩阵,dimcode=1为行,2为列,f为函数,fargs为函数的可选参数</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&gt; z&lt;-matrix(<span class="number">1</span>:<span class="number">6</span>,ncol=<span class="number">2</span>)</div><div class="line">&gt; z</div><div class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>]</div><div class="line">[<span class="number">1</span>,]    <span class="number">1</span>    <span class="number">4</span></div><div class="line">[<span class="number">2</span>,]    <span class="number">2</span>    <span class="number">5</span></div><div class="line">[<span class="number">3</span>,]    <span class="number">3</span>    <span class="number">6</span></div><div class="line">&gt; apply(z,<span class="number">2</span>,mean)</div><div class="line">[<span class="number">1</span>] <span class="number">2</span> <span class="number">5</span></div><div class="line">&gt; matrix(apply(z,<span class="number">1</span>,mean))</div><div class="line">     [,<span class="number">1</span>]</div><div class="line">[<span class="number">1</span>,]  <span class="number">2.5</span></div><div class="line">[<span class="number">2</span>,]  <span class="number">3.5</span></div><div class="line">[<span class="number">3</span>,]  <span class="number">4.5</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>矩阵运算%*% </p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">&gt; </div><div class="line">&gt; x&lt;-matrix(<span class="number">1</span>:<span class="number">6</span>,ncol=<span class="number">2</span>)</div><div class="line">&gt; y&lt;-matrix(<span class="number">1</span>:<span class="number">6</span>,ncol=<span class="number">3</span>)</div><div class="line">&gt; z&lt;-matrix(<span class="number">1</span>:<span class="number">6</span>,ncol=<span class="number">2</span>,byrow = <span class="literal">TRUE</span>)</div><div class="line">&gt; x</div><div class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>]</div><div class="line">[<span class="number">1</span>,]    <span class="number">1</span>    <span class="number">4</span></div><div class="line">[<span class="number">2</span>,]    <span class="number">2</span>    <span class="number">5</span></div><div class="line">[<span class="number">3</span>,]    <span class="number">3</span>    <span class="number">6</span></div><div class="line">&gt; y</div><div class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>] [,<span class="number">3</span>]</div><div class="line">[<span class="number">1</span>,]    <span class="number">1</span>    <span class="number">3</span>    <span class="number">5</span></div><div class="line">[<span class="number">2</span>,]    <span class="number">2</span>    <span class="number">4</span>    <span class="number">6</span></div><div class="line">&gt; z</div><div class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>]</div><div class="line">[<span class="number">1</span>,]    <span class="number">1</span>    <span class="number">2</span></div><div class="line">[<span class="number">2</span>,]    <span class="number">3</span>    <span class="number">4</span></div><div class="line">[<span class="number">3</span>,]    <span class="number">5</span>    <span class="number">6</span></div><div class="line">&gt; </div><div class="line">&gt; <span class="number">3</span> * x</div><div class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>]</div><div class="line">[<span class="number">1</span>,]    <span class="number">3</span>   <span class="number">12</span></div><div class="line">[<span class="number">2</span>,]    <span class="number">6</span>   <span class="number">15</span></div><div class="line">[<span class="number">3</span>,]    <span class="number">9</span>   <span class="number">18</span></div><div class="line">&gt; x%*%y</div><div class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>] [,<span class="number">3</span>]</div><div class="line">[<span class="number">1</span>,]    <span class="number">9</span>   <span class="number">19</span>   <span class="number">29</span></div><div class="line">[<span class="number">2</span>,]   <span class="number">12</span>   <span class="number">26</span>   <span class="number">40</span></div><div class="line">[<span class="number">3</span>,]   <span class="number">15</span>   <span class="number">33</span>   <span class="number">51</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>向量转矩阵</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt; u&lt;-c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</div><div class="line">&gt; u</div><div class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">2</span> <span class="number">3</span></div><div class="line">&gt; u&lt;-as.matrix(u)</div><div class="line">&gt; u</div><div class="line">     [,<span class="number">1</span>]</div><div class="line">[<span class="number">1</span>,]    <span class="number">1</span></div><div class="line">[<span class="number">2</span>,]    <span class="number">2</span></div><div class="line">[<span class="number">3</span>,]    <span class="number">3</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>矩阵中的行列命名,接上</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt; colnames(u)&lt;-<span class="string">"col 1"</span></div><div class="line">&gt; rownames(u)&lt;-paste(<span class="string">"row"</span>,<span class="number">1</span>:<span class="number">3</span>)</div><div class="line">&gt; u</div><div class="line">      col <span class="number">1</span></div><div class="line">row <span class="number">1</span>     <span class="number">1</span></div><div class="line">row <span class="number">2</span>     <span class="number">2</span></div><div class="line">row <span class="number">3</span>     <span class="number">3</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>矩阵截取与赋值</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">&gt; </div><div class="line">&gt; a&lt;-matrix(<span class="number">1</span>:<span class="number">12</span>,ncol=<span class="number">3</span>)</div><div class="line">&gt; a</div><div class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>] [,<span class="number">3</span>]</div><div class="line">[<span class="number">1</span>,]    <span class="number">1</span>    <span class="number">5</span>    <span class="number">9</span></div><div class="line">[<span class="number">2</span>,]    <span class="number">2</span>    <span class="number">6</span>   <span class="number">10</span></div><div class="line">[<span class="number">3</span>,]    <span class="number">3</span>    <span class="number">7</span>   <span class="number">11</span></div><div class="line">[<span class="number">4</span>,]    <span class="number">4</span>    <span class="number">8</span>   <span class="number">12</span></div><div class="line">&gt; a[,<span class="number">2</span>]</div><div class="line">[<span class="number">1</span>] <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span></div><div class="line">&gt; a[,<span class="number">2</span>:<span class="number">3</span>]</div><div class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>]</div><div class="line">[<span class="number">1</span>,]    <span class="number">5</span>    <span class="number">9</span></div><div class="line">[<span class="number">2</span>,]    <span class="number">6</span>   <span class="number">10</span></div><div class="line">[<span class="number">3</span>,]    <span class="number">7</span>   <span class="number">11</span></div><div class="line">[<span class="number">4</span>,]    <span class="number">8</span>   <span class="number">12</span></div><div class="line">&gt; a[<span class="number">1</span>:<span class="number">2</span>,<span class="number">1</span>:<span class="number">2</span>]=matrix(rep(<span class="number">0</span>,times=<span class="number">4</span>))</div><div class="line">&gt; a</div><div class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>] [,<span class="number">3</span>]</div><div class="line">[<span class="number">1</span>,]    <span class="number">0</span>    <span class="number">0</span>    <span class="number">9</span></div><div class="line">[<span class="number">2</span>,]    <span class="number">0</span>    <span class="number">0</span>   <span class="number">10</span></div><div class="line">[<span class="number">3</span>,]    <span class="number">3</span>    <span class="number">7</span>   <span class="number">11</span></div><div class="line">[<span class="number">4</span>,]    <span class="number">4</span>    <span class="number">8</span>   <span class="number">12</span></div><div class="line">&gt; a[,-<span class="number">2</span>]</div><div class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>]</div><div class="line">[<span class="number">1</span>,]    <span class="number">0</span>    <span class="number">9</span></div><div class="line">[<span class="number">2</span>,]    <span class="number">0</span>   <span class="number">10</span></div><div class="line">[<span class="number">3</span>,]    <span class="number">3</span>   <span class="number">11</span></div><div class="line">[<span class="number">4</span>,]    <span class="number">4</span>   <span class="number">12</span></div></pre></td></tr></table></figure>
+</li>
 </ol>
-<h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><ul>
-<li><a href="https://github.com/CodeFalling/hexo-asset-image" target="_blank" rel="external">hexo-asset-image</a></li>
-</ul>
-<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p><img src="/2017/05/23/Hexo的markdown添加图片/tuzki.gif" alt="兔斯基"></p>
 
           
         
@@ -397,7 +403,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/29/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/29/">29</a><span class="page-number current">30</span><a class="page-number" href="/page/31/">31</a><span class="space">&hellip;</span><a class="page-number" href="/page/56/">56</a><a class="extend next" rel="next" href="/page/31/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/29/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/29/">29</a><span class="page-number current">30</span><a class="page-number" href="/page/31/">31</a><span class="space">&hellip;</span><a class="page-number" href="/page/58/">58</a><a class="extend next" rel="next" href="/page/31/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -442,7 +448,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">56</span>
+                <span class="site-state-item-count">58</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -453,7 +459,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -464,7 +470,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

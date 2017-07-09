@@ -1,5 +1,5 @@
 ---
-title: 该网站的恢复策略
+title: Hexo网站的恢复策略
 date: 2017-05-19 20:11:03
 tags: 配置文件
 category: Linux

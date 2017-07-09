@@ -246,7 +246,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://www.nierunjie.site/2017/06/01/Bridge-Pattern/">
+    <link itemprop="mainEntityOfPage" href="https://www.nierunjie.site/2017/06/01/Flyweight-Pattern/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Rigel">
@@ -268,8 +268,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/06/01/Bridge-Pattern/" itemprop="url">
-                  Bridge Pattern
+                <a class="post-title-link" href="/2017/06/01/Flyweight-Pattern/" itemprop="url">
+                  Flyweight Pattern
                 </a>
               
             
@@ -285,7 +285,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-01T12:51:33+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-01T12:52:00+08:00">
                 2017-06-01
               </time>
             
@@ -345,36 +345,35 @@
       
         
           
-            <h2 id="桥接模式"><a href="#桥接模式" class="headerlink" title="桥接模式"></a>桥接模式</h2><p>桥接（Bridge）是用于把抽象化与实现化解耦，使得二者可以独立变化。这种类型的设计模式属于结构型模式，它通过提供抽象化和实现化之间的桥接结构，来实现二者的解耦。<br>这种模式涉及到一个作为桥接的接口，使得实体类的功能独立于接口实现类。这两种类型的类可被结构化改变而互不影响。</p>
+            <h2 id="享元模式"><a href="#享元模式" class="headerlink" title="享元模式"></a>享元模式</h2><p>享元模式（Flyweight Pattern）主要用于减少创建对象的数量，以减少内存占用和提高性能。这种类型的设计模式属于结构型模式，它提供了减少对象数量从而改善应用所需的对象结构的方式。</p>
 <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
-<li>意图：将抽象部分与实现部分分离，使它们都可以独立的变化。</li>
-<li>主要解决：在有多种可能会变化的情况下，用继承会造成类爆炸问题，扩展起来不灵活。</li>
-<li>何时使用：实现系统可能有多个角度分类，每一种角度都可能变化。</li>
-<li>如何解决：把这种多角度分类分离出来，让它们独立变化，减少它们之间耦合。</li>
-<li>关键代码：抽象类依赖实现类。</li>
-<li>应用实例： 1、猪八戒从天蓬元帅转世投胎到猪，转世投胎的机制将尘世划分为两个等级，即：灵魂和肉体，前者相当于抽象化，后者相当于实现化。生灵通过功能的委派，调用肉体对象的功能，使得生灵可以动态地选择。 2、墙上的开关，可以看到的开关是抽象的，不用管里面具体怎么实现的。</li>
-<li>优点： 1、抽象和实现的分离。 2、优秀的扩展能力。 3、实现细节对客户透明。</li>
-<li>缺点：桥接模式的引入会增加系统的理解与设计难度，由于聚合关联关系建立在抽象层，要求开发者针对抽象进行设计与编程。</li>
-<li>使用场景： 1、如果一个系统需要在构件的抽象化角色和具体化角色之间增加更多的灵活性，避免在两个层次之间建立静态的继承联系，通过桥接模式可以使它们在抽象层建立一个关联关系。 2、对于那些不希望使用继承或因为多层次继承导致系统类的个数急剧增加的系统，桥接模式尤为适用。 3、一个类存在两个独立变化的维度，且这两个维度都需要进行扩展。</li>
-<li>注意事项：对于两个独立变化的维度，使用桥接模式再适合不过了。</li>
+<li>意图：运用共享技术有效地支持大量细粒度的对象。</li>
+<li>主要解决：在有大量对象时，有可能会造成内存溢出，我们把其中共同的部分抽象出来，如果有相同的业务请求，直接返回在内存中已有的对象，避免重新创建。</li>
+<li>何时使用： 1、系统中有大量对象。 2、这些对象消耗大量内存。 3、这些对象的状态大部分可以外部化。 4、这些对象可以按照内蕴状态分为很多组，当把外蕴对象从对象中剔除出来时，每一组对象都可以用一个对象来代替。 5、系统不依赖于这些对象身份，这些对象是不可分辨的。</li>
+<li>如何解决：用唯一标识码判断，如果在内存中有，则返回这个唯一标识码所标识的对象。</li>
+<li>关键代码：用 HashMap 存储这些对象。</li>
+<li>应用实例： 1、JAVA 中的 String，如果有则返回，如果没有则创建一个字符串保存在字符串缓存池里面。 2、数据库的数据池。</li>
+<li>优点：大大减少对象的创建，降低系统的内存，使效率提高。</li>
+<li>缺点：提高了系统的复杂度，需要分离出外部状态和内部状态，而且外部状态具有固有化的性质，不应该随着内部状态的变化而变化，否则会造成系统的混乱。</li>
+<li>使用场景： 1、系统有大量相似对象。 2、需要缓冲池的场景。</li>
+<li>注意事项： 1、注意划分外部状态和内部状态，否则可能会引起线程安全问题。 2、这些类必须有一个工厂对象加以控制。</li>
 </ul>
-<h2 id="基本代码"><a href="#基本代码" class="headerlink" title="基本代码"></a>基本代码</h2><ul>
-<li><p>UML图<br><img src="/2017/06/01/Bridge-Pattern/Bridge.png" alt="桥接模式"></p>
+<h2 id="基本代码"><a href="#基本代码" class="headerlink" title="基本代码"></a>基本代码</h2><p><img src="/2017/06/01/Flyweight-Pattern/Flyweight.png" alt="享元模式"></p>
+<ul>
+<li><p>Main</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> flyweight;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        FlyweightFactory f = <span class="keyword">new</span> FlyweightFactory();</div><div class="line">        Flyweight fx = f.getFlyweight(<span class="string">"X"</span>);</div><div class="line">        fx.operation(<span class="number">0</span>);</div><div class="line">        Flyweight fy = f.getFlyweight(<span class="string">"X"</span>);</div><div class="line">        fy.operation(<span class="number">1</span>);</div><div class="line">        Flyweight fz = f.getFlyweight(<span class="string">"Y"</span>);</div><div class="line">        fz.operation(<span class="number">2</span>);</div><div class="line"></div><div class="line">        Flyweight fus1 = <span class="keyword">new</span> UnsharedConcreteFlyweight();</div><div class="line">        fus1.operation(<span class="number">3</span>);</div><div class="line">        Flyweight fus2 = <span class="keyword">new</span> UnsharedConcreteFlyweight();</div><div class="line">        fus2.operation(<span class="number">4</span>);</div><div class="line"></div><div class="line">        <span class="comment">// flyweight.ConcreteFlyweight@6bc7c054具体的Flyweight: 0</span></div><div class="line">        <span class="comment">// flyweight.ConcreteFlyweight@6bc7c054具体的Flyweight: 1</span></div><div class="line">        <span class="comment">// flyweight.ConcreteFlyweight@232204a1具体的Flyweight: 2</span></div><div class="line">        <span class="comment">// flyweight.UnsharedConcreteFlyweight@4aa298b7不共享的具体Flyweight: 3</span></div><div class="line">        <span class="comment">// flyweight.UnsharedConcreteFlyweight@7d4991ad不共享的具体Flyweight: 4</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
-<li><p>主类测试</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> bridge;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="comment">//Abstraction ab = new Abstraction();</span></div><div class="line">        Abstraction ab = <span class="keyword">new</span> RefinedAbstraction(); </div><div class="line">        ab.setImplementor(<span class="keyword">new</span> ConcreteImplementorA());</div><div class="line">        ab.Operation();</div><div class="line">        ab.setImplementor(<span class="keyword">new</span> ConcreteImplementorB());</div><div class="line">        ab.Operation();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li><p>Flyweight</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> flyweight;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Flyweight</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">operation</span><span class="params">(<span class="keyword">int</span> extrinsicstate)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
-<li><p>接口 </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> bridge;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Implementor</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">Operation</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li><p>ConcreteFlyweight</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> flyweight;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConcreteFlyweight</span> <span class="keyword">extends</span> <span class="title">Flyweight</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation</span><span class="params">(<span class="keyword">int</span> extrinsicstate)</span> </span>&#123;</div><div class="line">        System.out.println(<span class="keyword">this</span>+<span class="string">"具体的Flyweight: "</span>+extrinsicstate);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
-<li><p>两个该接口的具体实现类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> bridge;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConcreteImplementorA</span> <span class="keyword">extends</span> <span class="title">Implementor</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Operation</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"具体实现A的方法执行"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">package</span> bridge;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConcreteImplementorB</span> <span class="keyword">extends</span> <span class="title">Implementor</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Operation</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"具体实现B的方法执行"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li><p>UnsharedConcreteFlyweight </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> flyweight;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UnsharedConcreteFlyweight</span> <span class="keyword">extends</span> <span class="title">Flyweight</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation</span><span class="params">(<span class="keyword">int</span> extrinsicstate)</span> </span>&#123;</div><div class="line">        System.out.println(<span class="keyword">this</span>+<span class="string">"不共享的具体Flyweight: "</span>+extrinsicstate);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
-<li><p>通过组合聚合,而非继承,调用接口中的方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> bridge;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Abstraction</span> </span>&#123;</div><div class="line">    <span class="keyword">protected</span> Implementor implementor;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setImplementor</span><span class="params">(Implementor implementor)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.implementor = implementor;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Operation</span><span class="params">()</span></span>&#123;</div><div class="line">        implementor.Operation();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>精简上面的类,方便扩充</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> bridge;</div><div class="line"><span class="comment">/**</span></div><div class="line"> * Abstraction已经可以调用Implementor中的方法</div><div class="line"> * 扩展Abstracition,实现RefinedAbstraction</div><div class="line"> * 为日后扩展与RefinedAbstarction同级的类提供方便</div><div class="line"> * */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RefinedAbstraction</span> <span class="keyword">extends</span> <span class="title">Abstraction</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Operation</span><span class="params">()</span> </span>&#123;</div><div class="line">        implementor.Operation();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li><p>FlyweightFactory</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> flyweight;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.Hashtable;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FlyweightFactory</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> Hashtable&lt;String,Flyweight&gt; flyweights = <span class="keyword">new</span> Hashtable&lt;String,Flyweight&gt;();</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">FlyweightFactory</span><span class="params">()</span></span>&#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> Flyweight <span class="title">getFlyweight</span><span class="params">(String key)</span></span>&#123;</div><div class="line">        <span class="keyword">if</span>(!flyweights.containsKey(key))&#123;</div><div class="line">            flyweights.put(key, <span class="keyword">new</span> ConcreteFlyweight());</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> flyweights.get(key);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
 
@@ -415,7 +414,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/16/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><span class="page-number current">17</span><a class="page-number" href="/page/18/">18</a><span class="space">&hellip;</span><a class="page-number" href="/page/56/">56</a><a class="extend next" rel="next" href="/page/18/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/16/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><span class="page-number current">17</span><a class="page-number" href="/page/18/">18</a><span class="space">&hellip;</span><a class="page-number" href="/page/58/">58</a><a class="extend next" rel="next" href="/page/18/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -460,7 +459,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">56</span>
+                <span class="site-state-item-count">58</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -471,7 +470,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -482,7 +481,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

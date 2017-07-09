@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.nierunjie.site/"/>
-  <updated>2017-07-04T09:41:34.360Z</updated>
+  <updated>2017-07-09T14:43:40.158Z</updated>
   <id>https://www.nierunjie.site/</id>
   
   <author>
@@ -14,6 +14,53 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>linuxmint修改默认fcitx图标的方法</title>
+    <link href="https://www.nierunjie.site/2017/07/09/linuxmint%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AE%A4fcitx%E5%9B%BE%E6%A0%87%E7%9A%84%E6%96%B9%E6%B3%95/"/>
+    <id>https://www.nierunjie.site/2017/07/09/linuxmint修改默认fcitx图标的方法/</id>
+    <published>2017-07-09T14:40:00.000Z</published>
+    <updated>2017-07-09T14:43:40.158Z</updated>
+    
+    <content type="html"><![CDATA[<p>有一次碰巧遇到了,没有记下来,现在需要了,又不知道改哪个配置,万一哪天又碰到了,就记录下来,要是一直没碰到,就放在这里做个警示吧,让你不保存配置过程,傻了吧</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;有一次碰巧遇到了,没有记下来,现在需要了,又不知道改哪个配置,万一哪天又碰到了,就记录下来,要是一直没碰到,就放在这里做个警示吧,让你不保存配置过程,傻了吧&lt;/p&gt;
+
+    
+    </summary>
+    
+      <category term="配置文件" scheme="https://www.nierunjie.site/categories/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/"/>
+    
+    
+      <category term="Default" scheme="https://www.nierunjie.site/tags/Default/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vim配置成ide过程记录</title>
+    <link href="https://www.nierunjie.site/2017/07/09/vim%E9%85%8D%E7%BD%AE%E6%88%90ide%E8%BF%87%E7%A8%8B%E8%AE%B0%E5%BD%95/"/>
+    <id>https://www.nierunjie.site/2017/07/09/vim配置成ide过程记录/</id>
+    <published>2017-07-09T14:04:27.000Z</published>
+    <updated>2017-07-09T14:35:59.829Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 安装基本软件</span></div><div class="line">sudo apt install vim exuberant-ctags git pip3 curl</div><div class="line">sudo pip3 install dbgp vim-debug pep8 flake8 pyflakes isort</div><div class="line"></div><div class="line"><span class="comment"># 备份.vimrc,该文件在HOME目录</span></div><div class="line"><span class="comment"># 下载vimrc,几秒中下载完成</span></div><div class="line">curl -O https://raw.githubusercontent.com/fisadev/fisa-vim-config/master/.vimrc</div><div class="line"></div><div class="line">mv .vimrc ~/.vimrc</div><div class="line"></div><div class="line"><span class="comment"># 安装,时间五分钟左右</span></div><div class="line">vim +BundleClean +BundleInstall! +qa</div><div class="line"></div><div class="line"><span class="comment"># 改文件所属的用户,不明白为什么要这么做</span></div><div class="line">sudo chown -R <span class="variable">$USER</span> ~/.vim/</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div
+    
+    </summary>
+    
+      <category term="配置文件" scheme="https://www.nierunjie.site/categories/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/"/>
+    
+    
+      <category term="vim" scheme="https://www.nierunjie.site/tags/vim/"/>
+    
+  </entry>
   
   <entry>
     <title>设计模式实验报告</title>
@@ -822,109 +869,6 @@
     
     
       <category term="设计模式" scheme="https://www.nierunjie.site/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Singleton Pattern</title>
-    <link href="https://www.nierunjie.site/2017/06/01/Singleton-Pattern/"/>
-    <id>https://www.nierunjie.site/2017/06/01/Singleton-Pattern/</id>
-    <published>2017-06-01T04:51:02.000Z</published>
-    <updated>2017-06-30T07:44:08.028Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h2><p>单例模式（Singleton Pattern）是 Java 中最简单的设计模式之一。这种类型的设计模式属于创建型模式，它提供了一种创建对象的最佳方式。<br>这种模式涉及到一个单一的类，该类负责创建自己的对象，同时确保只有单个对象被创建。这个类提供了一种访问其唯一的对象的方式，可以直接访问，不需要实例化该类的对象。</p>
-<h3 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h3><ol>
-<li>单例类只能有一个实例。</li>
-<li>单例类必须自己创建自己的唯一实例。</li>
-<li>单例类必须给所有其他对象提供这一实例。</li>
-</ol>
-<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
-<li>意图：保证一个类仅有一个实例，并提供一个访问它的全局访问点。</li>
-<li>主要解决：一个全局使用的类频繁地创建与销毁。</li>
-<li>何时使用：当您想控制实例数目，节省系统资源的时候。</li>
-<li>如何解决：判断系统是否已经有这个单例，如果有则返回，如果没有则创建。</li>
-<li>关键代码：构造函数是私有的。</li>
-<li>应用实例： 1、一个党只能有一个主席。 2、Windows 是多进程多线程的，在操作一个文件的时候，就不可避免地出现多个进程或线程同时操作一个文件的现象，所以所有文件的处理必须通过唯一的实例来进行。 3、一些设备管理器常常设计为单例模式，比如一个电脑有两台打印机，在输出的时候就要处理不能两台打印机打印同一个文件。</li>
-<li>优点： 1、在内存里只有一个实例，减少了内存的开销，尤其是频繁的创建和销毁实例（比如管理学院首页页面缓存）。 2、避免对资源的多重占用（比如写文件操作）。</li>
-<li>缺点：没有接口，不能继承，与单一职责原则冲突，一个类应该只关心内部逻辑，而不关心外面怎么样来实例化。</li>
-<li>使用场景： 1、要求生产唯一序列号。 2、WEB 中的计数器，不用每次刷新都在数据库里加一次，用单例先缓存起来。 3、创建的一个对象需要消耗的资源过多，比如 I/O 与数据库的连接等。</li>
-<li>注意事项：getInstance() 方法中需要使用同步锁 synchronized (Singleton.class) 防止多线程同时进入造成 instance 被多次实例化。</li>
-</ul>
-<h2 id="基本代码"><a href="#基本代码" class="headerlink" title="基本代码"></a>基本代码</h2><ul>
-<li><p>UML图<br><img src="/2017/06/01/Singleton-Pattern/Singleton.png" alt="单例模式"></p>
-</li>
-<li><p>懒汉式</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> singleton;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton instance;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * (浪费)时间换(节省)空间 懒汉式</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (instance == <span class="keyword">null</span>) &#123;</div><div class="line">            instance = <span class="keyword">new</span> Singleton();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> instance;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>饿汉式</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> singleton;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton2</span> </span>&#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * (浪费)空间换(节省)时间 饿汉式</div><div class="line">     */</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton2 instance = <span class="keyword">new</span> Singleton2();</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton2</span><span class="params">()</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton2 <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> instance;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>关于通过反射调用对象</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> singleton;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.lang.reflect.Method;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception</span>&#123;</div><div class="line">    </div><div class="line">        Class&lt;?&gt; c1= Class.forName(<span class="string">"singleton.Singleton"</span>);</div><div class="line">        Method method1 = c1.getMethod(<span class="string">"getInstance"</span>);</div><div class="line">        Singleton s1 = (Singleton) method1.invoke(<span class="keyword">null</span>);</div><div class="line">        System.out.println(s1); <span class="comment">// singleton.Singleton@232204a1</span></div><div class="line">         </div><div class="line">        Class&lt;?&gt; c2= Class.forName(<span class="string">"singleton.Singleton"</span>);</div><div class="line">        Method method2 = c2.getMethod(<span class="string">"getInstance"</span>); </div><div class="line">        Singleton s2 = (Singleton) method2.invoke(<span class="keyword">null</span>);</div><div class="line">        System.out.println(s2); <span class="comment">// singleton.Singleton@232204a1</span></div><div class="line">        &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>反射不破坏单例模式特性</p>
-</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;单例模式&quot;&gt;&lt;a href=&quot;#单例模式&quot; class=&quot;headerlink&quot; title=&quot;单例模式&quot;&gt;&lt;/a&gt;单例模式&lt;/h2&gt;&lt;p&gt;单例模式（Singleton Pattern）是 Java 中最简单的设计模式之一。这种类型的设计模式属于创建型模式，它提供
-    
-    </summary>
-    
-      <category term="设计模式" scheme="https://www.nierunjie.site/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-    
-      <category term="设计模式" scheme="https://www.nierunjie.site/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R语言非线性回归</title>
-    <link href="https://www.nierunjie.site/2017/05/27/R%E8%AF%AD%E8%A8%80%E9%9D%9E%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/"/>
-    <id>https://www.nierunjie.site/2017/05/27/R语言非线性回归/</id>
-    <published>2017-05-27T03:02:56.000Z</published>
-    <updated>2017-06-30T07:45:10.628Z</updated>
-    
-    <content type="html"><![CDATA[<ol>
-<li><p>非线性最小二乘拟合</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 生成一些仿真数据</span></div><div class="line">set.seed(<span class="number">20170527</span>)  </div><div class="line">x &lt;- seq(<span class="number">0</span>, <span class="number">50</span>, <span class="number">1</span>)</div><div class="line">y &lt;- ((runif(<span class="number">1</span>, <span class="number">10</span>, <span class="number">20</span>)*x)/(runif(<span class="number">1</span>, <span class="number">0</span>, <span class="number">10</span>)+x)) + rnorm(<span class="number">51</span>, <span class="number">0</span>, <span class="number">1</span>)</div><div class="line"><span class="comment"># 对于一些简单的模型，nls函数可以自动找到合适的参数初值</span></div><div class="line">m &lt;- nls(y ~ a*x/(b+x))</div><div class="line"><span class="comment"># 计算模型的拟合优度</span></div><div class="line">cor(y, predict(m))</div><div class="line"><span class="comment"># [1] 0.96535</span></div><div class="line"><span class="comment"># 将结果可视化</span></div><div class="line">plot(x, y) </div><div class="line">lines(x, predict(m), lty = <span class="number">2</span>, col = <span class="string">"red"</span>, lwd = <span class="number">3</span>)</div></pre></td></tr></table></figure>
-<p><img src="/2017/05/27/R语言非线性回归/1.png" alt="最小二乘拟合"></p>
-</li>
-<li><p>选择适宜的迭代初值</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 生成仿真数据，并且此次对于参数没有先验信息</span></div><div class="line">y &lt;- runif(<span class="number">1</span>, <span class="number">5</span>, <span class="number">15</span>)*exp(-runif(<span class="number">1</span>, <span class="number">0.01</span>, <span class="number">0.05</span>)*x) + rnorm(<span class="number">51</span>, <span class="number">0</span>, <span class="number">0.5</span>)</div><div class="line"><span class="comment"># 可视化数据并选择一些参数初值</span></div><div class="line">plot(x, y)</div><div class="line"></div><div class="line"><span class="comment"># 如果不设置初值,直接拟合</span></div><div class="line">m &lt;- nls(y ~ a*exp(-b*x))</div><div class="line"><span class="comment"># 拟合度过低</span></div><div class="line">cor(y, predict(m))</div><div class="line"><span class="comment"># [1] 0.0637522</span></div><div class="line">lines(x, predict(m), col = <span class="string">"green"</span>, lty = <span class="number">2</span>, lwd = <span class="number">3</span>)</div><div class="line"></div><div class="line"><span class="comment"># 通过这个散点图确定参数a, b的初值</span></div><div class="line">a_start &lt;- <span class="number">8</span> <span class="comment"># 参数a是x = 0时y的取值</span></div><div class="line">b_start&lt;- <span class="number">2</span>*log(<span class="number">2</span>)/a_start <span class="comment"># b 是衰减速率</span></div><div class="line"><span class="comment"># 拟合模型</span></div><div class="line">m &lt;- nls(y ~ a*exp(-b*x), start = list(a = a_start, b = b_start))</div><div class="line"></div><div class="line"><span class="comment"># 计算拟合优度</span></div><div class="line">cor(y, predict(m))</div><div class="line"><span class="comment"># [1] 0.930365</span></div><div class="line"><span class="comment"># 将结果可视化</span></div><div class="line">lines(x, predict(m), col = <span class="string">"red"</span>, lty = <span class="number">2</span>, lwd = <span class="number">3</span>)</div></pre></td></tr></table></figure>
-<p><img src="/2017/05/27/R语言非线性回归/2.png" alt="设置初值与不设置初值的拟合"></p>
-</li>
-<li><p>使用自启动函数</p>
-<ul>
-<li><p>这部分代码只是生成了带有随机误差的仿真数据 </p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">library</span>(deSolve)</div><div class="line"><span class="comment"># 利用逻辑斯蒂模型生成人口增长的仿真数据，并用nls估计参数</span></div><div class="line">log_growth &lt;- <span class="keyword">function</span>(Time, State, Pars) &#123;</div><div class="line">    with(as.list(c(State, Pars)), &#123;</div><div class="line">        dN &lt;- R*N*(<span class="number">1</span>-N/K)</div><div class="line">        <span class="keyword">return</span>(list(c(dN)))</div><div class="line">    &#125;)</div><div class="line">&#125;</div><div class="line"><span class="comment"># 逻辑斯蒂增长的参数</span></div><div class="line">pars  &lt;- c(R = <span class="number">0.2</span>, K = <span class="number">1000</span>)</div><div class="line"><span class="comment"># 设定初值</span></div><div class="line">N_ini  &lt;- c(N = <span class="number">1</span>)</div><div class="line"><span class="comment"># 常微分方程的时间阶段（下标t）</span></div><div class="line">times &lt;- seq(<span class="number">0</span>, <span class="number">50</span>, by = <span class="number">1</span>)</div><div class="line"><span class="comment"># 常微分方程</span></div><div class="line">out &lt;- ode(N_ini, times, log_growth, pars)</div><div class="line"><span class="comment"># 添加一些随机波动</span></div><div class="line">N_obs &lt;- out[, <span class="number">2</span>]+rnorm(<span class="number">51</span>, <span class="number">0</span>, <span class="number">50</span>)</div><div class="line"><span class="comment"># 个体数值不能小于1</span></div><div class="line">N_obs &lt;- ifelse(N_obs&lt;<span class="number">1</span>, <span class="number">1</span>, N_obs)</div><div class="line"><span class="comment"># 画图</span></div><div class="line">plot(times, N_obs)</div></pre></td></tr></table></figure>
-</li>
-<li><p>接下来的部分会展现估计参数初值的技巧。R语言中有一个估计逻辑斯蒂方程参数的内建函数（SSlogis），但它使用的是如下方程：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 寻找方程的参数</span></div><div class="line">SS &lt;- getInitial(N_obs ~ SSlogis(times, alpha, xmid, scale), data = data.frame(N_obs = N_obs, times = times))</div></pre></td></tr></table></figure>
-</li>
-<li><p>我们可使用getInitial函数来对模型参数做一个基于数据的初步估计。然后把该函数的输出作为一个向量化参数传递给自启动函数（SSlogis），同时也将无引号的三个参数名赋值给逻辑斯蒂方程（译者注：即alpha，xmid，scale三个参数）。然而，由于SSlogis的参数设定有些不同，我们需要对SSlogis的输出值做一些处理，使得其与逻辑斯蒂方程中的形式一致。</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 改变参数形式</span></div><div class="line">K_start &lt;- SS[<span class="string">"alpha"</span>]</div><div class="line">R_start &lt;- <span class="number">1</span>/SS[<span class="string">"scale"</span>]</div><div class="line">N0_start &lt;- SS[<span class="string">"alpha"</span>]/(exp(SS[<span class="string">"xmid"</span>]/SS[<span class="string">"scale"</span>])+<span class="number">1</span>)</div><div class="line"><span class="comment"># 构建模型的公式</span></div><div class="line">log_formula &lt;- formula(N_obs ~ K*N0*exp(R*times)/(K + N0*(exp(R*times) - <span class="number">1</span>)))</div><div class="line"><span class="comment"># 拟合模型</span></div><div class="line">m &lt;- nls(log_formula, start = list(K = K_start, R = R_start, N0 = N0_start))</div><div class="line"><span class="comment"># 估计参数</span></div><div class="line">summary(m)</div><div class="line"><span class="comment">#    Formula: N_obs ~ K * N0 * exp(R * times)/(K + N0 * (exp(R * times) - 1))</span></div><div class="line"><span class="comment">#    Parameters:</span></div><div class="line"><span class="comment">#     Estimate Std. Error t value Pr(&gt;|t|)    </span></div><div class="line"><span class="comment">#    K  1.012e+03  3.446e+01  29.366   &lt;2e-16 ***</span></div><div class="line"><span class="comment">#    R  2.010e-01  1.504e-02  13.360   &lt;2e-16 ***</span></div><div class="line"><span class="comment">#    N0 9.600e-01  4.582e-01   2.095   0.0415 *  </span></div><div class="line"><span class="comment">#    ---</span></div><div class="line"><span class="comment">#    Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</span></div><div class="line"></div><div class="line"><span class="comment">#    Residual standard error: 49.01 on 48 degrees of freedom</span></div><div class="line"></div><div class="line"><span class="comment">#    Number of iterations to convergence: 1 </span></div><div class="line"><span class="comment">#    Achieved convergence tolerance: 1.537e-06</span></div><div class="line"></div><div class="line"><span class="comment"># 计算拟合优度</span></div><div class="line">cor(N_obs,predict(m))</div><div class="line"></div><div class="line"><span class="comment"># [1] 0.9910316</span></div><div class="line"></div><div class="line"><span class="comment"># 结果可视化</span></div><div class="line">lines(times, predict(m), col = <span class="string">"red"</span>, lty = <span class="number">2</span>, lwd = <span class="number">3</span>)</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><img src="/2017/05/27/R语言非线性回归/3.png" alt="使用自启动函数拟合结果"></p>
-</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;非线性最小二乘拟合&lt;/p&gt;
-&lt;figure class=&quot;highlight r&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;
-    
-    </summary>
-    
-      <category term="R语言" scheme="https://www.nierunjie.site/categories/R%E8%AF%AD%E8%A8%80/"/>
-    
-    
-      <category term="R语言" scheme="https://www.nierunjie.site/tags/R%E8%AF%AD%E8%A8%80/"/>
     
   </entry>
   
