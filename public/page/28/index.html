@@ -246,7 +246,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://www.nierunjie.site/2017/05/24/R数据框/">
+    <link itemprop="mainEntityOfPage" href="https://www.nierunjie.site/2017/05/24/R因子和表/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Rigel">
@@ -268,8 +268,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/05/24/R数据框/" itemprop="url">
-                  R数据框
+                <a class="post-title-link" href="/2017/05/24/R因子和表/" itemprop="url">
+                  R因子和表
                 </a>
               
             
@@ -285,7 +285,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-24T09:13:10+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-24T20:26:20+08:00">
                 2017-05-24
               </time>
             
@@ -346,20 +346,17 @@
         
           
             <ol>
-<li><p>数据框data.frame,数据一般从文件或者数据库中读取</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt; d&lt;-data.frame(list(kid=c(<span class="string">"Jack"</span>,<span class="string">"Jill"</span>),age=c(<span class="number">12</span>,<span class="number">10</span>)))</div><div class="line">&gt; d</div><div class="line">   kid age</div><div class="line"><span class="number">1</span> Jack  <span class="number">12</span></div><div class="line"><span class="number">2</span> Jill  <span class="number">10</span></div></pre></td></tr></table></figure>
+<li><p>因子的创建与修改</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&gt; x&lt;-c(<span class="number">5</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">12</span>)</div><div class="line">&gt; xf&lt;-factor(x)</div><div class="line">&gt; xf</div><div class="line">[<span class="number">1</span>] <span class="number">5</span>  <span class="number">12</span> <span class="number">13</span> <span class="number">12</span></div><div class="line">Levels: <span class="number">5</span> <span class="number">12</span> <span class="number">13</span></div><div class="line">&gt; str(xf)</div><div class="line"> Factor w/ <span class="number">3</span> levels <span class="string">"5"</span>,<span class="string">"12"</span>,<span class="string">"13"</span>: <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">2</span></div><div class="line">&gt; length(xf)</div><div class="line">[<span class="number">1</span>] <span class="number">4</span></div><div class="line">&gt; xff&lt;-factor(x,levels = c(<span class="number">5</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">88</span>))</div><div class="line">&gt; xff</div><div class="line">[<span class="number">1</span>] <span class="number">5</span>  <span class="number">12</span> <span class="number">13</span> <span class="number">12</span></div><div class="line">Levels: <span class="number">5</span> <span class="number">12</span> <span class="number">13</span> <span class="number">88</span></div><div class="line">&gt; xff[<span class="number">2</span>]&lt;-<span class="number">88</span></div><div class="line">&gt; xff</div><div class="line">[<span class="number">1</span>] <span class="number">5</span>  <span class="number">88</span> <span class="number">13</span> <span class="number">12</span></div><div class="line">Levels: <span class="number">5</span> <span class="number">12</span> <span class="number">13</span> <span class="number">88</span></div></pre></td></tr></table></figure>
 </li>
-<li><p>从文件中读取</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; example &lt;- read.table(<span class="string">"test"</span>,header=<span class="literal">TRUE</span>)</div></pre></td></tr></table></figure>
+<li><p>tapply 根据第二个参数分组,对每个组求平均值.第二个参数可以是列表,</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt; ages&lt;-c(<span class="number">25</span>,<span class="number">26</span>,<span class="number">55</span>,<span class="number">37</span>,<span class="number">21</span>,<span class="number">42</span>)</div><div class="line">&gt; affils&lt;-c(<span class="string">"R"</span>,<span class="string">"D"</span>,<span class="string">"D"</span>,<span class="string">"R"</span>,<span class="string">"U"</span>,<span class="string">"D"</span>)</div><div class="line">&gt; tapply(ages,affils,mean)</div><div class="line"> D  R  U </div><div class="line"><span class="number">41</span> <span class="number">31</span> <span class="number">21</span></div></pre></td></tr></table></figure>
 </li>
-<li><p>访问数据框</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&gt; d$kid</div><div class="line">[<span class="number">1</span>] Jack Jill</div><div class="line">Levels: Jack Jill</div><div class="line">&gt; d[<span class="number">1</span>]</div><div class="line">   kid</div><div class="line"><span class="number">1</span> Jack</div><div class="line"><span class="number">2</span> Jill</div><div class="line">&gt; d[[<span class="number">1</span>]]</div><div class="line">[<span class="number">1</span>] Jack Jill</div><div class="line">Levels: Jack Jill</div><div class="line">&gt; d[,<span class="number">1</span>]</div><div class="line">[<span class="number">1</span>] Jack Jill</div><div class="line">Levels: Jack Jill</div><div class="line">&gt; d[<span class="number">1</span>,]</div><div class="line">   kid age</div><div class="line"><span class="number">1</span> Jack  <span class="number">12</span></div></pre></td></tr></table></figure>
+<li><p>split只分组</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt; split(ages,affils)</div><div class="line">$D</div><div class="line">[<span class="number">1</span>] <span class="number">26</span> <span class="number">55</span> <span class="number">42</span></div><div class="line"></div><div class="line">$R</div><div class="line">[<span class="number">1</span>] <span class="number">25</span> <span class="number">37</span></div><div class="line"></div><div class="line">$U</div><div class="line">[<span class="number">1</span>] <span class="number">21</span></div></pre></td></tr></table></figure>
 </li>
-<li><p>合并merge(x,y) 删除不匹配的 merge(x,y,by.x=”列名”,by.y=”列名”) 列名不同但意义相同</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&gt; d1</div><div class="line">     kids states</div><div class="line"><span class="number">1</span>    Jack     CA</div><div class="line"><span class="number">2</span>    Jill     MA</div><div class="line"><span class="number">3</span> Jillian     MA</div><div class="line"><span class="number">4</span>    john     HI</div><div class="line">&gt; d2</div><div class="line">     kids ages</div><div class="line"><span class="number">1</span>    Jack   <span class="number">10</span></div><div class="line"><span class="number">2</span>    Jill    <span class="number">7</span></div><div class="line"><span class="number">3</span> Lillian   <span class="number">12</span></div><div class="line">&gt; merge(d1,d2)</div><div class="line">  kids states ages</div><div class="line"><span class="number">1</span> Jack     CA   <span class="number">10</span></div><div class="line"><span class="number">2</span> Jill     MA    <span class="number">7</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>统计文件中没一行的属性个数</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">count.fields(file, sep = <span class="string">""</span>, quote = <span class="string">"\"'"</span>, skip = <span class="number">0</span>,</div><div class="line">             blank.lines.skip = <span class="literal">TRUE</span>, comment.char = <span class="string">"#"</span>)</div></pre></td></tr></table></figure>
+<li><p>table</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt; f1&lt;-list(c(<span class="number">5</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">5</span>,<span class="number">13</span>),c(<span class="string">"a"</span>,<span class="string">"bc"</span>,<span class="string">"a"</span>,<span class="string">"a"</span>,<span class="string">"bc"</span>,<span class="string">"a"</span>,<span class="string">"a"</span>))</div><div class="line">&gt; table(f1)</div><div class="line">    f1.2</div><div class="line">f1.1 a bc</div><div class="line">  <span class="number">5</span>  <span class="number">2</span>  <span class="number">0</span></div><div class="line">  <span class="number">12</span> <span class="number">1</span>  <span class="number">1</span></div><div class="line">  <span class="number">13</span> <span class="number">2</span>  <span class="number">1</span></div></pre></td></tr></table></figure>
 </li>
 </ol>
 
@@ -400,7 +397,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/27/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/27/">27</a><span class="page-number current">28</span><a class="page-number" href="/page/29/">29</a><span class="space">&hellip;</span><a class="page-number" href="/page/58/">58</a><a class="extend next" rel="next" href="/page/29/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/27/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/27/">27</a><span class="page-number current">28</span><a class="page-number" href="/page/29/">29</a><span class="space">&hellip;</span><a class="page-number" href="/page/59/">59</a><a class="extend next" rel="next" href="/page/29/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -445,7 +442,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">59</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
