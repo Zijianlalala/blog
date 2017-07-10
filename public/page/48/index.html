@@ -63,15 +63,12 @@
 
 
 
-<meta name="description" content="菜鸟的爬坑之旅">
 <meta property="og:type" content="website">
 <meta property="og:title" content="星期八">
 <meta property="og:url" content="https://www.nierunjie.site/page/48/index.html">
 <meta property="og:site_name" content="星期八">
-<meta property="og:description" content="菜鸟的爬坑之旅">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="星期八">
-<meta name="twitter:description" content="菜鸟的爬坑之旅">
 
 
 
@@ -246,7 +243,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://www.nierunjie.site/2017/05/01/设计模式综述/">
+    <link itemprop="mainEntityOfPage" href="https://www.nierunjie.site/2017/05/01/Simple-Factory-Pattern/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Rigel">
@@ -268,8 +265,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/05/01/设计模式综述/" itemprop="url">
-                  设计模式综述
+                <a class="post-title-link" href="/2017/05/01/Simple-Factory-Pattern/" itemprop="url">
+                  Simple Factory Pattern
                 </a>
               
             
@@ -285,7 +282,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-01T15:49:59+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-01T16:23:14+08:00">
                 2017-05-01
               </time>
             
@@ -345,47 +342,34 @@
       
         
           
-            <h2 id="Design-Patterns"><a href="#Design-Patterns" class="headerlink" title="Design Patterns"></a>Design Patterns</h2><p>设计模式（Design pattern）代表了最佳的实践，通常被有经验的面向对象的软件开发人员所采用。设计模式是软件开发人员在软件开发过程中面临的一般问题的解决方案。这些解决方案是众多软件开发人员经过相当长的一段时间的试验和错误总结出来的。<br>设计模式是一套被反复使用的、多数人知晓的、经过分类编目的、代码设计经验的总结。使用设计模式是为了重用代码、让代码更容易被他人理解、保证代码可靠性。 毫无疑问，设计模式于己于他人于系统都是多赢的，设计模式使代码编制真正工程化，设计模式是软件工程的基石，如同大厦的一块块砖石一样。项目中合理地运用设计模式可以完美地解决很多问题，每种模式在现实中都有相应的原理来与之对应，每种模式都描述了一个在我们周围不断重复发生的问题，以及该问题的核心解决方案，这也是设计模式能被广泛应用的原因。</p>
-<h3 id="创建型模式-Creational-Patterns"><a href="#创建型模式-Creational-Patterns" class="headerlink" title="创建型模式(Creational Patterns)"></a>创建型模式(Creational Patterns)</h3><p> 这些设计模式提供了一种在创建对象的同时隐藏创建逻辑的方式，而不是使用新的运算符直接实例化对象。这使得程序在判断针对某个给定实例需要创建哪些对象时更加灵活。</p>
-<ul>
-<li>简单工厂模式(Simple Factory Pattern)</li>
-<li>工厂方法模式(Factory Method)</li>
-<li>抽象工厂模式(Abstract Factory Pattern)</li>
-<li>单例模式(Singleton Pattern)</li>
-<li>建造者模式(Builder Pattern)</li>
-<li>原型模式(Prototype Pattern)</li>
+            <h2 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h2><ul>
+<li>简单工厂模式不再被单独看成一种设计模式,简单了解后,着重看 <strong>反射</strong></li>
 </ul>
-<h3 id="结构型模式-Structural-Patterns"><a href="#结构型模式-Structural-Patterns" class="headerlink" title="结构型模式(Structural Patterns)"></a>结构型模式(Structural Patterns)</h3><p> 这些设计模式关注类和对象的组合。继承的概念被用来组合接口和定义组合对象获得新功能的方式。</p>
-<ul>
-<li>适配器模式(Adapter Pattern)</li>
-<li>桥接模式(Bridge Pattern)</li>
-<li>组合模式(Composite Pattern)</li>
-<li>装饰器模式(Decorator Pattern)</li>
-<li>外观模式(Facade Pattern)</li>
-<li>享元模式(Flyweight Pattern)</li>
-<li>代理模式(Proxy Pattern)</li>
-</ul>
-<h3 id="行为型模式-Behavioral-Patterns"><a href="#行为型模式-Behavioral-Patterns" class="headerlink" title="行为型模式(Behavioral Patterns)"></a>行为型模式(Behavioral Patterns)</h3><p> 这些设计模式特别关注对象之间的通信。</p>
-<ul>
-<li>责任链模式(Chain of Responsibility Pattern)</li>
-<li>解释器模式(Interpreter Pattern)</li>
-<li>迭代器模式(Iterator Pattern)</li>
-<li>中介者模式(Mediator Pattern)</li>
-<li>备忘录模式(Memento Pattern)</li>
-<li>观察者模式(Observer Pattern)</li>
-<li>状态模式(State Pattern)</li>
-<li>策略模式(Strategy Pattern)</li>
-<li>模板模式(Template Pattern)</li>
-<li>访问者模式(Visitor Pattern)</li>
-</ul>
-<h3 id="设计模式的六大原则"><a href="#设计模式的六大原则" class="headerlink" title="设计模式的六大原则"></a>设计模式的六大原则</h3><ol>
-<li>开闭原则（Open Close Principle）<br>开闭原则的意思是：对扩展开放，对修改关闭。在程序需要进行拓展的时候，不能去修改原有的代码，实现一个热插拔的效果。简言之，是为了使程序的扩展性好，易于维护和升级。想要达到这样的效果，我们需要使用接口和抽象类，后面的具体设计中我们会提到这点。</li>
-<li>里氏代换原则（Liskov Substitution Principle）<br>里氏代换原则是面向对象设计的基本原则之一。 里氏代换原则中说，任何基类可以出现的地方，子类一定可以出现。LSP 是继承复用的基石，只有当派生类可以替换掉基类，且软件单位的功能不受到影响时，基类才能真正被复用，而派生类也能够在基类的基础上增加新的行为。里氏代换原则是对开闭原则的补充。实现开闭原则的关键步骤就是抽象化，而基类与子类的继承关系就是抽象化的具体实现，所以里氏代换原则是对实现抽象化的具体步骤的规范。</li>
-<li>依赖倒转原则（Dependence Inversion Principle）<br>这个原则是开闭原则的基础，具体内容：针对接口编程，依赖于抽象而不依赖于具体。</li>
-<li>接口隔离原则（Interface Segregation Principle）<br>这个原则的意思是：使用多个隔离的接口，比使用单个接口要好。它还有另外一个意思是：降低类之间的耦合度。由此可见，其实设计模式就是从大型软件架构出发、便于升级和维护的软件设计思想，它强调降低依赖，降低耦合。</li>
-<li>迪米特法则，又称最少知道原则（Demeter Principle）<br>最少知道原则是指：一个实体应当尽量少地与其他实体之间发生相互作用，使得系统功能模块相对独立。</li>
-<li>合成复用原则（Composite Reuse Principle）<br>合成复用原则是指：尽量使用合成/聚合的方式，而不是使用继承。</li>
+<h3 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤"></a>实现步骤</h3><ol>
+<li>创建一个接口(抽象产品角色)</li>
+<li>创建多个实现接口的实体类(具体产品角色)</li>
+<li>创建一个工厂，生成基于给定信息的实体类的对象(工厂角色)</li>
 </ol>
+<h3 id="角色介绍"><a href="#角色介绍" class="headerlink" title="角色介绍"></a>角色介绍</h3><ul>
+<li>工厂角色（Creator）：这是简单工厂模式的核心，由它负责创建所有的类的内部逻辑。当然工厂类必须能够被外界调用，创建所需要的产品对象。</li>
+<li>抽象（Product）产品角色：简单工厂模式所创建的所有对象的父类，注意，这里的父类可以是接口也可以是抽象类，它负责描述所有实例所共有的公共接口。</li>
+<li>具体产品（Concrete Product）角色：简单工厂所创建的具体实例对象，这些具体的产品往往都拥有共同的父类。</li>
+</ul>
+<h2 id="控制反转"><a href="#控制反转" class="headerlink" title="控制反转"></a>控制反转</h2><p>控制反转（Inversion of Control，英文缩写为IoC）是一个重要的面向对象编程的法则来削减计算机程序的耦合问题。 控制反转一般分为两种类型，依赖注入（Dependency Injection，简称DI）和依赖查找（Dependency Lookup）。依赖注入应用比较广泛。</p>
+<h2 id="依赖注入"><a href="#依赖注入" class="headerlink" title="依赖注入"></a>依赖注入</h2><p>可以把IoC模式看做是工厂模式的升华，可以把IoC看作是一个大工厂，只不过这个大工厂里要生成的对象都是在XML文件中给出定义的，然后利用Java 的“反射”编程，根据XML中给出的类名生成相应的对象。</p>
+<p>关于什么是依赖注入，在Stack Overflow上面有一个问题，如何向一个5岁的小孩解释依赖注入，其中得分最高的一个答案是：</p>
+<blockquote>
+<p>When you go and get things out of the refrigerator for yourself, you can cause problems. You might leave the door open, you might get something Mommy or Daddy doesn’t want you to have. You might even be looking for something we don’t even have or which has expired. What you should be doing is stating a need, “I need something to drink with lunch,” and then we will make sure you have something when you sit down to eat.</p>
+</blockquote>
+<h2 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h2><p>Java反射机制主要提供了以下功能： 在运行时判断任意一个对象所属的类；在<strong>运行时构造任意一个类的对象</strong>；在运行时判断任意一个类所具有的成员变量和方法；在运行时调用任意一个对象的方法；生成动态代理。<br><code>Class.forName(&quot;String&quot;)</code> 通过字符串传入类名的具体位置可以创建该类的对象,解决工厂模式中,增加产品类就需要修改工厂类的问题.可以通过配置文件解决具体类名过长的问题</p>
+<ul>
+<li><a href="http://www.cnblogs.com/lzq198754/p/5780331.html" target="_blank" rel="external">参考代码</a><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">fruit</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Apple</span> <span class="keyword">implements</span> <span class="title">fruit</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"Apple"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Orange</span> <span class="keyword">implements</span> <span class="title">fruit</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"Orange"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Factory</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> fruit <span class="title">getInstance</span><span class="params">(String ClassName)</span> </span>&#123;</div><div class="line">        fruit f = <span class="keyword">null</span>;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            f = (fruit) Class.forName(ClassName).newInstance();</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> f;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="综上"><a href="#综上" class="headerlink" title="综上"></a>综上</h2><ul>
+<li>依赖注入是控制反转中的一种</li>
+<li>反射是实现依赖注入的手段</li>
+</ul>
 
           
         
@@ -424,7 +408,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/47/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/47/">47</a><span class="page-number current">48</span><a class="page-number" href="/page/49/">49</a><span class="space">&hellip;</span><a class="page-number" href="/page/59/">59</a><a class="extend next" rel="next" href="/page/49/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/47/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/47/">47</a><span class="page-number current">48</span><a class="page-number" href="/page/49/">49</a><span class="space">&hellip;</span><a class="page-number" href="/page/60/">60</a><a class="extend next" rel="next" href="/page/49/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -469,7 +453,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">59</span>
+                <span class="site-state-item-count">60</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

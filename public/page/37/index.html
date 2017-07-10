@@ -63,15 +63,12 @@
 
 
 
-<meta name="description" content="菜鸟的爬坑之旅">
 <meta property="og:type" content="website">
 <meta property="og:title" content="星期八">
 <meta property="og:url" content="https://www.nierunjie.site/page/37/index.html">
 <meta property="og:site_name" content="星期八">
-<meta property="og:description" content="菜鸟的爬坑之旅">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="星期八">
-<meta name="twitter:description" content="菜鸟的爬坑之旅">
 
 
 
@@ -246,7 +243,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://www.nierunjie.site/2017/05/19/State-Pattern/">
+    <link itemprop="mainEntityOfPage" href="https://www.nierunjie.site/2017/05/19/Hexo网站的恢复策略/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Rigel">
@@ -268,8 +265,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/05/19/State-Pattern/" itemprop="url">
-                  State Pattern
+                <a class="post-title-link" href="/2017/05/19/Hexo网站的恢复策略/" itemprop="url">
+                  Hexo网站的恢复策略
                 </a>
               
             
@@ -285,7 +282,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-19T14:05:29+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-19T20:11:03+08:00">
                 2017-05-19
               </time>
             
@@ -308,8 +305,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/设计模式/" itemprop="url" rel="index">
-                    <span itemprop="name">设计模式</span>
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
                   </a>
                 </span>
 
@@ -345,34 +342,45 @@
       
         
           
-            <h2 id="状态模式"><a href="#状态模式" class="headerlink" title="状态模式"></a>状态模式</h2><p>在状态模式（State Pattern）中，类的行为是基于它的状态改变的。这种类型的设计模式属于行为型模式。<br>在状态模式中，我们创建表示各种状态的对象和一个行为随着状态对象改变而改变的 context 对象。</p>
-<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
-<li>意图：允许对象在内部状态发生改变时改变它的行为，对象看起来好像修改了它的类。</li>
-<li>主要解决：对象的行为依赖于它的状态（属性），并且可以根据它的状态改变而改变它的相关行为。</li>
-<li>何时使用：代码中包含大量与对象状态有关的条件语句。</li>
-<li>如何解决：将各种具体的状态类抽象出来。</li>
-<li>关键代码：通常命令模式的接口中只有一个方法。而状态模式的接口中有一个或者多个方法。而且，状态模式的实现类的方法，一般返回值，或者是改变实例变量的值。也就是说，状态模式一般和对象的状态有关。实现类的方法有不同的功能，覆盖接口中的方法。状态模式和命令模式一样，也可以用于消除 if…else 等条件选择语句。</li>
-<li>应用实例： 1、打篮球的时候运动员可以有正常状态、不正常状态和超常状态。 2、曾侯乙编钟中，’钟是抽象接口’,’钟A’等是具体状态，’曾侯乙编钟’是具体环境（Context）。</li>
-<li>优点： 1、封装了转换规则。 2、枚举可能的状态，在枚举状态之前需要确定状态种类。 3、将所有与某个状态有关的行为放到一个类中，并且可以方便地增加新的状态，只需要改变对象状态即可改变对象的行为。 4、允许状态转换逻辑与状态对象合成一体，而不是某一个巨大的条件语句块。 5、可以让多个环境对象共享一个状态对象，从而减少系统中对象的个数。</li>
-<li>缺点： 1、状态模式的使用必然会增加系统类和对象的个数。 2、状态模式的结构与实现都较为复杂，如果使用不当将导致程序结构和代码的混乱。 3、状态模式对”开闭原则”的支持并不太好，对于可以切换状态的状态模式，增加新的状态类需要修改那些负责状态转换的源代码，否则无法切换到新增状态，而且修改某个状态类的行为也需修改对应类的源代码。</li>
-<li>使用场景： 1、行为随状态改变而改变的场景。 2、条件、分支语句的代替者。</li>
-<li>注意事项：在行为受状态约束的时候使用状态模式，而且状态不超过 5 个。</li>
+            <h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><ul>
+<li>在<code>hexo deploy</code>的时候,只提交<code>public</code>目录下的文件(这是个错误的认识,下文将解释).但是整个hexo项目的配置文件等关键文件还留在本地, 若网站发生一些错误配置,但没有记录配置的过程,造成的后果是不可逆的,于是要备份整个仓库</li>
+<li>原本的思路是,在hexo的根目录下<code>git init</code>,将根目录设置为一个git项目,在每次deploy的时候执行git push,项目就被保存在了另一个仓库,项目确实被保存在了另一个仓库,但是却没有发现这个仓库里少了一写东西</li>
+<li>在本地测试发布一篇博客的时候,报告错误,在此之前,修改了很多设置,于是想到回退整个仓库,并从远程clone之,当回退到确信没有错误的仓库时,还是报错,于是将问题放到新写的markdown文件上,发现修改了一下格式后,就能正确本地测试,也就是说,解决了最开始的问题.</li>
+<li>但是出现了另一个问题,在将博客推送到服务器的时候,报告缺少<code>.git</code>文件,根据网上论坛提示进行<code>hexo init</code>.(这是错误的,下文解释),在执行完hexo init后(其实没有执行完,中途报错退出了,因为已经存在hexo项目),后果就是这个命令导致缺少一系列配置文件,并缺少了deploy的必要模块,于是重新安装模块…</li>
+<li>再次把仓库回退到正确的版本,并创建一篇格式正确的markdown(格式问题是,设置自动识别代码语言造成的,应关闭该功能),本地测试通过,提交成功(意不意外,惊不惊喜,同样的流程为什么上一步会出现这么复杂的错误的,可能是我改了其他配置吧),但是本应提交网站的仓库,提交了和备份相同的内容,意识到一定是某个配置文件出错,但是正确的仓库版本不应该出现错误的配置文件,</li>
+<li>于是查看模块代码,在deploy有关模块中看到,会先提交.deploy_git里面的内容,如果该目录不存在,则创建之,否则会调用hexo目录下的<code>.git</code>,凑巧我的项目根目录下有这个文件,于是提交了整个项目,问题渐渐清晰</li>
+<li>但是项目根目录下有<code>.deploy_git</code>目录,但这个目录是空的</li>
+<li>于是拿一个新的hexo项目进行测试,从0开始到发布博客走一遍,看到新的hexo的<code>.deploy_git</code>项目下有文件,而且是网站的发布文件,这才发现了最开始的错误认识,网站并不是发布的<code>public</code>而是<code>.deploy_git</code>.这个目录是一个仓库</li>
+<li>于是直接clone网站仓库,将这个仓库改名为<code>.deploy_git</code>,网站又正常提交了.但是注意到,提交后的备份代码<code>.deploy_git</code>目录还是为空</li>
+<li>经过一翻搜索,了解到了git 子模块(submodule)的概念,并理解相关操作,很明显<code>.deploy_git</code>就是整个项目的子模块,成为子模块的原因是我在根目录执行了<code>git init</code></li>
+<li>查询到在项目中添加子模块的方法,<code>.deploy_git</code>模块确确实实已经存在,而且是hexo自动创建,我不能用创建新子模块的方法把这个模块设置为子模块,方法中也提到,创建完成子模块会多一个配置文件,我在本地添加这个配置文件,提交到仓库,无果</li>
+<li>直接在github网站上添加配置文件,然后pull,配置文件就被同步到了本地</li>
+<li>重新clone网站,按照子模块的操作步骤,可以将整个网站(包括.deploy_git)备份下来</li>
+<li>问题解决</li>
 </ul>
-<h2 id="基本代码"><a href="#基本代码" class="headerlink" title="基本代码"></a>基本代码</h2><ul>
-<li>UML图<br><img src="/2017/05/19/State-Pattern/State.png" alt="状态模式"></li>
-</ul>
-<hr>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><ol>
-<li><p>员工请假程序,员工为客户端,只需要提交请假申请,得到请假是否成功的结果,无需关注内部流程.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> state;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Context c = <span class="keyword">new</span> Context();</div><div class="line">        c.setLeaveDays(<span class="number">4</span>);</div><div class="line">        c.Handle();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>上下文(员工只与该类打交道)来管理员工的请假信息(leaveDays),和领导对请假的意见(access),其内部有一个请假状态的实例(current),这个状态默认提交给请假者的顶头上司(StateA),且该状态可以根据需要跳转(跳转过程由State具体类控制)到其他状态(StateB,StateC),Handle调用当前状态(此时为StateA)的处理函数,传入当前Context(为了让State获取员工请假信息,并能在状态中将当前状态设置为另一种状态)</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> state;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Context</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> State current;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> leaveDays;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> access;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Context</span><span class="params">()</span></span>&#123;</div><div class="line">        current = <span class="keyword">new</span> StateA();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setState</span><span class="params">(State current)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.current = current;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getLeaveDays</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> leaveDays;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setLeaveDays</span><span class="params">(<span class="keyword">int</span> leaveDays)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.leaveDays = leaveDays;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isAccess</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> access;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAccess</span><span class="params">(<span class="keyword">boolean</span> access)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.access = access;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Handle</span><span class="params">()</span></span>&#123;</div><div class="line">        current.Handle(<span class="keyword">this</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>State抽象类,与其具体类,每个State都有一个处理函数,传入上下文的对象,根据对象内部的信息进行处理</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 抽象类</span></div><div class="line"><span class="keyword">package</span> state;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">State</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">Handle</span><span class="params">(Context context)</span></span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 状态A,项目经理可以直接拒绝请假,或者同意请假转到状态B判断天数(可以直接在该类判断天数,并选择直接给出结果还是转到部门经理,但是为了熟悉状态模式,天数判断单独分成一个状态).</span></div><div class="line"><span class="keyword">package</span> state;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StateA</span> <span class="keyword">extends</span> <span class="title">State</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Handle</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">        <span class="comment">// 实际情况根据条件判断是同意请假</span></div><div class="line">        <span class="comment">// 此处通过随机数模拟是否同意请假</span></div><div class="line">        context.setAccess(Math.random()&gt;<span class="number">0.3</span>);</div><div class="line">        <span class="keyword">if</span>(!context.isAccess())&#123;</div><div class="line">            System.out.println(<span class="string">"项目经理不同意请假"</span>);</div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            <span class="comment">// 此处改变状态</span></div><div class="line">            context.setState(<span class="keyword">new</span> StateB());</div><div class="line"></div><div class="line">            <span class="comment">// 改变状态后,调用新状态下的处理函数</span></div><div class="line">            context.Handle();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 状态B,根据天数判断是否需要转到部门经理</span></div><div class="line"><span class="keyword">package</span> state;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StateB</span> <span class="keyword">extends</span> <span class="title">State</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Handle</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(context.getLeaveDays()&lt;=<span class="number">3</span>)&#123;</div><div class="line">            System.out.println(<span class="string">"项目经理同意请假且小于3天,请假成功"</span>);</div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            System.out.println(<span class="string">"项目经理同意请假但大于3天,转交部门经理"</span>);</div><div class="line">            context.setState(<span class="keyword">new</span> StateC());</div><div class="line">            context.Handle();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 状态C,部门经理给出结果</span></div><div class="line"><span class="keyword">package</span> state;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StateC</span> <span class="keyword">extends</span> <span class="title">State</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Handle</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">        <span class="comment">// 实际情况根据条件判断是同意请假</span></div><div class="line">        <span class="comment">// 此处通过随机数模拟是否同意请假</span></div><div class="line">        context.setAccess(Math.random()&gt;<span class="number">0.5</span>);</div><div class="line">        <span class="keyword">if</span>(!context.isAccess())&#123;</div><div class="line">            System.out.println(<span class="string">"部门经理不同意请假"</span>);</div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            System.out.println(<span class="string">"部门经理同意请假"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
+<h2 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h2><ul>
+<li>准备<ol>
+<li>在本地仓库根目录<code>git init</code>,目的是添加<code>.git</code>目录.push 本地仓库</li>
+<li>手动在<a href="https://github.com/RigeI/blog" target="_blank" rel="external">远程备份仓库</a>添加<a href="https://github.com/RigeI/blog/blob/master/.gitmodules" target="_blank" rel="external">.gitmodules</a></li>
+<li>pull备份仓库</li>
 </ol>
+</li>
+<li><p>正常发布</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">hexo clean</div><div class="line">hexo generate</div><div class="line">hexo deploy </div><div class="line">git add -f *</div><div class="line">git commit -m &quot;备份&quot;</div><div class="line">git push origin master</div></pre></td></tr></table></figure>
+</li>
+<li><p>恢复</p>
+<ol>
+<li>git clone git@github.com:RigeI/blog.git</li>
+<li>git submodule init</li>
+<li>git submodule update</li>
+</ol>
+</li>
+<li><p>注:不能使用<code>git clone git@github.com:RigeI/blog.git --recursive</code>进行恢复</p>
+</li>
+</ul>
+<h2 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h2><ul>
+<li>上面提到的任何不懂的信息请自行百度,完全了解后再对网站源码进行修改,否则会进一步扩大对网站和备份的破坏</li>
+</ul>
 
           
         
@@ -411,7 +419,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/36/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/36/">36</a><span class="page-number current">37</span><a class="page-number" href="/page/38/">38</a><span class="space">&hellip;</span><a class="page-number" href="/page/59/">59</a><a class="extend next" rel="next" href="/page/38/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/36/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/36/">36</a><span class="page-number current">37</span><a class="page-number" href="/page/38/">38</a><span class="space">&hellip;</span><a class="page-number" href="/page/60/">60</a><a class="extend next" rel="next" href="/page/38/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -456,7 +464,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">59</span>
+                <span class="site-state-item-count">60</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

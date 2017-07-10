@@ -63,15 +63,12 @@
 
 
 
-<meta name="description" content="菜鸟的爬坑之旅">
 <meta property="og:type" content="website">
 <meta property="og:title" content="星期八">
 <meta property="og:url" content="https://www.nierunjie.site/page/56/index.html">
 <meta property="og:site_name" content="星期八">
-<meta property="og:description" content="菜鸟的爬坑之旅">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="星期八">
-<meta name="twitter:description" content="菜鸟的爬坑之旅">
 
 
 
@@ -246,7 +243,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://www.nierunjie.site/2017/04/17/Linux清除已删除程序的配置文件/">
+    <link itemprop="mainEntityOfPage" href="https://www.nierunjie.site/2017/04/18/网站压力测试工具Siege/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Rigel">
@@ -268,8 +265,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/04/17/Linux清除已删除程序的配置文件/" itemprop="url">
-                  Linux清除已删除程序的配置文件
+                <a class="post-title-link" href="/2017/04/18/网站压力测试工具Siege/" itemprop="url">
+                  压力测试工具Siege
                 </a>
               
             
@@ -285,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-17T21:33:14+08:00">
-                2017-04-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-18T23:16:07+08:00">
+                2017-04-18
               </time>
             
 
@@ -308,8 +305,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
                   </a>
                 </span>
 
@@ -345,19 +342,18 @@
       
         
           
-            <ul>
-<li>代码<br><code>dpkg -l |grep &quot;^rc&quot;|awk &#39;{print $2}&#39; |xargs aptitude -y purge</code></li>
+            <h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><ul>
+<li>Siege是对网站进行压力测试的工具</li>
 </ul>
-<ul>
-<li>解释</li>
+<h2 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h2><ul>
+<li>siege -c 100 -r 10 -b www.nierunjie.site</li>
 </ul>
-<ol>
-<li><code>dpkg -l</code> 列出所有安装的软件</li>
-<li><code>grep &quot;^rc&quot;</code> 找出rc开头的软件(已经被卸载)</li>
-<li><code>awk &#39;{print $2}&#39;</code> 提取出字符串的第二部分(软件名)</li>
-<li><code>xargs</code> 将前面产生的结果当成下个函数的参数</li>
-<li><code>aptitude -y purge</code> 删除软件,过程中出现的选项输入’y’</li>
-</ol>
+<h2 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h2><ul>
+<li>100个客户端，访问www.nierunjie.site，每个客户端10次</li>
+</ul>
+<h2 id="墙裂建议"><a href="#墙裂建议" class="headerlink" title="墙裂建议"></a>墙裂建议</h2><ul>
+<li>看程序的帮助文档会有更多收获</li>
+</ul>
 
           
         
@@ -396,7 +392,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/55/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/55/">55</a><span class="page-number current">56</span><a class="page-number" href="/page/57/">57</a><span class="space">&hellip;</span><a class="page-number" href="/page/59/">59</a><a class="extend next" rel="next" href="/page/57/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/55/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/55/">55</a><span class="page-number current">56</span><a class="page-number" href="/page/57/">57</a><span class="space">&hellip;</span><a class="page-number" href="/page/60/">60</a><a class="extend next" rel="next" href="/page/57/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -441,7 +437,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">59</span>
+                <span class="site-state-item-count">60</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

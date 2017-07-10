@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.nierunjie.site/"/>
-  <updated>2017-07-10T02:06:49.537Z</updated>
+  <updated>2017-07-10T06:17:40.294Z</updated>
   <id>https://www.nierunjie.site/</id>
   
   <author>
@@ -14,6 +14,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>windows软件链接备份</title>
+    <link href="https://www.nierunjie.site/2017/07/10/windows%E8%BD%AF%E4%BB%B6%E9%93%BE%E6%8E%A5%E5%A4%87%E4%BB%BD/"/>
+    <id>https://www.nierunjie.site/2017/07/10/windows软件链接备份/</id>
+    <published>2017-07-10T05:44:01.000Z</published>
+    <updated>2017-07-10T06:17:40.294Z</updated>
+    
+    <content type="html"><![CDATA[<p>国内用迅雷下载,直接点开应该会弹出迅雷链接,不行的话复制链接地址,在迅雷里新建任务</p>
+<h2 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h2><p><a href="ed2k://|file|cn_windows_7_home_basic_x86_dvd_x15-65975.iso|2604238848|AF82993DCF8F3D7AA08D54693691BB48|/" target="_blank" rel="external">cn_windows_7_home_basic_x86_dvd_x15-65975.iso</a><br><a href="ed2k://|file|en_windows_10_multiple_editions_version_1703_updated_june_2017_x64_dvd_10725021.iso|5396183040|89DECEA49CDCDE6666F80D68FC2C09BE|/" target="_blank" rel="external">en_windows_10_multiple_editions_version_1703_updated_june_2017_x64_dvd_10725021.iso</a></p>
+<h2 id="Office"><a href="#Office" class="headerlink" title="Office"></a>Office</h2><p><a href="ed2k://|file|en_office_professional_plus_2016_x86_x64_dvd_6962141.iso|2421989376|1B32860B8D8BF3EF2B1C30F79A766879|/" target="_blank" rel="external">en_office_professional_plus_2016_x86_x64_dvd_6962141.iso</a></p>
+<h2 id="Visual-Studio"><a href="#Visual-Studio" class="headerlink" title="Visual Studio"></a>Visual Studio</h2><p><a href="ed2k://|file|en_visual_studio_community_2015_with_update_3_x86_x64_dvd_8923300.iso|7617847296|AC962389EB54AF93431568804CB10875|/" target="_blank" rel="external">en_visual_studio_community_2015_with_update_3_x86_x64_dvd_8923300.iso</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;国内用迅雷下载,直接点开应该会弹出迅雷链接,不行的话复制链接地址,在迅雷里新建任务&lt;/p&gt;
+&lt;h2 id=&quot;Windows&quot;&gt;&lt;a href=&quot;#Windows&quot; class=&quot;headerlink&quot; title=&quot;Windows&quot;&gt;&lt;/a&gt;Windows&lt;/h2&gt;&lt;p&gt;&lt;
+    
+    </summary>
+    
+      <category term="Default" scheme="https://www.nierunjie.site/categories/Default/"/>
+    
+    
+      <category term="Default" scheme="https://www.nierunjie.site/tags/Default/"/>
+    
+  </entry>
   
   <entry>
     <title>linuxmint配置google输入法</title>
@@ -783,60 +810,6 @@
     <summary type="html">
     
       &lt;h2 id=&quot;组合模式&quot;&gt;&lt;a href=&quot;#组合模式&quot; class=&quot;headerlink&quot; title=&quot;组合模式&quot;&gt;&lt;/a&gt;组合模式&lt;/h2&gt;&lt;p&gt;组合模式（Composite Pattern），又叫部分整体模式，是用于把一组相似的对象当作一个单一的对象。组合模式依据树形
-    
-    </summary>
-    
-      <category term="设计模式" scheme="https://www.nierunjie.site/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-    
-      <category term="设计模式" scheme="https://www.nierunjie.site/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Bridge Pattern</title>
-    <link href="https://www.nierunjie.site/2017/06/01/Bridge-Pattern/"/>
-    <id>https://www.nierunjie.site/2017/06/01/Bridge-Pattern/</id>
-    <published>2017-06-01T04:51:33.000Z</published>
-    <updated>2017-06-30T07:53:46.569Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="桥接模式"><a href="#桥接模式" class="headerlink" title="桥接模式"></a>桥接模式</h2><p>桥接（Bridge）是用于把抽象化与实现化解耦，使得二者可以独立变化。这种类型的设计模式属于结构型模式，它通过提供抽象化和实现化之间的桥接结构，来实现二者的解耦。<br>这种模式涉及到一个作为桥接的接口，使得实体类的功能独立于接口实现类。这两种类型的类可被结构化改变而互不影响。</p>
-<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
-<li>意图：将抽象部分与实现部分分离，使它们都可以独立的变化。</li>
-<li>主要解决：在有多种可能会变化的情况下，用继承会造成类爆炸问题，扩展起来不灵活。</li>
-<li>何时使用：实现系统可能有多个角度分类，每一种角度都可能变化。</li>
-<li>如何解决：把这种多角度分类分离出来，让它们独立变化，减少它们之间耦合。</li>
-<li>关键代码：抽象类依赖实现类。</li>
-<li>应用实例： 1、猪八戒从天蓬元帅转世投胎到猪，转世投胎的机制将尘世划分为两个等级，即：灵魂和肉体，前者相当于抽象化，后者相当于实现化。生灵通过功能的委派，调用肉体对象的功能，使得生灵可以动态地选择。 2、墙上的开关，可以看到的开关是抽象的，不用管里面具体怎么实现的。</li>
-<li>优点： 1、抽象和实现的分离。 2、优秀的扩展能力。 3、实现细节对客户透明。</li>
-<li>缺点：桥接模式的引入会增加系统的理解与设计难度，由于聚合关联关系建立在抽象层，要求开发者针对抽象进行设计与编程。</li>
-<li>使用场景： 1、如果一个系统需要在构件的抽象化角色和具体化角色之间增加更多的灵活性，避免在两个层次之间建立静态的继承联系，通过桥接模式可以使它们在抽象层建立一个关联关系。 2、对于那些不希望使用继承或因为多层次继承导致系统类的个数急剧增加的系统，桥接模式尤为适用。 3、一个类存在两个独立变化的维度，且这两个维度都需要进行扩展。</li>
-<li>注意事项：对于两个独立变化的维度，使用桥接模式再适合不过了。</li>
-</ul>
-<h2 id="基本代码"><a href="#基本代码" class="headerlink" title="基本代码"></a>基本代码</h2><ul>
-<li><p>UML图<br><img src="/2017/06/01/Bridge-Pattern/Bridge.png" alt="桥接模式"></p>
-</li>
-<li><p>主类测试</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> bridge;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="comment">//Abstraction ab = new Abstraction();</span></div><div class="line">        Abstraction ab = <span class="keyword">new</span> RefinedAbstraction(); </div><div class="line">        ab.setImplementor(<span class="keyword">new</span> ConcreteImplementorA());</div><div class="line">        ab.Operation();</div><div class="line">        ab.setImplementor(<span class="keyword">new</span> ConcreteImplementorB());</div><div class="line">        ab.Operation();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>接口 </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> bridge;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Implementor</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">Operation</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>两个该接口的具体实现类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> bridge;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConcreteImplementorA</span> <span class="keyword">extends</span> <span class="title">Implementor</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Operation</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"具体实现A的方法执行"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">package</span> bridge;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConcreteImplementorB</span> <span class="keyword">extends</span> <span class="title">Implementor</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Operation</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"具体实现B的方法执行"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>通过组合聚合,而非继承,调用接口中的方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> bridge;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Abstraction</span> </span>&#123;</div><div class="line">    <span class="keyword">protected</span> Implementor implementor;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setImplementor</span><span class="params">(Implementor implementor)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.implementor = implementor;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Operation</span><span class="params">()</span></span>&#123;</div><div class="line">        implementor.Operation();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>精简上面的类,方便扩充</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> bridge;</div><div class="line"><span class="comment">/**</span></div><div class="line"> * Abstraction已经可以调用Implementor中的方法</div><div class="line"> * 扩展Abstracition,实现RefinedAbstraction</div><div class="line"> * 为日后扩展与RefinedAbstarction同级的类提供方便</div><div class="line"> * */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RefinedAbstraction</span> <span class="keyword">extends</span> <span class="title">Abstraction</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Operation</span><span class="params">()</span> </span>&#123;</div><div class="line">        implementor.Operation();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;桥接模式&quot;&gt;&lt;a href=&quot;#桥接模式&quot; class=&quot;headerlink&quot; title=&quot;桥接模式&quot;&gt;&lt;/a&gt;桥接模式&lt;/h2&gt;&lt;p&gt;桥接（Bridge）是用于把抽象化与实现化解耦，使得二者可以独立变化。这种类型的设计模式属于结构型模式，它通过提供抽象化和实
     
     </summary>
     
